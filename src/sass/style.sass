@@ -1,0 +1,58 @@
+@import "function"
+@import "nav"
+.ngsek
+  background-color: transparent
+  margin: 0
+  height: 100vh
+  padding: 0
+  margin: 0
+  img
+    margin-bottom: 5rem
+main
+  position: relative
+
+section
+  +py(7rem)
+  .work-img
+    position: relative
+    img.cover
+      transition: all .4s
+      display: inline-block
+      margin-bottom: 2rem
+      &:hover
+        transform: scale(.98)
+  .work-content
+    text-align: center
+    h5
+      letter-spacing: .5rem
+      font-weight: 100
+      margin-bottom: 1.5rem
+
+#boss
+  img.chunchicha-small
+    height: auto
+    width: 8rem
+    position: absolute
+    bottom: -3rem
+    right: -3rem
+
+
+#typingtyping
+  img.cover
+    +box-shadow
+
+#shanlinliang
+  img.cover
+    +box-shadow
+  .work-content
+    img
+      margin-bottom: 1rem
+      max-width: 20rem
+
+footer
+  +py(1rem)
+  font-size: .8rem
+
+.flex-vertical
+  display: flex
+  align-items: center

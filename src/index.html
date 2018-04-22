@@ -1,12 +1,147 @@
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="author" content="Huang Xingqiao">
+  <meta name="description" content="Works by Huang Xingqiao.">
+  <link rel="icon" type="image/png" href="./favicon.png" />
   <title>X-Q.ME</title>
+  <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css" >
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+  <div id="page">
+    <header>
+      <!-- Navbar -->
+      <nav id="nav" class="navbar navbar-expand-sm navbar-light fixed-top">
+        <div class="container">
+          <a class="navbar-brand" href="./index.html">
+            <img class="img-fluid" src="./favicon.png">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown">
+                  Works
+                </a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#boss">Boss</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#typingtyping">Typing Typing!</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="#shanlinliang">Shanlinliang</a>
+                </div>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">About</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
 
+      <!-- Index Cover Image -->
+      <div class="jumbotron jumbotron-fluid ngsek flex-vertical" style="asWindowHeightStyle">
+        <div class="container">
+          <div class="row justify-content-md-center">
+            <div class="col-12 col-lg-5 text-center">
+              <img class="img-fluid animated jello" src="img/ngsek-01.svg" alt="Ngsek e goa">
+              <a class="btn btn-primary sr" @click="ScrollToMain()">
+                <i class="fas fa-angle-down"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <main>
+      <!-- Boss -->
+      <section id="boss">
+        <div class="container">
+          <div class="row justify-content-around align-items-center">
+            <div class="col-12 col-md-5 mb-3 sr-r">
+              <div class="work-img">
+                <img class="img-fluid cover" src="img/boss/cover.png" alt="boss cover">
+                <img class="chunchicha-small d-none d-lg-block" src="img/boss/product.png" alt="We don't actually sell this.">
+              </div>
+            </div>
+            <div class="col-12 col-md-5 sr-l">
+              <div class="work-content">
+                <h2 class="text-light">BOSS</h2>
+                <h5 class="text-light">線上飲料購物系統</h5>
+                <a class="btn btn-sm btn-secondary" href="http://boss.x-q.me" target="_blank">Demo</a>
+                <a class="btn btn-sm btn-info" href="https://github.com/a92304a92304/boss" target="_blank"><i class="fab fa-github-alt"></i> Github</a>
+                <!-- <span class="badge badge-primary ">PHP</span> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Typing Typing! -->
+      <section id="typingtyping">
+        <div class="container">
+          <div class="row justify-content-around align-items-center">
+            <div class="col-12 col-md-6 sr-r mb-3">
+              <div class="work-img">
+                <img class="img-fluid cover" src="img/typingtyping/cover.png" key="0">
+                <img class="img-fluid cover" src="img/typingtyping/cover1.png" hidden key="1">
+              </div>
+            </div>
+            <div class="col-12 col-md-5 sr-l">
+              <div class="work-content">
+                <h2>Typing Typing!</h2>
+                <h5>8-bit 風格打字遊戲</h5>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Shanlinliang -->
+      <section id="shanlinliang">
+        <div class="container">
+          <div class="row justify-content-around align-items-center">
+            <div class="col-12 col-md-6 sr-r mb-3">
+              <div class="work-img">
+                <transition mode="out-in" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
+                  <img class="img-fluid cover" src="img/shanlinliang/cover.png" key="0">
+                </transition>
+              </div>
+            </div>
+            <div class="col-12 col-md-5 sr-l">
+              <div class="work-content">
+                <img src="img/shanlinliang/cover2.png" class="img-fluid" alt="Shanlinliang">
+                <h2 class="text-light" hidden>Shanlinliang</h2>
+                <h5 class="text-light">涼扇領導品牌</h5>
+                <a class="btn btn-sm btn-secondary" href="./shanlinliang" target="_blank">Demo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="text-center my-3">
+        Designed by Huang Xingqiao. © 2018 <a href="http://x-q.me">x-q.me</a>
+      </div>
+    </footer>
+  </div>
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/parallax.js/1.4.2/parallax.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" ></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
+  <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jump.js/1.0.2/jump.min.js"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
+  <script src="js/app.min.js"></script>
 </body>
 </html>
