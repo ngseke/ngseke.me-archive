@@ -18,11 +18,11 @@
       <!-- Navbar -->
       <nav id="nav" class="navbar navbar-expand-sm navbar-light fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="./index.html">
-            <img class="img-fluid" src="./favicon.png">
+          <a class="navbar-brand" href="#">
+            <img class="img-fluid" src="./favicon.png" alt="Logo">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
-            <span class="navbar-toggler-icon"></span>
+            <i class="fas fa-ellipsis-h"></i>
           </button>
           <div class="collapse navbar-collapse" id="navbarContent">
             <ul class="navbar-nav mr-auto">
@@ -31,15 +31,19 @@
                   Works
                 </a>
                 <div class="dropdown-menu">
+                  <h6 class="dropdown-header text-ngsek">Website</h6>
+                  <a class="dropdown-item" href="#emo">EM Optimization Lab</a>
                   <a class="dropdown-item" href="#boss">Boss</a>
                   <div class="dropdown-divider"></div>
+                  <h6 class="dropdown-header text-ngsek">Game</h6>
                   <a class="dropdown-item" href="#typingtyping">Typing Typing!</a>
                   <div class="dropdown-divider"></div>
+                  <h6 class="dropdown-header text-ngsek">Art</h6>
                   <a class="dropdown-item" href="#shanlinliang">Shanlinliang</a>
                 </div>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">About</a>
+                <a class="nav-link" href="#about">About</a>
               </li>
             </ul>
           </div>
@@ -51,8 +55,8 @@
         <div class="container">
           <div class="row justify-content-md-center">
             <div class="col-12 col-lg-5 text-center">
-              <img class="img-fluid animated jello" src="img/ngsek-01.svg" alt="Ngsek e goa">
-              <a class="btn btn-primary sr" @click="ScrollToMain()">
+              <img class="img-fluid sr" src="img/ngsek-01.svg" alt="黃色的我">
+              <a class="btn btn-light scrollDownBtn sr " href="#" @click="ScrollToMain()">
                 <i class="fas fa-angle-down"></i>
               </a>
             </div>
@@ -61,25 +65,47 @@
       </div>
     </header>
     <main>
+      <!-- em optimization lab -->
+      <section id="emo">
+        <div class="container">
+          <div class="row justify-content-around align-items-center">
+            <div class="col-12 col-md-5 mb-3">
+              <div class="work-img">
+                <img class="img-fluid cover" src="img/emo/cover.png" alt="emo cover">
+              </div>
+            </div>
+            <div class="col-12 col-md-5 ">
+              <div class="work-content">
+                <img src="img/emo/logo.svg" alt="emo logo">
+                <h2 class="text-light">EM Optimization Lab</h2>
+                <h5 class="text-light">電磁最佳化實驗室網站</h5>
+                <a class="btn btn-sm btn-primary" href="http://www.ntut.edu.tw/~yschen" target="_blank">Demo</a>
+                <a class="btn btn-sm btn-github" href="https://github.com/a92304a92304/EM" target="_blank"><i class="fab fa-github-alt"></i> Github</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- Boss -->
       <section id="boss">
         <div class="container">
           <div class="row justify-content-around align-items-center">
-            <div class="col-12 col-md-5 mb-3 sr-r">
+            <div class="col-12 col-md-5 mb-3">
               <div class="work-img">
                 <img class="img-fluid cover" src="img/boss/cover.png" alt="boss cover">
                 <div class="chunchicha-small-sr">
-                  <img class="chunchicha-small d-none d-lg-block" src="img/boss/product.png" alt="We don't actually sell this.">
+                  <img class="chunchicha-small d-none d-lg-block" src="img/boss/product.png" title="We don't actually sell this.">
                 </div>
               </div>
             </div>
-            <div class="col-12 col-md-5 sr-l">
+            <div class="col-12 col-md-5 ">
               <div class="work-content">
                 <h2 class="text-light">BOSS</h2>
                 <h5 class="text-light">線上飲料購物系統</h5>
-                <a class="btn btn-sm btn-secondary" href="http://boss.x-q.me" target="_blank">Demo</a>
+                <a class="btn btn-sm btn-primary" href="#">Detail</a>
+                <a class="btn btn-sm btn-primary" href="http://boss.x-q.me" target="_blank">Demo</a>
                 <a class="btn btn-sm btn-github" href="https://github.com/a92304a92304/boss" target="_blank"><i class="fab fa-github-alt"></i> Github</a>
-                <!-- <span class="badge badge-primary ">PHP</span> -->
               </div>
             </div>
           </div>
@@ -90,13 +116,13 @@
       <section id="typingtyping">
         <div class="container">
           <div class="row justify-content-around align-items-center">
-            <div class="col-12 col-md-6 sr-r mb-3">
+            <div class="col-12 col-md-6 mb-3">
               <div class="work-img">
                 <img class="img-fluid cover" src="img/typingtyping/cover.png" key="0">
                 <img class="img-fluid cover" src="img/typingtyping/cover1.png" hidden key="1">
               </div>
             </div>
-            <div class="col-12 col-md-5 sr-l">
+            <div class="col-12 col-md-5 ">
               <div class="work-content">
                 <h2>Typing Typing!</h2>
                 <h5>8-bit 風格打字遊戲</h5>
@@ -114,26 +140,73 @@
       <section id="shanlinliang">
         <div class="container">
           <div class="row justify-content-around align-items-center">
-            <div class="col-12 col-md-6 sr-r mb-3">
+            <div class="col-12 col-md-6 mb-3">
               <div class="work-img">
-                <img class="img-fluid cover" src="img/shanlinliang/cover.png" key="0">
+                <img class="img-fluid cover" src="img/shanlinliang/cover.png">
               </div>
             </div>
-            <div class="col-12 col-md-5 sr-l">
+            <div class="col-12 col-md-5 ">
               <div class="work-content">
                 <img src="img/shanlinliang/cover2.png" class="img-fluid" alt="Shanlinliang">
-                <h2 class="text-light" hidden>Shanlinliang</h2>
                 <h5 class="text-light">涼扇領導品牌</h5>
-                <a class="btn btn-sm btn-secondary" href="./shanlinliang" target="_blank">Demo</a>
+                <a class="btn btn-sm btn-primary" href="./shanlinliang" target="_blank">Demo</a>
               </div>
             </div>
           </div>
         </div>
       </section>
-    </main>
 
-    <footer>
-      <div class="text-center my-3">
+      <!-- About -->
+      <section id="about">
+        <div class="container">
+          <div class="row justify-content-around align-items-center">
+            <div class="col-12 col-md-8 profile">
+              <div class="card">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-12 col-lg-3 text-center">
+                      <img src="img/profile.jpg" class="text-center img-fluid rounded-circle mb-3" style="filter:grayscale(1); max-height:8rem;">
+                    </div>
+                    <div class="col-12 col-lg-9 mt-3">
+                      <h4 class="text-center text-lg-left name profile-item" title="ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ">黃省喬</h4>
+                      <h6 class="mb-2 text-muted text-center text-lg-left profile-item">
+                        <transition mode="out-in" enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutDown">
+                          <span class="d-inline-block" v-for="(name, index) in profile.nameList" v-if="profile.nameNum == index" :key="index">{{name}}</span>
+                        </transition>
+                      </h6>
+                      <p class="text-center text-lg-left profile-item">
+                        <small class="mr-3" title="Education">
+                          <i class="fa fa-book"></i> Taipei, Taiwan
+                        </small>
+                        <small class="mr-3" title="Location">
+                          <i class="fa fa-map-marker"></i> NTUT / CSIE
+                        </small>
+                      </p>
+                      <hr>
+                      <p class="mb-4 profile-item" >
+                        北科資工系大三，專注於網頁前端及後端。<br>
+                        <span class="skill" v-for="s in profile.skills">
+                          <span v-html="s.name"></span>
+                        </span>
+                      </p>
+                      <!-- Social Icons -->
+                      <p class="text-center text-lg-left profile-item" >
+                        <a class="btn-social mr-2" :href="s.url" target="_blank" v-for="s in profile.socials">
+                          <i class="" :class="s.icon"></i>
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <footer class="text-center py-5" @click="Jump('body')">
+      <div class="">
         Designed by Huang Xingqiao © 2018 <a href="http://x-q.me">x-q.me</a>
       </div>
     </footer>

@@ -1,9 +1,11 @@
+@import "color"
 @import "function"
 @import "nav"
-@import "color"
+@import "about"
+@import "glass"
 
-main
-  overflow-x: hidden
+body
+  font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft JhengHei"
 
 .ngsek
   background-color: transparent
@@ -13,10 +15,11 @@ main
   margin: 0
   img
     margin-bottom: 5rem
-main
-  position: relative
-  overflow-y: scroll
 
+.scrollDownBtn
+  border-radius: 100rem
+main
+  overflow-x: hidden
 
 section
   +py(7rem)
@@ -35,6 +38,11 @@ section
       font-weight: 100
       margin-bottom: 1.5rem
 
+#emo
+  .work-content
+    img
+      max-width: 5rem
+      margin-bottom: 1.5rem
 #boss
   img.chunchicha-small
     height: auto
@@ -55,10 +63,16 @@ section
     img
       margin-bottom: 1rem
       max-width: 20rem
+      width: 100%
+#about
+  +py(3rem)
+
 
 footer
   +py(1rem)
   font-size: .8rem
+
+// 通用
 
 .flex-vertical
   display: flex
@@ -66,3 +80,4 @@ footer
 
 .btn
   margin-right: .25rem
+  margin-bottom: .25rem

@@ -5,6 +5,18 @@
     img
       height: 36px
   &.shrink
+    background-color: rgba(white, 0.95)
+    backdrop-filter: blur(20px)
+    +box-shadow
+
+@media (max-width: 575.98px)
+  #nav
     background-color: rgba(white, 0.97)
     +box-shadow
-    // +py(0)
+    +py(.5rem)
+    &.shrink
+      background-color: rgba(white, 0.97)
+
+.navbar-light .navbar-toggler
+  color: rgba($ngsek,6)
+  border-color: rgba($ngsek,0)

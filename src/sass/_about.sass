@@ -1,0 +1,37 @@
+.profile .card
+  transition: box-shadow .5s , transform .5s
+  box-shadow: 1rem 1rem $ngsek
+  .name
+    background: linear-gradient($ngsek, $ngsek-dark)
+    -webkit-background-clip: text
+    -moz-background-clip: text
+    background-clip: text
+    color: transparent
+  .skill
+    text-align: center
+    margin-right: .5rem
+    font-size: 2rem
+    min-width: 2rem
+    display: inline-block
+
+  &:hover
+    box-shadow: 1.6rem 1.6rem $ngsek
+    transform: translate(-0.3rem, -0.3rem)
+
+@media (max-width: 576px)
+  .profile
+    padding-left: 0
+    padding-right: 0
+    .card
+      border: 0px white solid
+      box-shadow: 0rem 0rem
+      &:hover
+        box-shadow: 0rem 0rem
+        transform: translate(0rem)
+
+.btn-social
+  font-size: 1.2rem
+  color: $ngsek
+  transition: color .3s
+  &:hover
+    color: $ngsek-dark
