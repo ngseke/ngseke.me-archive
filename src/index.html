@@ -47,7 +47,7 @@
       </nav>
 
       <!-- Index Cover Image -->
-      <div class="jumbotron jumbotron-fluid ngsek flex-vertical" style="asWindowHeightStyle">
+      <div class="jumbotron jumbotron-fluid ngsek flex-vertical" :style="asWindowHeightStyle">
         <div class="container">
           <div class="row justify-content-md-center">
             <div class="col-12 col-lg-5 text-center">
@@ -68,7 +68,9 @@
             <div class="col-12 col-md-5 mb-3 sr-r">
               <div class="work-img">
                 <img class="img-fluid cover" src="img/boss/cover.png" alt="boss cover">
-                <img class="chunchicha-small d-none d-lg-block" src="img/boss/product.png" alt="We don't actually sell this.">
+                <div class="chunchicha-small-sr">
+                  <img class="chunchicha-small d-none d-lg-block" src="img/boss/product.png" alt="We don't actually sell this.">
+                </div>
               </div>
             </div>
             <div class="col-12 col-md-5 sr-l">
@@ -76,7 +78,7 @@
                 <h2 class="text-light">BOSS</h2>
                 <h5 class="text-light">線上飲料購物系統</h5>
                 <a class="btn btn-sm btn-secondary" href="http://boss.x-q.me" target="_blank">Demo</a>
-                <a class="btn btn-sm btn-info" href="https://github.com/a92304a92304/boss" target="_blank"><i class="fab fa-github-alt"></i> Github</a>
+                <a class="btn btn-sm btn-github" href="https://github.com/a92304a92304/boss" target="_blank"><i class="fab fa-github-alt"></i> Github</a>
                 <!-- <span class="badge badge-primary ">PHP</span> -->
               </div>
             </div>
@@ -98,6 +100,10 @@
               <div class="work-content">
                 <h2>Typing Typing!</h2>
                 <h5>8-bit 風格打字遊戲</h5>
+                <a class="btn btn-sm btn-primary" href="./file/TypingTyping.zip" target="_blank" data-toggle="tooltip" data-placement="bottom" title="7.7mb">
+                  <i class="fas fa-download"></i> Download
+                </a>
+                <a class="btn btn-sm btn-github" href="https://github.com/a92304a92304/Typing-Typing" target="_blank"><i class="fab fa-github-alt"></i> Github</a>
               </div>
             </div>
           </div>
@@ -110,9 +116,7 @@
           <div class="row justify-content-around align-items-center">
             <div class="col-12 col-md-6 sr-r mb-3">
               <div class="work-img">
-                <transition mode="out-in" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-                  <img class="img-fluid cover" src="img/shanlinliang/cover.png" key="0">
-                </transition>
+                <img class="img-fluid cover" src="img/shanlinliang/cover.png" key="0">
               </div>
             </div>
             <div class="col-12 col-md-5 sr-l">
@@ -130,7 +134,7 @@
 
     <footer>
       <div class="text-center my-3">
-        Designed by Huang Xingqiao. © 2018 <a href="http://x-q.me">x-q.me</a>
+        Designed by Huang Xingqiao © 2018 <a href="http://x-q.me">x-q.me</a>
       </div>
     </footer>
   </div>

@@ -1,5 +1,10 @@
 @import "function"
 @import "nav"
+@import "color"
+
+main
+  overflow-x: hidden
+
 .ngsek
   background-color: transparent
   margin: 0
@@ -10,6 +15,8 @@
     margin-bottom: 5rem
 main
   position: relative
+  overflow-y: scroll
+
 
 section
   +py(7rem)
@@ -33,9 +40,9 @@ section
     height: auto
     width: 8rem
     position: absolute
-    bottom: -3rem
-    right: -3rem
-
+    bottom: 0
+    right: 0
+    transform: translate(1.5rem, 1rem)
 
 #typingtyping
   img.cover
@@ -56,3 +63,6 @@ footer
 .flex-vertical
   display: flex
   align-items: center
+
+.btn
+  margin-right: .25rem

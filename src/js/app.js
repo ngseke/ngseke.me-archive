@@ -1,27 +1,33 @@
 var vm = new Vue({
   el: '#page',
   data: {
-    windowHeight: 1000,
+    windowHeight: 500,
     timer: 0,
 
   },
   mounted: function () {
     var self = this
+    var navHeight = $('#nav').outerHeight()
+
     self.SetNavShrink()
     self.SetParallexBg()
     self.SetScrollReveal()
 
-    var timer = setInterval(function () {
-      self.timer++
-    },5000)
+    $(function () {$('[data-toggle="tooltip"]').tooltip()})
+    self.windowHeight = $(window).height()
 
+    $(window).resize(function () {
+      self.windowHeight = $(window).height()
+    })
+
+    $('body').scrollspy({ target: '#nav', offset: navHeight})
   },
   methods:{
     SetNavShrink: function () {
       $(function () {
         $(window).scroll(function () {
           var scrollVal = $(this).scrollTop()
-          if(scrollVal > $('.jumbotron.ngsek').height() - 110)
+          if(scrollVal > 100)
             $('#nav').addClass('shrink')
           else
             $('#nav').removeClass('shrink')
@@ -45,11 +51,13 @@ var vm = new Vue({
       sr.reveal('.sr-r', { origin: 'right' })
       sr.reveal('.sr-l', { origin: 'left' })
       sr.reveal('.sr-b', { origin: 'bottom' })
-      sr.reveal('.chunchicha-small', { delay: '400', scale: .95, easing: 'ease'})
+      sr.reveal('.chunchicha-small-sr', {origin: 'top', delay: '400', scale: .95, easing: 'ease'})
     },
     ScrollToMain: function () {
+      var navHeight = $('#nav').outerHeight()
+      console.log(navHeight);
       Jump('main',{
-        offset: -90,
+        offset: -navHeight,
       })
     },
   },
@@ -61,6 +69,5 @@ var vm = new Vue({
     }
   },
   updated: function(){
-     this.windowHeight = $(window).height()
   }
 });

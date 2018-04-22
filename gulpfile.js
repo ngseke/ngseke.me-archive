@@ -7,7 +7,7 @@ var livereload = require('gulp-livereload');
 var autoprefixer = require('autoprefixer');
 var postcss = require('gulp-postcss');
 
-gulp.task('default', ['js', 'css', 'html', 'img', 'watch']);
+gulp.task('default', ['js', 'css', 'html', 'img', 'other', 'watch']);
 
 gulp.task('watch', function () {
     gulp.watch('src/js/*.js', ['js']);
@@ -19,7 +19,7 @@ gulp.task('watch', function () {
 gulp.task('js', function(){
 	return gulp.src('src/js/*.js')
 				.pipe(concat('app.min.js'))
-				// .pipe(uglify())
+				.pipe(uglify())
 				.pipe(gulp.dest('public/js'))
 });
 
@@ -46,4 +46,9 @@ gulp.task('img', function(){
         .pipe(gulp.dest('public/'))
   gulp.src('src/**/*.svg')
         .pipe(gulp.dest('public/'))
+});
+
+gulp.task('other', function(){
+  return gulp.src('src/file/*.zip')
+        .pipe(gulp.dest('public/file'))
 });
