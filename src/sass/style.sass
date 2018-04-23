@@ -4,6 +4,10 @@
 @import "about"
 @import "glass"
 
+@media (max-width: 575.98px)
+  html
+    font-size: 14px   // 調整手機版字體大小
+
 body
   font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft JhengHei"
 
@@ -21,6 +25,7 @@ body
 main
   overflow-x: hidden
 
+// 文章區段
 section
   +py(7rem)
   .work-img
@@ -43,6 +48,7 @@ section
     img
       max-width: 5rem
       margin-bottom: 1.5rem
+
 #boss
   img.chunchicha-small
     height: auto
@@ -64,20 +70,49 @@ section
       margin-bottom: 1rem
       max-width: 20rem
       width: 100%
+#camp2017
+  text-align: center
+  h5
+    letter-spacing: .5rem
+    font-weight: 100
+    margin-bottom: 1.5rem
+    color: #d87875
+
 #about
   +py(3rem)
-
 
 footer
   +py(1rem)
   font-size: .8rem
 
 // 通用
-
 .flex-vertical
   display: flex
   align-items: center
 
+// 為按鈕加入右下margin
 .btn
   margin-right: .25rem
   margin-bottom: .25rem
+
+// MODAL
+.modal
+  .modal-body
+    img
+      width: 100%
+      height: auto
+    figcaption
+      text-align: center
+      margin-bottom: .5rem
+@media (min-width: 992px)
+  .modal-lg
+      max-width: 900px
+
+
+.fade2
+  transition: all .5s cubic-bezier(0.645, 0.045, 0.355, 1)
+  transform: translateY(100%)
+  opacity: 0
+  &.show
+    opacity: 1
+    transform: scale(1)

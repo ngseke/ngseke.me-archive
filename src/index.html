@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <meta name="author" content="Huang Xingqiao">
-  <meta name="description" content="Works by Huang Xingqiao.">
+  <meta name="description" content="Works by Huang Xingqiao. “N̂gsek ê góa” means THE YELLOW ME.">
   <link rel="icon" type="image/png" href="./favicon.png" />
   <title>X-Q.ME</title>
   <link rel="stylesheet" href="https://bootswatch.com/4/lux/bootstrap.min.css" >
@@ -103,7 +103,7 @@
               <div class="work-content">
                 <h2 class="text-light">BOSS</h2>
                 <h5 class="text-light">線上飲料購物系統</h5>
-                <a class="btn btn-sm btn-primary" href="#">Detail</a>
+                <a class="btn btn-sm btn-primary" href="#" @click.prevent="FetchArticle('boss')">Detail</a>
                 <a class="btn btn-sm btn-primary" href="http://boss.x-q.me" target="_blank">Demo</a>
                 <a class="btn btn-sm btn-github" href="https://github.com/a92304a92304/boss" target="_blank"><i class="fab fa-github-alt"></i> Github</a>
               </div>
@@ -156,6 +156,21 @@
         </div>
       </section>
 
+      <!-- 2017CAMP -->
+      <section id="camp2017">
+        <div class="container">
+          <div class="row justify-content-around align-items-center">
+            <div class="col-12 col-md-5 ">
+              <div class="work-content0">
+                <img src="img/camp2017/logo.png" class="img-fluid camp-sr">
+                <h5 class="mt-3 camp-sr">2017迎新</h5>
+                <a class="btn btn-sm btn-primary camp-sr" href="#" target="_blank">Detail</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <!-- About -->
       <section id="about">
         <div class="container">
@@ -170,21 +185,21 @@
                     <div class="col-12 col-lg-9 mt-3">
                       <h4 class="text-center text-lg-left name profile-item" title="ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ">黃省喬</h4>
                       <h6 class="mb-2 text-muted text-center text-lg-left profile-item">
-                        <transition mode="out-in" enter-active-class="animated fadeInDown" leave-active-class="animated fadeOutDown">
+                        <transition mode="out-in" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
                           <span class="d-inline-block" v-for="(name, index) in profile.nameList" v-if="profile.nameNum == index" :key="index">{{name}}</span>
                         </transition>
                       </h6>
                       <p class="text-center text-lg-left profile-item">
                         <small class="mr-3" title="Education">
-                          <i class="fa fa-book"></i> Taipei, Taiwan
+                          <i class="fa fa-book"></i> NTUT / CSIE
                         </small>
                         <small class="mr-3" title="Location">
-                          <i class="fa fa-map-marker"></i> NTUT / CSIE
+                          <i class="fa fa-map-marker"></i> Taipei, Taiwan
                         </small>
                       </p>
                       <hr>
-                      <p class="mb-4 profile-item" >
-                        北科資工系大三，專注於網頁前端及後端。<br>
+                      <p class="mb-4 profile-item text-center text-lg-left" >
+                        北科資工系大三，專注於網頁設計前後端。<br>
                         <span class="skill" v-for="s in profile.skills">
                           <span v-html="s.name"></span>
                         </span>
@@ -203,8 +218,20 @@
           </div>
         </div>
       </section>
-
     </main>
+    <div class="modal fade2" id="modal-detail" tabindex="-1">
+      <div class="modal-dialog modal-lg modal-dialog-centered" >
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Detail</h5>
+            <button type="button" class="close" data-dismiss="modal" >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body"></div>
+        </div>
+      </div>
+    </div>
     <footer class="text-center py-5" @click="Jump('body')">
       <div class="">
         Designed by Huang Xingqiao © 2018 <a href="http://x-q.me">x-q.me</a>
@@ -218,6 +245,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" ></script>
   <script src="https://unpkg.com/scrollreveal/dist/scrollreveal.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jump.js/1.0.2/jump.min.js"></script>
+  <script src="https://unpkg.com/marked@0.3.6"></script>
   <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js" integrity="sha384-SlE991lGASHoBfWbelyBPLsUlwY1GwNDJo3jSJO04KZ33K2bwfV9YBauFfnzvynJ" crossorigin="anonymous"></script>
   <script src="js/app.min.js"></script>
 </body>
