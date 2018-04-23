@@ -1,5 +1,6 @@
 @import "color"
 @import "function"
+@import "loading"
 @import "nav"
 @import "about"
 @import "glass"
@@ -99,15 +100,20 @@ footer
 .modal
   .modal-body
     img
+      display: block
       width: 100%
+      max-width: 400px
       height: auto
+      +mx(auto)
+      margin-top: 1rem
+
     figcaption
       text-align: center
-      margin-bottom: .5rem
+      margin: 1rem 0
+
 @media (min-width: 992px)
   .modal-lg
       max-width: 900px
-
 
 .fade2
   transition: all .5s cubic-bezier(0.645, 0.045, 0.355, 1)

@@ -1,7 +1,6 @@
 var vm = new Vue({
   el: '#page',
   data: {
-    article: null,
     windowHeight: 500,
     profile: {
       nameNum: 0,
@@ -28,7 +27,7 @@ var vm = new Vue({
 
     self.SetNavShrink()
     self.SetParallexBg()
-    // self.SetScrollReveal()
+    self.SetScrollReveal()
     self.ScrollSpy()
 
     $(function () {$('[data-toggle="tooltip"]').tooltip()}) // 啟用tooltip
@@ -54,6 +53,8 @@ var vm = new Vue({
       $('#navbarContent').collapse('hide')
     })
 
+    // debug
+    // self.FetchDetail('camp2017')
   },
   methods:{
     SetNavShrink: function () {
@@ -109,22 +110,23 @@ var vm = new Vue({
       var navHeight = $('#nav').outerHeight()
       Jump('main',{offset: -navHeight})
     },
-    FetchArticle: function (page) {
+    FetchDetail: function (page) {
       var self = this
-      self.article = null             // 清空文章內容
+      var article = '<div class="spinner"><div class="double-bounce1"></div><div class="double-bounce2"></div></div>'
+
+      $('#modal-detail').modal('show')     // 顯示modal
+      $('#modal-detail .modal-body').html(article)
 
       $.get('page/' + page + '.md', function(data) {
-        self.article = marked(data)   // 存入文章內容
-        $('#modal-detail').modal('show')     // 顯示modal
-        //
-        $('#modal-detail .modal-body').html(marked(data))
+        article = marked(data)
+
+        $('#modal-detail .modal-body').html(article)
         $('#modal-detail img').each(function (index) {
           var alt = $(this).attr('alt')
           if(alt!='')
             $(this).after('<figcaption><i class="fa fa-angle-up"></i> '+ alt +'</figcaption>')
         })
       })
-
     },
 
   },
