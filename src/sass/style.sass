@@ -1,13 +1,14 @@
 @import "color"
 @import "function"
 @import "loading"
+@import "modal"
 @import "nav"
 @import "about"
 @import "glass"
 
 @media (max-width: 575.98px)
   html
-    font-size: 14px   // 調整手機版字體大小
+    font-size: 15px   // 調整手機版字體大小
 
 body
   font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft JhengHei"
@@ -23,6 +24,7 @@ body
 
 .scrollDownBtn
   border-radius: 100rem
+
 main
   overflow-x: hidden
 
@@ -36,7 +38,8 @@ section
       display: inline-block
       margin-bottom: 2rem
       &:hover
-        transform: scale(.98)
+        transform: scale(1.05)
+        opacity: .9
   .work-content
     text-align: center
     h5
@@ -95,30 +98,3 @@ footer
 .btn
   margin-right: .25rem
   margin-bottom: .25rem
-
-// MODAL
-.modal
-  .modal-body
-    img
-      display: block
-      width: 100%
-      max-width: 400px
-      height: auto
-      +mx(auto)
-      margin-top: 1rem
-
-    figcaption
-      text-align: center
-      margin: 1rem 0
-
-@media (min-width: 992px)
-  .modal-lg
-      max-width: 900px
-
-.fade2
-  transition: all .5s cubic-bezier(0.645, 0.045, 0.355, 1)
-  transform: translateY(100%)
-  opacity: 0
-  &.show
-    opacity: 1
-    transform: scale(1)

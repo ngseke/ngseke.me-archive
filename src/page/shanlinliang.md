@@ -4,7 +4,7 @@
 
 原先只有針對此品設計宣傳DM，為擴大顧客觸及率，依照原有設計進一步建構[RWD形象網頁](./shanlinliang)。
 
-![品牌形象](img/shanlinliang/sll1.png)
+![](img/shanlinliang/sll1.png)
 
 ![](img/shanlinliang/cover.png)
 

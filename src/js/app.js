@@ -42,19 +42,19 @@ var vm = new Vue({
       self.profile.nameNum = ((self.profile.nameNum + 1) + length) % length
     }, 5000)
 
-    // $('a').click(function() {
-    //   $('html, body').animate({
-    //     scrollTop: $($(this).attr('href')).offset().top + 'px'
-    //   }, {duration: 1000})
-    //   return false
-    // })
+    $('a').click(function() {
+      $('html, body').animate({
+        scrollTop: $($(this).attr('href')).offset().top + 'px'
+      }, {duration: 1000})
+      return false
+    })
 
-    $('.dropdown-item').click(function () { // not the best sol.
+    $('#nav a').click(function () {
       $('#navbarContent').collapse('hide')
     })
 
     // debug
-    // self.FetchDetail('camp2017')
+    self.FetchDetail('camp2017')
   },
   methods:{
     SetNavShrink: function () {
