@@ -3,16 +3,15 @@ var vm = new Vue({
   data: {
     windowHeight: 500,
     profile: {
-      nameNum: 0,
       nameList: ['Huang Xingqiao', 'N̂g Séngkiâu','フゥァン シンチァォ', '황성교'],
       skills: [
-        {name: '<i class="fab fa-vuejs"></i>'},
-        {name: '<i class="fab fa-sass"></i>'},
-        {name: '<i class="fab fa-gulp"></i>'},
-        {name: '<i class="fab fa-php"></i>'},
-        {name: '<i class="fab fa-js"></i>'},
-        {name: '<i class="fab fa-html5"></i>'},
-        {name: '<i class="fab fa-css3-alt"></i>'},
+        {icon: '<i class="fab fa-vuejs"></i>'},
+        {icon: '<i class="fab fa-sass"></i>'},
+        {icon: '<i class="fab fa-gulp"></i>'},
+        {icon: '<i class="fab fa-php"></i>'},
+        {icon: '<i class="fab fa-js"></i>'},
+        {icon: '<i class="fab fa-html5"></i>'},
+        {icon: '<i class="fab fa-css3-alt"></i>'},
       ],
       socials: [
         {icon:'fab fa-linkedin', url:'http://www.linkedin.com/in/xingqiao-huang'},
@@ -37,11 +36,6 @@ var vm = new Vue({
       self.windowHeight = $(window).height()
     })
 
-    var timer = setInterval(function() {
-      var length = self.profile.nameList.length
-      self.profile.nameNum = ((self.profile.nameNum + 1) + length) % length
-    }, 5000)
-
     $('a').click(function() {
       $('html, body').animate({
         scrollTop: $($(this).attr('href')).offset().top + 'px'
@@ -54,7 +48,7 @@ var vm = new Vue({
     })
 
     // debug
-    self.FetchDetail('camp2017')
+    // self.FetchDetail('camp2017')
   },
   methods:{
     SetNavShrink: function () {
@@ -77,10 +71,12 @@ var vm = new Vue({
       $('#typingtyping').parallax({imageSrc: 'https://c.pxhere.com/photos/3a/85/coffee_work_desk_mug_keyboard_phone_iphone_business-815659.jpg!d'})
       $('#shanlinliang').parallax({imageSrc: 'https://c.pxhere.com/photos/b4/e8/sailing_boat_ocean_open_water_sea_boat_sail_water_summer-1087243.jpg!d'})
       $('#camp2017').parallax({imageSrc: 'img/bg/camp2017.png'})
+      $('#jingshixifu').parallax({imageSrc: 'https://c.pxhere.com/photos/ef/0c/knife_stabbing_stab_kill_murder_man_murderer_isolated-1341086.jpg!d'})
+
     },
     SetScrollReveal: function () {
       window.sr = ScrollReveal({
-        reset: true,
+        reset: false,
         duration: 1000,
         scale: 1,
       })
@@ -98,6 +94,9 @@ var vm = new Vue({
 
       // 名片之各項目
       sr.reveal('.profile-item', { origin: 'bottom', delay: 300}, 100)
+      sr.reveal('.skill', {scale: .4, distance: 0, delay: 800}, 100)
+
+      sr.reveal('.ink', {scale: .8, delay: 1300, origin: 'bottom', distance: '50px',})
 
       // 純喫茶
       sr.reveal('.chunchicha-small-sr', {origin: 'top', delay: '600', scale: .95, easing: 'ease'})

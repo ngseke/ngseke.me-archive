@@ -1,5 +1,6 @@
 .modal
   .modal-body
+    +px(5rem)
     img
       display: block
       max-width: 400px
@@ -16,17 +17,25 @@
       position: sticky
       padding-top: 1rem
       top: 0
+    h1
+      color: $ngsek
+  .modal-footer
+    justify-content: center
+    &:hover
+      cursor: pointer
 
-@media (max-width: 575.98px)
-  .modal-body
-    img
-      width: 100%
+@media (max-width: 767.98px)
+  .modal
+    .modal-lg
+      max-width: 700px
+    .modal-body
+      +px(1rem)
+      img
+        width: 100%
+      h1, h2, h3, h4
+        position: relative
 
-@media (min-width: 768px)
-  .modal-lg
-    max-width: 700px
-
-@media (min-width: 992px)
+@media (max-width: 991.98px)
   .modal-lg
     max-width: 900px
 
@@ -42,3 +51,8 @@
   &.show
     opacity: 1
     transform: scale(1)
+
+.btn
+  transition: all .2s
+  display: inline-block
+  &:hover

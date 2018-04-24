@@ -74,13 +74,30 @@ section
       margin-bottom: 1rem
       max-width: 20rem
       width: 100%
-#camp2017
+#camp2017, #jingshixifu
   text-align: center
   h5
+    font-weight: 500
     letter-spacing: .5rem
-    font-weight: 100
     margin-bottom: 1.5rem
     color: #d87875
+
+#jingshixifu
+  position: relative
+  +py(8rem)
+  h5
+    color: #990000
+  .ink
+    max-width: 12rem
+    position: absolute
+    bottom: 3rem
+    right: 3rem
+
+@media (max-width: 991.98px)
+  #jingshixifu .ink
+    max-width: 8rem
+    bottom: 0rem
+    right: 0rem
 
 #about
   +py(3rem)

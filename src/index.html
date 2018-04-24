@@ -18,7 +18,7 @@
       <!-- Navbar -->
       <nav id="nav" class="navbar navbar-expand-sm navbar-light fixed-top">
         <div class="container">
-          <a class="navbar-brand" href="#">
+          <a class="navbar-brand" href="#page">
             <img class="img-fluid" src="./favicon.png" alt="Logo">
           </a>
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent">
@@ -41,6 +41,7 @@
                   <h6 class="dropdown-header text-ngsek">Art</h6>
                   <a class="dropdown-item" href="#shanlinliang">Shanlinliang</a>
                   <a class="dropdown-item" href="#camp2017">Kuaichao Bujia La, Guozi Bujia Tang</a>
+                  <a class="dropdown-item" href="#jingshixifu">Jingshi Xifu</a>
                 </div>
               </li>
               <li class="nav-item">
@@ -174,6 +175,24 @@
         </div>
       </section>
 
+      <!-- JINGSHI XIFU -->
+      <section id="jingshixifu">
+        <div class="container">
+          <div class="row justify-content-around align-items-center">
+            <div class="col-12 col-md-5 ">
+              <div class="work-content0">
+                <img src="img/jingshixifu/logo.png" class="img-fluid camp-sr">
+                <h5 class="mt-3 camp-sr">台灣經典鄉土劇</h5>
+                <a class="btn btn-sm btn-primary camp-sr" href="#" @click.prevent="FetchDetail('jingshixifu')">Detail</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="ink">
+          <img class="img-fluid" src="img/jingshixifu/ink.png" alt="血跡">
+        </div>
+      </section>
+
       <!-- About -->
       <section id="about">
         <div class="container">
@@ -187,11 +206,7 @@
                     </div>
                     <div class="col-12 col-lg-9 mt-3">
                       <h4 class="text-center text-lg-left name profile-item" title="ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ">黃省喬</h4>
-                      <h6 class="mb-2 text-muted text-center text-lg-left profile-item">
-                        <transition mode="out-in" enter-active-class="animated fadeIn" leave-active-class="animated fadeOut">
-                          <span class="d-inline-block" v-for="(name, index) in profile.nameList" v-if="profile.nameNum == index" :key="index">{{name}}</span>
-                        </transition>
-                      </h6>
+                      <h6 class="mb-2 text-muted text-center text-lg-left profile-item">Huang Xingqiao</h6>
                       <p class="text-center text-lg-left profile-item">
                         <small class="mr-3" title="Education">
                           <i class="fa fa-book"></i> NTUT / CSIE
@@ -201,10 +216,12 @@
                         </small>
                       </p>
                       <hr>
-                      <p class="mb-4 profile-item text-center text-lg-left" >
-                        北科資工系大三，專注於網頁設計前後端。<br>
+                      <p class="profile-item text-center text-lg-left" >
+                        北科資工系大三，專注於網頁設計前後端。
+                      </p>
+                      <p class="mb-4 text-center text-lg-left">
                         <span class="skill" v-for="s in profile.skills">
-                          <span v-html="s.name"></span>
+                          <span v-html="s.icon"></span>
                         </span>
                       </p>
                       <!-- Social Icons -->
@@ -222,19 +239,24 @@
         </div>
       </section>
     </main>
+    <!-- Detail Modal -->
     <div class="modal fade2" id="modal-detail" tabindex="-1">
       <div class="modal-dialog modal-lg modal-dialog-centered" >
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title">Detail</h5>
-            <button type="button" class="close" data-dismiss="modal" >
+            <h5 class="modal-title"></h5>
+            <button type="button" class="close" data-dismiss="modal">
               <span aria-hidden="true">&times;</span>
             </button>
           </div>
           <div class="modal-body"></div>
+          <div class="modal-footer" data-dismiss="modal">
+            <h6>Close</h6>
+          </div>
         </div>
       </div>
     </div>
+
     <footer class="text-center py-5" @click="Jump('body')">
       <div class="">
         Designed by Huang Xingqiao © 2018 <a href="http://x-q.me">x-q.me</a>
