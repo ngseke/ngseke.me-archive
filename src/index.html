@@ -58,7 +58,7 @@
           <div class="row justify-content-md-center">
             <div class="col-12 col-lg-5 text-center">
               <img class="img-fluid sr" src="img/ngsek-01.svg" alt="黃色的我">
-              <a class="btn btn-light scrollDownBtn sr " href="#" @click="ScrollToMain()">
+              <a class="btn btn-light scroll-down-btn" href="#" @click="ScrollToMain()">
                 <i class="fas fa-angle-down"></i>
               </a>
             </div>
@@ -181,7 +181,7 @@
           <div class="row justify-content-around align-items-center">
             <div class="col-12 col-md-5 ">
               <div class="work-content0">
-                <img src="img/jingshixifu/logo.png" class="img-fluid camp-sr">
+                <img src="img/jingshixifu/logo.png" class="img-fluid camp-sr" title="*無辜* 倫家哪知道婆婆捅一下就不行了辣 >///<">
                 <h5 class="mt-3 camp-sr">台灣經典鄉土劇</h5>
                 <a class="btn btn-sm btn-primary camp-sr" href="#" @click.prevent="FetchDetail('jingshixifu')">Detail</a>
               </div>
@@ -221,7 +221,7 @@
                       </p>
                       <p class="mb-4 text-center text-lg-left">
                         <span class="skill" v-for="s in profile.skills">
-                          <span v-html="s.icon"></span>
+                          <span v-html="s.icon" :title="s.title"></span>
                         </span>
                       </p>
                       <!-- Social Icons -->

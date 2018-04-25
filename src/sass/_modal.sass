@@ -19,6 +19,22 @@
       top: 0
     h1
       color: $ngsek
+    h2
+      &::before, &::after
+        content: ''
+        color: rgba(black, .5)
+        font-weight: 900
+      &::before
+        content: '/'
+        display: inline-block
+        margin-right: 1rem
+      &::after
+        content: ''
+    p
+      line-height: 1.7rem
+      letter-spacing: .1rem
+      margin-bottom: 1.5rem
+
   .modal-footer
     justify-content: center
     &:hover

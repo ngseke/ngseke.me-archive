@@ -10,7 +10,7 @@
 
 
 ## 其他
-衍生作。
+
 ![](img/jingshixifu/tv1.png)
 ![](img/jingshixifu/tv2.png)
 ![](img/jingshixifu/tv3.png)

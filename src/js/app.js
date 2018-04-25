@@ -1,3 +1,5 @@
+'use strict'
+
 var vm = new Vue({
   el: '#page',
   data: {
@@ -5,13 +7,13 @@ var vm = new Vue({
     profile: {
       nameList: ['Huang Xingqiao', 'N̂g Séngkiâu','フゥァン シンチァォ', '황성교'],
       skills: [
-        {icon: '<i class="fab fa-vuejs"></i>'},
-        {icon: '<i class="fab fa-sass"></i>'},
-        {icon: '<i class="fab fa-gulp"></i>'},
-        {icon: '<i class="fab fa-php"></i>'},
-        {icon: '<i class="fab fa-js"></i>'},
-        {icon: '<i class="fab fa-html5"></i>'},
-        {icon: '<i class="fab fa-css3-alt"></i>'},
+        {icon: '<i class="fab fa-vuejs"></i>', title: 'Vue.js'},
+        {icon: '<i class="fab fa-sass"></i>', title: 'Sass'},
+        {icon: '<i class="fab fa-gulp"></i>', title: 'Gulp'},
+        {icon: '<i class="fab fa-php"></i>', title: 'PHP'},
+        {icon: '<i class="fab fa-js"></i>', title: 'JavaScript'},
+        {icon: '<i class="fab fa-html5"></i>', title: 'HTML5'},
+        {icon: '<i class="fab fa-css3-alt"></i>', title: 'CSS3'},
       ],
       socials: [
         {icon:'fab fa-linkedin', url:'http://www.linkedin.com/in/xingqiao-huang'},
@@ -46,9 +48,7 @@ var vm = new Vue({
     $('#nav a').click(function () {
       $('#navbarContent').collapse('hide')
     })
-
-    // debug
-    // self.FetchDetail('camp2017')
+    self.FetchDetail('camp2017')
   },
   methods:{
     SetNavShrink: function () {
@@ -83,20 +83,16 @@ var vm = new Vue({
 
       sr.reveal('.sr')
       sr.reveal('.ngsek .sr',{reset: true} ,300)
-      sr.reveal('.sr-r', { origin: 'right' })
-      sr.reveal('.sr-l', { origin: 'left' })
-      sr.reveal('.sr-b', { origin: 'bottom' })
 
       sr.reveal('.work-img', { distance: 0, scale: 1.1 })
-      sr.reveal('.work-content', { origin: 'left', delay: 500, })
+        .reveal('.work-content', { origin: 'left', delay: 500, })
 
       sr.reveal('.camp-sr', { distance: 0, scale: .9 } ,200)
 
       // 名片之各項目
       sr.reveal('.profile-item', { origin: 'bottom', delay: 300}, 100)
-      sr.reveal('.skill', {scale: .4, distance: 0, delay: 800}, 100)
-
-      sr.reveal('.ink', {scale: .8, delay: 1300, origin: 'bottom', distance: '50px',})
+        .reveal('.skill', {scale: .4, distance: 0, delay: 800}, 100)
+        .reveal('.ink', {scale: .8, delay: 1300, origin: 'bottom', distance: '50px',})
 
       // 純喫茶
       sr.reveal('.chunchicha-small-sr', {origin: 'top', delay: '600', scale: .95, easing: 'ease'})
@@ -137,6 +133,6 @@ var vm = new Vue({
     }
   },
   updated: function(){
-    this.ScrollSpy()
+    // this.ScrollSpy()
   }
 });
