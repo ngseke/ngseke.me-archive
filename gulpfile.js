@@ -3,19 +3,29 @@ var sass = require('gulp-sass');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 var htmlmin = require('gulp-htmlmin');
+var pug = require('gulp-pug');
 var livereload = require('gulp-livereload');
 var autoprefixer = require('autoprefixer');
 var postcss = require('gulp-postcss');
 var babel = require('gulp-babel');
 
-gulp.task('default', ['js', 'css', 'html', 'img', 'other', 'watch']);
+
+gulp.task('default', ['js', 'css', 'pug', 'img', 'html','other', 'watch']);
 
 gulp.task('watch', function () {
     gulp.watch('src/js/*.js', ['js']);
     gulp.watch('src/**/*.html', ['html']);
+    gulp.watch('src/**/*.pug', ['pug']);
     gulp.watch('src/sass/*.sass', ['css']);
     gulp.watch('src/img/*.*', ['img']);
     gulp.watch('src/page/*.md', ['other']);
+});
+
+gulp.task('pug', function(){
+  return gulp.src('src/pug/*.pug')
+        .pipe(pug())
+        .pipe(gulp.dest('public/'))
+        .pipe(livereload({ start: true }))
 });
 
 gulp.task('js', function(){

@@ -48,7 +48,7 @@ var vm = new Vue({
     $('#nav a').click(function () {
       $('#navbarContent').collapse('hide')
     })
-    // self.FetchDetail('camp2017')
+
   },
   methods:{
     SetNavShrink: function () {
