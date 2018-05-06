@@ -120,7 +120,7 @@ var vm = new Vue({
         $('#modal-detail img').each(function (index) {
           var alt = $(this).attr('alt')
           if(alt!='')
-            $(this).after('<figcaption><i class="fa fa-angle-up"></i> '+ alt +'</figcaption>')
+            $(this).after(`<figcaption><i class="fa fa-angle-up"></i>${alt}</figcaption>`)
         })
       })
     },
@@ -129,11 +129,16 @@ var vm = new Vue({
   computed:{
     asWindowHeightStyle: function () {
       return {
-        height : this.windowHeight + 'px'
+        height : `${this.windowHeight}px`
+      }
+    },
+    navbarStyle: function () {
+      return {
+        maxHeight : (this.windowHeight - 50) + 'px'
       }
     }
   },
   updated: function(){
     // this.ScrollSpy()
   }
-});
+})

@@ -7,14 +7,14 @@ html(lang='zh-Hant-TW')
     meta(name='author', content='Huang Xingqiao')
     meta(name='description', content='Works by Huang Xingqiao. “N̂gsek ê góa” means THE YELLOW ME.')
     link(rel='icon', type='image/png', href='./favicon.png')
-    title Ngsek E Goa
+    title XINGQIAO's Works
     include include/style.pug
 
   body
     #page
       header
         // Navbar
-        nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top
+        nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle')
           .container
             a.navbar-brand(href='#page')
               img.img-fluid(src='./favicon.png', alt='Logo')
@@ -37,6 +37,7 @@ html(lang='zh-Hant-TW')
                     a.dropdown-item(href='#shanlinliang') Shanlinliang
                     a.dropdown-item(href='#camp2017') Kuaichao Bujia La, Guozi Bujia Tang
                     a.dropdown-item(href='#jingshixifu') Jingshi Xifu
+                      
                 li.nav-item
                   a.nav-link(href='#about') About
                 li.nav-item

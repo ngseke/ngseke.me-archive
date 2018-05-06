@@ -31,8 +31,8 @@ gulp.task('pug', function(){
 gulp.task('js', function(){
 	return gulp.src('src/js/*.js')
 				.pipe(concat('app.min.js'))
-				// .pipe(uglify())
-        .pipe(babel())
+        .pipe(babel({ presets: ['env']}))
+				.pipe(uglify())
 				.pipe(gulp.dest('public/js'))
 });
 

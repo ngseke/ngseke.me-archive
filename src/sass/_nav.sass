@@ -1,5 +1,5 @@
 #nav
-  transition: background-color .5s, padding .3s ease-out
+  transition: all .5s, padding .3s ease-out
   background-color: rgba(white, 0)
   a.navbar-brand
     img
@@ -20,3 +20,58 @@
 .navbar-light .navbar-toggler
   color: rgba($ngsek,6)
   border-color: rgba($ngsek,0)
+
+// 電腦版 “左上方塊” 樣式
+@media (min-width: 768px)
+  #nav.shrink
+    overflow-y: scroll
+    transition: all .2s
+    display: inline-block
+    width: auto
+    right: auto
+    left: 1rem
+    top: 1rem
+    a.navbar-brand
+      +mx(0)
+    >.container
+      flex-direction: column
+      align-items: flex-start
+    #navbarContent
+      transition: opacity .75s
+      overflow: hidden
+      max-height: 0
+      max-width: 0
+      opacity: 0
+
+    &:hover
+      background-color: white
+      #navbarContent
+        max-height: 999999px
+        max-width: 1000px
+        opacity: 1
+      ul
+        flex-direction: column
+        li
+          a.nav-link
+            +px(0)
+
+      .nav-item
+        +mx(0)
+        .nav-link
+          &.dropdown-toggle::after
+            display: none
+        .dropdown-menu
+          display: block
+          position: relative
+          border: 0
+          background-color: transparent
+          +py(0)
+          .dropdown-divider
+            // border-color: rgba(black, .1)
+          .dropdown-header
+            +px(1rem)
+          .dropdown-item
+            opacity: .5
+            +px(1rem)
+            &.active
+              opacity: 1
