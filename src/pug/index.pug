@@ -13,35 +13,7 @@ html(lang='zh-Hant-TW')
   body
     #page
       header
-        // Navbar
-        nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle')
-          .container
-            a.navbar-brand(href='#page')
-              img.img-fluid(src='./favicon.png', alt='Logo')
-            button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarContent')
-              i.fas.fa-ellipsis-h
-            #navbarContent.collapse.navbar-collapse
-              ul.navbar-nav.mr-auto
-                li.nav-item.dropdown
-                  a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown')
-                    | Works
-                  .dropdown-menu
-                    h6.dropdown-header.text-ngsek Website
-                    a.dropdown-item(href='#emo') EM Optimization Lab
-                    a.dropdown-item(href='#boss') Boss
-                    .dropdown-divider
-                    h6.dropdown-header.text-ngsek Game
-                    a.dropdown-item(href='#typingtyping') Typing Typing!
-                    .dropdown-divider
-                    h6.dropdown-header.text-ngsek Art
-                    a.dropdown-item(href='#shanlinliang') Shanlinliang
-                    a.dropdown-item(href='#camp2017') Kuaichao Bujia La, Guozi Bujia Tang
-                    a.dropdown-item(href='#jingshixifu') Jingshi Xifu
-                      
-                li.nav-item
-                  a.nav-link(href='#about') About
-                li.nav-item
-                  a.nav-link(href='https://github.com/a92304a92304/x-q.me') Github
+        include include/navbar.pug
                       
         // Index Cover Image
         .jumbotron.jumbotron-fluid.ngsek.flex-vertical(:style='asWindowHeightStyle')

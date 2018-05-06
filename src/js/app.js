@@ -39,7 +39,7 @@ var vm = new Vue({
       self.windowHeight = $(window).height()
     })
 
-    $('a').click(function() {
+    $(`a[href!='#']`).click(function() {
       $('html, body').animate({
         scrollTop: $($(this).attr('href')).offset().top + 'px'
       }, {duration: 1000})
@@ -120,11 +120,14 @@ var vm = new Vue({
         $('#modal-detail img').each(function (index) {
           var alt = $(this).attr('alt')
           if(alt!='')
-            $(this).after(`<figcaption><i class="fa fa-angle-up"></i>${alt}</figcaption>`)
+            $(this).after(`<figcaption><i class="fa fa-angle-up"></i> ${alt} </figcaption>`)
         })
       })
     },
-
+    SetRandomBg: () => {
+      var i = Math.floor((Math.random() * 1084) + 1)
+      $('.ngsek').parallax('destroy').parallax({imageSrc: `https://picsum.photos/1280/720/?random=${i++}`})
+    }
   },
   computed:{
     asWindowHeightStyle: function () {

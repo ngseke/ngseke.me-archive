@@ -1,6 +1,6 @@
 #nav
-  transition: all .5s, padding .3s ease-out
   background-color: rgba(white, 0)
+  transition: background-color .3s ease-out
   a.navbar-brand
     img
       height: 36px
@@ -23,25 +23,33 @@
 
 // 電腦版 “左上方塊” 樣式
 @media (min-width: 768px)
+  #nav
+    transition: width .35s
   #nav.shrink
     overflow-y: scroll
-    transition: all .2s
+    transition: all .35s
     display: inline-block
     width: auto
     right: auto
-    left: 1rem
-    top: 1rem
+    left: 1.5rem
+    top: 1.5rem
+
     a.navbar-brand
       +mx(0)
+
     >.container
       flex-direction: column
       align-items: flex-start
+
     #navbarContent
-      transition: opacity .75s
+      flex-direction: column
+      align-items: flex-start
+      transition: opacity .5s, transform .5s
       overflow: hidden
       max-height: 0
       max-width: 0
       opacity: 0
+      transform: translateY(-.5rem)
 
     &:hover
       background-color: white
@@ -49,12 +57,13 @@
         max-height: 999999px
         max-width: 1000px
         opacity: 1
+        transform: translateX(0)
+
       ul
         flex-direction: column
         li
           a.nav-link
             +px(0)
-
       .nav-item
         +mx(0)
         .nav-link
@@ -75,3 +84,5 @@
             +px(1rem)
             &.active
               opacity: 1
+        &.shrink-hidden
+          display: none
