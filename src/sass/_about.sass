@@ -26,6 +26,13 @@
     box-shadow: 1.6rem 1.6rem $ngsek
     transform: translate(-0.3rem, -0.3rem)
 
+.btn-social
+  font-size: 1.2rem
+  color: $ngsek
+  transition: color .3s
+  &:hover
+    color: $ngsek-dark
+
 @media (max-width: 576px)
   .profile
     padding-left: 0
@@ -37,9 +44,16 @@
         box-shadow: 0rem 0rem
         transform: translate(0rem)
 
-.btn-social
-  font-size: 1.2rem
-  color: $ngsek
-  transition: color .3s
-  &:hover
-    color: $ngsek-dark
+#about
+  h1
+    transition: all .2s
+    // display: inline-block
+    text-align: center
+    font-family: 'arial'
+    font-weight: 900
+    font-size: 5rem
+    color: white
+    // text-shadow: 0px 0px 0px rgba($ngsek ,0)
+    transform: rotate3d(1,1,1,0deg)
+    &:hover
+      text-shadow: 0px 0px 0px rgba($ngsek ,1)

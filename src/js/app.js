@@ -23,6 +23,9 @@ var vm = new Vue({
         {icon:'fab fa-youtube', url:'https://www.youtube.com/a92304a92304', title:'Youtube'},
       ],
     },
+    about: {
+      x:0, y:0, z:0, a:0
+    }
   },
   mounted: function () {
     var self = this
@@ -138,6 +141,19 @@ var vm = new Vue({
     navbarStyle: function () {
       return {
         maxHeight : (this.windowHeight - 50) + 'px'
+      }
+    },
+    aboutStyle: function () {
+      var a = this.about
+      var shadow = ''
+      var max = 500
+
+      for(var i = 0;i<=max;i+=1){
+        shadow += `-${i}px ${i}px 0px #f9bd2c`
+        shadow += (i!=max) ? `,`: ''
+      }
+      return{
+        textShadow: shadow
       }
     }
   },

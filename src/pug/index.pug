@@ -9,7 +9,6 @@ html(lang='zh-Hant-TW')
     link(rel='icon', type='image/png', href='./favicon.png')
     title XINGQIAO's Works
     include include/style.pug
-
   body
     #page
       header
@@ -118,9 +117,11 @@ html(lang='zh-Hant-TW')
             img.img-fluid(src='img/jingshixifu/ink.png', alt='血跡')
               
         // About
-        section#about
+        section#about(hidden1)
           .container
             .row.justify-content-around.align-items-center
+              //- .col
+              //-   h1(:style='aboutStyle') ABOUT
               .col-12.col-md-8.profile
                 .card
                   .card-body
@@ -150,18 +151,6 @@ html(lang='zh-Hant-TW')
                         p.text-center.text-lg-left.profile-item
                           a.btn-social.mr-2(:href='s.url', target='_blank', v-for='s in profile.socials', :title='s.title')
                             i(:class='s.icon')
-                              
-      // Detail Modal
-      #modal-detail.modal.fade2(tabindex='-1')
-        .modal-dialog.modal-lg.modal-dialog-centered
-          .modal-content
-            .modal-header
-              h5.modal-title
-              button.close(type='button', data-dismiss='modal')
-                span(aria-hidden='true') ×
-            .modal-body
-            .modal-footer(data-dismiss='modal')
-              h6 Close
               
       footer.text-center.py-5(@click="Jump('body')")
         div
