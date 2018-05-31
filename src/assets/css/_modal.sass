@@ -1,0 +1,74 @@
+.modal
+  .modal-body
+    +px(5rem)
+    img
+      display: block
+      max-width: 400px
+      height: auto
+      +mx(auto)
+      margin-top: 1rem
+    figcaption
+      text-align: center
+      margin: 1rem 0
+    .embed-responsive
+      max-width: 80%
+    h1, h2, h3, h4
+      background-color: rgba(white,1)
+      position: sticky
+      padding-top: 1rem
+      top: 0
+    h1
+      color: $ngsek
+    h2
+      &::before, &::after
+        content: ''
+        color: rgba(black, .5)
+        font-weight: 900
+      &::before
+        content: '/'
+        display: inline-block
+        margin-right: 1rem
+      &::after
+        content: ''
+    p
+      line-height: 1.7rem
+      letter-spacing: .1rem
+      margin-bottom: 1.5rem
+
+  .modal-footer
+    justify-content: center
+    &:hover
+      cursor: pointer
+
+@media (max-width: 767.98px)
+  .modal
+    .modal-lg
+      max-width: 700px
+    .modal-body
+      +px(1rem)
+      img
+        width: 100%
+      h1, h2, h3, h4
+        position: relative
+
+@media (max-width: 991.98px)
+  .modal-lg
+    max-width: 900px
+
+@media (min-width: 1200px)
+  .modal-lg
+    max-width: 1100px
+
+// 自訂modal顯示動畫
+.fade2
+  transition: all .5s cubic-bezier(0.645, 0.045, 0.355, 1)
+  transform: translateY(100%)
+  opacity: 0
+  &.show
+    opacity: 1
+    transform: scale(1)
+
+.btn
+  transition: all .2s
+  display: inline-block
+  &:hover
