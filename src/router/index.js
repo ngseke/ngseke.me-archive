@@ -1,11 +1,13 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Index from '@/components/Index'
-import Detail from '@/components/Detail'
+import Work from '@/components/Work'
+import About from '@/components/About'
 
 Vue.use(Router)
 
 export default new Router({
+  linkActiveClass: `active`,
   routes: [
     {
       path: '/',
@@ -13,9 +15,14 @@ export default new Router({
       component: Index
     },
     {
-      path: '/detail/:name',
-      name: 'Detail',
-      component: Detail
+      path: '/work/:name',
+      name: 'Work',
+      component: Work
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: About
     }
   ]
 })

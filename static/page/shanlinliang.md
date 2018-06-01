@@ -4,9 +4,9 @@
 
 原先只有針對此品設計宣傳DM，後來依照原有設計進一步建構[RWD形象網頁](./shanlinliang)。
 
-![](img/shanlinliang/sll1.png)
+![](/static/img/shanlinliang/sll1.png)
 
-![](img/shanlinliang/cover.png)
+![](/static/img/shanlinliang/cover.png)
 
-![](img/shanlinliang/sll4.png)
-![](img/shanlinliang/sll5.png)
+![](/static/img/shanlinliang/sll4.png)
+![](/static/img/shanlinliang/sll5.png)

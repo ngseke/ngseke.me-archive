@@ -3,18 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
-//
 
 import ScrollReveal from 'scrollreveal'
-import Jump from 'jump.js'
 import Bootstrap from 'bootstrap'
 import Parallax from 'jquery-parallax.js'
-//
 
 Vue.prototype.$ScrollReveal = ScrollReveal
-Vue.prototype.$Jump = Jump
-
-//
 
 Vue.config.productionTip = false
 

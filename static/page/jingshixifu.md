@@ -6,12 +6,12 @@
 
 為創造出聳動的感覺，電影標題採用鮮紅色，並且在原本的標楷字體外，加入毛筆的筆刷，右方甚至沾染幾滴鮮血。而在標題的上方，以金黃色的明體書寫的，便是此海報的作者，同時也是本片的導演。在標題下方，參照時下許多電影海報，題上精簡卻強而有力的標語。在海報的左方，斗大的名字和領銜主演字樣，保證讓所有影迷都慕名而前來觀賞。在海報的右方，是警世媳婦的經典台詞，看了令人聞風喪膽，同時在腦海中也留下深刻的印象。
 
-![](img/jingshixifu/poster1.png)
+![](/static/img/jingshixifu/poster1.png)
 
 
 ## 其他
 
-![](img/jingshixifu/tv1.png)
-![](img/jingshixifu/tv2.png)
-![](img/jingshixifu/tv3.png)
-![](img/jingshixifu/tv4.png)
+![](/static/img/jingshixifu/tv1.png)
+![](/static/img/jingshixifu/tv2.png)
+![](/static/img/jingshixifu/tv3.png)
+![](/static/img/jingshixifu/tv4.png)

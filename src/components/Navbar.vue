@@ -8,32 +8,18 @@ nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle')
     #navbarContent.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
         li.nav-item.dropdown
-          a.nav-link.dropdown-toggle(href='#', data-toggle='dropdown')
+          a.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' :class='{active: this.$route.name==`Work`}')
             | Works
           .dropdown-menu
-            h6.dropdown-header.text-ngsek Website
-            a.dropdown-item(href='#emo') EM Optimization Lab
-            a.dropdown-item(href='#boss') Boss
-            .dropdown-divider
-            h6.dropdown-header.text-ngsek Game
-            a.dropdown-item(href='#typingtyping') Typing Typing!
-            .dropdown-divider
-            h6.dropdown-header.text-ngsek Art
-            a.dropdown-item(href='#shanlinliang') Shanlinliang
-            a.dropdown-item(href='#camp2017') Kuaichao Bujia La, Guozi Bujia Tang
-            a.dropdown-item(href='#jingshixifu') Jingshi Xifu
-
+            template(v-for=`(link, link_index) in links`)
+              h6.dropdown-header.text-ngsek {{ link.category }}
+              template(v-for=`work in link.works`)
+                router-link.dropdown-item(:to=`work.link`) {{ work.name }}
+              .dropdown-divider(v-if=`link_index != (links.length-1)`)
         li.nav-item
-          a.nav-link(href='#about') About
+          router-link.nav-link(to=`/about`) About
         li.nav-item
-          a.nav-link(href='https://github.com/a92304a92304/x-q.me') Github
-        li.nav-item
-          router-link.nav-link(:to=`{ name: 'Detail', params: {} }`) Detail
-
-      ul.navbar-nav
-        li.nav-item.shrink-hidden
-          a.nav-link(href='#' @click.prevent='SetRandomBg()')
-            i.fas.fa-random
+          a.nav-link(href='https://github.com/a92304a92304/x-q.me' target='_blank') Github
 </template>
 
 <script>
@@ -41,7 +27,30 @@ export default {
   name: 'Navbar',
   data () {
     return {
-      windowHeight: 500
+      windowHeight: 500,
+      links: [
+        {
+          category: 'Website',
+          works: [
+            // {name: 'EM Optimization Lab', link: '/work/emo'},
+            {name: 'Boss', link: '/work/boss'},
+          ]
+        },
+        {
+          category: 'Game',
+          works: [
+            {name: 'Typing Typing!', link: '/work/typingtyping'},
+          ]
+        },
+        {
+          category: 'Art',
+          works: [
+            {name: 'Shanlinliang', link: '/work/shanlinliang'},
+            {name: 'Kuaichao Bujia La, Guozi Bujia Tang', link: '/work/camp2017'},
+            {name: 'Jingshi Xifu', link: '/work/jingshixifu'},
+          ]
+        },
+      ]
     }
   },
   mounted () {
@@ -50,13 +59,13 @@ export default {
   },
   methods:{
     SetRandomBg () {
-      var i = Math.floor((Math.random() * 1084) + 1)
+      const i = Math.floor((Math.random() * 1084) + 1)
       $('.ngsek').parallax('destroy').parallax({imageSrc: `https://picsum.photos/1280/720/?random=${i}`})
     },
     SetNavShrink () {
       $(function () {
         $(window).scroll(function () {
-          var scrollVal = $(this).scrollTop()
+          let scrollVal = $(this).scrollTop()
           if(scrollVal > 20)
             $('#nav').addClass('shrink')
           else
@@ -76,4 +85,28 @@ export default {
 </script>
 
 <style scoped lang="sass">
+@import "../assets/css/style.sass"
+#nav
+  background-color: rgba(white, 0)
+  transition: background-color .3s ease-out
+  a.navbar-brand
+    img
+      height: 36px
+  &.shrink
+    background-color: rgba(white, 0.95)
+    backdrop-filter: blur(20px)
+    +box-shadow
+
+@media (max-width: 575.98px)
+  #nav
+    background-color: rgba(white, 0.97)
+    +box-shadow
+    +py(.5rem)
+    &.shrink
+      background-color: rgba(white, 0.97)
+
+.navbar-light .navbar-toggler
+  color: rgba($ngsek,6)
+  border-color: rgba($ngsek,0)
+
 </style>
