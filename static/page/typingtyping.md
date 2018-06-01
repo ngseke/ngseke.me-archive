@@ -1,4 +1,6 @@
 # Typing Typing!
+---
+遊戲下載: [TypingTyping.zip (7.7mb)](/static/file/TypingTyping.zip)
 
 此遊戲以 [ZType](http://zty.pe/) 作為靈感來源而開發的打字射擊遊戲，以 Visual Studio 2015 建立專案，基於 [Game Framework 4.8](http://www.cc.ntut.edu.tw/~wkchen/game/) 以C++語言開發。
 ![載入畫面](/static/img/typingtyping/loading.png)

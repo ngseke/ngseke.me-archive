@@ -2,7 +2,6 @@
 section#about
   .container
     .row.justify-content-around.align-items-center
-
       .col-12.col-md-8.profile
         .card
           .card-body
@@ -34,6 +33,7 @@ section#about
 </template>
 
 <script>
+import Jump from 'jump.js'
 
 export default {
   name: 'About',
@@ -61,14 +61,18 @@ export default {
   },
   mounted () {
     $(window).trigger('resize').trigger('scroll')
+    $('#navbarContent').collapse('hide')
 
     window.sr = this.$ScrollReveal({
       reset: false,
       duration: 1000,
       scale: 1,
     })
-    sr.reveal('.profile-item', { origin: 'bottom', delay: 300}, 100)
+
     sr.reveal('.skill', {scale: .4, distance: 0, delay: 800}, 100)
+    sr.reveal('.profile-item', { origin: 'bottom', delay: 300}, 100)
+
+    Jump('body')
   },
 
 }

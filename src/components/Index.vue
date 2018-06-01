@@ -7,7 +7,7 @@
         .row.justify-content-center
           .col-12.col-lg-5.text-center
             img.img-fluid.sr(src='/static/img/ngsek-01.svg', alt='黃色的我', title='黃色的我')
-            a.btn.btn-light.scroll-down-btn(href='#', @click='')
+            a.btn.btn-light.scroll-down-btn(href='#', @click='ScrollToMain()')
               i.fas.fa-angle-down
 
   main
@@ -79,7 +79,7 @@
               img.img-fluid(src='/static/img/shanlinliang/cover2.png', alt='Shanlinliang')
               h5.text-light 涼扇領導品牌
               router-link.btn.btn-sm.btn-primary(to=`/work/shanlinliang`) Detail
-              a.btn.btn-sm.btn-primary(href='/static/shanlinliang', target='_blank') Demo
+              //- a.btn.btn-sm.btn-primary(href='/static/shanlinliang', target='_blank') Demo
 
     // 2017CAMP
     section#camp2017
@@ -105,6 +105,7 @@
 </template>
 
 <script>
+import Jump from 'jump.js'
 
 export default {
   name: 'Index',
@@ -117,16 +118,14 @@ export default {
     var self = this
 
     self.windowHeight = $(window).height()  // 設定data.windowHeight值(視窗高度)
-    $(window).resize(function () {
-      self.windowHeight = $(window).height()
-    })
 
     self.SetScrollReveal()
-
     $(() => {$('[data-toggle="tooltip"]').tooltip()}) // 啟用tooltip
 
     $(window).trigger('resize').trigger('scroll')
+    $('#navbarContent').collapse('hide')
     self.SetParallexBg()
+
   },
   beforeRouteUpdate (to, from, next) {
     next()
@@ -163,6 +162,11 @@ export default {
       // 純喫茶
       sr.reveal('.chunchicha-small-sr', {origin: 'top', delay: '600', scale: .95, easing: 'ease'})
     },
+    ScrollToMain () {
+      var navHeight = $('#nav').outerHeight()
+      Jump('main', {offset: -navHeight})
+    },
+
   },
   computed:{
     asWindowHeightStyle () {

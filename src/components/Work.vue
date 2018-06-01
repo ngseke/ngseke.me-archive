@@ -2,9 +2,9 @@
 #detail
   .container
     .row.justify-content-center
-      .col-12.col-lg-9(v-if=`!article`)
-        Loader
-      .col-12.col-lg-9(v-html=`article`)
+      .col-12.col-lg-9
+        Loader(v-if=`!article`)
+        div(v-else v-html=`article`)
 </template>
 
 <script>
@@ -23,18 +23,19 @@ export default {
   },
   mounted () {
     this.FetchDetail(this.$route.params.name)
+    $('#navbarContent').collapse('hide')
     $(window).trigger('resize').trigger('scroll')
   },
   beforeRouteUpdate (to, from, next) {
     this.FetchDetail(to.params.name)
+    $('#navbarContent').collapse('hide')
     next()
   },
   methods:{
     FetchDetail (page) {
       var self = this
       self.article = null
-      
-      $.get(`../static/page/${page}.md`, function(data) {
+      $.get(`../static/page/${page}.md`, (data) => {
         const promise = new Promise(function(resolve) {
           self.article = marked(data)
           resolve()
@@ -44,6 +45,8 @@ export default {
             let alt = $(this).attr('alt')
             if(alt!='') $(this).after(`<figcaption><i class="fa fa-angle-up"></i> ${alt} </figcaption>`)
           })
+          if(self.article.indexOf('<!DOCTYPE html>') > -1)
+            this.$router.push('/')
         })
       })
     }
@@ -55,7 +58,7 @@ export default {
 @import "../assets/css/style.sass"
 
 #detail
-  margin-top: 8rem
+  margin-top: 7rem
   img
     display: block
     max-width: 400px

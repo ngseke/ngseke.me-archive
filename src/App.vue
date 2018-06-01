@@ -1,7 +1,6 @@
 <template lang="pug">
 #app
   Navbar
-  //- transition(enter-active-class="animated fadeInTop" leave-active-class="animated fadeOut")
   router-view
   Footer
 </template>
