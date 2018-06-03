@@ -15,6 +15,10 @@ export default new Router({
       component: Index
     },
     {
+      path: "*",
+      redirect: "/"
+    },
+    {
       path: '/work/:name',
       name: 'Work',
       component: Work
