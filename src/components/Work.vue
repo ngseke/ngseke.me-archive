@@ -46,7 +46,7 @@ export default {
             if(alt!='') $(this).after(`<figcaption><i class="fa fa-angle-up"></i> ${alt} </figcaption>`)
           })
           if(self.article.indexOf('<!DOCTYPE html>') > -1)
-            this.$router.push('/') 
+            this.$router.push('/')
         })
       }).fail(() => {
         this.$router.push('/')
