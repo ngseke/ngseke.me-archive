@@ -16,6 +16,16 @@ nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle')
               template(v-for=`work in link.works`)
                 router-link.dropdown-item(:to=`work.link`) {{ work.name }}
               .dropdown-divider(v-if=`link_index != (links.length-1)`)
+        li.nav-item.dropdown(hidden)
+          a.nav-link.dropdown-toggle(href='#' data-toggle='dropdown')
+            | Apps
+          .dropdown-menu
+            h6.dropdown-header.text-ngsek Game
+            a.dropdown-item(href='https://flag.x-q.me') Raise Your Red Flag
+            //- .dropdown-divider
+            //- h6.dropdown-header.text-ngsek Other
+            //- a.dropdown-item(href='https://dodo.x-q.me') Dodo
+
         li.nav-item
           router-link.nav-link(to=`/about`) About
         li.nav-item
@@ -32,22 +42,23 @@ export default {
         {
           category: 'Website',
           works: [
-            // {name: 'EM Optimization Lab', link: '/work/emo'},
-            {name: 'Boss', link: '/work/boss'},
+            { name: 'EM Optimization Lab', link: '/work/emo' },
+            { name: 'Boss', link: '/work/boss' },
           ]
         },
         {
           category: 'Game',
           works: [
-            {name: 'Typing Typing!', link: '/work/typingtyping'},
+            { name: 'Typing Typing!', link: '/work/typingtyping' },
+            { name: 'Raise Your Red Flag', link: '/work/flag' },
           ]
         },
         {
           category: 'Art',
           works: [
-            {name: 'Shanlinliang', link: '/work/shanlinliang'},
-            {name: 'Kuaichao Bujia La, Guozi Bujia Tang', link: '/work/camp2017'},
-            {name: 'Jingshi Xifu', link: '/work/jingshixifu'},
+            { name: 'Shanlinliang', link: '/work/shanlinliang' },
+            { name: 'Kuaichao Bujia La, Guozi Bujia Tang', link: '/work/camp2017' },
+            { name: 'Jingshi Xifu', link: '/work/jingshixifu' },
           ]
         },
       ]

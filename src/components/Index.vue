@@ -23,6 +23,7 @@
               img(src='/static/img/emo/logo.svg', alt='emo logo')
               h2.text-light EM Optimization Lab
               h5.text-light 電磁最佳化實驗室網站
+              router-link.btn.btn-sm.btn-primary(to=`/work/emo`) Detail
               a.btn.btn-sm.btn-primary(href='http://www.ntut.edu.tw/~yschen', target='_blank') Demo
               a.btn.btn-sm.btn-github(href='https://github.com/a92304a92304/EM', target='_blank')
                 i.fab.fa-github-alt
@@ -54,7 +55,6 @@
           .col-12.col-md-6.mb-3
             .work-img
               img.img-fluid.cover(src='/static/img/typingtyping/cover.png', key='0')
-              img.img-fluid.cover(src='/static/img/typingtyping/cover1.png', hidden='', key='1')
           .col-12.col-md-5
             .work-content
               h2 Typing Typing!
@@ -64,6 +64,26 @@
                 i.fas.fa-download
                 |  Download
               a.btn.btn-sm.btn-github(href='https://github.com/a92304a92304/Typing-Typing', target='_blank')
+                i.fab.fa-github-alt
+                |  Github
+
+    // Raise Your Red Flag
+    section#flag
+      .container
+        .row.justify-content-around.align-items-center
+          .col-12.col-md-6.mb-3
+            .work-img
+              img.img-fluid.cover(src='/static/img/flag/cover.png')
+          .col-12.col-md-5
+            .work-content
+              .logo #[i.far.fa-flag]
+              h2 Raise Your Red Flag
+              h5 紅旗舉起來
+              router-link.btn.btn-sm.btn-primary(to=`/work/flag`) Detail
+              a.btn.btn-sm.btn-primary(href='https://flag.x-q.me', target='_blank')
+                i.fas.fa-gamepad
+                |  Play
+              a.btn.btn-sm.btn-github(href='https://github.com/a92304a92304/Raise-Your-Red-Flag', target='_blank')
                 i.fab.fa-github-alt
                 |  Github
 
@@ -133,10 +153,12 @@ export default {
   methods: {
     SetParallexBg () {
       const path = `../static/img/bg/`
+
       // 頂部cover黃色背景
       $('.ngsek').parallax({imageSrc: `${path}index-cover.jpg`})
       $('#emo').parallax({imageSrc: `${path}emo.jpg`})
       $('#boss').parallax({imageSrc: `${path}boss.jpg`})
+      $('#flag').parallax({imageSrc: `${path}flag.jpg`})
       $('#typingtyping').parallax({imageSrc: `${path}typingtyping.jpg`})
       $('#shanlinliang').parallax({imageSrc: `${path}shanlinliang.jpg`})
       $('#camp2017').parallax({imageSrc: `${path}camp2017.png`})

@@ -24,7 +24,9 @@ export default {
 <style scoped lang="sass">
 
 @import "../assets/css/style.sass"
+
 footer
   +py(1rem)
   font-size: .8rem
+  
 </style>
