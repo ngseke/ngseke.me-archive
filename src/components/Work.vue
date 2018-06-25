@@ -3,8 +3,9 @@
   .container
     .row.justify-content-center
       .col-12.col-lg-9
-        Loader(v-if=`!article`)
-        div(v-else v-html=`article`)
+        transition(name='fade')
+          Loader(v-if=`!article`)
+          div(v-else v-html=`article`)
 </template>
 
 <script>
@@ -29,6 +30,8 @@ export default {
   beforeRouteUpdate (to, from, next) {
     this.FetchDetail(to.params.name)
     $('#navbarContent').collapse('hide')
+    $("html, body").animate({ scrollTop: 0 }, 0)
+
     next()
   },
   methods:{
@@ -96,4 +99,16 @@ export default {
   #detail
     img
       max-width: 100%
+
+=fade-transition
+  transition: all .5s
+
+.fade-enter
+  opacity: 0
+  transform: translateY(1rem)
+
+.fade-enter-to
+  +fade-transition
+  opacity: 1
+
 </style>
