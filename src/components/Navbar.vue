@@ -4,7 +4,7 @@ nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle')
     router-link.navbar-brand(to='/')
       img.img-fluid(src='../../static/favicon.png', alt='Logo')
     button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarContent')
-      i.fas.fa-ellipsis-h
+      fa(icon='ellipsis-h')
     #navbarContent.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
         li.nav-item.dropdown

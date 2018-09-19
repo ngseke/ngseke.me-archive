@@ -1,6 +1,6 @@
 <template lang="pug">
 .text-center
-  i.fas.fa-circle-notch.fa-spin
+  fa(icon='circle-notch' spin)
 </template>
 
 <script>

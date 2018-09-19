@@ -13,10 +13,10 @@ section#about
                 h6.mb-2.text-muted.text-center.text-lg-left.profile-item Huang Xingqiao
                 p.text-center.text-lg-left.profile-item
                   small.mr-3(title='Education')
-                    i.fa.fa-book
+                    fa(icon='book')
                     |  NTUT / CSIE
                   small.mr-3(title='Location')
-                    i.fa.fa-map-marker
+                    fa(icon='map-marker')
                     |  Taipei, Taiwan
                 hr
                 p.profile-item.text-center.text-lg-left

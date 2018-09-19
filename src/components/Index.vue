@@ -5,11 +5,14 @@
     .jumbotron.jumbotron-fluid.ngsek.flex-vertical(:style='asWindowHeightStyle')
       .container
         .row.justify-content-center
-          .col-12.col-lg-5.text-center
+          .col-12.col-lg-5.text-center(v-if='!isBusplay')
             img.img-fluid.sr(src='/static/img/ngsek-01.svg', alt='黃色的我', title='黃色的我')
-            a.btn.btn-light.scroll-down-btn(href='#', @click='ScrollToMain()')
-              i.fas.fa-angle-down
-
+            a.btn.btn-light.scroll-down-btn(href='#', @click='scrollToMain()')
+              fa(icon='angle-down')
+          .col-12.col-lg-5.text-center(v-else)
+            img.img-fluid.sr(src='/static/img/busplay.svg', alt='Busplay', title='巴士噗累')
+            a.btn.btn-light.scroll-down-btn(href='https://bus.x-q.me' target='_blank')
+              fa(icon='play')
   main
     // em optimization lab
     section#emo
@@ -26,7 +29,7 @@
               router-link.btn.btn-sm.btn-primary(to=`/work/emo`) Detail
               a.btn.btn-sm.btn-primary(href='http://www.ntut.edu.tw/~yschen', target='_blank') Demo
               a.btn.btn-sm.btn-github(href='https://github.com/a92304a92304/EM', target='_blank')
-                i.fab.fa-github-alt
+                fa(:icon='[`fab`, `github-alt`]')
                 |  Github
 
     // Boss
@@ -45,7 +48,7 @@
               router-link.btn.btn-sm.btn-primary(to=`/work/boss`) Detail
               a.btn.btn-sm.btn-primary(href='http://boss.x-q.me', target='_blank') Demo
               a.btn.btn-sm.btn-github(href='https://github.com/a92304a92304/boss', target='_blank')
-                i.fab.fa-github-alt
+                fa(:icon='[`fab`, `github-alt`]')
                 |  Github
 
     // Typing Typing!
@@ -61,10 +64,10 @@
               h5 8-bit 風格打字遊戲
               router-link.btn.btn-sm.btn-primary(to=`/work/typingtyping`) Detail
               a.btn.btn-sm.btn-primary(href='/static/file/TypingTyping.zip', target='_blank', data-toggle='tooltip', data-placement='bottom', title='7.7mb')
-                i.fas.fa-download
+                fa(icon='download')
                 |  Download
               a.btn.btn-sm.btn-github(href='https://github.com/a92304a92304/Typing-Typing', target='_blank')
-                i.fab.fa-github-alt
+                fa(:icon='[`fab`, `github-alt`]')
                 |  Github
 
     // Raise Your Red Flag
@@ -76,15 +79,15 @@
               img.img-fluid.cover(src='/static/img/flag/cover.png')
           .col-12.col-md-5
             .work-content
-              .logo #[i.far.fa-flag]
+              .logo #[fa(icon='flag')]
               h2 Raise Your Red Flag
               h5 紅旗舉起來
               router-link.btn.btn-sm.btn-primary(to=`/work/flag`) Detail
               a.btn.btn-sm.btn-primary(href='https://flag.x-q.me', target='_blank')
-                i.fas.fa-gamepad
+                fa(icon='gamepad')
                 |  Play
               a.btn.btn-sm.btn-github(href='https://github.com/a92304a92304/Raise-Your-Red-Flag', target='_blank')
-                i.fab.fa-github-alt
+                fa(:icon='[`fab`, `github-alt`]')
                 |  Github
 
     // Shanlinliang
@@ -131,7 +134,7 @@ export default {
   name: 'Index',
   data () {
     return {
-
+      isBusplay: true,
     }
   },
   mounted () {
@@ -139,19 +142,18 @@ export default {
 
     self.windowHeight = $(window).height()  // 設定data.windowHeight值(視窗高度)
 
-    self.SetScrollReveal()
+    self.setScrollReveal()
     $(() => {$('[data-toggle="tooltip"]').tooltip()}) // 啟用tooltip
 
     $(window).trigger('resize').trigger('scroll')
     $('#navbarContent').collapse('hide')
-    self.SetParallexBg()
-
+    self.setParallexBg()
   },
   beforeRouteUpdate (to, from, next) {
     next()
   },
   methods: {
-    SetParallexBg () {
+    setParallexBg () {
       const path = `../static/img/bg/`
 
       // 頂部cover黃色背景
@@ -164,7 +166,7 @@ export default {
       $('#camp2017').parallax({imageSrc: `${path}camp2017.png`})
       $('#jingshixifu').parallax({imageSrc: `${path}jingshixifu.png`})
     },
-    SetScrollReveal () {
+    setScrollReveal () {
       window.sr = this.$ScrollReveal({
         reset: false,
         duration: 1000,
@@ -181,10 +183,9 @@ export default {
 
       sr.reveal('.ink', {scale: .8, delay: 1300, origin: 'bottom', distance: '50px',})
 
-      // 純喫茶
-      sr.reveal('.chunchicha-small-sr', {origin: 'top', delay: '600', scale: .95, easing: 'ease'})
+      sr.reveal('.chunchicha-small-sr', {origin: 'top', delay: '600', scale: .95, easing: 'ease'})  // 純喫茶
     },
-    ScrollToMain () {
+    scrollToMain () {
       var navHeight = $('#nav').outerHeight()
       Jump('main', {offset: -navHeight})
     },
