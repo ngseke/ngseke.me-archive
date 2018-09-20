@@ -1,5 +1,5 @@
 <template lang="pug">
-nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle')
+nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :class='{ light: isLight && this.$route.name==`Index` }')
   .container
     router-link.navbar-brand(to='/')
       img.img-fluid(src='../../static/favicon.png', alt='Logo')
@@ -61,19 +61,20 @@ export default {
             { name: 'Jingshi Xifu', link: '/work/jingshixifu' },
           ]
         },
-      ]
+      ],
+      isLight: 1
     }
   },
   mounted () {
     this.windowHeight = $(window).height()
-    this.SetNavShrink()
+    this.setNavShrink()
   },
   methods:{
-    SetRandomBg () {
+    setRandomBg () {
       const i = Math.floor((Math.random() * 1084) + 1)
       $('.ngsek').parallax('destroy').parallax({imageSrc: `https://picsum.photos/1280/720/?random=${i}`})
     },
-    SetNavShrink () {
+    setNavShrink () {
       $(function () {
         $(window).scroll(function () {
           let scrollVal = $(this).scrollTop()
@@ -108,13 +109,22 @@ export default {
     backdrop-filter: blur(20px)
     +box-shadow
 
+#nav.light
+  a.navbar-brand
+    img
+      filter: brightness(100)
+  a.nav-link
+    color: white
+  &.shrink
+    background-color: rgba(#1e1e1e, 0.95)
+
 @media (max-width: 575.98px)
   #nav
-    background-color: rgba(white, 0.97)
+    // background-color: rgba(white, 0.97)
     +box-shadow
     +py(.5rem)
     &.shrink
-      background-color: rgba(white, 0.97)
+      // background-color: rgba(white, 0.97)
 
 .navbar-light .navbar-toggler
   color: rgba($ngsek,6)

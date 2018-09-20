@@ -157,7 +157,11 @@ export default {
       const path = `../static/img/bg/`
 
       // 頂部cover黃色背景
-      $('.ngsek').parallax({imageSrc: `${path}index-cover.jpg`})
+      if(!this.isBusplay)
+        $('.ngsek').parallax({imageSrc: `${path}index-cover.jpg`})
+      else
+        $('.ngsek').parallax({imageSrc: `https://c.pxhere.com/photos/da/34/bus_asphalt_road_roadway_grey_ground_away_bus_lane-490301.jpg!d`})
+
       $('#emo').parallax({imageSrc: `${path}emo.jpg`})
       $('#boss').parallax({imageSrc: `${path}boss.jpg`})
       $('#flag').parallax({imageSrc: `${path}flag.jpg`})
