@@ -20,7 +20,7 @@ section#about
                     |  Taipei, Taiwan
                 hr
                 p.profile-item.text-center.text-lg-left
-                  | 北科資工系大三，專注於網頁設計前後端。
+                  | 北科資工系大四，專注於網頁設計前後端。
 
                 p.mb-4.text-center.text-lg-left
                   span.skill(v-for='s in profile.skills')

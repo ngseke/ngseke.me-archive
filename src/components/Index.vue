@@ -134,7 +134,7 @@ export default {
   name: 'Index',
   data () {
     return {
-      isBusplay: true,
+      isBusplay: false,
     }
   },
   mounted () {
@@ -160,7 +160,7 @@ export default {
       if(!this.isBusplay)
         $('.ngsek').parallax({imageSrc: `${path}index-cover.jpg`})
       else
-        $('.ngsek').parallax({imageSrc: `https://c.pxhere.com/photos/da/34/bus_asphalt_road_roadway_grey_ground_away_bus_lane-490301.jpg!d`})
+        $('.ngsek').parallax({imageSrc: `${path}city.jpg`})
 
       $('#emo').parallax({imageSrc: `${path}emo.jpg`})
       $('#boss').parallax({imageSrc: `${path}boss.jpg`})

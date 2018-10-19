@@ -62,7 +62,7 @@ export default {
           ]
         },
       ],
-      isLight: 1
+      isLight: false
     }
   },
   mounted () {
