@@ -29,7 +29,7 @@ nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :cla
         li.nav-item
           router-link.nav-link(to=`/about`) About
         li.nav-item
-          a.nav-link(href='https://github.com/a92304a92304/x-q.me' target='_blank') Github
+          a.nav-link(href='https://github.com/seanyellow' target='_blank') Github
 </template>
 
 <script>

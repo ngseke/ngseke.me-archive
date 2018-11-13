@@ -52,9 +52,8 @@ export default {
         ],
         socials: [
           {icon:'fab fa-linkedin', url:'http://www.linkedin.com/in/xingqiao-huang', title:'LinkedIn'},
-          {icon:'fab fa-github', url:'https://github.com/a92304a92304', title:'GitHub'},
+          {icon:'fab fa-github', url:'https://github.com/seanyellow', title:'GitHub'},
           {icon:'fas fa-envelope', url:'mailto:a92304a92304@gmail.com', title:'Email'},
-          {icon:'fab fa-youtube', url:'https://www.youtube.com/a92304a92304', title:'Youtube'},
         ],
       },
     }
