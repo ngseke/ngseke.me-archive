@@ -51,25 +51,6 @@
                 fa(:icon='[`fab`, `github-alt`]')
                 |  Github
 
-    // Typing Typing!
-    section#typingtyping
-      .container
-        .row.justify-content-around.align-items-center
-          .col-12.col-md-6.mb-3
-            .work-img
-              img.img-fluid.cover(src='/static/img/typingtyping/cover.png', key='0')
-          .col-12.col-md-5
-            .work-content
-              h2 Typing Typing!
-              h5 8-bit 風格打字遊戲
-              router-link.btn.btn-sm.btn-primary(to=`/work/typingtyping`) Detail
-              a.btn.btn-sm.btn-primary(href='/static/file/TypingTyping.zip', target='_blank', data-toggle='tooltip', data-placement='bottom', title='7.7mb')
-                fa(icon='download')
-                |  Download
-              a.btn.btn-sm.btn-github(href='https://github.com/a92304a92304/Typing-Typing', target='_blank')
-                fa(:icon='[`fab`, `github-alt`]')
-                |  Github
-
     // Raise Your Red Flag
     section#flag
       .container
@@ -90,41 +71,24 @@
                 fa(:icon='[`fab`, `github-alt`]')
                 |  Github
 
-    // Shanlinliang
-    section#shanlinliang
+    // Typing Typing!
+    section#typingtyping
       .container
         .row.justify-content-around.align-items-center
           .col-12.col-md-6.mb-3
             .work-img
-              img.img-fluid.cover(src='/static/img/shanlinliang/cover.png')
+              img.img-fluid.cover(src='/static/img/typingtyping/cover.png', key='0')
           .col-12.col-md-5
             .work-content
-              img.img-fluid(src='/static/img/shanlinliang/cover2.png', alt='Shanlinliang')
-              h5.text-light 涼扇領導品牌
-              router-link.btn.btn-sm.btn-primary(to=`/work/shanlinliang`) Detail
-              //- a.btn.btn-sm.btn-primary(href='/static/shanlinliang', target='_blank') Demo
-
-    // 2017CAMP
-    section#camp2017
-      .container
-        .row.justify-content-around.align-items-center
-          .col-12.col-md-5
-            .work-content0
-              img.img-fluid.camp-sr(src='/static/img/camp2017/logo.png')
-              h5.mt-3.camp-sr 2017迎新
-              router-link.btn.btn-sm.btn-primary(to=`/work/camp2017`) Detail
-
-    // JINGSHI XIFU
-    section#jingshixifu
-      .container
-        .row.justify-content-around.align-items-center
-          .col-12.col-md-5
-            .work-content0
-              img.img-fluid.camp-sr(src='/static/img/jingshixifu/logo.png', title='*無辜* 倫家哪知道婆婆捅一下就不行了辣 >///<')
-              h5.mt-3.camp-sr 台灣經典鄉土劇
-              router-link.btn.btn-sm.btn-primary(to=`/work/jingshixifu`) Detail
-      .ink
-        img.img-fluid(src='/static/img/jingshixifu/ink.png', alt='血跡')
+              h2 Typing Typing!
+              h5 8-bit 風格打字遊戲
+              router-link.btn.btn-sm.btn-primary(to=`/work/typingtyping`) Detail
+              a.btn.btn-sm.btn-primary(href='/static/file/TypingTyping.zip', target='_blank', data-toggle='tooltip', data-placement='bottom', title='7.7mb')
+                fa(icon='download')
+                |  Download
+              a.btn.btn-sm.btn-github(href='https://github.com/a92304a92304/Typing-Typing', target='_blank')
+                fa(:icon='[`fab`, `github-alt`]')
+                |  Github
 </template>
 
 <script>

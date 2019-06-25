@@ -50,14 +50,6 @@ export default {
             { name: 'Raise Your Red Flag', link: '/work/flag' },
           ]
         },
-        {
-          category: 'Art',
-          works: [
-            { name: 'Shanlinliang', link: '/work/shanlinliang' },
-            { name: 'Kuaichao Bujia La, Guozi Bujia Tang', link: '/work/camp2017' },
-            { name: 'Jingshi Xifu', link: '/work/jingshixifu' },
-          ]
-        },
       ],
       isLight: false
     }
