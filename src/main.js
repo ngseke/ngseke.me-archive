@@ -1,5 +1,3 @@
-// The Vue build version to load with the `import` command
-// (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import App from './App'
 import router from './router'
@@ -7,9 +5,11 @@ import router from './router'
 import ScrollReveal from 'scrollreveal'
 import Bootstrap from 'bootstrap'
 import Parallax from 'jquery-parallax.js'
+import { common } from './mixins/common.js'
 
 Vue.prototype.$ScrollReveal = ScrollReveal
 Vue.config.productionTip = false
+Vue.mixin(common)
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fas } from '@fortawesome/free-solid-svg-icons'
