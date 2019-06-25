@@ -22,9 +22,6 @@ nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :cla
           .dropdown-menu
             h6.dropdown-header.text-ngsek Game
             a.dropdown-item(href='https://flag.x-q.me') Raise Your Red Flag
-            //- .dropdown-divider
-            //- h6.dropdown-header.text-ngsek Other
-            //- a.dropdown-item(href='https://dodo.x-q.me') Dodo
 
         li.nav-item
           router-link.nav-link(to=`/about`) About
