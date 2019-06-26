@@ -14,6 +14,20 @@
             a.btn.btn-light.scroll-down-btn(href='https://bus.x-q.me' target='_blank')
               fa(icon='play')
   main
+    // mcip
+    section#mcip
+      .container
+        .row.justify-content-around.align-items-center
+          .col-12.col-md-5.mb-3
+            .work-img
+              img.img-fluid.cover(src='/static/img/mcip/cover.png', alt='mcip cover')
+          .col-12.col-md-5
+            .work-content
+              img(src='/static/img/mcip/logo.svg' alt='mcip logo')
+              h2.text-light MCIP CMS
+              h5.text-light #[b 樂台計劃]後台管理系統
+              router-link.btn.btn-sm.btn-primary(to=`/work/mcip`) Detail
+
     // em optimization lab
     section#emo
       .container
@@ -126,6 +140,7 @@ export default {
       else
         $('.ngsek').parallax({imageSrc: `${path}city.jpg`})
 
+      $('#mcip').parallax({imageSrc: `https://c.pxhere.com/photos/92/14/dj_music_light_neon_turntable-145322.jpg!d`})
       $('#emo').parallax({imageSrc: `${path}emo.jpg`})
       $('#boss').parallax({imageSrc: `${path}boss.jpg`})
       $('#flag').parallax({imageSrc: `${path}flag.jpg`})

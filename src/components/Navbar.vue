@@ -39,15 +39,18 @@ export default {
         {
           category: 'Website',
           works: [
+            { name: 'MCIP CMS', link: '/work/mcip' },
             { name: 'EM Optimization Lab', link: '/work/emo' },
-            { name: 'Boss', link: '/work/boss' },
+            { name: 'BOSS', link: '/work/boss' },
           ]
         },
         {
           category: 'Game',
           works: [
-            { name: 'Typing Typing!', link: '/work/typingtyping' },
+            { name: 'Gomoku', link: '/work/gomoku' },
+            { name: 'OOXX', link: '/work/ooxx' },
             { name: 'Raise Your Red Flag', link: '/work/flag' },
+            { name: 'Typing Typing!', link: '/work/typingtyping' },
           ]
         },
       ],
