@@ -5,10 +5,12 @@
 
 ![](/static/img/gomoku/title.png)
 
+[Gomoku: 五子棋對戰](https://gomoku.ga/#/about)是簡約的五子棋遊戲，也是與好友在悠閒午後消磨時間的良伴。
+
+ 
 ![註冊畫面](/static/img/gomoku/register.png)
-![大廳列表](/static/img/gomoku/room.png)
+![大廳房間列表](/static/img/gomoku/room.png)
 
-
-![遊戲中](/static/img/gomoku/cover.png)
+![遊戲對戰與聊天室](/static/img/gomoku/cover.png)
 
 ![行動裝置版本](/static/img/gomoku/mobile.png)
