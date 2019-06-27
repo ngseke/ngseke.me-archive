@@ -1,35 +1,39 @@
 <template lang="pug">
-section#about
-  .container
-    .row.justify-content-around.align-items-center
-      .col-12.col-md-8.profile
-        .card
-          .card-body
-            .row
-              .col-12.col-lg-3.text-center
-                img.text-center.img-fluid.rounded-circle.mb-3(src='/static/img/profile.jpg', style='filter:grayscale(1); max-height:8rem;')
-              .col-12.col-lg-9.mt-3
-                h4.text-center.text-lg-left.name.profile-item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ') 黃省喬
-                h6.mb-2.text-muted.text-center.text-lg-left.profile-item Huang Xingqiao
-                p.text-center.text-lg-left.profile-item
-                  small.mr-3(title='Education')
-                    fa(icon='book')
-                    |  NTUT / CSIE
-                  small.mr-3(title='Location')
-                    fa(icon='map-marker')
-                    |  Taipei, Taiwan
-                hr
-                p.profile-item.text-center.text-lg-left
-                  | 我是 Sean，畢業於北科資工系，專注於網頁設計前後端。
+mixin card-body-row
+  section#about
+    .container
+      .row.justify-content-around.align-items-center
+        .col-12.col-md-8.profile
+          .card
+            .card-body
+              .row
+                block
 
-                p.mb-4.text-center.text-lg-left
-                  span.skill(v-for='s in profile.skills')
-                    span(v-html='s.icon', :title='s.title')
-                  span.skill.text Pug
++card-body-row
+  .col-12.col-lg-3.img-area
+    img.avatar(src='/static/img/profile.jpg')
+  .col-12.col-lg-9.mt-3
+    h4.text-center.text-lg-left.name.profile-item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ') 黃省喬
+    h6.mb-2.text-muted.text-center.text-lg-left.profile-item Huang Xingqiao
+    p.text-center.text-lg-left.profile-item
+      small.mr-3(title='Education')
+        fa(icon='book')
+        |  NTUT / CSIE
+      small.mr-3(title='Location')
+        fa(icon='map-marker')
+        |  Taipei, Taiwan
+    hr
+    p.profile-item.text-center.text-lg-left
+      | 我是 Sean，畢業於北科資工系，專注於網頁設計前後端。
 
-                p.text-center.text-lg-left.profile-item
-                  a.btn-social.mr-2(:href='s.url', target='_blank', v-for='s in profile.socials', :title='s.title')
-                    i(:class='s.icon')
+    p.mb-4.text-center.text-lg-left
+      span.skill(v-for='s in profile.skills')
+        span(v-html='s.icon', :title='s.title')
+      span.skill.text Pug
+
+    p.text-center.text-lg-left.profile-item
+      a.btn-social.mr-2(:href='s.url', target='_blank', v-for='s in profile.socials', :title='s.title')
+        i(:class='s.icon')
 </template>
 
 <script>
@@ -81,9 +85,17 @@ export default {
 @import "../assets/css/function"
 @import "../assets/css/color"
 
+$distance: .4rem
+$duration: .7s
+
+#about
+  margin-top: 6rem
+
 .profile .card
-  transition: box-shadow .5s , transform .5s
+  transition: box-shadow $duration , transform $duration
   box-shadow: 1rem 1rem $ngsek
+  .img-area
+    position: relative
   .name
     background: linear-gradient($ngsek, $ngsek-dark)
     -webkit-background-clip: text
@@ -106,8 +118,19 @@ export default {
       transform: scale(1.3)
 
   &:hover
-    box-shadow: 1.6rem 1.6rem $ngsek
-    transform: translate(-0.3rem, -0.3rem)
+    box-shadow: (1rem + $distance * 2) (1rem + $distance * 2) lighten($ngsek, 10%)
+    transform: translate(-$distance, -$distance)
+    .avatar
+      transform: translate(-$distance, -$distance)
+      opacity: .9
+
+  .avatar
+    transition: transform $duration, opacity $duration
+    position: absolute
+    filter: grayscale(1)
+    max-height: 17rem
+    top: -3rem
+    right: 2rem
 
 .btn-social
   font-size: 1.2rem
@@ -115,6 +138,23 @@ export default {
   transition: color .3s
   &:hover
     color: $ngsek-dark
+
+// 調整行動版大頭貼樣式
+@media (max-width: 992px)
+  .profile
+    .card
+      &:hover
+        .avatar
+          transform: none
+          opacity: 1
+      .img-area
+        text-align: center
+      .avatar
+        position: static
+        border-radius: 100%
+        width: 9rem
+        height: 9rem
+        object-fit: cover
 
 @media (max-width: 576px)
   .profile
@@ -125,19 +165,7 @@ export default {
       box-shadow: 0rem 0rem
       &:hover
         box-shadow: 0rem 0rem
-        transform: translate(0rem)
-
-#about
-  margin-top: 5rem
-  h1
-    transition: all .2s
-    text-align: center
-    font-family: 'arial'
-    font-weight: 900
-    font-size: 5rem
-    color: white
-    transform: rotate3d(1,1,1,0deg)
-    &:hover
-      text-shadow: 0px 0px 0px rgba($ngsek ,1)
-
+        transform: none
+      .img-area
+        text-align: center
 </style>
