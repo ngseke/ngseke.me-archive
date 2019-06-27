@@ -20,7 +20,7 @@ section#about
                     |  Taipei, Taiwan
                 hr
                 p.profile-item.text-center.text-lg-left
-                  | 我是 Sean，剛畢業於北科資工系，專注於網頁設計前後端。
+                  | 我是 Sean，畢業於北科資工系，專注於網頁設計前後端，唯一信仰 Vue.js。
 
                 p.mb-4.text-center.text-lg-left
                   span.skill(v-for='s in profile.skills')
