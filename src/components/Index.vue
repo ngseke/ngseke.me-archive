@@ -5,14 +5,10 @@
     .jumbotron.jumbotron-fluid.ngsek.flex-vertical(:style='asWindowHeightStyle')
       .container
         .row.justify-content-center
-          .col-12.col-lg-5.text-center(v-if='!isBusplay')
+          .col-12.col-lg-5.text-center 
             img.img-fluid.sr(src='/static/img/ngsek-01.svg', alt='黃色的我', title='黃色的我')
             a.btn.btn-light.scroll-down-btn(href='#', @click='scrollToMain()')
               fa(icon='angle-down')
-          .col-12.col-lg-5.text-center(v-else)
-            img.img-fluid.sr(src='/static/img/busplay.svg', alt='Busplay', title='巴士噗累')
-            a.btn.btn-light.scroll-down-btn(href='https://bus.x-q.me' target='_blank')
-              fa(icon='play')
   main
     // mcip
     section#mcip
@@ -134,11 +130,7 @@ export default {
     setParallexBg () {
       const path = `../static/img/bg/`
 
-      // 頂部cover黃色背景
-      if(!this.isBusplay)
-        $('.ngsek').parallax({imageSrc: `${path}index-cover.jpg`})
-      else
-        $('.ngsek').parallax({imageSrc: `${path}city.jpg`})
+      $('.ngsek').parallax({imageSrc: `${path}index-cover.jpg`})
 
       $('#mcip').parallax({imageSrc: `https://c.pxhere.com/photos/92/14/dj_music_light_neon_turntable-145322.jpg!d`})
       $('#emo').parallax({imageSrc: `${path}emo.jpg`})
