@@ -128,7 +128,7 @@ $duration: .7s
     transition: transform $duration, opacity $duration
     position: absolute
     filter: grayscale(1)
-    max-height: 17rem
+    max-height: 16rem
     top: -3rem
     right: 2rem
 
