@@ -87,12 +87,14 @@ export default {
 
 $distance: .4rem
 $duration: .7s
+$time-function: ease
+$transition: box-shadow $duration $time-function, transform $duration $time-function, opacity $duration $time-function
 
 #about
   margin-top: 6rem
 
 .profile .card
-  transition: box-shadow $duration , transform $duration
+  transition: $transition
   box-shadow: 1rem 1rem $ngsek
   .img-area
     position: relative
@@ -125,7 +127,7 @@ $duration: .7s
       opacity: .9
 
   .avatar
-    transition: transform $duration, opacity $duration
+    transition: $transition
     position: absolute
     filter: grayscale(1)
     max-height: 16rem

@@ -111,4 +111,6 @@ export default {
   +fade-transition
   opacity: 1
 
+.embed-responsive
+  margin-bottom: 3rem
 </style>

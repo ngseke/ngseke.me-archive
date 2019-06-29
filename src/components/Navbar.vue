@@ -48,7 +48,7 @@ export default {
           category: 'Game',
           works: [
             { name: 'Gomoku', link: '/work/gomoku' },
-            { name: 'OOXX', link: '/work/ooxx' },
+            // { name: 'OOXX', link: '/work/ooxx' },
             { name: 'Raise Your Red Flag', link: '/work/flag' },
             { name: 'Typing Typing!', link: '/work/typingtyping' },
           ]

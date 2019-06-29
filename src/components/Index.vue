@@ -126,12 +126,15 @@ export default {
   mounted () {
     this.windowHeight = $(window).height()  // 設定data.windowHeight值(視窗高度)
 
-    this.setScrollReveal()
-    $(() => {$('[data-toggle="tooltip"]').tooltip()}) // 啟用tooltip
+    this.$nextTick(() => {
+      this.setParallexBg()
+      this.setScrollReveal()
+      $('[data-toggle="tooltip"]').tooltip()  // 啟用tooltip
+    })
 
     $(window).trigger('resize').trigger('scroll')
     $('#navbarContent').collapse('hide')
-    this.setParallexBg()
+
   },
   beforeRouteUpdate (to, from, next) {
     next()
