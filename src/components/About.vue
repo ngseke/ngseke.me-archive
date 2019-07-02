@@ -9,13 +9,22 @@ mixin card-body-row
               .row
                 block
 
+-
+  let itemCount = 0
+  const itemStyle = (number = 0) => {
+    itemCount += number
+    return { animationDelay: `${itemCount++ * .1 + .2 + .3}s` }
+  }
+
 +card-body-row
   .col-12.col-lg-3.img-area
-    img.avatar(src='/static/img/profile.jpg')
+    .avatar
+      .profile-mask
+      img(src='/static/img/profile.jpg')
   .col-12.col-lg-9.mt-3
-    h4.text-center.text-lg-left.name.profile-item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ') 黃省喬
-    h6.mb-2.text-muted.text-center.text-lg-left.profile-item Huang Xingqiao
-    p.text-center.text-lg-left.profile-item
+    h4.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' style=itemStyle()) 黃省喬
+    h6.mb-2.text-muted.text-center.text-lg-left.item(style=itemStyle()) Huang Xingqiao
+    p.text-center.text-lg-left.item(style=itemStyle())
       small.mr-3(title='Education')
         fa(icon='book')
         |  NTUT / CSIE
@@ -23,15 +32,15 @@ mixin card-body-row
         fa(icon='map-marker')
         |  Taipei, Taiwan
     hr
-    p.profile-item.text-center.text-lg-left
+    p.item.text-center.text-lg-left(style=itemStyle())
       | 我是 Sean，畢業於北科資工系，專注於網頁設計前後端。
 
     p.mb-4.text-center.text-lg-left
-      span.skill(v-for='s in profile.skills')
-        span(v-html='s.icon', :title='s.title')
-      span.skill.text Pug
+      span.skill(v-for='(s, index) in profile.skills' :style='getSkillStyle(index)')
+        span(v-html='s.icon' :title='s.title' v-if='s.icon')
+        .text(v-else) {{ s.title }}
 
-    p.text-center.text-lg-left.profile-item
+    p.text-center.text-lg-left.item(style=itemStyle(4))
       a.btn-social.mr-2(:href='s.url', target='_blank', v-for='s in profile.socials', :title='s.title')
         i(:class='s.icon')
 </template>
@@ -53,6 +62,7 @@ export default {
           {icon: '<i class="fab fa-js"></i>', title: 'JavaScript'},
           {icon: '<i class="fab fa-html5"></i>', title: 'HTML5'},
           {icon: '<i class="fab fa-css3-alt"></i>', title: 'CSS3'},
+          {title: 'Pug'},
         ],
         socials: [
           {icon:'fab fa-linkedin', url:'http://www.linkedin.com/in/xingqiao-huang', title:'LinkedIn'},
@@ -66,18 +76,15 @@ export default {
     $(window).trigger('resize').trigger('scroll')
     $('#navbarContent').collapse('hide')
 
-    window.sr = this.$ScrollReveal({
-      reset: false,
-      duration: 1000,
-      scale: 1,
-    })
-
-    sr.reveal('.skill', {scale: .4, distance: 0, delay: 800}, 100)
-    sr.reveal('.profile-item', { origin: 'bottom', delay: 300}, 100)
-
-    Jump('body')
+    Jump('html')
   },
-
+  methods: {
+    getSkillStyle (i) {
+      const base = .8 + .3
+      const delta = .08
+      return { animationDelay: `${i * delta + base}s` }
+    },
+  }
 }
 </script>
 
@@ -85,10 +92,30 @@ export default {
 @import "../assets/css/function"
 @import "../assets/css/color"
 
-$distance: .4rem
+$distance: .5rem
 $duration: .7s
 $time-function: ease
 $transition: box-shadow $duration $time-function, transform $duration $time-function, opacity $duration $time-function
+
+@keyframes item
+  from
+    opacity: 0
+    transform: translateX(-1.5rem)
+  to
+    opacity: 1
+
+@keyframes skill-in
+  from
+    opacity: 0
+    transform: scale(.4)
+  to
+    opacity: 1
+
+@keyframes profile-mask-in
+  from
+    transform: scale(1)
+  to
+    transform: scale(0)
 
 #about
   margin-top: 6rem
@@ -96,6 +123,9 @@ $transition: box-shadow $duration $time-function, transform $duration $time-func
 .profile .card
   transition: $transition
   box-shadow: 1rem 1rem $ngsek
+  .item
+    animation: item 1.2s cubic-bezier(0.77, 0, 0.175, 1)
+    animation-fill-mode: backwards
   .img-area
     position: relative
   .name
@@ -112,16 +142,18 @@ $transition: box-shadow $duration $time-function, transform $duration $time-func
     min-width: 2rem
     display: inline-block
     vertical-align: middle
+    animation: skill-in .5s cubic-bezier(0.77, 0, 0.175, 1)
+    animation-fill-mode: backwards
 
-    &.text
+    .text
       font-size: 1rem
     &:hover
       color: $ngsek
       transform: scale(1.3)
 
   &:hover
-    box-shadow: (1rem + $distance * 2) (1rem + $distance * 2) lighten($ngsek, 10%)
-    transform: translate(-$distance, -$distance)
+    box-shadow: (1rem + $distance * 2) (1rem + $distance * 2) lighten($ngsek, 5%)
+    // transform: translate(-$distance, -$distance)
     .avatar
       transform: translate(-$distance, -$distance)
       opacity: .9
@@ -129,10 +161,15 @@ $transition: box-shadow $duration $time-function, transform $duration $time-func
   .avatar
     transition: $transition
     position: absolute
-    filter: grayscale(1)
     max-height: 16rem
     top: -3rem
     right: 2rem
+    overflow: hidden
+    img
+      position: relative
+      filter: grayscale(1)
+      width: auto
+      max-height: 16rem
 
 .btn-social
   font-size: 1.2rem
@@ -153,10 +190,13 @@ $transition: box-shadow $duration $time-function, transform $duration $time-func
         text-align: center
       .avatar
         position: static
-        border-radius: 100%
-        width: 9rem
-        height: 9rem
-        object-fit: cover
+        img
+          border-radius: 100%
+          width: 9rem
+          height: 9rem
+          object-fit: cover
+  .profile-mask
+    display: none
 
 @media (max-width: 576px)
   .profile
@@ -170,4 +210,18 @@ $transition: box-shadow $duration $time-function, transform $duration $time-func
         transform: none
       .img-area
         text-align: center
+
+.profile-mask
+  z-index: 1000
+  position: absolute
+  bottom: -30%
+  right: -50%
+  background-color: $ngsek
+  border-radius: 100rem
+  width: 25rem
+  height: 25rem
+  animation: profile-mask-in 1.7s cubic-bezier(0.77, 0, 0.175, 1)
+  animation-fill-mode: backwards
+  transform: scale(0)
+  transform-origin: right bottom
 </style>

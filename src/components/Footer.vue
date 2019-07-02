@@ -7,16 +7,12 @@ footer.text-center.py-5
 </template>
 
 <script>
-import Jump from 'jump.js'
 export default {
   name: 'Footer',
-  methods:{ 
-  }
 }
 </script>
 
 <style scoped lang="sass">
-
 @import "../assets/css/style.sass"
 
 footer

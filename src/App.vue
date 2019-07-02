@@ -11,7 +11,7 @@ import Footer from '@/components/Footer'
 
 export default {
   name: 'App',
-  components: { // 使用的元件
+  components: {
     Navbar,
     Footer,
   },

@@ -177,7 +177,7 @@ export default {
     },
     scrollToMain () {
       const navHeight = $('#nav').outerHeight()
-      Jump('main', {offset: -navHeight})
+      Jump('main', { offset: -navHeight })
     },
 
   },
