@@ -51,20 +51,20 @@ export default {
     return {
       profile: {
         skills: [
-          {icon: 'vuejs', title: 'Vue.js'},
-          {icon: 'sass', title: 'Sass'},
-          {icon: 'gulp', title: 'Gulp'},
-          {icon: 'npm', title: 'npm'},
-          {icon: 'php', title: 'PHP'},
-          {icon: 'js', title: 'JavaScript'},
-          {icon: 'html5', title: 'HTML5'},
-          {icon: 'css3-alt', title: 'CSS3'},
-          {title: 'Pug'},
+          { icon: 'vuejs', title: 'Vue.js' },
+          { icon: 'sass', title: 'Sass' },
+          { icon: 'gulp', title: 'Gulp' },
+          { icon: 'npm', title: 'npm' },
+          { icon: 'php', title: 'PHP' },
+          { icon: 'js', title: 'JavaScript' },
+          { icon: 'html5', title: 'HTML5' },
+          { icon: 'css3-alt', title: 'CSS3' },
+          { title: 'Pug' },
         ],
         socials: [
-          {icon: [`fab`, `linkedin`], url:'http://www.linkedin.com/in/xingqiao-huang', title:'LinkedIn'},
-          {icon: [`fab`, `github`], url:'https://github.com/seanyellow', title:'GitHub'},
-          {icon: [`fas`, `envelope`], url:'mailto:a92304a92304@gmail.com', title:'Email'},
+          { icon: [`fab`, `linkedin`], url:'http://www.linkedin.com/in/xingqiao-huang', title:'LinkedIn' },
+          { icon: [`fab`, `github`], url:'https://github.com/seanyellow', title:'GitHub' },
+          { icon: [`fas`, `envelope`], url:'mailto:a92304a92304@gmail.com', title:'Email' },
         ],
       },
     }
@@ -73,7 +73,7 @@ export default {
     $(window).trigger('resize').trigger('scroll')
     $('#navbarContent').collapse('hide')
 
-    Jump('html')
+    this.top()
   },
   methods: {
     getSkillStyle (i) {

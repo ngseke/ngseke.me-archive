@@ -63,11 +63,7 @@ export default {
     this.windowHeight = $(window).height()
     this.setNavShrink()
   },
-  methods:{
-    setRandomBg () {
-      const i = Math.floor((Math.random() * 1084) + 1)
-      $('.ngsek').parallax('destroy').parallax({imageSrc: `https://picsum.photos/1280/720/?random=${i}`})
-    },
+  methods: { 
     setNavShrink () {
       $(function () {
         $(window).scroll(function () {

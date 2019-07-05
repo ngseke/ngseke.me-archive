@@ -2,8 +2,7 @@
 mixin section(id)
   section(id=id)
     .container
-      .row.justify-content-around.align-items-center
-        block
+      .row.justify-content-around.align-items-center: block
 
 #page
   header
@@ -12,8 +11,9 @@ mixin section(id)
       .container
         .row.justify-content-center
           .col-12.col-lg-5.text-center
-            img.img-fluid.sr(src='/static/img/ngsek-01.svg' alt='黃色的我' title='黃色的我')
-            a.btn.btn-light.scroll-down-btn(href='#' @click='scrollToMain()'): fa(icon='angle-down')
+            router-link.about-btn(to='about')
+              img.img-fluid.sr(src='/static/img/ngsek-01.svg' alt='黃色的我' title='黃色的我')
+            a.btn.btn-light.scroll-down-btn(href='#' @click.prevent='scrollToMain'): fa(icon='angle-down')
   main
     // mcip
     +section(`mcip`)
@@ -117,13 +117,29 @@ mixin section(id)
 <script>
 import Jump from 'jump.js'
 
+const bgPath = `../static/img/bg/`
+
 export default {
   name: 'Index',
   data () {
     return {
+      backgroundTable: {
+        '.ngsek': `${bgPath}index-cover.jpg`,
+        '#mcip': `https://c.pxhere.com/photos/92/14/dj_music_light_neon_turntable-145322.jpg!d`,
+        '#emo': `${bgPath}emo.jpg`,
+        '#boss': `${bgPath}boss.jpg`,
+        '#flag': `${bgPath}flag.jpg`,
+        '#gomoku': `https://c.pxhere.com/photos/56/e0/stones_decorative_stones_ornament_decoration_art_nature_cairn_background-693169.jpg!d`,
+        '#typingtyping': `${bgPath}typingtyping.jpg`,
+        '#shanlinliang': `${bgPath}shanlinliang.jpg`,
+        '#camp2017': `${bgPath}camp2017.png`,
+        '#jingshixifu': `${bgPath}jingshixifu.png`,
+      }
     }
   },
   mounted () {
+    this.top()
+
     this.windowHeight = $(window).height()  // 設定data.windowHeight值(視窗高度)
 
     this.$nextTick(() => {
@@ -141,21 +157,12 @@ export default {
   },
   methods: {
     setParallexBg () {
-      const path = `../static/img/bg/`
-      const table = {
-        '.ngsek': `${path}index-cover.jpg`,
-        '#mcip': `https://c.pxhere.com/photos/92/14/dj_music_light_neon_turntable-145322.jpg!d`,
-        '#emo': `${path}emo.jpg`,
-        '#boss': `${path}boss.jpg`,
-        '#flag': `${path}flag.jpg`,
-        '#gomoku': `https://c.pxhere.com/photos/56/e0/stones_decorative_stones_ornament_decoration_art_nature_cairn_background-693169.jpg!d`,
-        '#typingtyping': `${path}typingtyping.jpg`,
-        '#shanlinliang': `${path}shanlinliang.jpg`,
-        '#camp2017': `${path}camp2017.png`,
-        '#jingshixifu': `${path}jingshixifu.png`,
-      }
-
+      const table = this.backgroundTable
       Object.keys(table).forEach(_ => $(_).parallax({imageSrc: table[_]}))
+    },
+    destroyParallexBg () {
+      const table = this.backgroundTable
+      Object.keys(table).forEach(_ => $(_).parallax('destroy'))
     },
     setScrollReveal () {
       window.sr = this.$ScrollReveal({
@@ -170,16 +177,12 @@ export default {
       sr.reveal('.work-img', { distance: 0, scale: 1.1 })
       sr.reveal('.work-content', { origin: 'left', delay: 500 })
 
-      sr.reveal('.camp-sr', { distance: 0, scale: .9 }, 200)
-
-      sr.reveal('.ink', { scale: .8, delay: 1300, origin: 'bottom', distance: '50px' })
       sr.reveal('.chunchicha-small-sr', { origin: 'top', delay: '600', scale: .95, easing: 'ease' })  // 純喫茶
     },
     scrollToMain () {
       const navHeight = $('#nav').outerHeight()
       Jump('main', { offset: -navHeight })
     },
-
   },
   computed:{
     asWindowHeightStyle () {
@@ -187,6 +190,18 @@ export default {
         height : `${this.windowHeight}px`
       }
     },
+  },
+  beforeDestroy () {
+    this.destroyParallexBg()
   }
 }
 </script>
+
+<style lang="sass">
+.about-btn
+  display: block
+  transition: all .5s
+  margin-bottom: 5rem
+  &:hover
+    transform: scale(1.05)
+</style>
