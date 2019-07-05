@@ -63,7 +63,7 @@ export default {
     this.windowHeight = $(window).height()
     this.setNavShrink()
   },
-  methods: { 
+  methods: {
     setNavShrink () {
       $(function () {
         $(window).scroll(function () {
@@ -110,7 +110,7 @@ export default {
 
 @media (max-width: 575.98px)
   #nav
-    // background-color: rgba(white, 0.97)
+    background-color: rgba(white, 0.97)
     +box-shadow
     +py(.5rem)
     &.shrink
