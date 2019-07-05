@@ -1,27 +1,21 @@
 <template lang="pug">
-nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :class='{ light: isLight && this.$route.name==`Index` }')
+nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :class='{ light: isLight && this.$route.name === `Index` }')
   .container
-    router-link.navbar-brand(to='/')
-      img.img-fluid(src='../../static/favicon.png', alt='Logo')
-    button.navbar-toggler(type='button', data-toggle='collapse', data-target='#navbarContent')
-      fa(icon='ellipsis-h')
+    router-link.navbar-brand(to='/' @click.native='clickLogo')
+      img.img-fluid(src='../../static/favicon.png' alt='Logo')
+    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarContent')
+      fa(icon='angle-down')
     #navbarContent.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
         li.nav-item.dropdown
-          a.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' :class='{active: this.$route.name===`Work`}')
+          a.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' :class='{ active: this.$route.name === `Work` }')
             | Works
           .dropdown-menu
-            template(v-for=`(link, link_index) in links`)
+            template(v-for=`(link, index) in links`)
               h6.dropdown-header.text-ngsek {{ link.category }}
               template(v-for=`work in link.works`)
                 router-link.dropdown-item(:to=`work.link`) {{ work.name }}
-              .dropdown-divider(v-if=`link_index != (links.length-1)`)
-        li.nav-item.dropdown(hidden)
-          a.nav-link.dropdown-toggle(href='#' data-toggle='dropdown')
-            | Apps
-          .dropdown-menu
-            h6.dropdown-header.text-ngsek Game
-            a.dropdown-item(href='https://flag.x-q.me') Raise Your Red Flag
+              .dropdown-divider(v-if=`index !== (links.length - 1)`)
 
         li.nav-item
           router-link.nav-link(to=`/about`) About
@@ -32,6 +26,8 @@ nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :cla
 </template>
 
 <script>
+import Jump from 'jump.js'
+
 export default {
   name: 'Navbar',
   data () {
@@ -68,13 +64,19 @@ export default {
       $(function () {
         $(window).scroll(function () {
           let scrollVal = $(this).scrollTop()
-          if(scrollVal > 20)
+          if (scrollVal > 20)
             $('#nav').addClass('shrink')
           else
             $('#nav').removeClass('shrink')
         })
       })
     },
+    clickLogo () {
+      this.$nextTick(() => {
+        if (this.$route.name === `Index`) Jump(`html`)
+      })
+
+    }
   },
   computed:{
     navbarStyle () {
@@ -82,7 +84,7 @@ export default {
         maxHeight : (this.windowHeight - 50) + 'px'
       }
     }
-  }
+  },
 }
 </script>
 
