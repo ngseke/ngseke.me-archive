@@ -8,7 +8,7 @@ nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :cla
     #navbarContent.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
         li.nav-item.dropdown
-          a.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' :class='{active: this.$route.name==`Work`}')
+          a.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' :class='{active: this.$route.name===`Work`}')
             | Works
           .dropdown-menu
             template(v-for=`(link, link_index) in links`)
@@ -26,7 +26,9 @@ nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :cla
         li.nav-item
           router-link.nav-link(to=`/about`) About
         li.nav-item
-          a.nav-link(href='https://github.com/seanyellow' target='_blank') Github
+          a.nav-link(href='https://github.com/seanyellow' target='_blank')
+            | Github
+            fa.ml-1(icon='external-link-alt')
 </template>
 
 <script>

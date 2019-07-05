@@ -4,10 +4,7 @@ mixin card-body-row
     .container
       .row.justify-content-around.align-items-center
         .col-12.col-md-8.profile
-          .card
-            .card-body
-              .row
-                block
+          .card: .card-body: .row: block
 
 -
   let itemCount = 0
@@ -37,12 +34,12 @@ mixin card-body-row
 
     p.mb-4.text-center.text-lg-left
       span.skill(v-for='(s, index) in profile.skills' :style='getSkillStyle(index)')
-        span(v-html='s.icon' :title='s.title' v-if='s.icon')
+        fa(:icon='[`fab`, s.icon]' :title='s.title' v-if='s.icon')
         .text(v-else) {{ s.title }}
 
     p.text-center.text-lg-left.item(style=itemStyle(4))
       a.btn-social.mr-2(:href='s.url', target='_blank', v-for='s in profile.socials', :title='s.title')
-        i(:class='s.icon')
+        fa.ml-1(:icon='s.icon' v-if='s.icon')
 </template>
 
 <script>
@@ -54,20 +51,20 @@ export default {
     return {
       profile: {
         skills: [
-          {icon: '<i class="fab fa-vuejs"></i>', title: 'Vue.js'},
-          {icon: '<i class="fab fa-sass"></i>', title: 'Sass'},
-          {icon: '<i class="fab fa-gulp"></i>', title: 'Gulp'},
-          {icon: '<i class="fab fa-npm"></i>', title: 'npm'},
-          {icon: '<i class="fab fa-php"></i>', title: 'PHP'},
-          {icon: '<i class="fab fa-js"></i>', title: 'JavaScript'},
-          {icon: '<i class="fab fa-html5"></i>', title: 'HTML5'},
-          {icon: '<i class="fab fa-css3-alt"></i>', title: 'CSS3'},
+          {icon: 'vuejs', title: 'Vue.js'},
+          {icon: 'sass', title: 'Sass'},
+          {icon: 'gulp', title: 'Gulp'},
+          {icon: 'npm', title: 'npm'},
+          {icon: 'php', title: 'PHP'},
+          {icon: 'js', title: 'JavaScript'},
+          {icon: 'html5', title: 'HTML5'},
+          {icon: 'css3-alt', title: 'CSS3'},
           {title: 'Pug'},
         ],
         socials: [
-          {icon:'fab fa-linkedin', url:'http://www.linkedin.com/in/xingqiao-huang', title:'LinkedIn'},
-          {icon:'fab fa-github', url:'https://github.com/seanyellow', title:'GitHub'},
-          {icon:'fas fa-envelope', url:'mailto:a92304a92304@gmail.com', title:'Email'},
+          {icon: [`fab`, `linkedin`], url:'http://www.linkedin.com/in/xingqiao-huang', title:'LinkedIn'},
+          {icon: [`fab`, `github`], url:'https://github.com/seanyellow', title:'GitHub'},
+          {icon: [`fas`, `envelope`], url:'mailto:a92304a92304@gmail.com', title:'Email'},
         ],
       },
     }

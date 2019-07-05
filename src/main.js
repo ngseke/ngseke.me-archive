@@ -20,7 +20,6 @@ library.add(fas)
 library.add(fab)
 Vue.component('fa', FontAwesomeIcon)
 
-/* eslint-disable no-new */
 new Vue({
   el: '#app',
   router,
