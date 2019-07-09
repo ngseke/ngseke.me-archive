@@ -46,7 +46,7 @@ export default {
         promise.then(() => {
           $('#detail img').each(function (index) {
             let alt = $(this).attr('alt')
-            if(alt!='') $(this).after(`<figcaption><i class="fa fa-angle-up"></i> ${alt} </figcaption>`)
+            if(alt!='') $(this).after(`<figcaption>▲ ${alt} </figcaption>`)
           })
           if(self.article.indexOf('<!DOCTYPE html>') > -1)
             this.$router.push('/')

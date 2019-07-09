@@ -25,3 +25,7 @@
 
 ![編輯賽況資訊](/static/img/mcip/competition.png)
 ![設定學校資訊](/static/img/mcip/config.png)
+
+除了管理後台之外，我也為樂台計劃設計了單頁式的形象官網。
+[https://mcip.ml/](https://mcip.ml/)
+![形象官網](/static/img/mcip/index.png)
