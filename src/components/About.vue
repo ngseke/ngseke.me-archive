@@ -1,45 +1,41 @@
 <template lang="pug">
-mixin card-body-row
-  section#about
-    .container
-      .row.justify-content-around.align-items-center
-        .col-12.col-md-8.profile
-          .card: .card-body: .row: block
-
 -
   let itemCount = 0
   const itemStyle = (number = 0) => {
     itemCount += number
     return { animationDelay: `${itemCount++ * .1 + .2 + .3}s` }
   }
+section#about
+  .container
+    .row.justify-content-around.align-items-center
+      .col-12.col-md-8.profile
+        .card: .card-body: .row
+          .col-12.col-lg-3.img-area
+            .avatar
+              .profile-mask(:class='{ play: isLoaded }')
+              img(src='/static/img/profile.jpg' @load='imageLoaded')
+          .col-12.col-lg-9.mt-3
+            h4.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' style=itemStyle()) 黃省喬
+            h6.mb-2.text-muted.text-center.text-lg-left.item(style=itemStyle()) Huang Xingqiao
+            p.text-center.text-lg-left.item(style=itemStyle())
+              small.mr-3(title='Education')
+                fa(icon='book')
+                |  NTUT / CSIE
+              small.mr-3(title='Location')
+                fa(icon='map-marker')
+                |  Taipei, Taiwan
+            hr
+            p.item.text-center.text-lg-left(style=itemStyle())
+              | 我是 Sean，畢業於北科資工系，專注於網頁設計前後端。
 
-+card-body-row
-  .col-12.col-lg-3.img-area
-    .avatar
-      .profile-mask
-      img(src='/static/img/profile.jpg')
-  .col-12.col-lg-9.mt-3
-    h4.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' style=itemStyle()) 黃省喬
-    h6.mb-2.text-muted.text-center.text-lg-left.item(style=itemStyle()) Huang Xingqiao
-    p.text-center.text-lg-left.item(style=itemStyle())
-      small.mr-3(title='Education')
-        fa(icon='book')
-        |  NTUT / CSIE
-      small.mr-3(title='Location')
-        fa(icon='map-marker')
-        |  Taipei, Taiwan
-    hr
-    p.item.text-center.text-lg-left(style=itemStyle())
-      | 我是 Sean，畢業於北科資工系，專注於網頁設計前後端。
+            p.mb-4.text-center.text-lg-left
+              span.skill(v-for='(s, index) in profile.skills' :style='getSkillStyle(index)')
+                fa(:icon='[`fab`, s.icon]' :title='s.title' v-if='s.icon')
+                .text(v-else) {{ s.title }}
 
-    p.mb-4.text-center.text-lg-left
-      span.skill(v-for='(s, index) in profile.skills' :style='getSkillStyle(index)')
-        fa(:icon='[`fab`, s.icon]' :title='s.title' v-if='s.icon')
-        .text(v-else) {{ s.title }}
-
-    p.text-center.text-lg-left.item(style=itemStyle(4))
-      a.btn-social.mr-2(:href='s.url', target='_blank', v-for='s in profile.socials', :title='s.title')
-        fa.ml-1(:icon='s.icon' v-if='s.icon')
+            p.text-center.text-lg-left.item(style=itemStyle(4))
+              a.btn-social.mr-2(:href='s.url', target='_blank', v-for='s in profile.socials', :title='s.title')
+                fa.ml-1(:icon='s.icon' v-if='s.icon')
 </template>
 
 <script>
@@ -67,6 +63,7 @@ export default {
           { icon: [`fas`, `envelope`], url:'mailto:a92304a92304@gmail.com', title:'Email' },
         ],
       },
+      isLoaded: false
     }
   },
   mounted () {
@@ -81,6 +78,9 @@ export default {
       const delta = .08
       return { animationDelay: `${i * delta + base}s` }
     },
+    imageLoaded () {
+      this.isLoaded = true
+    }
   }
 }
 </script>
@@ -217,8 +217,9 @@ $transition: box-shadow $duration $time-function, transform $duration $time-func
   border-radius: 100rem
   width: 25rem
   height: 25rem
-  animation: profile-mask-in 1.7s cubic-bezier(0.77, 0, 0.175, 1)
-  animation-fill-mode: backwards
-  transform: scale(0)
+  transform: scale(1)
   transform-origin: right bottom
+  &.play
+    animation: profile-mask-in 1.7s cubic-bezier(0.77, 0, 0.175, 1)
+    animation-fill-mode: forwards
 </style>

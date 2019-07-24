@@ -27,7 +27,7 @@
     "pug": "^2.0.3",
     "pug-filters": "^3.1.0",
     "pug-loader": "^2.4.0",
-    "sass-loader": "^7.0.1",
+    "sass-loader": "^7.1.0",
     "scrollreveal": "^3.4.0",
     "vue": "^2.5.2",
     "vue-router": "^3.0.1"
