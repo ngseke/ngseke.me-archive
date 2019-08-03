@@ -38,7 +38,7 @@ mixin section(id)
           h2.text-light EM Optimization Lab
           h5.text-light 電磁最佳化實驗室網站
           router-link.btn.btn-sm.btn-primary(to=`/work/emo`) Detail
-          a.btn.btn-sm.btn-primary(href='http://www.ntut.edu.tw/~yschen', target='_blank') Demo
+          a.btn.btn-sm.btn-primary(href='http://myweb.ntut.edu.tw/~yschen', target='_blank') Demo
           a.btn.btn-sm.btn-github(href='https://github.com/seanyellow/emo', target='_blank')
             fa(:icon='[`fab`, `github-alt`]')
             |  Github

@@ -3,7 +3,7 @@
 footer.text-center.py-5
   div
     | Designed by Huang Xingqiao © 2018-#[=년]
-    | 
+    |
     |
     a(href='https://x-q.me') x-q.me
 </template>
