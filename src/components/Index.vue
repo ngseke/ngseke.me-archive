@@ -12,7 +12,7 @@ mixin section(id)
         .row.justify-content-center
           .col-12.col-lg-5.text-center
             router-link.about-btn(to='about')
-              img.img-fluid.sr(src='/static/img/ngsek-01.svg' alt='黃色的我' title='黃色的我')
+              img.img-fluid.sr(src='/static/img/xingqiao.png' alt="Xingqiao's Works" title="Xingqiao's Works")
             a.btn.btn-light.scroll-down-btn(href='#' @click.prevent='scrollToMain'): fa(icon='angle-down')
   main
     // mcip
