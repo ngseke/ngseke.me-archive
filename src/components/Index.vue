@@ -5,7 +5,7 @@ mixin section(id)
       .row.justify-content-around.align-items-center: block
 
 #page
-  header
+  header(ref='header')
     // Index Cover Image
     .jumbotron.jumbotron-fluid.ngsek.flex-vertical(:style='asWindowHeightStyle')
       .container
@@ -133,7 +133,6 @@ export default {
         '#typingtyping': `${bgPath}typingtyping.jpg`,
         '#shanlinliang': `${bgPath}shanlinliang.jpg`,
         '#camp2017': `${bgPath}camp2017.png`,
-        '#jingshixifu': `${bgPath}jingshixifu.png`,
       }
     }
   },
@@ -158,7 +157,7 @@ export default {
   methods: {
     setParallexBg () {
       const table = this.backgroundTable
-      Object.keys(table).forEach(_ => $(_).parallax({imageSrc: table[_]}))
+      Object.keys(table).forEach(_ => $(_).parallax({ imageSrc: table[_] })) 
     },
     destroyParallexBg () {
       const table = this.backgroundTable

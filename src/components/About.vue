@@ -12,7 +12,7 @@ section#about
         .card: .card-body: .row
           .col-12.col-lg-3.img-area
             .avatar
-              .profile-mask(:class='{ play: isLoaded }')
+              .profile-mask(:class='{ play: isLoaded, loading: !isLoaded }')
               img(src='/static/img/profile.jpg' @load='imageLoaded')
           .col-12.col-lg-9.mt-3
             h4.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' style=itemStyle()) 黃省喬
@@ -23,10 +23,12 @@ section#about
                 |  NTUT / CSIE
               small.mr-3(title='Location')
                 fa(icon='map-marker')
-                |  Taipei, Taiwan
+                |  Taichung, Taiwan
             hr
             p.item.text-center.text-lg-left(style=itemStyle())
-              | 我是 Sean，畢業於北科資工系，專注於網頁設計前後端。
+              | Hi! I'm Sean.
+              br
+              | 畢業於北科資工系，專注於網頁前端與 Vue.js 開發。
 
             p.mb-4.text-center.text-lg-left
               span.skill(v-for='(s, index) in profile.skills' :style='getSkillStyle(index)')
@@ -44,25 +46,21 @@ import Jump from 'jump.js'
 export default {
   name: 'About',
   data () {
+    const profile = {
+      skills: [
+        { icon: 'vuejs', title: 'Vue.js' },
+        { icon: 'sass', title: 'Sass' },
+        { title: 'Pug' },
+        { icon: 'npm', title: 'npm' },
+      ],
+      socials: [
+        { icon: [`fab`, `linkedin`], url:'http://www.linkedin.com/in/xingqiao-huang', title:'LinkedIn' },
+        { icon: [`fab`, `github`], url:'https://github.com/seanyellow', title:'GitHub' },
+        { icon: [`fas`, `envelope`], url:'mailto:a92304a92304@gmail.com', title:'Email' },
+      ],
+    }
     return {
-      profile: {
-        skills: [
-          { icon: 'vuejs', title: 'Vue.js' },
-          { icon: 'sass', title: 'Sass' },
-          { icon: 'gulp', title: 'Gulp' },
-          { icon: 'npm', title: 'npm' },
-          { icon: 'php', title: 'PHP' },
-          { icon: 'js', title: 'JavaScript' },
-          { icon: 'html5', title: 'HTML5' },
-          { icon: 'css3-alt', title: 'CSS3' },
-          { title: 'Pug' },
-        ],
-        socials: [
-          { icon: [`fab`, `linkedin`], url:'http://www.linkedin.com/in/xingqiao-huang', title:'LinkedIn' },
-          { icon: [`fab`, `github`], url:'https://github.com/seanyellow', title:'GitHub' },
-          { icon: [`fas`, `envelope`], url:'mailto:a92304a92304@gmail.com', title:'Email' },
-        ],
-      },
+      profile,
       isLoaded: false
     }
   },
@@ -113,6 +111,9 @@ $transition: box-shadow $duration $time-function, transform $duration $time-func
     transform: scale(1)
   to
     transform: scale(0)
+
+p
+  line-height: 1.5rem
 
 #about
   margin-top: 6rem
@@ -222,4 +223,6 @@ $transition: box-shadow $duration $time-function, transform $duration $time-func
   &.play
     animation: profile-mask-in 1.7s cubic-bezier(0.77, 0, 0.175, 1)
     animation-fill-mode: forwards
+  &.loading
+    transform: scale(1)
 </style>
