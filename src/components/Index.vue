@@ -1,13 +1,13 @@
 <template lang="pug">
 mixin section(id)
-  section(id=id)
+  section(id=id :style=`getSectionStyle('${id}')`)&attributes(attributes)
     .container
       .row.justify-content-around.align-items-center: block
 
 #page
   header(ref='header')
     // Index Cover Image
-    .jumbotron.jumbotron-fluid.ngsek.flex-vertical(:style='asWindowHeightStyle')
+    .jumbotron.jumbotron-fluid.ngsek.flex-vertical
       .container
         .row.justify-content-center
           .col-12.col-lg-5.text-center
@@ -116,52 +116,63 @@ mixin section(id)
 
 <script>
 import Jump from 'jump.js'
+import VanillaTilt from 'vanilla-tilt'
 
 const bgPath = `../static/img/bg/`
 
 export default {
   name: 'Index',
   data () {
+    this.backgroundTable = { 
+      '#mcip': `https://c.pxhere.com/photos/92/14/dj_music_light_neon_turntable-145322.jpg!d`,
+      '#emo': `${bgPath}emo.jpg`,
+      '#boss': `${bgPath}boss.jpg`,
+      '#flag': `${bgPath}flag.jpg`,
+      '#gomoku': `https://c.pxhere.com/photos/56/e0/stones_decorative_stones_ornament_decoration_art_nature_cairn_background-693169.jpg!d`,
+      '#typingtyping': `${bgPath}typingtyping.jpg`,
+      '#shanlinliang': `${bgPath}shanlinliang.jpg`,
+      '#camp2017': `${bgPath}camp2017.png`,
+    }
     return {
-      backgroundTable: {
-        '.ngsek': `${bgPath}index-cover.jpg`,
-        '#mcip': `https://c.pxhere.com/photos/92/14/dj_music_light_neon_turntable-145322.jpg!d`,
-        '#emo': `${bgPath}emo.jpg`,
-        '#boss': `${bgPath}boss.jpg`,
-        '#flag': `${bgPath}flag.jpg`,
-        '#gomoku': `https://c.pxhere.com/photos/56/e0/stones_decorative_stones_ornament_decoration_art_nature_cairn_background-693169.jpg!d`,
-        '#typingtyping': `${bgPath}typingtyping.jpg`,
-        '#shanlinliang': `${bgPath}shanlinliang.jpg`,
-        '#camp2017': `${bgPath}camp2017.png`,
-      }
+      windowWidth: null,
     }
   },
   mounted () {
     this.top()
-
-    this.windowHeight = $(window).height()  // 設定data.windowHeight值(視窗高度)
-
+    this.windowWidth = $(window).width()
+    $(window).resize(() => this.windowWidth = $(window).width())
+    
     this.$nextTick(() => {
-      this.setParallexBg()
       this.setScrollReveal()
       $('[data-toggle="tooltip"]').tooltip()  // 啟用tooltip
     })
 
     $(window).trigger('resize').trigger('scroll')
     $('#navbarContent').collapse('hide')
-
   },
   beforeRouteUpdate (to, from, next) {
     next()
   },
   methods: {
-    setParallexBg () {
-      const table = this.backgroundTable
-      Object.keys(table).forEach(_ => $(_).parallax({ imageSrc: table[_] })) 
-    },
-    destroyParallexBg () {
-      const table = this.backgroundTable
-      Object.keys(table).forEach(_ => $(_).parallax('destroy'))
+    setTilt (isDestory = false) {
+      const table = this.backgroundTable 
+      const options = {
+        glare: true,
+        'max-glare': .2,
+        max: 5,
+      }
+
+      Object.keys(table).some(_ => {
+        const element = document.querySelector(_)
+        if (!element) return true
+        
+        if (!isDestory) {
+          VanillaTilt.init(element, options)
+        } else {
+          const tilt = element.vanillaTilt
+          if (tilt) tilt.destroy()
+        }
+      })
     },
     setScrollReveal () {
       window.sr = this.$ScrollReveal({
@@ -182,21 +193,64 @@ export default {
       const navHeight = $('#nav').outerHeight()
       Jump('main', { offset: -navHeight })
     },
+    getSectionStyle (_) {
+      const id = `#${_}`
+      const url = this.backgroundTable[id]
+      return { backgroundImage: `url('${url}')` }
+    },
   },
-  computed:{
-    asWindowHeightStyle () {
-      return {
-        height : `${this.windowHeight}px`
-      }
+  watch: {
+    windowWidth: {
+      async handler (_) {
+        await this.$nextTick()
+        
+        if (_ >= 576) {
+          this.setTilt()
+        } else {
+          this.setTilt(true)
+        }
+      },
+      immediate: true,
     },
   },
   beforeDestroy () {
-    this.destroyParallexBg()
+    this.setTilt(true)
   }
 }
 </script>
 
-<style lang="sass">
+<style scoped lang="sass">
+header
+  height: 100vh
+  .jumbotron
+    background-image: url('../../static/img/bg/index-cover.jpg')
+    background-size: cover
+main
+  overflow: hidden
+  
+section
+  background-size: cover
+  transform-style: preserve-3d
+  margin: 2rem
+  border-radius: 1rem
+  margin-bottom: 3rem
+  box-shadow: 0 1rem 1.5rem rgba(#1e1e1e, 0.2)
+  .container
+    transition: transform .3s
+  &:hover
+    .container
+      transform: translateZ(3rem)
+      
+  //- 手機版移除 tilt 效果  
+  @media (max-width: 576px)
+    margin: 0
+    border-radius: 0
+    .container
+      transform: none
+    &:hover
+      .container
+        transform: none
+
 .about-btn
   display: block
   transition: all .5s
