@@ -96,7 +96,7 @@ export default {
       height: 36px
   &.shrink
     background-color: rgba(white, 0.95)
-    backdrop-filter: blur(20px)
+    // backdrop-filter: blur(20px)
     +box-shadow
 
 #nav.light
