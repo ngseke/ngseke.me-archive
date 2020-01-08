@@ -223,7 +223,7 @@ export default {
 header
   height: 100vh
   .jumbotron
-    background-image: url('../../static/img/bg/index-cover.jpg')
+    background-image: url('../../static/img/bg/pencil.jpg')
     background-size: cover
 main
   overflow: hidden
