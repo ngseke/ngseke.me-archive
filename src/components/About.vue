@@ -18,12 +18,16 @@ section#about
             h4.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' style=itemStyle()) 黃省喬
             h6.mb-2.text-muted.text-center.text-lg-left.item(style=itemStyle()) Huang Xingqiao
             p.text-center.text-lg-left.item(style=itemStyle())
+              small.mr-3(title='Title')
+                fa(icon='briefcase')
+                |  Frontend Engineer
               small.mr-3(title='Education')
                 fa(icon='book')
-                |  NTUT / CSIE
+                |  NTUT CSIE
               small.mr-3(title='Location')
                 fa(icon='map-marker')
-                |  Taichung, Taiwan
+                |  Taipei, Taiwan
+              
             hr
             p.item.text-center.text-lg-left(style=itemStyle())
               | Hi! I'm Sean.
@@ -148,6 +152,8 @@ p
     &:hover
       color: $ngsek
       transform: scale(1.3)
+  small
+    white-space: nowrap
 
   &:hover
     box-shadow: (1rem + $distance * 2) (1rem + $distance * 2) lighten($ngsek, 5%)

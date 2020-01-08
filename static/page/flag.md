@@ -1,7 +1,7 @@
 # 紅旗舉起來
 ###### Jun, 2018
 ---
-線上玩: [flag.x-q.me](https://flag.x-q.me)  
+線上玩: [flag.seanyellow.ga](https://flag.seanyellow.ga)  
 
 數位影像處理期末專題。
 

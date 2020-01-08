@@ -55,7 +55,7 @@ mixin section(id)
           h2.text-light BOSS
           h5.text-light 線上飲料購物系統
           router-link.btn.btn-sm.btn-primary(to=`/work/boss`) Detail
-          a.btn.btn-sm.btn-primary(href='http://boss.x-q.me', target='_blank') Demo
+          a.btn.btn-sm.btn-primary(href='http://boss.seanyellow.ga', target='_blank') Demo
           a.btn.btn-sm.btn-github(href='https://github.com/seanyellow/boss', target='_blank')
             fa(:icon='[`fab`, `github-alt`]')
             |  Github
@@ -89,7 +89,7 @@ mixin section(id)
           h2 Raise Your Red Flag
           h5 紅旗舉起來
           router-link.btn.btn-sm.btn-primary(to=`/work/flag`) Detail
-          a.btn.btn-sm.btn-primary(href='https://flag.x-q.me' target='_blank')
+          a.btn.btn-sm.btn-primary(href='https://flag.seanyellow.ga' target='_blank')
             fa(icon='gamepad')
             |  Play
           a.btn.btn-sm.btn-github(href='https://github.com/seanyellow/Raise-Your-Red-Flag' target='_blank')
@@ -123,7 +123,7 @@ const bgPath = `../static/img/bg/`
 export default {
   name: 'Index',
   data () {
-    this.backgroundTable = { 
+    this.backgroundTable = {
       '#mcip': `https://c.pxhere.com/photos/92/14/dj_music_light_neon_turntable-145322.jpg!d`,
       '#emo': `${bgPath}emo.jpg`,
       '#boss': `${bgPath}boss.jpg`,
@@ -155,7 +155,7 @@ export default {
   },
   methods: {
     setTilt (isDestory = false) {
-      const table = this.backgroundTable 
+      const table = this.backgroundTable
       const options = {
         glare: true,
         'max-glare': .2,
@@ -241,7 +241,7 @@ section
     .container
       transform: translateZ(3rem)
       
-  //- 手機版移除 tilt 效果  
+  //- 手機版移除 tilt 效果
   @media (max-width: 576px)
     margin: 0
     border-radius: 0

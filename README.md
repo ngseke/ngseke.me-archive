@@ -1,4 +1,4 @@
-# X-Q.ME
+# SEANYELLOW.GA
 
 ## Installation
 

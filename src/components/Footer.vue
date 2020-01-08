@@ -2,10 +2,13 @@
 - const 년 = new Date().getFullYear()
 footer.text-center.py-5
   div
-    | Designed by Huang Xingqiao © 2018-#[=년]
+    | Designed by
     |
+    router-link(to='about')  Huang Xingqiao
+    |  © 2018-#[=년]
+    
     |
-    a(href='https://x-q.me') x-q.me
+    a(href='https://seanyellow.ga') seanyellow.ga
 </template>
 
 <script>
