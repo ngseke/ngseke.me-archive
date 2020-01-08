@@ -8,6 +8,11 @@ import Parallax from 'jquery-parallax.js'
 import { common } from './mixins/common.js'
 
 Vue.prototype.$ScrollReveal = ScrollReveal
+ScrollReveal({
+  reset: false,
+  duration: 1000,
+  scale: 1,
+})
 Vue.config.productionTip = false
 Vue.mixin(common)
 

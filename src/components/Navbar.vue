@@ -1,5 +1,5 @@
 <template lang="pug">
-nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :class='{ light: isLight && this.$route.name === `Index` }')
+nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :class='{ light: isLight, shrink: isShrink }')
   .container
     router-link.navbar-brand(to='/' @click.native='clickLogo')
       img.img-fluid(src='../../static/favicon.png' alt='Logo')
@@ -27,32 +27,33 @@ nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :cla
 
 <script>
 import Jump from 'jump.js'
+import { throttle } from 'throttle-debounce'
 
 export default {
   name: 'Navbar',
   data () {
+    this.links = [
+      {
+        category: 'Website',
+        works: [
+          { name: 'MCIP CMS', link: '/work/mcip' },
+          { name: 'EM Optimization Lab', link: '/work/emo' },
+          { name: 'BOSS', link: '/work/boss' },
+        ]
+      },
+      {
+        category: 'Game',
+        works: [
+          { name: 'Gomoku', link: '/work/gomoku' },
+          // { name: 'OOXX', link: '/work/ooxx' },
+          { name: 'Raise Your Red Flag', link: '/work/flag' },
+          { name: 'Typing Typing!', link: '/work/typingtyping' },
+        ]
+      },
+    ]
     return {
       windowHeight: 500,
-      links: [
-        {
-          category: 'Website',
-          works: [
-            { name: 'MCIP CMS', link: '/work/mcip' },
-            { name: 'EM Optimization Lab', link: '/work/emo' },
-            { name: 'BOSS', link: '/work/boss' },
-          ]
-        },
-        {
-          category: 'Game',
-          works: [
-            { name: 'Gomoku', link: '/work/gomoku' },
-            // { name: 'OOXX', link: '/work/ooxx' },
-            { name: 'Raise Your Red Flag', link: '/work/flag' },
-            { name: 'Typing Typing!', link: '/work/typingtyping' },
-          ]
-        },
-      ],
-      isLight: false
+      isShrink: false,
     }
   },
   mounted () {
@@ -61,21 +62,15 @@ export default {
   },
   methods: {
     setNavShrink () {
-      $(function () {
-        $(window).scroll(function () {
-          let scrollVal = $(this).scrollTop()
-          if (scrollVal > 20)
-            $('#nav').addClass('shrink')
-          else
-            $('#nav').removeClass('shrink')
-        })
+      const throttled = throttle(250, () => {
+        this.isShrink = $(window).scrollTop() > 100
       })
+      $(window).scroll(throttled)
     },
     clickLogo () {
       this.$nextTick(() => {
         if (this.$route.name === `Index`) Jump(`html`)
       })
-
     }
   },
   computed:{
@@ -83,7 +78,10 @@ export default {
       return {
         maxHeight : (this.windowHeight - 50) + 'px'
       }
-    }
+    },
+    isLight () {
+      return false && this.$route.name === `Index`
+    },
   },
 }
 </script>
@@ -121,5 +119,4 @@ export default {
 .navbar-light .navbar-toggler
   color: rgba($ngsek,6)
   border-color: rgba($ngsek,0)
-
 </style>

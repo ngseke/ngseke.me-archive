@@ -119,7 +119,6 @@ import Jump from 'jump.js'
 import VanillaTilt from 'vanilla-tilt'
 
 const bgPath = `../static/img/bg/`
-
 export default {
   name: 'Index',
   data () {
@@ -175,19 +174,14 @@ export default {
       })
     },
     setScrollReveal () {
-      window.sr = this.$ScrollReveal({
-        reset: false,
-        duration: 1000,
-        scale: 1,
-      })
+      const { $ScrollReveal: sr } = this
+      
+      sr().reveal('.ngsek .sr', { reset: true }, 300)
+      
+      sr().reveal('.work-img', { distance: 0, scale: 1.1 })
+      sr().reveal('.work-content', { origin: 'left', delay: 500 })
 
-      sr.reveal('.sr')
-      sr.reveal('.ngsek .sr', { reset: true }, 300)
-
-      sr.reveal('.work-img', { distance: 0, scale: 1.1 })
-      sr.reveal('.work-content', { origin: 'left', delay: 500 })
-
-      sr.reveal('.chunchicha-small-sr', { origin: 'top', delay: '600', scale: .95, easing: 'ease' })  // 純喫茶
+      sr().reveal('.chunchicha-small-sr', { origin: 'top', delay: '600', scale: .95, easing: 'ease' })  // 純喫茶
     },
     scrollToMain () {
       const navHeight = $('#nav').outerHeight()
@@ -215,6 +209,7 @@ export default {
   },
   beforeDestroy () {
     this.setTilt(true)
+    this.$ScrollReveal().destroy()
   }
 }
 </script>
