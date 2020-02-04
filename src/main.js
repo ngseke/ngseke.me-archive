@@ -25,10 +25,16 @@ library.add(fas)
 library.add(fab)
 
 Vue.component('fa', FontAwesomeIcon)
+Vue.prototype.$titleName = `Xingqiao's Portfolio`
 
-new Vue({
+const app = new Vue({
   el: '#app',
   router,
   components: { App },
   template: '<App/>'
+})
+
+router.beforeEach((to, from, next) => {
+  if (to.name !== 'Work') document.title = app.$titleName
+  next()
 })

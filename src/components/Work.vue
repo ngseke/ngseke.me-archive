@@ -23,37 +23,37 @@ export default {
     Loader,
   },
   mounted () {
-    this.FetchDetail(this.$route.params.name)
+    this.fetchDetail(this.$route.params.name)
     $('#navbarContent').collapse('hide')
     $(window).trigger('resize').trigger('scroll')
   },
   beforeRouteUpdate (to, from, next) {
-    this.FetchDetail(to.params.name)
+    this.fetchDetail(to.params.name)
     $('#navbarContent').collapse('hide')
     $("html, body").animate({ scrollTop: 0 }, 0)
 
     next()
   },
   methods:{
-    FetchDetail (page) {
-      var self = this
-      self.article = null
-      $.get(`../static/page/${page}.md`, (data) => {
-        const promise = new Promise(function(resolve) {
-          self.article = marked(data)
-          resolve()
+    fetchDetail (page) {
+      const vm = this
+      vm.article = null
+      $.get(`../static/page/${page}.md`, async function (data) {
+        vm.article = marked(data)
+        if (vm.article.indexOf('<!DOCTYPE html>') > -1) this.$router.push('/')
+        
+        await vm.$nextTick()
+        
+        $('#detail img').each(function (index) {
+          const alt = $(this).attr('alt')
+          if (alt) $(this).after(`<figcaption>▲ ${alt} </figcaption>`)
         })
-        promise.then(() => {
-          $('#detail img').each(function (index) {
-            let alt = $(this).attr('alt')
-            if(alt!='') $(this).after(`<figcaption>▲ ${alt} </figcaption>`)
-          })
-          if(self.article.indexOf('<!DOCTYPE html>') > -1)
-            this.$router.push('/')
-        })
-      }).fail(() => {
-        this.$router.push('/')
-      })
+        vm.setTitle()
+      }).fail(() => this.$router.push('/'))
+    },
+    setTitle () {
+      const pageName = $('h1').text()
+      if (pageName) document.title = `${pageName} ｜ ${this.$titleName}`
     }
   },
 }
