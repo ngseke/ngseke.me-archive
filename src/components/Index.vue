@@ -24,7 +24,7 @@ mixin section(id)
         .work-content
           img(src='/static/img/mcip/logo.svg' alt='mcip logo')
           h2.text-light MCIP CMS
-          h5.text-light #[b 樂台計劃]後台管理系統
+          h5.text-light #[b 樂台計畫]後台管理系統
           router-link.btn.btn-sm.btn-primary(to=`/work/mcip`) Detail
 
     // em optimization lab
