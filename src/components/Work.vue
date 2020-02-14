@@ -9,6 +9,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import marked from 'marked'
 import Loader from '@/components/Loader'
 
@@ -35,21 +36,24 @@ export default {
     next()
   },
   methods:{
-    fetchDetail (page) {
-      const vm = this
-      vm.article = null
-      $.get(`../static/page/${page}.md`, async function (data) {
-        vm.article = marked(data)
-        if (vm.article.indexOf('<!DOCTYPE html>') > -1) this.$router.push('/')
-        
-        await vm.$nextTick()
-        
-        $('#detail img').each(function (index) {
-          const alt = $(this).attr('alt')
-          if (alt) $(this).after(`<figcaption>▲ ${alt} </figcaption>`)
-        })
-        vm.setTitle()
-      }).fail(() => this.$router.push('/'))
+    async fetchDetail (page) {
+      this.article = null
+      
+      try {
+        const { data } = await axios.get(`../static/page/${page}.md`, { params: { v: +new Date() }})
+        this.article = marked(data)
+      } catch (e) {
+        this.$router.push('/')
+      }
+      
+      await this.$nextTick()
+      
+      $('#detail img').each(function (index) {
+        const alt = $(this).attr('alt')
+        if (alt) $(this).after(`<figcaption>▲ ${alt} </figcaption>`)
+      })
+      
+      this.setTitle()
     },
     setTitle () {
       const pageName = $('h1').text()
