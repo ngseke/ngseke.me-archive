@@ -38,6 +38,7 @@ export default {
         works: [
           { name: 'MCIP CMS', link: '/work/mcip' },
           { name: 'EM Optimization Lab', link: '/work/emo' },
+          { name: 'Realtime Monitor', link: '/work/realtime' },
           { name: 'BOSS', link: '/work/boss' },
         ]
       },

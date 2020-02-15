@@ -42,7 +42,18 @@ mixin section(id)
           a.btn.btn-sm.btn-github(href='https://github.com/seanyellow/emo', target='_blank')
             fa(:icon='[`fab`, `github-alt`]')
             |  Github
-
+            
+    // Realtime Monitor
+    +section(`realtime`)
+      .col-12.col-md-5.mb-3
+        .work-img
+          img.img-fluid.cover(src='/static/img/realtime/cover.png' alt='realtime monitor cover')
+      .col-12.col-md-5
+        .work-content
+          h2.text-light Realtime Monitor
+          h5.text-light 測速網站爬蟲
+          router-link.btn.btn-sm.btn-primary(to=`/work/realtime`) Detail
+          
     // Boss
     +section(`boss`)
       .col-12.col-md-5.mb-3
@@ -125,6 +136,7 @@ export default {
     this.backgroundTable = {
       '#mcip': `https://c.pxhere.com/photos/92/14/dj_music_light_neon_turntable-145322.jpg!d`,
       '#emo': `${bgPath}emo.jpg`,
+      '#realtime': `https://c.pxhere.com/photos/e4/37/code_computer_technology_html_screen-121859.jpg!d`,
       '#boss': `${bgPath}boss.jpg`,
       '#flag': `${bgPath}flag.jpg`,
       '#gomoku': `https://c.pxhere.com/photos/56/e0/stones_decorative_stones_ornament_decoration_art_nature_cairn_background-693169.jpg!d`,
