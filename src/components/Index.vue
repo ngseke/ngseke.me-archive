@@ -153,7 +153,7 @@ export default {
     next()
   },
   methods: {
-    setTilt (isDestory = false) {
+    setTilt () {
       const table = this.backgroundTable
       const options = {
         glare: true,
@@ -164,13 +164,14 @@ export default {
       Object.keys(table).some(_ => {
         const element = document.querySelector(_)
         if (!element) return true
-        
-        if (!isDestory) {
-          VanillaTilt.init(element, options)
-        } else {
+
+        VanillaTilt.init(element, options)
+
+        this.$once('hook:beforeDestroy', () => {
           const tilt = element.vanillaTilt
+          console.log(tilt)
           if (tilt) tilt.destroy()
-        }
+        })
       })
     },
     setScrollReveal () {
@@ -182,6 +183,8 @@ export default {
       sr().reveal('.work-content', { origin: 'left', delay: 500 })
 
       sr().reveal('.chunchicha-small-sr', { origin: 'top', delay: '600', scale: .95, easing: 'ease' })  // 純喫茶
+      
+      this.$once('hook:beforeDestroy', () => this.$ScrollReveal().destroy())
     },
     scrollToMain () {
       const navHeight = $('#nav').outerHeight()
@@ -207,10 +210,6 @@ export default {
       immediate: true,
     },
   },
-  beforeDestroy () {
-    this.setTilt(true)
-    this.$ScrollReveal().destroy()
-  }
 }
 </script>
 
