@@ -10,9 +10,9 @@ mixin section(id)
     .jumbotron.jumbotron-fluid.ngsek.flex-vertical
       .container
         .row.justify-content-center
-          .col-12.col-lg-5.text-center
+          .col-6.col-md-12.text-center.d-flex.flex-column.align-items-center
             router-link.about-btn(to='about')
-              img.img-fluid.sr(src='/static/img/xingqiao.png' alt="Xingqiao's Works" title="Xingqiao's Works")
+              .logo Xingqiao's Portfolio
             a.btn.btn-light.scroll-down-btn(href='#' @click.prevent='scrollToMain'): fa(icon='angle-down')
   main
     // mcip
@@ -136,11 +136,11 @@ export default {
     this.backgroundTable = {
       '#mcip': `https://c.pxhere.com/photos/92/14/dj_music_light_neon_turntable-145322.jpg!d`,
       '#emo': `${bgPath}emo.jpg`,
-      '#realtime': `https://c.pxhere.com/photos/e4/37/code_computer_technology_html_screen-121859.jpg!d`,
+      '#realtime': `https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80`,
       '#boss': `${bgPath}boss.jpg`,
       '#flag': `${bgPath}flag.jpg`,
       '#gomoku': `https://c.pxhere.com/photos/56/e0/stones_decorative_stones_ornament_decoration_art_nature_cairn_background-693169.jpg!d`,
-      '#typingtyping': `${bgPath}typingtyping.jpg`,
+      '#typingtyping': `https://images.unsplash.com/photo-1555347873-e5410faa3d10?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80`,
       '#shanlinliang': `${bgPath}shanlinliang.jpg`,
       '#camp2017': `${bgPath}camp2017.png`,
     }
@@ -161,16 +161,13 @@ export default {
     $(window).trigger('resize').trigger('scroll')
     $('#navbarContent').collapse('hide')
   },
-  beforeRouteUpdate (to, from, next) {
-    next()
-  },
   methods: {
     setTilt () {
       const table = this.backgroundTable
       const options = {
         glare: true,
-        'max-glare': .2,
-        max: 5,
+        'max-glare': .5,
+        max: 1,
       }
 
       Object.keys(table).some(_ => {
@@ -181,7 +178,6 @@ export default {
 
         this.$once('hook:beforeDestroy', () => {
           const tilt = element.vanillaTilt
-          console.log(tilt)
           if (tilt) tilt.destroy()
         })
       })
@@ -229,8 +225,12 @@ export default {
 header
   height: 100vh
   .jumbotron
-    background-image: url('../../static/img/bg/pencil.jpg')
+    background-image: url('https://images.unsplash.com/photo-1530543787849-128d94430c6b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
     background-size: cover
+  .logo
+    font-family: 'Pacifico', cursive
+    font-size: 3rem
+    
 main
   overflow: hidden
   
@@ -242,10 +242,10 @@ section
   margin-bottom: 3rem
   box-shadow: 0 1rem 1.5rem rgba(#1e1e1e, 0.2)
   .container
-    transition: transform .3s
+    transition: transform .4s
   &:hover
     .container
-      transform: translateZ(3rem)
+      transform: translateZ(2rem)
       
   //- 手機版移除 tilt 效果
   @media (max-width: 576px)
@@ -258,9 +258,26 @@ section
         transform: none
 
 .about-btn
-  display: block
-  transition: all .5s
+  display: inline-block
+  transition: transform .5s
   margin-bottom: 5rem
+  position: relative
+  &::after
+    content: ''
+    position: absolute
+    width: 100%
+    background-color: #1a1a1a
+    height: 6px
+    bottom: 5px
+    left: 0
+    border-radius: 100px
+    transform: scaleX(0)
+    transform-origin: left
+    transition: transform .5s
   &:hover
     transform: scale(1.05)
+    text-decoration: none
+    @media (min-width: 768px)
+      &::after
+        transform: none
 </style>
