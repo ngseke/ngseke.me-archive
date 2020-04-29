@@ -25,7 +25,7 @@ mixin section(id)
           img(src='/static/img/mcip/logo.svg' alt='mcip logo')
           h2.text-light MCIP CMS
           h5.text-light #[b 樂台計畫]後台管理系統
-          router-link.btn.btn-sm.btn-primary(to=`/work/mcip`) Detail
+          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("mcip")') Detail
 
     // em optimization lab
     +section(`emo`)
@@ -37,7 +37,7 @@ mixin section(id)
           img(src='/static/img/emo/logo.svg' alt='emo logo')
           h2.text-light EM Optimization Lab
           h5.text-light 電磁最佳化實驗室網站
-          router-link.btn.btn-sm.btn-primary(to=`/work/emo`) Detail
+          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("emo")') Detail
           a.btn.btn-sm.btn-primary(href='http://myweb.ntut.edu.tw/~yschen', target='_blank') Demo
           a.btn.btn-sm.btn-github(href='https://github.com/seanyellow/emo', target='_blank')
             fa(:icon='[`fab`, `github-alt`]')
@@ -52,7 +52,7 @@ mixin section(id)
         .work-content
           h2.text-light Realtime Monitor
           h5.text-light 測速網站爬蟲
-          router-link.btn.btn-sm.btn-primary(to=`/work/realtime`) Detail
+          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("realtime")') Detail
           
     // Boss
     +section(`boss`)
@@ -65,7 +65,7 @@ mixin section(id)
         .work-content
           h2.text-light BOSS
           h5.text-light 線上飲料購物系統
-          router-link.btn.btn-sm.btn-primary(to=`/work/boss`) Detail
+          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("boss")') Detail
           a.btn.btn-sm.btn-primary(href='http://boss.seanyellow.ga', target='_blank') Demo
           a.btn.btn-sm.btn-github(href='https://github.com/seanyellow/boss', target='_blank')
             fa(:icon='[`fab`, `github-alt`]')
@@ -81,7 +81,7 @@ mixin section(id)
           img(src='/static/img/gomoku/logo.png' alt='gomoku logo')
           h2.text-light Gomoku
           h5.text-light 五子棋對戰
-          router-link.btn.btn-sm.btn-primary(to=`/work/gomoku`) Detail
+          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("gomoku")') Detail
           a.btn.btn-sm.btn-primary(href='https://gomoku.ga/' target='_blank')
             fa(icon='gamepad')
             |  Play
@@ -99,7 +99,7 @@ mixin section(id)
           .logo #[fa(icon='flag')]
           h2 Raise Your Red Flag
           h5 紅旗舉起來
-          router-link.btn.btn-sm.btn-primary(to=`/work/flag`) Detail
+          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("flag")') Detail
           a.btn.btn-sm.btn-primary(href='https://flag.seanyellow.ga' target='_blank')
             fa(icon='gamepad')
             |  Play
@@ -116,7 +116,7 @@ mixin section(id)
         .work-content
           h2 Typing Typing!
           h5 8-bit 風格打字遊戲
-          router-link.btn.btn-sm.btn-primary(to=`/work/typingtyping`) Detail
+          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("typingtyping")') Detail
           a.btn.btn-sm.btn-primary(href='/static/file/TypingTyping.zip' target='_blank' data-toggle='tooltip' data-placement='bottom' title='7.7mb')
             fa(icon='download')
             |  Download
@@ -203,6 +203,9 @@ export default {
       const url = this.backgroundTable[id]
       return { backgroundImage: `url('${url}')` }
     },
+    getProjectRoute (name) {
+      return { name: 'Project', params: { name } }
+    }
   },
   watch: {
     windowWidth: {

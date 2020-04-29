@@ -1,8 +1,4 @@
 const common = {
-  data () {
-    return {
-    }
-  },
   methods: {
     top () {
       document.body.scrollTop = 0

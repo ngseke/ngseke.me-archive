@@ -9,12 +9,12 @@ nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :cla
       ul.navbar-nav.mr-auto
         li.nav-item.dropdown
           a.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' :class='{ active: this.$route.name === `Work` }')
-            | Works
+            | Projects
           .dropdown-menu
             template(v-for=`(link, index) in links`)
               h6.dropdown-header.text-ngsek {{ link.category }}
               template(v-for=`work in link.works`)
-                router-link.dropdown-item(:to=`work.link`) {{ work.name }}
+                router-link.dropdown-item(:to='{ name: "Project", params: { name: work.name } }') {{ work.title }}
               .dropdown-divider(v-if=`index !== (links.length - 1)`)
 
         li.nav-item
@@ -36,19 +36,19 @@ export default {
       {
         category: 'Website',
         works: [
-          { name: 'MCIP CMS', link: '/work/mcip' },
-          { name: 'EM Optimization Lab', link: '/work/emo' },
-          { name: 'Realtime Monitor', link: '/work/realtime' },
-          { name: 'BOSS', link: '/work/boss' },
+          { title: 'MCIP CMS', name: 'mcip' },
+          { title: 'EM Optimization Lab', name: 'emo' },
+          { title: 'Realtime Monitor', name: 'realtime' },
+          { title: 'BOSS', name: 'boss' },
         ]
       },
       {
         category: 'Game',
         works: [
-          { name: 'Gomoku', link: '/work/gomoku' },
-          // { name: 'OOXX', link: '/work/ooxx' },
-          { name: 'Raise Your Red Flag', link: '/work/flag' },
-          { name: 'Typing Typing!', link: '/work/typingtyping' },
+          { title: 'Gomoku', name: 'gomoku' },
+          // { title: 'OOXX', name: 'ooxx' },
+          { title: 'Raise Your Red Flag', name: 'flag' },
+          { title: 'Typing Typing!', name: 'typingtyping' },
         ]
       },
     ]
