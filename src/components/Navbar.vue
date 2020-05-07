@@ -21,8 +21,8 @@ nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :cla
           router-link.nav-link(to=`/about`) About
         li.nav-item
           a.nav-link(href='https://github.com/seanyellow' target='_blank')
+            fa.mr-1(:icon='[`fab`, `github`]')
             | Github
-            fa.ml-1(icon='external-link-alt')
 </template>
 
 <script>

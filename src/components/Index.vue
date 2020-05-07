@@ -22,9 +22,9 @@ mixin section(id)
           img.img-fluid.cover(src='/static/img/mcip/cover.png' alt='mcip cover')
       .col-12.col-md-5
         .work-content
-          img(src='/static/img/mcip/logo.svg' alt='mcip logo')
+          img(src='/static/img/mcip/logo.svg' alt='樂台計畫')
           h2.text-light MCIP CMS
-          h5.text-light #[b 樂台計畫]後台管理系統
+          h5.text-light 後台管理系統
           router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("mcip")') Detail
 
     // em optimization lab
