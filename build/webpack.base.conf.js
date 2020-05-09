@@ -93,11 +93,11 @@ module.exports = {
     child_process: 'empty'
   },
   plugins: [  // 配置全局使用 jquery
-     new webpack.ProvidePlugin({
-     $: "jquery",
-     jQuery: "jquery",
-     jquery: "jquery",
-     "window.jQuery": "jquery"
- })],
-
+    new webpack.ProvidePlugin({
+      $: "jquery",
+      jQuery: "jquery",
+      jquery: "jquery",
+      "window.jQuery": "jquery"
+    }),
+  ],
 }
