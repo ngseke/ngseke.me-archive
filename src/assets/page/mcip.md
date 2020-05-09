@@ -13,7 +13,7 @@
 而對於主辦比賽的社團成員們，樂台計畫提供一套完整的後台管理系統。
 在此項目我負責的是**後台管理系統**開發與部分 Line App **UI/UX 設計**。
 
-![管理後台概覽頁面(Dashboard)](/static/img/mcip/cover.png)
+![管理後台概覽頁面(Dashboard)](/static/img/mcip/dashboard.png)
 
 管理後台前端框架為 Vue.js，主要都 Vuetify 這個組件庫來建置，它提供許多 Material Design 風格的組件如 button 和 text field 等，使得在設計 UI 上節省不少心力。
 ![參賽者報名列表](/static/img/mcip/forms.png)
