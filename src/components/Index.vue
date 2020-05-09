@@ -160,38 +160,38 @@ export default {
   methods: {
     setTilt () {
       const options = {
-        glare: true,
         'max-glare': .5,
+        glare: true,
         max: 1,
       }
 
-      Object.keys(this.backgrounds).some(_ => {
-        const $el = document.querySelector(_)
-        if (!$el) return true
-
-        VanillaTilt.init($el, options)
-
-        this.$once('hook:beforeDestroy', () => {
-          const tilt = $el.vanillaTilt
-          if (tilt) tilt.destroy()
-        })
-      })
+      Object.keys(this.backgrounds)
+        .map(_ => document.querySelector(_))
+        .filter(_ => _)
+        .forEach($el => VanillaTilt.init($el, options))
+        
+      this.$once('hook:beforeDestroy', this.removeTile)
+    },
+    removeTile () {
+      Object.keys(this.backgrounds)
+        .map(_ => document.querySelector(_))
+        .filter(_ => _)
+        .map(_ => _.vanillaTilt)
+        .filter(_ => _)
+        .forEach(tilt => tilt.destroy())
     },
     setScrollReveal () {
       const { $ScrollReveal: sr } = this
       
-      sr().reveal('.ngsek .sr', { reset: true }, 300)
-      
       sr().reveal('.work-img', { distance: 0, scale: 1.1 })
       sr().reveal('.work-content', { origin: 'left', delay: 500 })
-
       sr().reveal('.chunchicha-small-sr', { origin: 'top', delay: '600', scale: .95, easing: 'ease' })  // 純喫茶
       
       this.$once('hook:beforeDestroy', () => this.$ScrollReveal().destroy())
     },
     scrollToMain () {
-      const navHeight = $('#nav').outerHeight()
-      Jump('main', { offset: -navHeight })
+      const offset = -$('#nav').outerHeight()
+      Jump('main', { offset })
     },
     getSectionStyle (_) {
       const id = `#${_}`
@@ -208,11 +208,8 @@ export default {
       async handler (_) {
         await this.$nextTick()
         
-        if (_ >= 576) {
-          this.setTilt()
-        } else {
-          this.setTilt(true)
-        }
+        if (_ >= 576) this.setTilt()
+        else this.removeTile()
       },
       immediate: true,
     },
