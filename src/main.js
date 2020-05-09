@@ -36,5 +36,6 @@ const app = new Vue({
 
 router.beforeEach((to, from, next) => {
   if (to.name !== 'Work') document.title = app.$titleName
+  $('#navbarContent').collapse('hide')
   next()
 })

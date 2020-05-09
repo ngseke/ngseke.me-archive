@@ -1,56 +1,59 @@
 <template lang="pug">
 -
-  let itemCount = 0
-  const itemStyle = (number = 0) => {
-    itemCount += number
-    return { animationDelay: `${itemCount++ * .1 + .2 + .3}s` }
+  let count = 0
+  const itemStyle = (offset = 0) => {
+    count += offset
+    return { animationDelay: `${count++ * .1 + .2 + .3}s` }
   }
-section#about
-  .container
-    .row.justify-content-around.align-items-center
-      .col-12.col-md-8.profile
-        .card: .card-body: .row
-          .col-12.col-lg-3.img-area
-            .avatar
-              .profile-mask(:class='{ play: isLoaded, loading: !isLoaded }')
-              img(src='/static/img/profile.jpg' @load='imageLoaded')
-          .col-12.col-lg-9.mt-3
-            h4.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' style=itemStyle()) 黃省喬
-            h6.mb-2.text-muted.text-center.text-lg-left.item(style=itemStyle()) Huang Xingqiao
-            p.text-center.text-lg-left.item(style=itemStyle())
-              small.mr-3(title='Title')
-                fa(icon='briefcase')
-                |  Frontend Engineer
-              small.mr-3(title='Education')
-                fa(icon='book')
-                |  NTUT CSIE
-              small.mr-3(title='Location')
-                fa(icon='map-marker')
-                |  Taipei, Taiwan
-              
-            hr
-            p.item.text-center.text-lg-left(style=itemStyle())
-              | Hi! I'm Sean.
-              br
-              | 畢業於北科資工系，專注於網頁前端與 Vue.js 開發。
+section#about: .container: .row.justify-content-around.align-items-center
+  .col-12.col-md-8.profile: .card: .card-body: .row
+    .col-12.col-lg-3.img-area
+      .avatar
+        .profile-mask(:class='{ play: isLoaded, loading: !isLoaded }')
+        img(src='@/assets/img/profile.jpg' @load='imageLoaded')
+    .col-12.col-lg-9.mt-3
+      h4.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' style=itemStyle()) 黃省喬
+      h6.mb-2.text-muted.text-center.text-lg-left.item(style=itemStyle()) Huang Xingqiao
+      p.text-center.text-lg-left.item(style=itemStyle())
+        small.mr-3(title='Title')
+          fa(icon='briefcase')
+          |  Frontend Engineer
+        small.mr-3(title='Education')
+          fa(icon='book')
+          |  NTUT CSIE
+        small.mr-3(title='Location')
+          fa(icon='map-marker')
+          |  Taipei, Taiwan
+        
+      hr
+      p.item.text-center.text-lg-left(style=itemStyle())
+        | Hi! I'm Sean.
+        br
+        | 畢業於北科資工系，專注於網頁前端與 Vue.js 開發。
 
-            p.mb-4.text-center.text-lg-left
-              span.skill(v-for='(s, index) in profile.skills' :style='getSkillStyle(index)')
-                fa(:icon='[`fab`, s.icon]' :title='s.title' v-if='s.icon')
-                .text(v-else) {{ s.title }}
+      p.mb-4.text-center.text-lg-left
+        span.skill(
+          v-for='(s, index) in profile.skills'
+          :style='getSkillStyle(index)'
+        )
+          fa(:icon='[`fab`, s.icon]' :title='s.title' v-if='s.icon')
+          .text(v-else) {{ s.title }}
 
-            p.text-center.text-lg-left.item(style=itemStyle(4))
-              a.btn-social.mr-2(:href='s.url', target='_blank', v-for='s in profile.socials', :title='s.title')
-                fa.ml-1(:icon='s.icon' v-if='s.icon')
+      p.text-center.text-lg-left.item(style=itemStyle(4))
+        a.btn-social.mr-2(
+          v-for='{ title, icon, url } in profile.socials'
+          :href='url'
+          target='_blank'
+          :title='title'
+        )
+          fa.ml-1(:icon='icon' v-if='icon')
 </template>
 
 <script>
-import Jump from 'jump.js'
-
 export default {
   name: 'About',
   data () {
-    const profile = {
+    this.profile = {
       skills: [
         { icon: 'vuejs', title: 'Vue.js' },
         { icon: 'sass', title: 'Sass' },
@@ -58,21 +61,16 @@ export default {
         { icon: 'npm', title: 'npm' },
       ],
       socials: [
-        { icon: [`fab`, `linkedin`], url:'http://www.linkedin.com/in/xingqiao-huang', title:'LinkedIn' },
-        { icon: [`fab`, `github`], url:'https://github.com/seanyellow', title:'GitHub' },
-        { icon: [`fab`, `codepen`], url:'https://codepen.io/seanyellow', title:'CodePen' },
-        { icon: [`fab`, `telegram`], url:'https://t.me/hxqqq', title:'Telegram' },
-        { icon: [`fas`, `envelope`], url:'mailto:a92304a92304@gmail.com', title:'Email' },
+        { icon: [`fab`, `linkedin`], url: 'http://www.linkedin.com/in/xingqiao-huang', title:'LinkedIn' },
+        { icon: [`fab`, `github`], url: 'https://github.com/seanyellow', title:'GitHub' },
+        { icon: [`fab`, `codepen`], url: 'https://codepen.io/seanyellow', title:'CodePen' },
+        { icon: [`fab`, `telegram`], url: 'https://t.me/hxqqq', title:'Telegram' },
+        { icon: [`fas`, `envelope`], url: 'mailto:a92304a92304@gmail.com', title:'Email' },
       ],
     }
     return {
-      profile,
       isLoaded: false
     }
-  },
-  mounted () {
-    $(window).trigger('resize').trigger('scroll')
-    $('#navbarContent').collapse('hide')
   },
   methods: {
     getSkillStyle (i) {
@@ -126,8 +124,7 @@ p
   transition: $transition
   box-shadow: 1rem 1rem $ngsek
   .item
-    animation: item 1.2s cubic-bezier(0.77, 0, 0.175, 1)
-    animation-fill-mode: backwards
+    animation: item 1.2s cubic-bezier(0.77, 0, 0.175, 1) backwards
   .img-area
     position: relative
   .name
@@ -157,7 +154,6 @@ p
 
   &:hover
     box-shadow: (1rem + $distance * 2) (1rem + $distance * 2) lighten($ngsek, 5%)
-    // transform: translate(-$distance, -$distance)
     .avatar
       transform: translate(-$distance, -$distance)
       opacity: .9
