@@ -10,6 +10,23 @@
 <script>
 export default {
   name: 'Project',
+  metaInfo () {
+    const $body = $('<div></div>').append(this.article)
+    const title = $body.find('h1').text()
+    $body.find('h1, h6').remove()  // 移除文章標題和時間
+    const description = $body.text().trim().substr(0, 150) + '...'
+    const img = $body.find('img').prop('src')
+
+    return {
+      title,
+      meta: [
+        { property: 'og:title', vmid: 'og:title', content: name },
+        { property: 'description', vmid: 'description', content: description },
+        { property: 'og:description', vmid: 'og:description', content: description },
+        { property: 'og:image', vmid: 'og:image', content: img },
+      ]
+    }
+  },
   data () {
     return {
       article: null,
@@ -39,12 +56,12 @@ export default {
         if (alt) $(this).after(`<figcaption>▲ ${alt} </figcaption>`)
       })
       
-      this.setTitle()
+      // this.setTitle()
     },
-    setTitle () {
-      const pageName = $('h1').text()
-      if (pageName) document.title = `${pageName} ｜ ${this.$titleName}`
-    }
+    // setTitle () {
+    //   const pageName = $('h1').text()
+    //   if (pageName) document.title = `${pageName} ｜ ${this.$titleName}`
+    // }
   },
 }
 </script>

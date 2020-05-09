@@ -7,6 +7,9 @@ import Bootstrap from 'bootstrap'
 import Parallax from 'jquery-parallax.js'
 import { common } from './mixins/common.js'
 
+import VueMeta from 'vue-meta'
+Vue.use(VueMeta)
+
 Vue.prototype.$ScrollReveal = ScrollReveal
 ScrollReveal({
   reset: false,
@@ -35,7 +38,6 @@ const app = new Vue({
 })
 
 router.beforeEach((to, from, next) => {
-  if (to.name !== 'Work') document.title = app.$titleName
   $('#navbarContent').collapse('hide')
   next()
 })

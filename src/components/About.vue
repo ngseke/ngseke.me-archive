@@ -50,8 +50,19 @@ section#about: .container: .row.justify-content-around.align-items-center
 </template>
 
 <script>
+const title = 'About Me'
+const description = `Hi! I'm Sean. 畢業於北科資工系，專注於網頁前端與 Vue.js 開發。`
+
 export default {
   name: 'About',
+  metaInfo: {
+    title,
+    meta: [
+      { property: 'og:title', vmid: 'og:title', content: name },
+      { property: 'description', vmid: 'description', content: description },
+      { property: 'og:description', vmid: 'og:description', content: description },
+    ]
+  },
   data () {
     this.profile = {
       skills: [

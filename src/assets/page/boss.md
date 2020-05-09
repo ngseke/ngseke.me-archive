@@ -1,4 +1,4 @@
-# BOSS茶店
+# BOSS 茶店
 ###### Nov, 2017 - Jan, 2018
 ---
 DEMO: [http://boss.seanyellow.ga/](http://boss.seanyellow.ga/)

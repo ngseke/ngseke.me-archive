@@ -1,9 +1,11 @@
 # 紅旗舉起來
 ###### Jun, 2018
 ---
-線上玩: [flag.seanyellow.ga](https://flag.seanyellow.ga)  
+線上玩: [flag.seanyellow.ga](https://flag.seanyellow.ga)
 
 數位影像處理期末專題。
+
+![](/static/img/flag/cover.png)
 
 藉助 **tracking.js** 的力量，在瀏覽器以 Webcam 遊玩，重溫耳熟能詳的團康遊戲，一起成為*那支舉起專家*。
 

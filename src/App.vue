@@ -9,12 +9,24 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
+const title = `Xingqiao's Portfolio`
+const description = `Huang Xingqiao's Portfolio. 黃色的我，黃省喬的作品集`
+
 export default {
   name: 'App',
   components: {
     Navbar,
     Footer,
   },
+  metaInfo: {
+    titleTemplate: (_) => _ ? `${_} | ${title}` : title,
+    meta: [
+      { property: 'og:title', vmid: 'og:title', content: title },
+      { property: 'description', vmid: 'description', content: description },
+      { property: 'og:description', vmid: 'og:description', content: description },
+      { property: 'og:image', vmid: 'og:image', content: require('@/assets/img/index.png') },
+    ]
+  }
 }
 </script>
 
