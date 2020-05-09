@@ -64,7 +64,7 @@ export default {
   methods: {
     setNavShrink () {
       const throttled = throttle(250, () => {
-        this.isShrink = $(window).scrollTop() > 100
+        this.isShrink = $(window).scrollTop() > 50
       })
       $(window).scroll(throttled)
     },
