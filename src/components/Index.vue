@@ -149,7 +149,6 @@ export default {
     }
   },
   mounted () {
-    this.top()
     this.windowWidth = $(window).width()
     $(window).resize(() => this.windowWidth = $(window).width())
     

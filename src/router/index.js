@@ -9,6 +9,10 @@ Vue.use(Router)
 export default new Router({
   linkActiveClass: `active`,
   mode: 'history',
+  // 滾動行為 (https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html)
+  scrollBehavior (to, from, savedPosition) {
+    return { x: 0, y: 0 }
+  },
   routes: [
     {
       path: '/',

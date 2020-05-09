@@ -73,8 +73,6 @@ export default {
   mounted () {
     $(window).trigger('resize').trigger('scroll')
     $('#navbarContent').collapse('hide')
-
-    this.top()
   },
   methods: {
     getSkillStyle (i) {
