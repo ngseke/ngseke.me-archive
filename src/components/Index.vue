@@ -19,27 +19,27 @@ mixin section(id)
     +section(`mcip`)
       .col-12.col-md-5.mb-3
         .work-img
-          img.img-fluid.cover(src='/static/img/mcip/cover.png' alt='mcip cover')
+          img.img-fluid.cover(src='@/assets/img/cover/mcip.png' alt='MCIP cover')
       .col-12.col-md-5
         .work-content
-          img(src='/static/img/mcip/logo.svg' alt='樂台計畫')
+          img(src='@/assets/img/logo/mcip.svg' alt='樂台計畫')
           h2.text-light MCIP CMS
           h5.text-light 後台管理系統
-          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("mcip")') Detail
+          router-link.btn.btn-sm.btn-primary(:to='getRoute("mcip")') Detail
 
     // em optimization lab
     +section(`emo`)
       .col-12.col-md-5.mb-3
         .work-img
-          img.img-fluid.cover(src='/static/img/emo/cover.png' alt='emo cover')
+          img.img-fluid.cover(src='@/assets/img/cover/emo.png' alt='EM Optimization Lab Cover')
       .col-12.col-md-5
         .work-content
-          img(src='/static/img/emo/logo.svg' alt='emo logo')
+          img(src='@/assets/img/logo/emo.svg' alt='EM Optimization Lab Logo')
           h2.text-light EM Optimization Lab
           h5.text-light 電磁最佳化實驗室網站
-          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("emo")') Detail
-          a.btn.btn-sm.btn-primary(href='http://myweb.ntut.edu.tw/~yschen', target='_blank') Demo
-          a.btn.btn-sm.btn-github(href='https://github.com/seanyellow/emo', target='_blank')
+          router-link.btn.btn-sm.btn-primary(:to='getRoute("emo")') Detail
+          a.btn.btn-sm.btn-primary(href='http://myweb.ntut.edu.tw/~yschen' target='_blank') Demo
+          a.btn.btn-sm.btn-github(href='https://github.com/seanyellow/emo' target='_blank')
             fa(:icon='[`fab`, `github-alt`]')
             |  Github
             
@@ -47,27 +47,27 @@ mixin section(id)
     +section(`realtime`)
       .col-12.col-md-5.mb-3
         .work-img
-          img.img-fluid.cover(src='/static/img/realtime/cover.png' alt='realtime monitor cover')
+          img.img-fluid.cover(src='@/assets/img/cover/realtime.png' alt='Realtime Monitor Cover')
       .col-12.col-md-5
         .work-content
           h2.text-light Realtime Monitor
           h5.text-light 測速網站爬蟲
-          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("realtime")') Detail
+          router-link.btn.btn-sm.btn-primary(:to='getRoute("realtime")') Detail
           
     // Boss
     +section(`boss`)
       .col-12.col-md-5.mb-3
         .work-img
-          img.img-fluid.cover(src='/static/img/boss/cover.png' alt='boss cover')
+          img.img-fluid.cover(src='@/assets/img/cover/boss.png' alt='BOSS Cover')
           .chunchicha-small-sr
-            img.chunchicha-small.d-none.d-lg-block(src='/static/img/boss/product.png' title="We don't actually sell these products.")
+            img.chunchicha-small.d-none.d-lg-block(src='@/assets/img/element/products.png' title="We don't actually sell these products.")
       .col-12.col-md-5
         .work-content
           h2.text-light BOSS
           h5.text-light 線上飲料購物系統
-          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("boss")') Detail
-          a.btn.btn-sm.btn-primary(href='http://boss.seanyellow.ga', target='_blank') Demo
-          a.btn.btn-sm.btn-github(href='https://github.com/seanyellow/boss', target='_blank')
+          router-link.btn.btn-sm.btn-primary(:to='getRoute("boss")') Detail
+          a.btn.btn-sm.btn-primary(href='http://boss.seanyellow.ga' target='_blank') Demo
+          a.btn.btn-sm.btn-github(href='https://github.com/seanyellow/boss' target='_blank')
             fa(:icon='[`fab`, `github-alt`]')
             |  Github
 
@@ -75,17 +75,17 @@ mixin section(id)
     +section(`gomoku`)
       .col-12.col-md-5.mb-3
         .work-img
-          img.img-fluid.cover(src='/static/img/gomoku/cover.png' alt='gomoku cover')
+          img.img-fluid.cover(src='@/assets/img/cover/gomoku.png' alt='Gomoku Cover')
       .col-12.col-md-5
         .work-content
-          img(src='/static/img/gomoku/logo.png' alt='gomoku logo')
+          img(src='@/assets/img/logo/gomoku.png' alt='Gomoku Logo')
           h2.text-light Gomoku
           h5.text-light 五子棋對戰
-          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("gomoku")') Detail
+          router-link.btn.btn-sm.btn-primary(:to='getRoute("gomoku")') Detail
           a.btn.btn-sm.btn-primary(href='https://gomoku.ga/' target='_blank')
             fa(icon='gamepad')
             |  Play
-          a.btn.btn-sm.btn-github(href='https://github.com/seanyellow/gomoku', target='_blank')
+          a.btn.btn-sm.btn-github(href='https://github.com/seanyellow/gomoku' target='_blank')
             fa(:icon='[`fab`, `github-alt`]')
             |  Github
 
@@ -93,13 +93,13 @@ mixin section(id)
     +section(`flag`)
       .col-12.col-md-6.mb-3
         .work-img
-          img.img-fluid.cover(src='/static/img/flag/cover.png')
+          img.img-fluid.cover(src='@/assets/img/cover/flag.png'  alt='Raise Your Red Flag Logo')
       .col-12.col-md-5
         .work-content
           .logo #[fa(icon='flag')]
           h2 Raise Your Red Flag
           h5 紅旗舉起來
-          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("flag")') Detail
+          router-link.btn.btn-sm.btn-primary(:to='getRoute("flag")') Detail
           a.btn.btn-sm.btn-primary(href='https://flag.seanyellow.ga' target='_blank')
             fa(icon='gamepad')
             |  Play
@@ -111,12 +111,12 @@ mixin section(id)
     +section(`typingtyping`)
       .col-12.col-md-6.mb-3
         .work-img
-          img.img-fluid.cover(src='/static/img/typingtyping/cover.png')
+          img.img-fluid.cover(src='@/assets/img/cover/typingtyping.png' alt='Typing Typing! Logo')
       .col-12.col-md-5
         .work-content
           h2 Typing Typing!
           h5 8-bit 風格打字遊戲
-          router-link.btn.btn-sm.btn-primary(:to='getProjectRoute("typingtyping")') Detail
+          router-link.btn.btn-sm.btn-primary(:to='getRoute("typingtyping")') Detail
           a.btn.btn-sm.btn-primary(href='/static/file/TypingTyping.zip' target='_blank' data-toggle='tooltip' data-placement='bottom' title='7.7mb')
             fa(icon='download')
             |  Download
@@ -129,20 +129,17 @@ mixin section(id)
 import Jump from 'jump.js'
 import VanillaTilt from 'vanilla-tilt'
 
-const bgPath = `../static/img/bg/`
 export default {
   name: 'Index',
   data () {
-    this.backgroundTable = {
-      '#mcip': `https://c.pxhere.com/photos/92/14/dj_music_light_neon_turntable-145322.jpg!d`,
-      '#emo': `${bgPath}emo.jpg`,
-      '#realtime': `https://images.unsplash.com/photo-1451187580459-43490279c0fa?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1652&q=80`,
-      '#boss': `${bgPath}boss.jpg`,
-      '#flag': `${bgPath}flag.jpg`,
-      '#gomoku': `https://c.pxhere.com/photos/56/e0/stones_decorative_stones_ornament_decoration_art_nature_cairn_background-693169.jpg!d`,
-      '#typingtyping': `https://images.unsplash.com/photo-1555347873-e5410faa3d10?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80`,
-      '#shanlinliang': `${bgPath}shanlinliang.jpg`,
-      '#camp2017': `${bgPath}camp2017.png`,
+    this.backgrounds = {
+      '#mcip': require(`@/assets/img/bg/mcip.jpg`),
+      '#emo': require(`@/assets/img/bg/emo.jpg`),
+      '#realtime': require(`@/assets/img/bg/realtime.jpg`),
+      '#boss': require(`@/assets/img/bg/boss.jpg`),
+      '#flag': require(`@/assets/img/bg/flag.jpg`),
+      '#gomoku': require(`@/assets/img/bg/gomoku.jpg`),
+      '#typingtyping': require(`@/assets/img/bg/typingtyping.jpg`),
     }
     return {
       windowWidth: null,
@@ -162,21 +159,20 @@ export default {
   },
   methods: {
     setTilt () {
-      const table = this.backgroundTable
       const options = {
         glare: true,
         'max-glare': .5,
         max: 1,
       }
 
-      Object.keys(table).some(_ => {
-        const element = document.querySelector(_)
-        if (!element) return true
+      Object.keys(this.backgrounds).some(_ => {
+        const $el = document.querySelector(_)
+        if (!$el) return true
 
-        VanillaTilt.init(element, options)
+        VanillaTilt.init($el, options)
 
         this.$once('hook:beforeDestroy', () => {
-          const tilt = element.vanillaTilt
+          const tilt = $el.vanillaTilt
           if (tilt) tilt.destroy()
         })
       })
@@ -199,10 +195,11 @@ export default {
     },
     getSectionStyle (_) {
       const id = `#${_}`
-      const url = this.backgroundTable[id]
-      return { backgroundImage: `url('${url}')` }
+      const img = this.backgrounds[id]
+      
+      return { backgroundImage: `url('${img}')` }
     },
-    getProjectRoute (name) {
+    getRoute (name) {
       return { name: 'Project', params: { name } }
     }
   },
@@ -227,7 +224,7 @@ export default {
 header
   height: 100vh
   .jumbotron
-    background-image: url('https://images.unsplash.com/photo-1530543787849-128d94430c6b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80')
+    background-image: url('~@/assets/img/bg/index-cover.jpg')
     background-size: cover
   .logo
     font-family: 'Pacifico', cursive
