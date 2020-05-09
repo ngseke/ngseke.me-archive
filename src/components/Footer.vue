@@ -2,8 +2,9 @@
 - const 년 = new Date().getFullYear()
 footer.text-center.py-5
   div
-    a(href='https://seanyellow.ga') seanyellow.ga
-    |  © 2018-#[=년]
+    | © 2018-#[=년]
+    |
+    router-link(to='/') Xingqiao's Portfolio
 </template>
 
 <script>
