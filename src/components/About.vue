@@ -17,7 +17,7 @@ section#about: .container: .row.justify-content-around.align-items-center
       p.text-center.text-lg-left.item(style=itemStyle())
         small.mr-3(title='Title')
           fa(icon='briefcase')
-          |  Frontend Engineer
+          |  Frontend Developer
         small.mr-3(title='Education')
           fa(icon='book')
           |  NTUT CSIE
