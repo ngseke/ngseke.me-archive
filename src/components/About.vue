@@ -61,6 +61,7 @@ export default {
       { property: 'og:title', vmid: 'og:title', content: name },
       { property: 'description', vmid: 'description', content: description },
       { property: 'og:description', vmid: 'og:description', content: description },
+      { property: 'og:image', vmid: 'og:image', content: require('@/assets/img/about.png') },
     ]
   },
   data () {
