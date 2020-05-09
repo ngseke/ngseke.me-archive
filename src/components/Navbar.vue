@@ -4,7 +4,7 @@ nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :cla
     router-link.navbar-brand(to='/' @click.native='clickLogo')
       img.img-fluid(src='../../static/favicon.png' alt='Logo')
     button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarContent')
-      fa(icon='angle-down')
+      fa(icon='bars')
     #navbarContent.collapse.navbar-collapse
       ul.navbar-nav.mr-auto
         li.nav-item.dropdown
@@ -97,7 +97,7 @@ export default {
       height: 36px
   &.shrink
     background-color: rgba(white, 0.95)
-    // backdrop-filter: blur(20px)
+    backdrop-filter: blur(5px)
     +box-shadow
 
 #nav.light

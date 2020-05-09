@@ -132,6 +132,8 @@ p
 section#about
   +py(3rem)
   margin-top: 6rem
+  @media (max-width: 992px)
+    +py(0)
 
 .profile .card
   transition: $transition
