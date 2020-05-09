@@ -13,6 +13,9 @@
 body
   font-family: "Nunito Sans", 'jf-openhuninn', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft JhengHei"
 
+section
+  +py(7rem)
+    
 .ngsek
   background-color: transparent
   margin: 0
@@ -27,87 +30,6 @@ body
 
 main
   overflow-x: hidden
-
-// 文章區段
-section
-  +py(7rem)
-  .work-img
-    position: relative
-    img.cover
-      transition: all .4s
-      display: inline-block
-      margin-bottom: 2rem
-  .work-content
-    text-align: center
-    h5
-      letter-spacing: .5rem
-      font-weight: 200
-      margin-bottom: 1.25rem
-    h2, h5
-      text-shadow: 0 0 5px rgba(white, .8)
-      &.text-light
-        text-shadow: 0 0 5px rgba(black, .3), 0 0 10px rgba(black, .8)
-
-#mcip
-  .work-content
-    img
-      max-width: 7rem
-
-#emo
-  .work-content
-    img
-      max-width: 5rem
-      margin-bottom: 1.5rem
-
-#boss
-  img.chunchicha-small
-    height: auto
-    width: 8rem
-    position: absolute
-    bottom: 0
-    right: 0
-    transform: translate(1.5rem, 1rem)
-
-#gomoku
-  .work-content
-    img
-      max-width: 5rem
-      margin-bottom: 1.5rem
-
-#typingtyping
-  img.cover
-    +box-shadow
-
-#flag
-  +py(8rem)
-  h2
-    color: #c82333
-  .logo
-    color: #c82333
-    font-size: 5rem
-
-  img.cover
-    +box-shadow
-
-#shanlinliang
-  img.cover
-    +box-shadow
-  .work-content
-    img
-      margin-bottom: 1rem
-      max-width: 20rem
-      width: 100%
-
-#camp2017
-  text-align: center
-  h5
-    font-weight: 500
-    letter-spacing: .5rem
-    margin-bottom: 1.5rem
-    color: #d87875
-
-#about
-  +py(3rem)
 
 // 通用
 .flex-vertical

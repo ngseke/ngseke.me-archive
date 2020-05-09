@@ -13,7 +13,7 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import "../assets/css/style.sass"
+@import "~@/assets/css/style.sass"
 
 footer
   +py(1rem)

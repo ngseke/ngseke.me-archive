@@ -28,5 +28,5 @@ export default {
 @import "~animate.css/source/_base"
 
 // 自訂樣式
-@import "./assets/css/style.sass"
+@import "~@/assets/css/style.sass"
 </style>

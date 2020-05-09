@@ -88,7 +88,7 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import "../assets/css/style.sass"
+@import "~@/assets/css/style.sass"
 #nav
   background-color: rgba(white, 0)
   transition: background-color .3s ease-out

@@ -86,8 +86,8 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import "../assets/css/function"
-@import "../assets/css/color"
+@import "~@/assets/css/function"
+@import "~@/assets/css/color"
 
 $distance: .5rem
 $duration: .7s
@@ -117,7 +117,8 @@ $transition: box-shadow $duration $time-function, transform $duration $time-func
 p
   line-height: 1.5rem
 
-#about
+section#about
+  +py(3rem)
   margin-top: 6rem
 
 .profile .card
