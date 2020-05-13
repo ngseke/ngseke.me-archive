@@ -141,9 +141,6 @@ export default {
       
       this.$once('hook:beforeDestroy', () => this.$ScrollReveal().destroy())
     },
-    getRoute (name) {
-      return { name: 'Project', params: { name } }
-    },
   },
   computed: {
     isTile () {

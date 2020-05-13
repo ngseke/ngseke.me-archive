@@ -33,7 +33,7 @@ export default {
       article: null,
     }
   },
-  mounted () {
+  created () {
     this.fetch(this.$route.params.name)
   },
   beforeRouteUpdate (to, from, next) {

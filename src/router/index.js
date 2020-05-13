@@ -1,8 +1,5 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Index from '@/components/Index'
-import Project from '@/components/Project'
-import About from '@/components/About'
 
 Vue.use(Router)
 
@@ -17,26 +14,30 @@ export default new Router({
     {
       path: '/',
       name: 'Index',
-      component: Index
-    },
-    {
-      path: "*",
-      redirect: "/"
-    },
-    // 重新導向舊作品路由
-    {
-      path: '/work/:name',
-      redirect: '/project/:name'
+      component: () => import('@/components/Index')
     },
     {
       path: '/project/:name',
       name: 'Project',
-      component: Project
+      component: () => import('@/components/Project')
+    },
+    {
+      path: '/project/',
+      name: 'Project',
+      component: () => import('@/components/Projects')
     },
     {
       path: '/about',
       name: 'About',
-      component: About
-    }
+      component: () => import('@/components/About')
+    },
+    {
+      path: '/work/:name',
+      redirect: '/project/:name'  // 重新導向舊作品路由
+    },
+    {
+      path: '*',
+      redirect: '*'   // 找不到路由時導向至首頁
+    },
   ]
 })

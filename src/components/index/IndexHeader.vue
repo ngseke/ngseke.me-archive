@@ -1,13 +1,12 @@
 <template lang="pug">
-header
-  .jumbotron.jumbotron-fluid.flex-vertical
-    .container
-      .row.justify-content-center
-        .col-6.col-md-12.text-center.d-flex.flex-column.align-items-center
-          router-link.about-btn(to='about')
-            .logo Xingqiao's Portfolio
-          a.btn.btn-light.scroll-down-btn(href='#' @click.prevent='scrollToMain')
-            fa(icon='angle-down')
+header.jumbotron.jumbotron-fluid.flex-vertical
+  .container
+    .row.justify-content-center
+      .col-6.col-md-12.text-center.d-flex.flex-column.align-items-center
+        router-link.about-btn(to='about')
+          .logo Xingqiao's Portfolio
+        a.btn.btn-light.scroll-down-btn(href='#' @click.prevent='scrollToMain')
+          fa(icon='angle-down')
 </template>
 
 <script>
@@ -25,18 +24,20 @@ export default {
 </script>
 
 <style scoped lang="sass">
-header
+@import "~@/assets/css/color"
+  
+header.jumbotron
   height: 100vh
-  .jumbotron
-    height: 100vh
-    background-image: url('~@/assets/img/bg/index-cover.jpg')
-    background-size: cover
-    background-color: transparent
-    margin: 0
-    padding: 0
+  background-image: url('~@/assets/img/bg/index-cover.jpg')
+  background-size: cover
+  background-color: transparent
+  margin: 0
+  padding: 0
+  
   .logo
     font-family: 'Pacifico', cursive
     font-size: 3rem
+    color: $black
     
   .about-btn
     display: inline-block
@@ -47,7 +48,7 @@ header
       content: ''
       position: absolute
       width: 100%
-      background-color: #1a1a1a
+      background-color: currentColor
       height: 6px
       bottom: 5px
       left: 0
