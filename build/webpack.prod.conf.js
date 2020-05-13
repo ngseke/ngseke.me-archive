@@ -124,7 +124,7 @@ const webpackConfig = merge(baseWebpackConfig, {
         '/',
         '/about',
         '/project',
-        ...['mcip', 'emo', 'realtime', 'boss', 'gomoku', 'flag', 'typingtyping', 'camp2017', 'shanlinliang'].map(i => `/project/${i}`),
+        ...['mcip', 'mcip-cms', 'emo', 'realtime', 'boss', 'gomoku', 'flag', 'typingtyping', 'camp2017', 'shanlinliang'].map(i => `/project/${i}`),
       ],
     })
   ]

@@ -59,7 +59,10 @@ export default {
 </script>
 
 <style scoped lang="sass">
+@import "~@/assets/css/function"
+  
 section
+  +py(7rem)
   background-size: cover
   transform-style: preserve-3d
   margin: 2rem

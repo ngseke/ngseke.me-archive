@@ -36,7 +36,8 @@ export default {
       {
         category: 'Website',
         works: [
-          { title: 'MCIP CMS', name: 'mcip' },
+          { title: 'MCIP Official Website', name: 'mcip' },
+          { title: 'MCIP CMS', name: 'mcip-cms' },
           { title: 'EM Optimization Lab', name: 'emo' },
           { title: 'Realtime Monitor', name: 'realtime' },
           { title: 'BOSS', name: 'boss' },

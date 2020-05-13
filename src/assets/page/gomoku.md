@@ -1,7 +1,6 @@
 # 五子棋對戰
 ###### Oct, 2018 - Nov, 2018
 ---
-線上玩: [gomoku.ga](https://gomoku.ga/)  
 
 ![](/static/img/gomoku/title.png)
 
@@ -14,3 +13,9 @@
 ![遊戲對戰與聊天室](/static/img/gomoku/cover.png)
 
 ![行動裝置版本](/static/img/gomoku/mobile.png)
+
+## Demo
+
+[https://gomoku.ga/](https://gomoku.ga/)  
+
+<iframe src="https://ghbtns.com/github-btn.html?user=seanyellow&repo=gomoku&type=star&count=false" frameborder="0" scrolling="0" width="150" height="20" title="Star twbs/bootstrap on GitHub"></iframe>

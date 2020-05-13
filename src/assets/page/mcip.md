@@ -1,33 +1,39 @@
-# 樂台計畫後台管理系統
-###### Nov, 2018 - Present
+# 樂台計畫官方網站
+###### Feb, 2019 - Present
 ---
 
-![](/static/img/mcip/fb-cover.png)
+![樂台計畫官方網站](/static/img/mcip/cover.png)
 
-[樂台計畫](https://mcip.ml/)誕生於 2018 年之冬，是我與大學好友 Kaichi 攜手開發的大專院校音樂平台，我們皆來自吉他社，基於對音樂的熱愛，我們協力打造出**樂台計畫**，宗旨是打造更優質的音樂賽事環境。
+<!-- 以漸層營造出清新、極簡的風格，搭配滾動動畫更顯生動活潑的官方網站。 -->
 
-在上線屆滿一年來，**樂台計畫**傾聽了來自各方用戶的反饋和建議，不忘初心、砥礪前行，持續優化系統與擴展規模。
+樂台計畫在建立初期，其實並沒有打算規劃官方網站。但隨著規模漸漸成長，有越來越多的人與音樂社團對我們感到好奇，也考量到樂台計畫品牌和形象的推廣。為了可以接觸到更多群眾，讓更多人可以透過 Facebook 粉絲專頁以外的管道來認識我們，於是我便開始著手網站的設計。
 
-對於參賽者，樂台計畫以 Line App 官方帳號的形式，讓用戶輕鬆簡單地報名參賽，瀏覽各賽事的詳細資訊，還有查看當前比賽進度等功能。目前用戶數已超過 4,000 人，全台共計有 24 所大專院校的音樂社團與我們成為合作夥伴。
+## 舊版網站
+在前期版本，網站原本的定位僅僅是希望提供一個簡易的入口，引導使用者加入樂台計畫 Line App。因此當時主要是朝著單頁式網站的方向來設計，頁面上也只放置了 QRCode 等必要資訊。
 
-而對於主辦比賽的社團成員們，樂台計畫提供一套完整的後台管理系統。
-在此項目我負責的是**後台管理系統**開發與部分 Line App **UI/UX 設計**。
+為了盡快的製作出 prototype，當時選用 Parcel 這個簡單又快速的打包工具。只要設定好進入點，它就會自動分析所有相依的資源，並自動封裝成 bundle，也減少了很多需要手動配置的地方。
 
-![管理後台概覽頁面(Dashboard)](/static/img/mcip/dashboard.png)
+![早期網站首頁](/static/img/mcip/legacy.png)
 
-管理後台前端框架為 Vue.js，主要都 Vuetify 這個組件庫來建置，它提供許多 Material Design 風格的組件如 button 和 text field 等，使得在設計 UI 上節省不少心力。
-![參賽者報名列表](/static/img/mcip/forms.png)
-![編輯報名表單](/static/img/mcip/edit-form.png)
+## 以 Nuxt.js 重新架構
 
-本專案落實前後端分離架構，擁有一套規範的 API，使用 Axios 與後端串接。
-![登入畫面](/static/img/mcip/login.png)
+隨著網站的內容逐漸擴充，依序加入了「合作院校」、「聯絡我們」、「最新消息」和「FAQ」等區塊，我也思考如何優化網站 SEO，於是在後期決定改採用 Nuxt.js 這個 SSR 解決方案，重新架構整個網站。
 
-本專案全部都使用 Pug 模板語言進行撰寫，透過縮排就能很靈活地調整 html 的巢狀結構，它的混入功能也為設計模板帶來許多便利。
-![專案中使用的 Pug 模板](/static/img/mcip/pug.png)
+在遷移到 Nuxt.js 後我體會到許多好處，最明顯的是就是它可以預先抓取異步資料，並且直接把內容渲染在頁面上。其他像是 title、meta description 和 Open Graph 標籤等，也可以透過 Vue Meta 管理，一併預先渲染出來，讓搜尋引擎的爬蟲可以更容易爬到。
 
-![編輯賽況資訊](/static/img/mcip/competition.png)
-![設定學校資訊](/static/img/mcip/config.png)
+例如在社群媒體或是通訊軟體分享最新消息的文章時，其中縮圖和文章內容就能夠順利的被平台抓取，直接秀出預覽的資訊，提升使用者對連結的興趣。
 
-除了管理後台之外，我也為樂台計畫設計了單頁式的形象官網，一個以 Nuxt.js 建構的 SSR 網站。
+<!-- ![Facebook 分享連結預覽](/static/img/mcip/facebook-post.png) -->
+![Messenger 分享連結預覽](/static/img/mcip/facebook-messenger.png)
+
+
+## Landing Page
+我為識別 Logo 設計了簡單 SVG 動畫，藉著改變 `stroke-dashoffset` 和 `stroke-dasharray` 屬性，利用純 CSS3 製作出虛線描邊動畫。
+
+![Logo 動畫](/static/img/mcip/logo-animation.gif)
+
+## Demo
+
 [https://mcip.ml/](https://mcip.ml/)
-![形象官網](/static/img/mcip/index.png)
+
+<iframe src="https://ghbtns.com/github-btn.html?user=seanyellow&repo=mcip.ml&type=star&count=false" frameborder="0" scrolling="0" width="150" height="20" title="Star twbs/bootstrap on GitHub"></iframe>

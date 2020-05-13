@@ -2,13 +2,13 @@
 ###### Mar, 2018 - Oct, 2018
 ---
 
-DEMO: [https://myweb.ntut.edu.tw/~yschen/](https://myweb.ntut.edu.tw/~yschen/)
-
 這是台北科技大學之電磁最佳化實驗室 (EM Optimization Lab) 的網站，包含 RWD 來增進不同裝置上的瀏覽體驗。
 
 前端主要以 Vue.js 架構，使用 Sass 和 Pug 搭配 Gulp 自動化流程工具編譯，使用 Firebase 作為資料庫。
 
-![首頁畫面](/static/img/emo/cover.png)
+![首頁](/static/img/emo/cover.png)
+
+## 後台管理
 
 網站提供了簡單易用的後台介面，讓管理者能方便快速地更新頁面內容，如**修改首頁近期活動**、**上傳輪播照片**、 **修改實驗室成員** 等。
 
@@ -19,3 +19,9 @@ DEMO: [https://myweb.ntut.edu.tw/~yschen/](https://myweb.ntut.edu.tw/~yschen/)
 ![編輯研究項目](/static/img/emo/manage-research.png)
 ![編輯實驗室成員](/static/img/emo/manage-member.png)
 ![上傳輪播照片(可拖曳排序)](/static/img/emo/manage-carousel.png)
+
+## Demo
+
+[https://myweb.ntut.edu.tw/~yschen/](https://myweb.ntut.edu.tw/~yschen/)
+
+<iframe src="https://ghbtns.com/github-btn.html?user=seanyellow&repo=emo&type=star&count=false" frameborder="0" scrolling="0" width="150" height="20" title="Star twbs/bootstrap on GitHub"></iframe>

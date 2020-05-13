@@ -1,13 +1,14 @@
 <template lang="pug">
-#detail
+main
   .container
     .row.justify-content-center
       .col-12.col-lg-9
-        transition(name='fade')
-          article(v-html=`article`)
+        article(v-html='article')
 </template>
 
 <script>
+import mediumZoom from 'medium-zoom'
+
 export default {
   name: 'Project',
   metaInfo () {
@@ -15,7 +16,7 @@ export default {
     const title = $body.find('h1').text()
     $body.find('h1, h6').remove()  // 移除文章標題和時間
     const description = $body.text().trim().substr(0, 150) + '...'
-    const img = $body.find('img').prop('src')
+    const img = $body.find('img').prop('src')  // 第一張圖片作為縮圖
 
     return {
       title,
@@ -50,68 +51,27 @@ export default {
       }
       
       await this.$nextTick()
+      this.setDom()
+    },
+    setDom () {
+      const $imgs = $(this.$el).find('img')
       
-      $('#detail img').each(function (index) {
-        const alt = $(this).attr('alt')
-        if (alt) $(this).after(`<figcaption>▲ ${alt} </figcaption>`)
+      $imgs.each(function () {
+        const alt = $(this).prop('alt')
+        
+        if (alt) {
+          $(this)
+            .wrap('<figure/>')
+            .after(`<figcaption>${alt}</figcaption>`)
+        }
       })
       
-      // this.setTitle()
-    },
-    // setTitle () {
-    //   const pageName = $('h1').text()
-    //   if (pageName) document.title = `${pageName} ｜ ${this.$titleName}`
-    // }
+      mediumZoom($imgs.get())
+    }
   },
 }
 </script>
 
 <style lang="sass" scoped>
-@import "~@/assets/css/style.sass"
-
-#detail /deep/
-  margin-top: 7rem
-  img
-    display: block
-    max-width: 400px
-    height: auto
-    +mx(auto)
-    margin-top: 1rem
-    @media (max-width: 576px)
-      max-width: 100%
-  figcaption
-    text-align: center
-    margin: 1rem 0
-  .embed-responsive
-    max-width: 80%
-  h1, h2, h3, h4
-    background-color: rgba(white,1)
-
-  h1
-    color: $ngsek
-  h2
-    &::before, &::after
-      content: ''
-      color: rgba(black, .5)
-      font-weight: 900
-    &::before
-      content: '/'
-      display: inline-block
-      margin-right: 1rem
-
-  p
-    line-height: 1.7rem
-    letter-spacing: .1rem
-    margin-bottom: 1.5rem
-    
-  .embed-responsive
-    margin-bottom: 3rem
-
-.fade
-  &-enter
-    opacity: 0
-    transform: translateY(1rem)
-  &-enter-to
-    transition: translateY .5s, opacity .5s
-    opacity: 1
+@import "~@/assets/css/article"
 </style>

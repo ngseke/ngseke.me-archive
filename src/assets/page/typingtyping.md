@@ -1,11 +1,10 @@
 # Typing Typing!
 ###### Feb, 2017 - Jan, 2017
 ---
-遊戲下載: [TypingTyping.zip (7.7mb)](/static/file/TypingTyping.zip)
 
 物件導向程式設計期末專題。
 
-此遊戲以 [ZType](http://zty.pe/) 作為靈感來源而開發的打字射擊遊戲，以 Visual Studio 2015 建立專案，基於 [Game Framework 4.8](http://www.cc.ntut.edu.tw/~wkchen/game/) 以C++語言開發。
+這是以 [ZType](http://zty.pe/) 作為靈感來源而開發的打字射擊遊戲，以 Visual Studio 2015 建立專案，基於 [Game Framework 4.8](http://www.cc.ntut.edu.tw/~wkchen/game/) 以 C++ 語言撰寫的 Windows 平台遊戲。
 
 ![主選單](/static/img/typingtyping/menu.png)
 
@@ -55,3 +54,7 @@
 ![遊玩記錄](/static/img/typingtyping/interface3.png)
 ![清除遊玩記錄](/static/img/typingtyping/interface4.png)
 ![關於頁面](/static/img/typingtyping/interface5.png)
+
+## 遊戲下載
+[TypingTyping.zip (7.7mb)](/static/file/TypingTyping.zip)
+<iframe src="https://ghbtns.com/github-btn.html?user=seanyellow&repo=Typing-Typing&type=star&count=false" frameborder="0" scrolling="0" width="150" height="20" title="Star twbs/bootstrap on GitHub"></iframe>

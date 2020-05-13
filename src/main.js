@@ -4,8 +4,9 @@ import router from './router'
 
 import ScrollReveal from 'scrollreveal'
 import Bootstrap from 'bootstrap'
-import Parallax from 'jquery-parallax.js'
 import { common } from './mixins/common.js'
+
+import './fontawesome'
 
 import VueMeta from 'vue-meta'
 Vue.use(VueMeta)
@@ -18,17 +19,6 @@ ScrollReveal({
 })
 Vue.config.productionTip = false
 Vue.mixin(common)
-
-import { library } from '@fortawesome/fontawesome-svg-core'
-import { fas } from '@fortawesome/free-solid-svg-icons'
-import { fab } from '@fortawesome/free-brands-svg-icons'
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
-library.add(fas)
-library.add(fab)
-
-Vue.component('fa', FontAwesomeIcon)
-Vue.prototype.$titleName = `Xingqiao's Portfolio`
 
 const app = new Vue({
   el: '#app',
