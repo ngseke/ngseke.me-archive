@@ -10,7 +10,7 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 
 const title = `Xingqiao's Portfolio`
-const description = `Huang Xingqiao's Portfolio. 黃色的我，黃省喬的作品集`
+const description = `Huang Xingqiao's Portfolio. 「黃色的我」`
 
 export default {
   name: 'App',
