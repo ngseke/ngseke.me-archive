@@ -19,10 +19,10 @@
 ![參賽者報名列表](/static/img/mcip-cms/forms.png)
 ![編輯報名表單](/static/img/mcip-cms/edit-form.png)
 
-此系統落實前後端分離的，先端使用 Axios 與後端串接。我與後端合力規劃並協調 API 的規格，其中也包括 Database Schema 的設計。在樂台計畫草創時期，我們根據業務邏輯，並考慮 NoSQL 的特性，妥善設計出合理的資料庫架構。
+此系統落實前後端分離，使用 Axios 與後端串接資料。我與後端合力規劃並協調 API 的規格，其中也包括 Database Schema 的設計。在樂台計畫草創時期，我們根據業務邏輯，並考慮 NoSQL 的特性，妥善設計出合理的資料庫架構。
 ![登入畫面](/static/img/mcip-cms/login.png)
 
-本專案一律使用 Pug 模板語言撰寫，透過縮排就能很靈活地調整 html 的巢狀結構，它的混入功能也為設計模板帶來許多便利。
+本專案一律使用 Pug 模板語言撰寫，透過縮排就能很靈活地調整 HTML 的巢狀結構，它的混入功能也為設計模板帶來許多便利。
 ![專案中使用的 Pug 模板](/static/img/mcip-cms/pug.png)
 
 ![編輯賽況資訊](/static/img/mcip-cms/competition.png)
