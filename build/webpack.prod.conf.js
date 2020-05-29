@@ -120,10 +120,22 @@ const webpackConfig = merge(baseWebpackConfig, {
     
     new PrerenderSpaPlugin({
       staticDir: path.join(__dirname, '../dist'),
+      postProcess (renderedRoute) {
+        // Ignore any redirects.
+        renderedRoute.route = renderedRoute.originalRoute
+        
+        // Remove /index.html from the output path if the dir name ends with a .html file extension.
+        if (renderedRoute.route.endsWith('.html')) {
+          renderedRoute.outputPath = path.join(__dirname, '../dist', renderedRoute.route)
+        }
+        return renderedRoute
+      },
       routes: [
         '/',
+        '/404.html',
         '/about',
         '/project',
+        '/projects',
         ...['mcip', 'mcip-cms', 'emo', 'realtime', 'boss', 'gomoku', 'flag', 'typingtyping', 'camp2017', 'shanlinliang'].map(i => `/project/${i}`),
       ],
     })

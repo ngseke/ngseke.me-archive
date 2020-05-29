@@ -4,7 +4,7 @@ import Router from 'vue-router'
 Vue.use(Router)
 
 export default new Router({
-  linkActiveClass: `active`,
+  linkActiveClass: 'active',
   mode: 'history',
   scrollBehavior: () => ({ x: 0, y: 0 }),   // 滾動行為 (https://router.vuejs.org/zh/guide/advanced/scroll-behavior.html)
   routes: [
@@ -19,7 +19,7 @@ export default new Router({
       component: () => import('@/components/Project')
     },
     {
-      path: '/project/',
+      path: '/project',
       name: 'Project List',
       component: () => import('@/components/Projects')
     },
@@ -28,13 +28,9 @@ export default new Router({
       name: 'About',
       component: () => import('@/components/About')
     },
-    {
-      path: '/work/:name',
-      redirect: '/project/:name'  // 重新導向舊作品路由
-    },
-    {
-      path: '*',
-      redirect: '*'   // 找不到路由時導向至首頁
-    },
+    { path: '/projects', redirect: '/project' },
+    { path: '/work/:name', redirect: '/project/:name' }, // 重新導向舊作品路由
+    { path: '/404.html', redirect: '/' },
+    { path: '*', redirect: '/' }, // 找不到路由時導向至首頁
   ]
 })
