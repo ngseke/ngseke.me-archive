@@ -12,11 +12,7 @@ import VueMeta from 'vue-meta'
 Vue.use(VueMeta)
 
 Vue.prototype.$ScrollReveal = ScrollReveal
-ScrollReveal({
-  reset: false,
-  duration: 1000,
-  scale: 1,
-})
+ScrollReveal({ reset: false, duration: 1000, scale: 1 })
 Vue.config.productionTip = false
 Vue.mixin(common)
 
