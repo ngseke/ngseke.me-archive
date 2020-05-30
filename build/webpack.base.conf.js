@@ -42,11 +42,20 @@ module.exports = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: 'url-loader',
-        options: {
-          limit: 10000,
-          name: utils.assetsPath('img/[name].[hash:7].[ext]')
-        }
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+              name: utils.assetsPath('img/[name].[hash:7].[ext]')
+            }
+          },
+          // https://www.jianshu.com/p/c98289e1531d
+          {
+            loader: 'image-webpack-loader',
+            options: { bypassOnDebug: true }
+          }
+        ]
       },
       {
         test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
