@@ -122,14 +122,13 @@ export default {
       windowWidth: null,
     }
   },
-  mounted () {
+  async mounted () {
     this.windowWidth = $(window).width()
     $(window).resize(() => this.windowWidth = $(window).width())
     
-    this.$nextTick(() => {
-      this.setScrollReveal()
-      $('[data-toggle="tooltip"]').tooltip()  // 啟用tooltip
-    })
+    await this.$nextTick()
+    this.setScrollReveal()
+    this.setTooltip()
   },
   methods: {
     setScrollReveal () {
@@ -140,6 +139,10 @@ export default {
       sr().reveal('.chunchicha-small-sr', { origin: 'top', delay: '600', scale: .95, easing: 'ease' })  // 純喫茶
       
       this.$once('hook:beforeDestroy', () => this.$ScrollReveal().destroy())
+    },
+    setTooltip () {
+      const $el = $('[data-toggle="tooltip"]').tooltip()
+      this.$once('hook:beforeDestroy', () => $el.tooltip('dispose'))
     },
   },
   computed: {
