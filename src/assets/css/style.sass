@@ -1,12 +1,13 @@
-@import "color"
-@import "function"
-@import "animation"
+@import "_color.sass"
+@import "_function.sass"
+@import "_animation.sass"
 @media (max-width: 575.98px)
   html
     font-size: 15px   // 調整手機版字體大小
 
 body
   font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft JhengHei"
+  
 
 main
   overflow-x: hidden
@@ -26,3 +27,7 @@ main
   
 .medium-zoom-image.medium-zoom-image--opened
   z-index: 1051
+
+::selection
+  background-color: rgba($ngsek, .5)
+  color: $black
