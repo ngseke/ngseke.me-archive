@@ -4,7 +4,7 @@ header.jumbotron.jumbotron-fluid.flex-vertical
     .row.justify-content-center
       .col-6.col-md-12.text-center.d-flex.flex-column.align-items-center
         router-link.about-btn(to='about')
-          .logo Xingqiao's Portfolio
+          h1.logo Xingqiao's Portfolio
         a.btn.btn-light.scroll-down-btn(href='#' @click.prevent='scrollToMain')
           fa(icon='angle-down')
 </template>
@@ -38,24 +38,12 @@ header.jumbotron
     font-family: 'Pacifico', cursive
     font-size: 3rem
     color: $black
+    text-transform: none
     
   .about-btn
     display: inline-block
     transition: transform .5s
     margin-bottom: 5rem
-    position: relative
-    &::after
-      content: ''
-      position: absolute
-      width: 100%
-      background-color: currentColor
-      height: 6px
-      bottom: 5px
-      left: 0
-      border-radius: 100px
-      transform: scaleX(0)
-      transform-origin: left
-      transition: transform .5s
     &:hover
       transform: scale(1.05)
       text-decoration: none

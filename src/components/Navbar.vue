@@ -47,7 +47,6 @@ export default {
         category: 'Game',
         works: [
           { title: 'Gomoku', name: 'gomoku' },
-          // { title: 'OOXX', name: 'ooxx' },
           { title: 'Raise Your Red Flag', name: 'flag' },
           { title: 'Typing Typing!', name: 'typingtyping' },
         ]
