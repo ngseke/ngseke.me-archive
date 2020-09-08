@@ -60,6 +60,7 @@ export default {
 
 <style scoped lang="sass">
 @import "~@/assets/css/function"
+@import "~@/assets/css/color"
   
 section
   +py(7rem)
@@ -94,12 +95,21 @@ section
     
 .content
   text-align: center
-  h5
+  .title, .subtitle
+    text-shadow: 0 0 5px rgba(white, .8)
+    line-height: 1.2
+    color: $black
+    &.text-light
+      text-shadow: 0 0 5px rgba(black, .3), 0 0 10px rgba(black, .8)
+  .title
+    margin-bottom: .5rem
+    font-size: 1.75rem
+    font-weight: 600
+    text-transform: uppercase
+    letter-spacing: 3px
+  .subtitle
+    font-size: 1rem
     letter-spacing: .5rem
     font-weight: 200
     margin-bottom: 1.25rem
-  h2, h5
-    text-shadow: 0 0 5px rgba(white, .8)
-    &.text-light
-      text-shadow: 0 0 5px rgba(black, .3), 0 0 10px rgba(black, .8)
 </style>
