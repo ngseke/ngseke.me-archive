@@ -4,11 +4,13 @@ header.jumbotron.jumbotron-fluid.flex-vertical
     .row.justify-content-center
       .col-6.col-md-12.text-center.d-flex.flex-column.align-items-center
         .headline Xingqiao's Portfolio
-        router-link.about-btn(to='about') { aboutMe }
+        router-link.shortcut(to='about') { aboutMe }
+        a.shortcut(href='#' @click.prevent='scrollToMain') { ...projects }
   .bg(:style='bgStyle')
 </template>
 
 <script>
+import Jump from 'jump.js'
 import { throttle } from 'throttle-debounce'
 
 export default {
@@ -26,6 +28,12 @@ export default {
     })
     observer.observe(this.$el)
     this.$once('hook:beforeDestroy', () => observer.disconnect())
+  },
+  methods: {
+    scrollToMain () {
+      const offset = -$('#nav').outerHeight()
+      Jump('main', { offset })
+    },
   },
   computed: {
     bgStyle () {
@@ -68,13 +76,14 @@ header.jumbotron
     z-index: 1
     display: inline-block
     margin-bottom: 3rem
-  .about-btn
+  .shortcut
     z-index: 1
     font-size: 1.5rem
     opacity: .9
     transition: transform .5s
     font-weight: bold
     font-family: monospace
+    margin-bottom: .5rem
     &:hover
       text-decoration: none
       transform: scale(1.05)
