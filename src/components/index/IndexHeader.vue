@@ -3,8 +3,8 @@ header.jumbotron.jumbotron-fluid.flex-vertical
   .container
     .row.justify-content-center
       .col-6.col-md-12.text-center.d-flex.flex-column.align-items-center
-        router-link.about-btn(to='about')
-          h1.logo Xingqiao's Portfolio
+        .headline Xingqiao's Portfolio
+        router-link.about-btn(to='about') { aboutMe }
   .bg(:style='bgStyle')
 </template>
 
@@ -40,7 +40,7 @@ export default {
 
 <style scoped lang="sass">
 @import "~@/assets/css/color"
-  
+
 header.jumbotron
   position: relative
   height: 100vh
@@ -57,7 +57,7 @@ header.jumbotron
     background-image: url('~@/assets/img/bg/index-cover.jpg')
     background-size: cover
 
-  .logo
+  .headline
     padding: 1rem
     font-family: 'Pacifico', cursive
     font-size: 3rem
@@ -65,16 +65,17 @@ header.jumbotron
     text-transform: none
     background: linear-gradient(-45deg, $black, darken($ngsek, 40%))
     -webkit-background-clip: text
-    
-  .about-btn
     z-index: 1
     display: inline-block
-    transition: transform .5s
     margin-bottom: 3rem
+  .about-btn
+    z-index: 1
+    font-size: 1.5rem
+    opacity: .9
+    transition: transform .5s
+    font-weight: bold
+    font-family: monospace
     &:hover
-      transform: scale(1.05)
       text-decoration: none
-      @media (min-width: 768px)
-        &::after
-          transform: none
+      transform: scale(1.05)
 </style>
