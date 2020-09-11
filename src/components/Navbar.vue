@@ -1,5 +1,5 @@
 <template lang="pug">
-nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:style='navbarStyle' :class='{ light: isLight, shrink: isShrink }')
+nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:class='{ light: isLight, shrink: isShrink }')
   .container
     router-link.navbar-brand(to='/' @click.native='clickLogo')
       img.img-fluid(src='../../static/favicon.png' alt='Logo')
@@ -53,35 +53,27 @@ export default {
       },
     ]
     return {
-      windowHeight: 500,
       isShrink: false,
     }
   },
   mounted () {
-    this.windowHeight = $(window).height()
     this.setNavShrink()
   },
   methods: {
     setNavShrink () {
       const throttled = throttle(250, () => {
-        this.isShrink = $(window).scrollTop() > 50
+        this.isShrink = $(window).scrollTop() > 150
       })
       $(window).scroll(throttled)
     },
-    clickLogo () {
-      this.$nextTick(() => {
-        if (this.$route.name === `Index`) Jump(`html`)
-      })
+    async clickLogo () {
+      await this.$nextTick()
+      if (this.$route.name === `Index`) Jump(`html`)
     }
   },
   computed:{
-    navbarStyle () {
-      return {
-        maxHeight : (this.windowHeight - 50) + 'px'
-      }
-    },
     isLight () {
-      return false && this.$route.name === `Index`
+      return false
     },
   },
 }
