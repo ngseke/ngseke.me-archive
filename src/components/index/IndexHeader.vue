@@ -38,9 +38,9 @@ export default {
   },
   computed: {
     bgStyle () {
-      const y = (this.intersectionRatio - .5) * 10
+      const y = (this.intersectionRatio - .5) * 15
       return {
-        transform: `scale(1.2) translateY(${y}%)`
+        transform: `scale(1.25) translateY(${y}%)`
       }
     },
   }
@@ -72,7 +72,7 @@ header.jumbotron
     font-size: 3rem
     color: transparent
     text-transform: none
-    background: linear-gradient(-45deg, $black, darken($ngsek, 40%))
+    background: linear-gradient(-45deg, darken($ngsek, 35%), $black)
     -webkit-background-clip: text
     z-index: 1
     display: inline-block
