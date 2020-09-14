@@ -1,5 +1,5 @@
 <template lang="pug">
-section(:id='id' :style='style')
+section(:id='id' :style='style' :class='{ active: intersectionRatio === 1 }')
   .container
     .row.justify-content-around.align-items-center
       .col-12.col-md-5.mb-3
@@ -22,11 +22,17 @@ export default {
   },
   mounted () {
     this.setTilt()
+    this.setIntersectionObserver()
+  },
+  data() {
+    return {
+      intersectionRatio: null,
+    }
   },
   methods: {
     setTilt () {
       const options = {
-        'max-glare': .5,
+        'max-glare': .1,
         glare: true,
         max: 1,
       }
@@ -37,6 +43,13 @@ export default {
     removeTile () {
       const { vanillaTilt: tilt } = this.$el
       if (tilt) tilt.destroy()
+    },
+    setIntersectionObserver () {
+      const observer = new IntersectionObserver(([entries]) => {
+        this.intersectionRatio = entries.intersectionRatio
+      }, { threshold: [0, .25, .5, .75, 1] })
+      observer.observe(this.$el)
+      this.$once('hook:beforeDestroy', () => observer.disconnect())
     },
   },
   computed: {
@@ -71,8 +84,8 @@ section
   margin-bottom: 3rem
   box-shadow: 0 1rem 1.5rem rgba(#1e1e1e, 0.2)
   .container
-    transition: transform .4s
-  &:hover
+    transition: transform .6s
+  &.active
     .container
       transform: translateZ(2rem)
       
@@ -82,7 +95,7 @@ section
     border-radius: 0
     .container
       transform: none
-    &:hover
+    &.active
       .container
         transform: none
     
@@ -92,7 +105,7 @@ section
     transition: all .4s
     display: inline-block
     margin-bottom: 2rem
-    
+
 .content
   text-align: center
   .title, .subtitle
