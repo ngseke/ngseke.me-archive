@@ -1,5 +1,5 @@
 <template lang="pug">
-nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:class='{ light: isLight, shrink: isShrink }')
+nav#nav.navbar.navbar-expand-sm.navbar-light(:class='{ shrink: isShrink }' :style='style')
   .container
     router-link.navbar-brand(to='/' @click.native='clickLogo')
       img.img-fluid(src='../../static/favicon.png' alt='Logo')
@@ -27,7 +27,6 @@ nav#nav.navbar.navbar-expand-sm.navbar-light.fixed-top(:class='{ light: isLight,
 
 <script>
 import Jump from 'jump.js'
-import { throttle } from 'throttle-debounce'
 
 export default {
   name: 'Navbar',
@@ -54,6 +53,8 @@ export default {
     ]
     return {
       isShrink: false,
+      top: null,
+      navbarTop: 0,
     }
   },
   mounted () {
@@ -61,10 +62,9 @@ export default {
   },
   methods: {
     setNavShrink () {
-      const throttled = throttle(250, () => {
-        this.isShrink = $(window).scrollTop() > 150
-      })
-      $(window).scroll(throttled)
+      const handler = () => this.top = $(window).scrollTop()
+      $(window).scroll(handler)
+      this.$once('hook:beforeDestroy', () => $(window).off('scroll', handler))
     },
     async clickLogo () {
       await this.$nextTick()
@@ -72,8 +72,23 @@ export default {
     }
   },
   computed:{
-    isLight () {
-      return false
+    style () {
+      return {
+        top: `${this.navbarTop}px`,
+      }
+    },
+  },
+  watch: {
+    top (top, old) {
+      const direction = (top > old)
+      const diff = top - old
+      const min = -100
+      this.isShrink = top > 500
+
+      this.navbarTop -= diff
+
+      if (this.navbarTop < min) this.navbarTop = min
+      else if (this.navbarTop > 0) this.navbarTop = 0
     },
   },
 }
@@ -82,12 +97,16 @@ export default {
 <style scoped lang="sass">
 @import "~@/assets/css/style.sass"
 #nav
-  background-color: rgba(white, 0)
-  transition: background-color .3s ease-out
+  background-color: transparent
+  position: absolute
+  top: 0
+  width: 100%
+  z-index: 1000
   a.navbar-brand
     img
       height: 36px
   &.shrink
+    position: fixed
     background-color: rgba(white, 0.95)
     backdrop-filter: blur(5px)
     +box-shadow
@@ -106,8 +125,6 @@ export default {
     background-color: rgba(white, 0.97)
     +box-shadow
     +py(.5rem)
-    &.shrink
-      // background-color: rgba(white, 0.97)
 
 .navbar-light .navbar-toggler
   color: rgba($ngsek,6)
