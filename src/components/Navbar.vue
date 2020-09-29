@@ -20,7 +20,7 @@ nav#nav.navbar.navbar-expand-sm.navbar-light(:class='{ shrink: isShrink }' :styl
         li.nav-item
           router-link.nav-link(to=`/about`) About
         li.nav-item
-          a.nav-link(href='https://github.com/seanyellow' target='_blank')
+          a.nav-link(href='https://github.com/ngseke' target='_blank')
             fa.mr-1(:icon='[`fab`, `github`]')
             | Github
 </template>

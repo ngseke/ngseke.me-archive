@@ -76,10 +76,10 @@ export default {
       ],
       socials: [
         { icon: [`fab`, `linkedin`], url: 'http://www.linkedin.com/in/xingqiao-huang', title:'LinkedIn' },
-        { icon: [`fab`, `github`], url: 'https://github.com/seanyellow', title:'GitHub' },
-        { icon: [`fab`, `codepen`], url: 'https://codepen.io/seanyellow', title:'CodePen' },
+        { icon: [`fab`, `github`], url: 'https://github.com/ngseke', title:'GitHub' },
+        { icon: [`fab`, `codepen`], url: 'https://codepen.io/ngseke', title:'CodePen' },
         { icon: [`fab`, `telegram`], url: 'https://t.me/hxqqq', title:'Telegram' },
-        { icon: [`fas`, `envelope`], url: 'mailto:a92304a92304@gmail.com', title:'Email' },
+        { icon: [`fas`, `envelope`], url: 'mailto:ngseke@gmail.com', title:'Email' },
       ],
     }
     this.description = description

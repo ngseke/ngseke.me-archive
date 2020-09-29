@@ -1,5 +1,5 @@
-# SEANYELLOW.GA
-[![Build Status](https://travis-ci.com/seanyellow/seanyellow.ga.svg?branch=dev)](https://travis-ci.com/seanyellow/seanyellow.ga)
+# NGSEKE.ME
+[![Build Status](https://travis-ci.com/ngseke/ngseke.me.svg?branch=dev)](https://travis-ci.com/ngseke/ngseke.me)
 
 Xingqiao's Portfolio
 

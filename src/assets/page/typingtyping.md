@@ -57,4 +57,4 @@
 
 ## 遊戲下載
 [TypingTyping.zip (7.7mb)](/static/file/TypingTyping.zip)
-<iframe src="https://ghbtns.com/github-btn.html?user=seanyellow&repo=Typing-Typing&type=star&count=false" frameborder="0" scrolling="0" width="150" height="20" title="Star twbs/bootstrap on GitHub"></iframe>
+<iframe src="https://ghbtns.com/github-btn.html?user=ngseke&repo=Typing-Typing&type=star&count=false" frameborder="0" scrolling="0" width="150" height="20" title="Star twbs/bootstrap on GitHub"></iframe>
