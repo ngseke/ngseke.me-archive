@@ -1,7 +1,7 @@
 # 紅旗舉起來
 ###### Jun, 2018
 ---
-線上玩: [flag.seanyellow.ga](https://flag.seanyellow.ga)
+線上玩: [raise-flag.web.app](https://raise-flag.web.app)
 
 數位影像處理期末專題。
 
@@ -16,6 +16,6 @@
 
 ## Demo
 
-[https://flag.seanyellow.ga/](https://flag.seanyellow.ga)
+[https://raise-flag.web.app/](https://raise-flag.web.app)
 
 <iframe src="https://ghbtns.com/github-btn.html?user=ngseke&repo=Raise-Your-Red-Flag&type=star&count=false" frameborder="0" scrolling="0" width="150" height="20" title="Star twbs/bootstrap on GitHub"></iframe>

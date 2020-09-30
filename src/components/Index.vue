@@ -57,7 +57,7 @@ div
         .title.text-light BOSS
         .subtitle.text-light 線上飲料購物系統
         router-link.btn.btn-sm.btn-primary(:to='getRoute("boss")') Detail
-        a.btn.btn-sm.btn-primary(href='http://boss.seanyellow.ga' target='_blank') Demo
+        a.btn.btn-sm.btn-primary(href='http://boss.ngseke.me' target='_blank') Demo
         a.btn.btn-sm.btn-github(href='https://github.com/ngseke/boss' target='_blank')
           fa(:icon='[`fab`, `github-alt`]')
           |  Github
@@ -87,7 +87,7 @@ div
         .title Raise Your Red Flag
         .subtitle 紅旗舉起來
         router-link.btn.btn-sm.btn-primary(:to='getRoute("flag")') Detail
-        a.btn.btn-sm.btn-primary(href='https://flag.seanyellow.ga' target='_blank')
+        a.btn.btn-sm.btn-primary(href='https://raise-flag.web.app' target='_blank')
           fa(icon='gamepad')
           |  Play
         a.btn.btn-sm.btn-github(href='https://github.com/ngseke/Raise-Your-Red-Flag' target='_blank')
