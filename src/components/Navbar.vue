@@ -8,21 +8,21 @@ nav#nav.navbar.navbar-expand-sm.navbar-light(:class='{ shrink: isShrink }' :styl
     #navbarContent.collapse.navbar-collapse(ref='content')
       ul.navbar-nav.mr-auto
         li.nav-item.dropdown
-          a.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' :class='{ active: this.$route.name === `Work` }')
+          a.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' :class='{ active: this.$route.name === `Project` }')
             | Projects
           .dropdown-menu
-            template(v-for=`(link, index) in links`)
+            template(v-for='(link, index) in links')
               h6.dropdown-header.text-ngsek {{ link.category }}
-              template(v-for=`work in link.works`)
+              template(v-for='work in link.works')
                 router-link.dropdown-item(:to='{ name: "Project", params: { name: work.name } }') {{ work.title }}
-              .dropdown-divider(v-if=`index !== (links.length - 1)`)
+              .dropdown-divider(v-if='index !== (links.length - 1)')
 
         li.nav-item
           router-link.nav-link(to=`/about`) About
         li.nav-item
           a.nav-link(href='https://github.com/ngseke' target='_blank')
             fa.mr-1(:icon='[`fab`, `github`]')
-            | Github
+            | GitHub
 </template>
 
 <script>
