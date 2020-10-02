@@ -33,7 +33,7 @@ const routes = [
 const router = new VueRouter({
   mode: 'history',
   linkActiveClass: 'active',
-  scrollBehavior: () => ({ x: 0, y: 0 }),
+  scrollBehavior: (to, from, savedPosition) => savedPosition ?? { x: 0, y: 0 },
   base: process.env.BASE_URL,
   routes
 })
