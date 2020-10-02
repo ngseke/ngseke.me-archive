@@ -1,22 +1,24 @@
 <template lang="pug">
-- const 년 = new Date().getFullYear()
-footer.text-center.py-5
-  div
-    | © 2018-#[=년]
-    |
-    router-link(to='/') Xingqiao's Portfolio
+footer.footer: .container
+  | © 2018-{{ year }}
+  |
+  router-link(to='/') Xingqiao's Portfolio
 </template>
 
 <script>
 export default {
   name: 'Footer',
+  computed: {
+    year: () => new Date().getFullYear(),
+  },
 }
 </script>
 
 <style scoped lang="sass">
 @import "~@/assets/css/style.sass"
 
-footer
-  +py(1rem)
+.footer
+  +py(3rem)
   font-size: .8rem
+  text-align: center
 </style>
