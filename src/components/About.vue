@@ -135,7 +135,7 @@ p
 section#about
   +py(3rem)
   margin-top: 6rem
-  @media (max-width: 992px)
+  @include media-breakpoint-down(md)
     +py(0)
 
 .profile .card
@@ -197,7 +197,7 @@ section#about
     color: $ngsek-dark
 
 // 調整行動版大頭貼樣式
-@media (max-width: 992px)
+@include media-breakpoint-down(md)
   .profile
     .card
       &:hover
@@ -216,7 +216,7 @@ section#about
   .profile-mask
     display: none
 
-@media (max-width: 576px)
+@include media-breakpoint-down(sm)
   .profile
     padding-left: 0
     padding-right: 0

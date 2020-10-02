@@ -53,6 +53,8 @@ header.jumbotron
   margin: 0
   padding: 0
   overflow: hidden
+  display: flex
+  align-items: center
   .bg
     position: absolute
     top: 0
@@ -84,4 +86,5 @@ header.jumbotron
     &:hover
       text-decoration: none
       transform: scale(1.05)
+
 </style>

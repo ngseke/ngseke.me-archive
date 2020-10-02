@@ -8,9 +8,9 @@ main::v-deep
     max-width: 400px
     height: auto
     margin: 1rem auto 0
-    @media (max-width: 576px)
+    @include media-breakpoint-down(sm)
       max-width: 100%
-      
+
   figcaption
     text-align: center
     margin: 1rem 0 2rem
@@ -19,14 +19,14 @@ main::v-deep
       content: '▲'
       transform: scale(.9)
       margin-right: .25rem
-    
+
   .embed-responsive
     max-width: 80%
     margin: 0 auto 3rem
 
   h1
     color: $ngsek
-    
+
   h2
     position: relative
     font-size: 1.75rem

@@ -67,7 +67,8 @@ export default {
         }
       })
 
-      mediumZoom($imgs.get())
+      const zoom = mediumZoom($imgs.get())
+      this.$once('hook:beforeDestroy', () => zoom.detach())
     }
   }
 }
@@ -75,4 +76,12 @@ export default {
 
 <style lang="sass" scoped>
 @import "~@/assets/css/article"
+</style>
+
+<style lang="sass">
+.medium-zoom-overlay
+  z-index: 1050
+
+.medium-zoom-image.medium-zoom-image--opened
+  z-index: 1051
 </style>

@@ -87,7 +87,7 @@ section
       transform: translateZ(2rem)
 
   //- 手機版移除 tilt 效果
-  @media (max-width: 576px)
+  @include media-breakpoint-down(sm)
     margin: 0
     border-radius: 0
     .container

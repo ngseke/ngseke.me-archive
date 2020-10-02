@@ -1,7 +1,12 @@
+@import "~bootswatch/dist/lux/variables"
+@import "~bootstrap/scss/bootstrap"
+@import "~bootswatch/dist/lux/bootswatch"
+
 @import "color"
 @import "function"
-@import "animation"
-@media (max-width: 575.98px)
+
+
+@include media-breakpoint-down(sm)
   html
     font-size: 15px   // 調整手機版字體大小
 
@@ -11,21 +16,10 @@ body
 main
   overflow-x: hidden
 
-// 通用
-.flex-vertical
-  display: flex
-  align-items: center
-
 // 為按鈕加入右下margin
 .btn
   margin-right: .25rem
   margin-bottom: .25rem
-
-.medium-zoom-overlay
-  z-index: 1050
-
-.medium-zoom-image.medium-zoom-image--opened
-  z-index: 1051
 
 ::selection
   background-color: rgba($ngsek, .5)

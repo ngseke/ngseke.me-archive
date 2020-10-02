@@ -39,8 +39,5 @@ export default {
 </script>
 
 <style lang="sass">
-// BS 樣板
-@import "~bootswatch/dist/lux/variables"
-@import "~bootstrap/scss/bootstrap"
-@import "~bootswatch/dist/lux/bootswatch"
+div
 </style>

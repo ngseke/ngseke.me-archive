@@ -71,7 +71,7 @@ main
   position: sticky
   top: 6rem
   padding: 2rem 0
-  @media (min-width: 992px)
+  @include media-breakpoint-up(md)
     margin-bottom: 5rem
   img
     max-width: 70%
@@ -83,12 +83,12 @@ h2
   right: 3rem
   font-size: 4.5rem
   mix-blend-mode: overlay
-  @media (max-width: 991.98px)
+  @include media-breakpoint-down(md)
     font-size: 3rem
 
 .list
   padding: 5rem 0
-  @media (min-width: 992px)
+  @include media-breakpoint-up(md)
     padding: 7rem 0
     min-height: 50rem
   ul

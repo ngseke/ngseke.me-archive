@@ -122,7 +122,7 @@ export default {
   &.shrink
     background-color: rgba(#1e1e1e, 0.95)
 
-@media (max-width: 575.98px)
+@include media-breakpoint-down(sm)
   #nav
     background-color: rgba(white, 0.97)
     +box-shadow
