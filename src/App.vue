@@ -39,5 +39,5 @@ export default {
 </script>
 
 <style lang="sass">
-div
+@import "~bootstrap/scss/bootstrap"
 </style>
