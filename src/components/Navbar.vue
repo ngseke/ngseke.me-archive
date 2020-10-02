@@ -5,7 +5,7 @@ nav#nav.navbar.navbar-expand-sm.navbar-light(:class='{ shrink: isShrink }' :styl
       img.img-fluid(src='../../static/favicon.png' alt='Logo')
     button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarContent')
       fa(icon='bars')
-    #navbarContent.collapse.navbar-collapse
+    #navbarContent.collapse.navbar-collapse(ref='content')
       ul.navbar-nav.mr-auto
         li.nav-item.dropdown
           a.nav-link.dropdown-toggle(href='#' data-toggle='dropdown' :class='{ active: this.$route.name === `Work` }')
@@ -69,7 +69,10 @@ export default {
     async clickLogo () {
       await this.$nextTick()
       if (this.$route.name === `Index`) Jump(`html`)
-    }
+    },
+    collapse () {
+      $(this.$refs.content).collapse('hide')
+    },
   },
   computed:{
     style () {

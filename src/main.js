@@ -22,8 +22,3 @@ const app = new Vue({
   components: { App },
   template: '<App/>'
 })
-
-router.beforeEach((to, from, next) => {
-  $('#navbarContent').collapse('hide')
-  next()
-})

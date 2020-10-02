@@ -32,8 +32,7 @@ export default {
   },
   methods: {
     scrollToMain () {
-      const offset = -$('#nav').outerHeight()
-      Jump('main', { offset })
+      Jump('main')
     },
   },
   computed: {
