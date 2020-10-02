@@ -18,23 +18,23 @@ export default {
   props: {
     id: String,
     bg: String,
-    isTile: Boolean,
+    isTile: Boolean
   },
   mounted () {
     this.setTilt()
     this.setIntersectionObserver()
   },
-  data() {
+  data () {
     return {
-      intersectionRatio: null,
+      intersectionRatio: null
     }
   },
   methods: {
     setTilt () {
       const options = {
-        'max-glare': .1,
+        'max-glare': 0.1,
         glare: true,
-        max: 1,
+        max: 1
       }
 
       VanillaTilt.init(this.$el, options)
@@ -47,10 +47,10 @@ export default {
     setIntersectionObserver () {
       const observer = new IntersectionObserver(([entries]) => {
         this.intersectionRatio = entries.intersectionRatio
-      }, { threshold: [0, .25, .5, .75, 1] })
+      }, { threshold: [0, 0.25, 0.5, 0.75, 1] })
       observer.observe(this.$el)
       this.$once('hook:beforeDestroy', () => observer.disconnect())
-    },
+    }
   },
   computed: {
     style () {
@@ -61,20 +61,17 @@ export default {
     isTile: {
       async handler (_) {
         await this.$nextTick()
-        
+
         if (this.isTile) this.setTilt()
         else this.removeTile()
       },
-      immediate: true,
-    },
+      immediate: true
+    }
   }
 }
 </script>
 
 <style scoped lang="sass">
-@import "~@/assets/css/function"
-@import "~@/assets/css/color"
-  
 section
   +py(7rem)
   background-size: cover
@@ -88,7 +85,7 @@ section
   &.active
     .container
       transform: translateZ(2rem)
-      
+
   //- 手機版移除 tilt 效果
   @media (max-width: 576px)
     margin: 0
@@ -98,7 +95,7 @@ section
     &.active
       .container
         transform: none
-    
+
 .img
   position: relative
   img.cover

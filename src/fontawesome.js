@@ -26,7 +26,6 @@ import {
   faTelegram
 } from '@fortawesome/free-brands-svg-icons'
 
-
 library.add(
   faBars,
   faAngleDown,

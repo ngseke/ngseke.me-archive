@@ -2,7 +2,7 @@
 ###### Feb, 2019 - Present
 ---
 
-![樂台計畫官方網站](/static/img/mcip/cover.png)
+![樂台計畫官方網站](~@/assets/img/article/mcip/cover.png)
 
 <!-- 以漸層營造出清新、極簡的風格，搭配滾動動畫更顯生動活潑的官方網站。 -->
 
@@ -13,7 +13,7 @@
 
 為了盡快的製作出 prototype，當時選用 Parcel 這個簡單又快速的打包工具。只要設定好進入點，它就會自動分析所有相依的資源，並自動封裝成 bundle，也減少了很多需要手動配置的地方。
 
-![早期網站首頁](/static/img/mcip/legacy.png)
+![早期網站首頁](~@/assets/img/article/mcip/legacy.png)
 
 ## 以 Nuxt.js 重新架構
 
@@ -23,14 +23,14 @@
 
 例如在社群媒體或是通訊軟體分享最新消息的文章時，其中縮圖和文章內容就能夠順利的被平台抓取，直接秀出預覽的資訊，提升使用者對連結的興趣。
 
-<!-- ![Facebook 分享連結預覽](/static/img/mcip/facebook-post.png) -->
-![Messenger 分享連結預覽](/static/img/mcip/facebook-messenger.png)
+<!-- ![Facebook 分享連結預覽](~@/assets/img/article/mcip/facebook-post.png) -->
+![Messenger 分享連結預覽](~@/assets/img/article/mcip/facebook-messenger.png)
 
 
 ## Landing Page
 我為識別 Logo 設計了簡單 SVG 動畫，藉著改變 `stroke-dashoffset` 和 `stroke-dasharray` 屬性，利用純 CSS3 製作出虛線描邊動畫。
 
-![Logo 動畫](/static/img/mcip/logo-animation.gif)
+![Logo 動畫](~@/assets/img/article/mcip/logo-animation.gif)
 
 ## Demo
 

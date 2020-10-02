@@ -24,10 +24,11 @@ section#about: .container: .row.justify-content-around.align-items-center
         small.mr-3(title='Location')
           fa(icon='map-marker')
           |  Taipei, Taiwan
-        
+
       hr
       p.item.text-center.text-lg-left.description(style=itemStyle())
         | Hi, I’m Sean 👋
+        br
         | 現職前端工程師，堅持產出
         a(href='https://github.com/ryanmcdermott/clean-code-javascript' target='_blank') 無瑕程式碼
         | 是我的開發格言。
@@ -53,7 +54,7 @@ section#about: .container: .row.justify-content-around.align-items-center
 
 <script>
 const title = 'About Me'
-const description = `Hi, I’m Sean 👋 現職前端工程師，堅持產出無瑕程式碼是我的開發格言。 擁有二年以上前端實務開發經驗，對於 Vue.js 框架尤其掌握，熱衷於探究各種前端領域的新鮮事。`
+const description = 'Hi, I\'m Sean 👋 現職前端工程師，堅持產出無瑕程式碼是我的開發格言。 擁有二年以上前端實務開發經驗，對於 Vue.js 框架尤其掌握，熱衷於探究各種前端領域的新鮮事。'
 
 export default {
   name: 'About',
@@ -63,7 +64,7 @@ export default {
       { property: 'og:title', vmid: 'og:title', content: name },
       { property: 'description', vmid: 'description', content: description },
       { property: 'og:description', vmid: 'og:description', content: description },
-      { property: 'og:image', vmid: 'og:image', content: require('@/assets/img/about.png') },
+      { property: 'og:image', vmid: 'og:image', content: require('@/assets/img/about.png') }
     ]
   },
   data () {
@@ -72,15 +73,15 @@ export default {
         { icon: 'vuejs', title: 'Vue.js' },
         { icon: 'sass', title: 'Sass' },
         { title: 'Pug' },
-        { icon: 'npm', title: 'npm' },
+        { icon: 'npm', title: 'npm' }
       ],
       socials: [
-        { icon: [`fab`, `linkedin`], url: 'http://www.linkedin.com/in/xingqiao-huang', title:'LinkedIn' },
-        { icon: [`fab`, `github`], url: 'https://github.com/ngseke', title:'GitHub' },
-        { icon: [`fab`, `codepen`], url: 'https://codepen.io/ngseke', title:'CodePen' },
-        { icon: [`fab`, `telegram`], url: 'https://t.me/hxqqq', title:'Telegram' },
-        { icon: [`fas`, `envelope`], url: 'mailto:ngseke@gmail.com', title:'Email' },
-      ],
+        { icon: ['fab', 'linkedin'], url: 'http://www.linkedin.com/in/xingqiao-huang', title: 'LinkedIn' },
+        { icon: ['fab', 'github'], url: 'https://github.com/ngseke', title: 'GitHub' },
+        { icon: ['fab', 'codepen'], url: 'https://codepen.io/ngseke', title: 'CodePen' },
+        { icon: ['fab', 'telegram'], url: 'https://t.me/hxqqq', title: 'Telegram' },
+        { icon: ['fas', 'envelope'], url: 'mailto:ngseke@gmail.com', title: 'Email' }
+      ]
     }
     this.description = description
     return {
@@ -89,8 +90,8 @@ export default {
   },
   methods: {
     getSkillStyle (i) {
-      const base = .8 + .3
-      const delta = .08
+      const base = 0.8 + 0.3
+      const delta = 0.08
       return { animationDelay: `${i * delta + base}s` }
     },
     imageLoaded () {
@@ -101,9 +102,6 @@ export default {
 </script>
 
 <style scoped lang="sass">
-@import "~@/assets/css/function"
-@import "~@/assets/css/color"
-
 $distance: .5rem
 $duration: .7s
 $time-function: ease

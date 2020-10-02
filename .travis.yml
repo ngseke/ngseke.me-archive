@@ -7,7 +7,7 @@ branches:
   only:
     - dev
 script:
-  - node build/build.js
+  - npm run build
   - echo "$CNAME_URL" > dist/CNAME
 deploy:
   provider: pages

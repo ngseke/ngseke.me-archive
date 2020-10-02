@@ -18,7 +18,7 @@ div
 export default {
   name: 'Index',
   metaInfo: {
-    title: 'Projects',
+    title: 'Projects'
   },
   data () {
     return {
@@ -31,7 +31,7 @@ export default {
             { title: 'MCIP CMS', name: 'mcip-cms' },
             { title: 'EM Optimization Lab', name: 'emo' },
             { title: 'Realtime Monitor', name: 'realtime' },
-            { title: 'BOSS', name: 'boss' },
+            { title: 'BOSS', name: 'boss' }
           ]
         },
         {
@@ -40,7 +40,7 @@ export default {
           list: [
             { title: 'Gomoku', name: 'gomoku' },
             { title: 'Raise Your Red Flag', name: 'flag' },
-            { title: 'Typing Typing!', name: 'typingtyping' },
+            { title: 'Typing Typing!', name: 'typingtyping' }
           ]
         },
         {
@@ -48,14 +48,17 @@ export default {
           cover: 'https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80',
           list: [
             { title: 'Shanlinliang', name: 'shanlinliang' },
-            { title: 'Kuaichao Bu Jia La, Guozi Bu Jia Tang', name: 'camp2017' },
+            { title: 'Kuaichao Bu Jia La, Guozi Bu Jia Tang', name: 'camp2017' }
           ]
         }
       ]
     }
   },
-  mounted () {
-  },
+  methods: {
+    getRoute (name) {
+      return { name: 'Project', params: { name } }
+    }
+  }
 }
 </script>
 
@@ -63,7 +66,7 @@ export default {
 main
   margin-top: 6rem
   overflow: initial
-  
+
 .sticky-title
   position: sticky
   top: 6rem
@@ -91,6 +94,5 @@ h2
   ul
     list-style: none
     li
-      &:not(:last-child)
       margin-bottom: 3rem
 </style>

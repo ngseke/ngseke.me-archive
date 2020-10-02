@@ -6,24 +6,24 @@
 
 
 ## 系統架構圖
-![](/static/img/realtime/1.png)
+![](~@/assets/img/article/realtime/1.png)
 
 ## 功能
-![](/static/img/realtime/2.png)
-![](/static/img/realtime/3.png)
-![](/static/img/realtime/4.png)
-![](/static/img/realtime/5.png)
+![](~@/assets/img/article/realtime/2.png)
+![](~@/assets/img/article/realtime/3.png)
+![](~@/assets/img/article/realtime/4.png)
+![](~@/assets/img/article/realtime/5.png)
 
 ## RWD
-![](/static/img/realtime/6.png)
+![](~@/assets/img/article/realtime/6.png)
 
 ## UI
-![](/static/img/realtime/7.png)
-![](/static/img/realtime/8.png)
-![](/static/img/realtime/9.png)
-![](/static/img/realtime/10.png)
-![](/static/img/realtime/11.png)
-![](/static/img/realtime/12.png)
-![](/static/img/realtime/13.png)
-![](/static/img/realtime/14.png)
-![](/static/img/realtime/15.png)
+![](~@/assets/img/article/realtime/7.png)
+![](~@/assets/img/article/realtime/8.png)
+![](~@/assets/img/article/realtime/9.png)
+![](~@/assets/img/article/realtime/10.png)
+![](~@/assets/img/article/realtime/11.png)
+![](~@/assets/img/article/realtime/12.png)
+![](~@/assets/img/article/realtime/13.png)
+![](~@/assets/img/article/realtime/14.png)
+![](~@/assets/img/article/realtime/15.png)

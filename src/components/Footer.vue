@@ -9,14 +9,12 @@ footer.footer: .container
 export default {
   name: 'Footer',
   computed: {
-    year: () => new Date().getFullYear(),
-  },
+    year: () => new Date().getFullYear()
+  }
 }
 </script>
 
 <style scoped lang="sass">
-@import "~@/assets/css/style.sass"
-
 .footer
   +py(3rem)
   font-size: .8rem

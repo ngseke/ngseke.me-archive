@@ -1,24 +1,15 @@
 import Vue from 'vue'
-import App from './App'
+import App from './App.vue'
 import router from './router'
+import VueMeta from 'vue-meta'
 
-import ScrollReveal from 'scrollreveal'
-import Bootstrap from 'bootstrap'
-import { common } from './mixins/common.js'
-
+import 'bootstrap'
 import './fontawesome'
 
-import VueMeta from 'vue-meta'
 Vue.use(VueMeta)
-
-Vue.prototype.$ScrollReveal = ScrollReveal
-ScrollReveal({ reset: false, duration: 1000, scale: 1 })
 Vue.config.productionTip = false
-Vue.mixin(common)
 
-const app = new Vue({
-  el: '#app',
+new Vue({
   router,
-  components: { App },
-  template: '<App/>'
-})
+  render: h => h(App)
+}).$mount('#app')

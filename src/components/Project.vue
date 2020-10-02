@@ -7,6 +7,7 @@ main
 </template>
 
 <script>
+import $ from 'jquery'
 import mediumZoom from 'medium-zoom'
 
 export default {
@@ -14,9 +15,9 @@ export default {
   metaInfo () {
     const $body = $('<div></div>').append(this.article)
     const title = $body.find('h1').text()
-    $body.find('h1, h6').remove()  // 移除文章標題和時間
+    $body.find('h1, h6').remove() // 移除文章標題和時間
     const description = $body.text().trim().substr(0, 150) + '...'
-    const img = new URL($body.find('img').prop('src')).pathname  // 第一張圖片作為縮圖
+    const img = new URL($body.find('img').prop('src')).pathname // 第一張圖片作為縮圖
 
     return {
       title,
@@ -24,13 +25,13 @@ export default {
         { property: 'og:title', vmid: 'og:title', content: name },
         { property: 'description', vmid: 'description', content: description },
         { property: 'og:description', vmid: 'og:description', content: description },
-        { property: 'og:image', vmid: 'og:image', content: img },
+        { property: 'og:image', vmid: 'og:image', content: img }
       ]
     }
   },
   data () {
     return {
-      article: null,
+      article: null
     }
   },
   created () {
@@ -40,35 +41,35 @@ export default {
     this.fetch(to.params.name)
     next()
   },
-  methods:{
+  methods: {
     async fetch (page) {
       this.article = null
-      
+
       try {
         this.article = require(`@/assets/page/${page}.md`)
       } catch (e) {
         this.$router.push('/')
       }
-      
+
       await this.$nextTick()
       this.setDom()
     },
     setDom () {
       const $imgs = $(this.$el).find('img')
-      
+
       $imgs.each(function () {
         const alt = $(this).prop('alt')
-        
+
         if (alt) {
           $(this)
             .wrap('<figure/>')
             .after(`<figcaption>${alt}</figcaption>`)
         }
       })
-      
+
       mediumZoom($imgs.get())
     }
-  },
+  }
 }
 </script>
 

@@ -12,20 +12,19 @@ header.jumbotron.jumbotron-fluid.flex-vertical
 
 <script>
 import Jump from 'jump.js'
-import { throttle } from 'throttle-debounce'
 
 export default {
   name: 'IndexHeader',
   data () {
     return {
-      intersectionRatio: 0,
+      intersectionRatio: 0
     }
   },
   mounted () {
     const observer = new IntersectionObserver(([entries]) => {
       this.intersectionRatio = entries.intersectionRatio
     }, {
-      threshold: Array(1000).fill().map((_, i) => i * .001)
+      threshold: Array(1000).fill().map((_, i) => i * 0.001)
     })
     observer.observe(this.$el)
     this.$once('hook:beforeDestroy', () => observer.disconnect())
@@ -33,22 +32,20 @@ export default {
   methods: {
     scrollToMain () {
       Jump('main')
-    },
+    }
   },
   computed: {
     bgStyle () {
-      const y = (this.intersectionRatio - .5) * 15
+      const y = (this.intersectionRatio - 0.5) * 15
       return {
         transform: `scale(1.25) translateY(${y}%)`
       }
-    },
+    }
   }
 }
 </script>
 
 <style scoped lang="sass">
-@import "~@/assets/css/color"
-
 header.jumbotron
   position: relative
   height: 100vh

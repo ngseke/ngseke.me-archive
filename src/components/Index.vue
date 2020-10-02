@@ -1,7 +1,7 @@
 <template lang="pug">
 div
   IndexHeader
-    
+
   main
     //- MCIP CMS
     IndexSection(id='mcip' :bg='require(`@/assets/img/bg/mcip.jpg`)' :isTile='isTile')
@@ -13,7 +13,7 @@ div
         .subtitle.text-light #[b 樂台計畫]官方網站
         router-link.btn.btn-sm.btn-primary(:to='getRoute("mcip")') Detail
         a.btn.btn-sm.btn-primary(href='https://mcip.ml/' target='_blank') Demo
-        
+
     //- MCIP CMS
     IndexSection(id='mcip-cms' :bg='require(`@/assets/img/bg/mcip-cms.jpg`)' :isTile='isTile')
       template(slot='img')
@@ -23,7 +23,7 @@ div
         .title.text-light MCIP CMS
         .subtitle.text-light #[b 樂台計畫]後台管理系統
         router-link.btn.btn-sm.btn-primary(:to='getRoute("mcip-cms")') Detail
-        
+
     //- EM Optimization Lab
     IndexSection(id='emo' :bg='require(`@/assets/img/bg/emo.jpg`)' :isTile='isTile')
       template(slot='img')
@@ -37,7 +37,7 @@ div
         a.btn.btn-sm.btn-github(href='https://github.com/ngseke/emo' target='_blank')
           fa(:icon='[`fab`, `github-alt`]')
           |  Github
-            
+
     //- Realtime Monitor
     IndexSection(id='realtime' :bg='require(`@/assets/img/bg/realtime.jpg`)' :isTile='isTile')
       template(slot='img')
@@ -46,7 +46,7 @@ div
         .title.text-light Realtime Monitor
         .subtitle.text-light 測速網站爬蟲
         router-link.btn.btn-sm.btn-primary(:to='getRoute("realtime")') Detail
-        
+
     //- Boss
     IndexSection(id='boss' :bg='require(`@/assets/img/bg/boss.jpg`)' :isTile='isTile')
       template(slot='img')
@@ -102,7 +102,7 @@ div
         .title Typing Typing!
         .subtitle 8-bit 風格打字遊戲
         router-link.btn.btn-sm.btn-primary(:to='getRoute("typingtyping")') Detail
-        a.btn.btn-sm.btn-primary(href='/static/file/TypingTyping.zip' target='_blank' data-toggle='tooltip' data-placement='bottom' title='7.7mb')
+        a.btn.btn-sm.btn-primary(:href='`/file/TypingTyping.zip`' target='_blank' data-toggle='tooltip' data-placement='bottom' title='7.7mb')
           fa(icon='download')
           |  Download
         a.btn.btn-sm.btn-github(href='https://github.com/ngseke/Typing-Typing' target='_blank')
@@ -111,6 +111,9 @@ div
 </template>
 
 <script>
+import $ from 'jquery'
+import ScrollReveal from 'scrollreveal'
+
 import IndexSection from '@/components/index/IndexSection.vue'
 import IndexHeader from '@/components/index/IndexHeader.vue'
 
@@ -120,36 +123,44 @@ export default {
   data () {
     return {
       windowWidth: null,
+      publicPath: process.env.BASE_URL
     }
   },
   async mounted () {
     this.windowWidth = $(window).width()
-    $(window).resize(() => this.windowWidth = $(window).width())
-    
+    $(window).resize(() => {
+      this.windowWidth = $(window).width()
+    })
+
     await this.$nextTick()
     this.setScrollReveal()
     this.setTooltip()
   },
   methods: {
     setScrollReveal () {
-      const { $ScrollReveal: sr } = this
-      
+      ScrollReveal({ reset: false, duration: 1000, scale: 1 })
+
+      const sr = ScrollReveal
+
       sr().reveal('.work-img', { distance: 0, scale: 1.1 })
       sr().reveal('.work-content', { origin: 'left', delay: 500 })
-      sr().reveal('.chunchicha-small-sr', { origin: 'top', delay: '600', scale: .95, easing: 'ease' })  // 純喫茶
-      
-      this.$once('hook:beforeDestroy', () => this.$ScrollReveal().destroy())
+      sr().reveal('.chunchicha-small-sr', { origin: 'top', delay: '600', scale: 0.95, easing: 'ease' }) // 純喫茶
+
+      this.$once('hook:beforeDestroy', () => ScrollReveal().destroy())
     },
     setTooltip () {
       const $el = $('[data-toggle="tooltip"]').tooltip()
       this.$once('hook:beforeDestroy', () => $el.tooltip('dispose'))
     },
+    getRoute (name) {
+      return { name: 'Project', params: { name } }
+    }
   },
   computed: {
     isTile () {
       return this.windowWidth >= 576
     }
-  },
+  }
 }
 </script>
 

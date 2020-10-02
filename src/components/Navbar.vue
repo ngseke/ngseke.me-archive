@@ -2,7 +2,7 @@
 nav#nav.navbar.navbar-expand-sm.navbar-light(:class='{ shrink: isShrink }' :style='style')
   .container
     router-link.navbar-brand(to='/' @click.native='clickLogo')
-      img.img-fluid(src='../../static/favicon.png' alt='Logo')
+      img.img-fluid(src='../../public/favicon.png' alt='Logo')
     button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarContent')
       fa(icon='bars')
     #navbarContent.collapse.navbar-collapse(ref='content')
@@ -26,6 +26,7 @@ nav#nav.navbar.navbar-expand-sm.navbar-light(:class='{ shrink: isShrink }' :styl
 </template>
 
 <script>
+import $ from 'jquery'
 import Jump from 'jump.js'
 
 export default {
@@ -39,7 +40,7 @@ export default {
           { title: 'MCIP CMS', name: 'mcip-cms' },
           { title: 'EM Optimization Lab', name: 'emo' },
           { title: 'Realtime Monitor', name: 'realtime' },
-          { title: 'BOSS', name: 'boss' },
+          { title: 'BOSS', name: 'boss' }
         ]
       },
       {
@@ -47,14 +48,14 @@ export default {
         works: [
           { title: 'Gomoku', name: 'gomoku' },
           { title: 'Raise Your Red Flag', name: 'flag' },
-          { title: 'Typing Typing!', name: 'typingtyping' },
+          { title: 'Typing Typing!', name: 'typingtyping' }
         ]
-      },
+      }
     ]
     return {
       isShrink: false,
       top: null,
-      navbarTop: 0,
+      navbarTop: 0
     }
   },
   mounted () {
@@ -62,28 +63,27 @@ export default {
   },
   methods: {
     setNavShrink () {
-      const handler = () => this.top = $(window).scrollTop()
+      const handler = () => {
+        this.top = $(window).scrollTop()
+      }
       $(window).scroll(handler)
       this.$once('hook:beforeDestroy', () => $(window).off('scroll', handler))
     },
     async clickLogo () {
       await this.$nextTick()
-      if (this.$route.name === `Index`) Jump(`html`)
+      if (this.$route.name === 'Index') Jump('html')
     },
     collapse () {
       $(this.$refs.content).collapse('hide')
-    },
+    }
   },
-  computed:{
+  computed: {
     style () {
-      return {
-        top: `${this.navbarTop}px`,
-      }
-    },
+      return { top: `${this.navbarTop}px` }
+    }
   },
   watch: {
     top (top, old) {
-      const direction = (top > old)
       const diff = top - old
       const min = -100
       this.isShrink = top > 500
@@ -92,13 +92,12 @@ export default {
 
       if (this.navbarTop < min) this.navbarTop = min
       else if (this.navbarTop > 0) this.navbarTop = 0
-    },
-  },
+    }
+  }
 }
 </script>
 
 <style scoped lang="sass">
-@import "~@/assets/css/style.sass"
 #nav
   background-color: transparent
   position: absolute
