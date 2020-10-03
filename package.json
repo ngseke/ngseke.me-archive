@@ -20,6 +20,7 @@
     "jquery": "^3.5.1",
     "jump.js": "^1.0.2",
     "medium-zoom": "^1.0.6",
+    "nprogress": "^0.2.0",
     "popper.js": "^1.16.1",
     "vanilla-tilt": "^1.7.0",
     "vue": "^2.6.11",

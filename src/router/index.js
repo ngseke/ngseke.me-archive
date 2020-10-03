@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import NProgress from 'nprogress'
 
 Vue.use(VueRouter)
 
@@ -37,5 +38,12 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  NProgress.configure({ showSpinner: false }).start()
+  next()
+})
+
+router.afterEach(() => setTimeout(NProgress.done, 300))
 
 export default router
