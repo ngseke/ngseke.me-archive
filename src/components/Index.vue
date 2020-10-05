@@ -6,9 +6,9 @@ div
     //- MCIP CMS
     IndexSection(id='mcip' :bg='require(`@/assets/img/bg/mcip.jpg`)' :isTile='isTile')
       template(slot='img')
-        img.img-fluid.cover(src='@/assets/img/cover/mcip.png' alt='MCIP Cover')
+        img.img-fluid.cover(v-lazy='require(`@/assets/img/cover/mcip.png`)' alt='MCIP Cover')
       template(slot='content')
-        img(src='@/assets/img/logo/mcip.svg' alt='樂台計畫')
+        img(v-lazy='require(`@/assets/img/logo/mcip.svg`)' alt='樂台計畫')
         .title.text-light MCIP Official Website
         .subtitle.text-light #[b 樂台計畫]官方網站
         router-link.btn.btn-sm.btn-primary(:to='getRoute("mcip")') Detail
@@ -17,9 +17,9 @@ div
     //- MCIP CMS
     IndexSection(id='mcip-cms' :bg='require(`@/assets/img/bg/mcip-cms.jpg`)' :isTile='isTile')
       template(slot='img')
-        img.img-fluid.cover(src='@/assets/img/cover/mcip-cms.png' alt='MCIP CMS Cover')
+        img.img-fluid.cover(v-lazy='require(`@/assets/img/cover/mcip-cms.png`)' alt='MCIP CMS Cover')
       template(slot='content')
-        img(src='@/assets/img/logo/mcip-cms.svg' alt='樂台計畫')
+        img(v-lazy='require(`@/assets/img/logo/mcip-cms.svg`)' alt='樂台計畫')
         .title.text-light MCIP CMS
         .subtitle.text-light #[b 樂台計畫]後台管理系統
         router-link.btn.btn-sm.btn-primary(:to='getRoute("mcip-cms")') Detail
@@ -27,9 +27,9 @@ div
     //- EM Optimization Lab
     IndexSection(id='emo' :bg='require(`@/assets/img/bg/emo.jpg`)' :isTile='isTile')
       template(slot='img')
-        img.img-fluid.cover(src='@/assets/img/cover/emo.png' alt='EM Optimization Lab Cover')
+        img.img-fluid.cover(v-lazy='require(`@/assets/img/cover/emo.png`)' alt='EM Optimization Lab Cover')
       template(slot='content')
-        img(src='@/assets/img/logo/emo.svg' alt='EM Optimization Lab Logo')
+        img(v-lazy='require(`@/assets/img/logo/emo.svg`)' alt='EM Optimization Lab Logo')
         .title.text-light EM Optimization Lab
         .subtitle.text-light #[b 電磁最佳化實驗室]網站
         router-link.btn.btn-sm.btn-primary(:to='getRoute("emo")') Detail
@@ -41,7 +41,7 @@ div
     //- Realtime Monitor
     IndexSection(id='realtime' :bg='require(`@/assets/img/bg/realtime.jpg`)' :isTile='isTile')
       template(slot='img')
-        img.img-fluid.cover(src='@/assets/img/cover/realtime.png' alt='Realtime Monitor Cover')
+        img.img-fluid.cover(v-lazy='require(`@/assets/img/cover/realtime.png`)' alt='Realtime Monitor Cover')
       template(slot='content')
         .title.text-light Realtime Monitor
         .subtitle.text-light 測速網站爬蟲
@@ -50,7 +50,7 @@ div
     //- Boss
     IndexSection(id='boss' :bg='require(`@/assets/img/bg/boss.jpg`)' :isTile='isTile')
       template(slot='img')
-        img.img-fluid.cover(src='@/assets/img/cover/boss.png' alt='BOSS Cover')
+        img.img-fluid.cover(v-lazy='require(`@/assets/img/cover/boss.png`)' alt='BOSS Cover')
         .chunchicha-small-sr
           img.chunchicha-small.d-none.d-lg-block(src='@/assets/img/element/products.png' title="We don't actually sell these products.")
       template(slot='content')
@@ -65,9 +65,9 @@ div
     //- Gomoku
     IndexSection(id='gomoku' :bg='require(`@/assets/img/bg/gomoku.jpg`)' :isTile='isTile')
       template(slot='img')
-        img.img-fluid.cover(src='@/assets/img/cover/gomoku.png' alt='Gomoku Cover')
+        img.img-fluid.cover(v-lazy='require(`@/assets/img/cover/gomoku.png`)' alt='Gomoku Cover')
       template(slot='content')
-        img(src='@/assets/img/logo/gomoku.png' alt='Gomoku Logo')
+        img(v-lazy='require(`@/assets/img/logo/gomoku.png`)' alt='Gomoku Logo')
         .title.text-light Gomoku
         .subtitle.text-light 五子棋對戰
         router-link.btn.btn-sm.btn-primary(:to='getRoute("gomoku")') Detail
@@ -81,7 +81,7 @@ div
     //- Raise Your Red Flag
     IndexSection(id='flag' :bg='require(`@/assets/img/bg/flag.jpg`)' :isTile='isTile')
       template(slot='img')
-        img.img-fluid.cover(src='@/assets/img/cover/flag.png'  alt='Raise Your Red Flag Logo')
+        img.img-fluid.cover(v-lazy='require(`@/assets/img/cover/flag.png`)'  alt='Raise Your Red Flag Logo')
       template(slot='content')
         .logo #[fa(icon='flag')]
         .title Raise Your Red Flag
@@ -97,7 +97,7 @@ div
     //- Typing Typing!
     IndexSection(id='typingtyping' :bg='require(`@/assets/img/bg/typingtyping.jpg`)' :isTile='isTile')
       template(slot='img')
-        img.img-fluid.cover(src='@/assets/img/cover/typingtyping.png' alt='Typing Typing! Logo')
+        img.img-fluid.cover(v-lazy='require(`@/assets/img/cover/typingtyping.png`)' alt='Typing Typing! Logo')
       template(slot='content')
         .title Typing Typing!
         .subtitle 8-bit 風格打字遊戲
