@@ -79,7 +79,9 @@ export default {
   },
   computed: {
     style () {
-      return { top: `${this.navbarTop}px` }
+      return this.isShrink
+        ? { top: `${this.navbarTop}px` }
+        : {}
     }
   },
   watch: {
