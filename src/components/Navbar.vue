@@ -1,6 +1,6 @@
 <template lang="pug">
 nav#nav.navbar.navbar-expand-sm.navbar-light(:class='{ shrink: isShrink }' :style='style')
-  .container
+  div(:class='{ container: isShrink, "container-fluid": !isShrink }')
     router-link.navbar-brand(to='/' @click.native='clickLogo')
       img.img-fluid(src='../../public/favicon.png' alt='Logo')
     button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarContent')
