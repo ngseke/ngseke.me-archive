@@ -4,7 +4,7 @@ header.jumbotron.jumbotron-fluid.flex-vertical
     .row.justify-content-center
       .col-6.col-md-12.text-center.d-flex.flex-column.align-items-center
         .headline Xingqiao's Portfolio
-      .col-12.text-center.d-flex.flex-column
+      .col-12.d-flex.flex-column.align-items-center
         router-link.shortcut(to='about') { aboutMe }
         a.shortcut(href='#' @click.prevent='scrollToMain') { ...projects }
   .bg(:style='bgStyle')
