@@ -26,13 +26,16 @@ nav#nav.navbar.navbar-expand-sm.navbar-light(:class='{ shrink: isShrink }' :styl
 </template>
 
 <script>
+import { computed, ref, watch } from '@vue/composition-api'
+import useScrollTop from '@/composables/use-scroll-top'
+
 import $ from 'jquery'
 import Jump from 'jump.js'
 
 export default {
   name: 'Navbar',
-  data () {
-    this.links = [
+  setup (_props, { root }) {
+    const links = [
       {
         category: 'Website',
         works: [
@@ -52,48 +55,40 @@ export default {
         ]
       }
     ]
-    return {
-      isShrink: false,
-      top: null,
-      navbarTop: 0
-    }
-  },
-  mounted () {
-    this.setNavShrink()
-  },
-  methods: {
-    setNavShrink () {
-      const handler = () => {
-        this.top = $(window).scrollTop()
-      }
-      $(window).scroll(handler)
-      this.$once('hook:beforeDestroy', () => $(window).off('scroll', handler))
-    },
-    async clickLogo () {
-      await this.$nextTick()
-      if (this.$route.name === 'Index') Jump('html')
-    },
-    collapse () {
-      $(this.$refs.content).collapse('hide')
-    }
-  },
-  computed: {
-    style () {
-      return this.isShrink
-        ? { top: `${this.navbarTop}px` }
-        : {}
-    }
-  },
-  watch: {
-    top (top, old) {
+
+    const { top } = useScrollTop()
+
+    const isShrink = ref(false)
+    const navbarTop = ref(0)
+
+    const style = computed(() => isShrink ? { top: `${navbarTop.value}px` } : {})
+
+    watch(top, (top, old) => {
       const diff = top - old
       const min = -100
-      this.isShrink = top > 500
+      isShrink.value = top > 500
+      navbarTop.value -= diff
 
-      this.navbarTop -= diff
+      if (navbarTop.value < min) navbarTop.value = min
+      else if (navbarTop.value > 0) navbarTop.value = 0
+    })
 
-      if (this.navbarTop < min) this.navbarTop = min
-      else if (this.navbarTop > 0) this.navbarTop = 0
+    const clickLogo = async () => {
+      await root.$nextTick()
+      if (root.$route.name === 'Index') Jump('html')
+    }
+
+    const content = ref(null)
+    const collapse = () => $(content.value).collapse('hide')
+
+    return {
+      links,
+      isShrink,
+      top,
+      style,
+      clickLogo,
+      content,
+      collapse
     }
   }
 }
