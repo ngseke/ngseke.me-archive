@@ -10,7 +10,7 @@ section#about: .container: .row.justify-content-around.align-items-center
     .col-12.col-lg-3.img-area
       .avatar
         .profile-mask(:class='{ play: isLoaded, loading: !isLoaded }')
-        img(src='@/assets/img/profile.jpg' @load='imageLoaded')
+        img(src='@/assets/img/profile.jpg' @load='isLoaded = true')
     .col-12.col-lg-9.mt-3
       h4.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' style=itemStyle()) 黃省喬
       h6.mb-2.text-muted.text-center.text-lg-left.item(style=itemStyle()) Huang Xingqiao
@@ -53,6 +53,7 @@ section#about: .container: .row.justify-content-around.align-items-center
 </template>
 
 <script>
+import { ref } from '@vue/composition-api'
 const title = 'About Me'
 const description = 'Hi, I\'m Sean 👋 現職前端工程師，堅持產出無瑕程式碼是我的開發格言。 擁有二年以上前端實務開發經驗，對於 Vue.js 框架尤其掌握，熱衷於探究各種前端領域的新鮮事。'
 
@@ -67,8 +68,8 @@ export default {
       { property: 'og:image', vmid: 'og:image', content: require('@/assets/img/about.png') }
     ]
   },
-  data () {
-    this.profile = {
+  setup () {
+    const profile = {
       skills: [
         { icon: 'vuejs', title: 'Vue.js' },
         { icon: 'sass', title: 'Sass' },
@@ -83,19 +84,20 @@ export default {
         { icon: ['fas', 'envelope'], url: 'mailto:ngseke@gmail.com', title: 'Email' }
       ]
     }
-    this.description = description
-    return {
-      isLoaded: false
-    }
-  },
-  methods: {
-    getSkillStyle (i) {
+
+    const isLoaded = ref(false)
+
+    const getSkillStyle = (i) => {
       const base = 0.8 + 0.3
       const delta = 0.08
       return { animationDelay: `${i * delta + base}s` }
-    },
-    imageLoaded () {
-      this.isLoaded = true
+    }
+
+    return {
+      profile,
+      description,
+      getSkillStyle,
+      isLoaded
     }
   }
 }
