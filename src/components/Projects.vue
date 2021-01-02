@@ -20,43 +20,42 @@ export default {
   metaInfo: {
     title: 'Projects'
   },
-  data () {
+  setup () {
+    const list = [
+      {
+        title: 'Website',
+        cover: 'https://images.unsplash.com/photo-1505356822725-08ad25f3ffe4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
+        list: [
+          { title: 'MCIP Official Website', name: 'mcip' },
+          { title: 'MCIP CMS', name: 'mcip-cms' },
+          { title: 'EM Optimization Lab', name: 'emo' },
+          { title: 'Realtime Monitor', name: 'realtime' },
+          { title: 'BOSS', name: 'boss' }
+        ]
+      },
+      {
+        title: 'Game',
+        cover: 'https://images.unsplash.com/photo-1484173936665-9ae90b911638?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
+        list: [
+          { title: 'Gomoku', name: 'gomoku' },
+          { title: 'Raise Your Red Flag', name: 'flag' },
+          { title: 'Typing Typing!', name: 'typingtyping' }
+        ]
+      },
+      {
+        title: 'Other',
+        cover: 'https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80',
+        list: [
+          { title: 'Shanlinliang', name: 'shanlinliang' },
+          { title: 'Kuaichao Bu Jia La, Guozi Bu Jia Tang', name: 'camp2017' }
+        ]
+      }
+    ]
+    const getRoute = (name) => ({ name: 'Project', params: { name } })
+
     return {
-      list: [
-        {
-          title: 'Website',
-          cover: 'https://images.unsplash.com/photo-1505356822725-08ad25f3ffe4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
-          list: [
-            { title: 'MCIP Official Website', name: 'mcip' },
-            { title: 'MCIP CMS', name: 'mcip-cms' },
-            { title: 'EM Optimization Lab', name: 'emo' },
-            { title: 'Realtime Monitor', name: 'realtime' },
-            { title: 'BOSS', name: 'boss' }
-          ]
-        },
-        {
-          title: 'Game',
-          cover: 'https://images.unsplash.com/photo-1484173936665-9ae90b911638?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
-          list: [
-            { title: 'Gomoku', name: 'gomoku' },
-            { title: 'Raise Your Red Flag', name: 'flag' },
-            { title: 'Typing Typing!', name: 'typingtyping' }
-          ]
-        },
-        {
-          title: 'Other',
-          cover: 'https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80',
-          list: [
-            { title: 'Shanlinliang', name: 'shanlinliang' },
-            { title: 'Kuaichao Bu Jia La, Guozi Bu Jia Tang', name: 'camp2017' }
-          ]
-        }
-      ]
-    }
-  },
-  methods: {
-    getRoute (name) {
-      return { name: 'Project', params: { name } }
+      list,
+      getRoute
     }
   }
 }
