@@ -8,8 +8,10 @@ footer.footer: .container
 <script>
 export default {
   name: 'Footer',
-  computed: {
-    year: () => new Date().getFullYear()
+  setup () {
+    return {
+      year: new Date().getFullYear()
+    }
   }
 }
 </script>
