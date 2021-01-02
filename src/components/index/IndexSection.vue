@@ -1,5 +1,10 @@
 <template lang="pug">
-section(:id='id' :style='style' :class='{ active: intersectionRatio === 1 }')
+section(
+  ref='el'
+  :id='id'
+  :class='{ active: intersectionRatio === 1 }'
+  :style='style'
+)
   .container
     .row.justify-content-around.align-items-center
       .col-12.col-md-5.mb-3
@@ -11,7 +16,9 @@ section(:id='id' :style='style' :class='{ active: intersectionRatio === 1 }')
 </template>
 
 <script>
+import { computed, onBeforeUnmount, onMounted, ref, watch } from '@vue/composition-api'
 import VanillaTilt from 'vanilla-tilt'
+import useObserverEl from '@/composables/use-observer-el'
 
 export default {
   name: 'IndexSection',
@@ -20,52 +27,41 @@ export default {
     bg: String,
     isTile: Boolean
   },
-  mounted () {
-    this.setTilt()
-    this.setIntersectionObserver()
-  },
-  data () {
-    return {
-      intersectionRatio: null
-    }
-  },
-  methods: {
-    setTilt () {
-      const options = {
+  setup (props, { root }) {
+    const el = ref(null)
+    const setTilt = () => {
+      VanillaTilt.init(el.value, {
         'max-glare': 0.1,
         glare: true,
         max: 1
-      }
-
-      VanillaTilt.init(this.$el, options)
-      this.$once('hook:beforeDestroy', this.removeTile)
-    },
-    removeTile () {
-      const { vanillaTilt: tilt } = this.$el
+      })
+    }
+    const removeTile = () => {
+      const { vanillaTilt: tilt } = el.value
       if (tilt) tilt.destroy()
-    },
-    setIntersectionObserver () {
-      const observer = new IntersectionObserver(([entries]) => {
-        this.intersectionRatio = entries.intersectionRatio
-      }, { threshold: [0, 0.25, 0.5, 0.75, 1] })
-      observer.observe(this.$el)
-      this.$once('hook:beforeDestroy', () => observer.disconnect())
     }
-  },
-  computed: {
-    style () {
-      return { backgroundImage: `url('${this.bg}')` }
-    }
-  },
-  watch: {
-    isTile: {
-      async handler (_) {
-        await this.$nextTick()
 
-        if (this.isTile) this.setTilt()
-        else this.removeTile()
-      },
-      immediate: true
+    onMounted(setTilt)
+    onBeforeUnmount(removeTile)
+
+    watch(() => props.isTile, async (isTile) => {
+      await root.$nextTick()
+      isTile.value ? setTilt() : removeTile()
+    }, { immediate: true })
+
+    const intersectionRatio = ref(null)
+
+    const observer = new IntersectionObserver(([entries]) => {
+      intersectionRatio.value = entries.intersectionRatio
+    }, { threshold: [0, 0.25, 0.5, 0.75, 1] })
+    useObserverEl(observer, el)
+
+    const style = computed(() => ({ '--bg': `url('${props.bg}')` }))
+
+    return {
+      el,
+      intersectionRatio,
+      style
     }
   }
 }
@@ -75,6 +71,7 @@ export default {
 section
   +py(7rem)
   background-size: cover
+  background-image: var(--bg)
   transform-style: preserve-3d
   margin: 2rem
   border-radius: 1rem

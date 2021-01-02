@@ -11,21 +11,21 @@ header.jumbotron.jumbotron-fluid.flex-vertical(ref='el')
 </template>
 
 <script>
+import { computed, ref } from '@vue/composition-api'
 import Jump from 'jump.js'
-import { computed, onBeforeMount, onMounted, ref } from '@vue/composition-api'
+
+import useObserverEl from '@/composables/use-observer-el'
 
 export default {
   name: 'IndexHeader',
   setup () {
     const intersectionRatio = ref(0)
-    const el = ref(null)
 
+    const el = ref(null)
     const observer = new IntersectionObserver(([entries]) => {
       intersectionRatio.value = entries.intersectionRatio
     }, { threshold: Array(1000).fill().map((_, i) => i * 0.001) })
-
-    onMounted(() => observer.observe(el.value))
-    onBeforeMount(() => observer.disconnect())
+    useObserverEl(observer, el)
 
     const scrollToMain = () => Jump('main')
 
