@@ -102,7 +102,7 @@ div
         .title Typing Typing!
         .subtitle 8-bit 風格打字遊戲
         router-link.btn.btn-sm.btn-primary(:to='getRoute("typingtyping")') Detail
-        a.btn.btn-sm.btn-primary(:href='`/file/TypingTyping.zip`' target='_blank' data-toggle='tooltip' data-placement='bottom' title='7.7mb')
+        a.btn.btn-sm.btn-primary(:href='`/file/TypingTyping.zip`' target='_blank')
           fa(icon='download')
           |  Download
         a.btn.btn-sm.btn-github(href='https://github.com/ngseke/Typing-Typing' target='_blank')
@@ -111,8 +111,8 @@ div
 </template>
 
 <script>
-import $ from 'jquery'
-import ScrollReveal from 'scrollreveal'
+import { computed } from '@vue/composition-api'
+import useWindowSize from '@/composables/use-window-size'
 
 import IndexSection from '@/components/index/IndexSection.vue'
 import IndexHeader from '@/components/index/IndexHeader.vue'
@@ -120,45 +120,18 @@ import IndexHeader from '@/components/index/IndexHeader.vue'
 export default {
   name: 'Index',
   components: { IndexSection, IndexHeader },
-  data () {
+  setup () {
+    const { width } = useWindowSize()
+    const isTile = computed(() => width.value >= 576)
+
+    const publicPath = process.env.BASE_URL
+
+    const getRoute = (name) => ({ name: 'Project', params: { name } })
+
     return {
-      windowWidth: null,
-      publicPath: process.env.BASE_URL
-    }
-  },
-  async mounted () {
-    this.windowWidth = $(window).width()
-    $(window).resize(() => {
-      this.windowWidth = $(window).width()
-    })
-
-    await this.$nextTick()
-    this.setScrollReveal()
-    this.setTooltip()
-  },
-  methods: {
-    setScrollReveal () {
-      ScrollReveal({ reset: false, duration: 1000, scale: 1 })
-
-      const sr = ScrollReveal
-
-      sr().reveal('.work-img', { distance: 0, scale: 1.1 })
-      sr().reveal('.work-content', { origin: 'left', delay: 500 })
-      sr().reveal('.chunchicha-small-sr', { origin: 'top', delay: '600', scale: 0.95, easing: 'ease' }) // 純喫茶
-
-      this.$once('hook:beforeDestroy', () => ScrollReveal().destroy())
-    },
-    setTooltip () {
-      const $el = $('[data-toggle="tooltip"]').tooltip()
-      this.$once('hook:beforeDestroy', () => $el.tooltip('dispose'))
-    },
-    getRoute (name) {
-      return { name: 'Project', params: { name } }
-    }
-  },
-  computed: {
-    isTile () {
-      return this.windowWidth >= 576
+      isTile,
+      publicPath,
+      getRoute
     }
   }
 }
