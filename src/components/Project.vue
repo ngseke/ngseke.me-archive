@@ -3,10 +3,12 @@ main
   .container
     .row.justify-content-center
       .col-12.col-lg-9
-        article(v-html='article')
+        article(v-html='article' ref='el')
 </template>
 
 <script>
+import { onBeforeUnmount, ref } from '@vue/composition-api'
+
 import $ from 'jquery'
 import mediumZoom from 'medium-zoom'
 
@@ -29,47 +31,49 @@ export default {
       ]
     }
   },
-  data () {
-    return {
-      article: null
+  setup (_props, { root }) {
+    const beforeUnmountTasks = []
+    onBeforeUnmount(() => beforeUnmountTasks.forEach(i => i()))
+
+    const el = ref(null)
+    const setDom = () => {
+      const $imgs = $(el.value).find('img')
+
+      $imgs.each(function () {
+        const alt = $(this).prop('alt')
+        if (!alt) return
+        $(this).wrap('<figure/>').after(`<figcaption>${alt}</figcaption>`)
+      })
+
+      const zoom = mediumZoom($imgs.get())
+      beforeUnmountTasks.push(() => zoom.detach())
     }
-  },
-  created () {
-    this.fetch(this.$route.params.name)
+
+    const article = ref(null)
+    const fetch = async (page) => {
+      article.value = null
+
+      try {
+        article.value = require(`@/assets/page/${page}.md`)
+      } catch (e) {
+        root.$router.push('/')
+      }
+
+      await root.$nextTick()
+      setDom()
+    }
+
+    fetch(root.$route.params.name)
+
+    return {
+      el,
+      article,
+      fetch
+    }
   },
   beforeRouteUpdate (to, from, next) {
     this.fetch(to.params.name)
     next()
-  },
-  methods: {
-    async fetch (page) {
-      this.article = null
-
-      try {
-        this.article = require(`@/assets/page/${page}.md`)
-      } catch (e) {
-        this.$router.push('/')
-      }
-
-      await this.$nextTick()
-      this.setDom()
-    },
-    setDom () {
-      const $imgs = $(this.$el).find('img')
-
-      $imgs.each(function () {
-        const alt = $(this).prop('alt')
-
-        if (alt) {
-          $(this)
-            .wrap('<figure/>')
-            .after(`<figcaption>${alt}</figcaption>`)
-        }
-      })
-
-      const zoom = mediumZoom($imgs.get())
-      this.$once('hook:beforeDestroy', () => zoom.detach())
-    }
   }
 }
 </script>
