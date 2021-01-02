@@ -1,5 +1,5 @@
 <template lang="pug">
-header.jumbotron.jumbotron-fluid.flex-vertical
+header.jumbotron.jumbotron-fluid.flex-vertical(ref='el')
   .container
     .row.justify-content-center
       .col-6.col-md-12.text-center.d-flex.flex-column.align-items-center
@@ -12,34 +12,33 @@ header.jumbotron.jumbotron-fluid.flex-vertical
 
 <script>
 import Jump from 'jump.js'
+import { computed, onBeforeMount, onMounted, ref } from '@vue/composition-api'
 
 export default {
   name: 'IndexHeader',
-  data () {
-    return {
-      intersectionRatio: 0
-    }
-  },
-  mounted () {
+  setup () {
+    const intersectionRatio = ref(0)
+    const el = ref(null)
+
     const observer = new IntersectionObserver(([entries]) => {
-      this.intersectionRatio = entries.intersectionRatio
-    }, {
-      threshold: Array(1000).fill().map((_, i) => i * 0.001)
+      intersectionRatio.value = entries.intersectionRatio
+    }, { threshold: Array(1000).fill().map((_, i) => i * 0.001) })
+
+    onMounted(() => observer.observe(el.value))
+    onBeforeMount(() => observer.disconnect())
+
+    const scrollToMain = () => Jump('main')
+
+    const bgStyle = computed(() => {
+      const y = (intersectionRatio.value - 0.5) * 15
+      return { transform: `scale(1.25) translateY(${y}%)` }
     })
-    observer.observe(this.$el)
-    this.$once('hook:beforeDestroy', () => observer.disconnect())
-  },
-  methods: {
-    scrollToMain () {
-      Jump('main')
-    }
-  },
-  computed: {
-    bgStyle () {
-      const y = (this.intersectionRatio - 0.5) * 15
-      return {
-        transform: `scale(1.25) translateY(${y}%)`
-      }
+
+    return {
+      intersectionRatio,
+      el,
+      scrollToMain,
+      bgStyle
     }
   }
 }
