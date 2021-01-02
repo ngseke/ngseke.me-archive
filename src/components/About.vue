@@ -32,7 +32,7 @@ section#about: .container: .row.justify-content-around.align-items-center
         | 現職前端工程師，堅持產出
         a(href='https://github.com/ryanmcdermott/clean-code-javascript' target='_blank') 無瑕程式碼
         | 是我的開發格言。
-        | 擁有二年以上前端實務開發經驗，對於 Vue.js 框架尤其掌握，熱衷於探究各種前端領域的新鮮事。
+        | 擁有二年以上前端實務開發經驗，尤其掌握 Vue.js 框架，熱衷於探索各種前端領域的新鮮事。
 
       p.mb-4.text-center.text-lg-left
         span.skill(
@@ -55,7 +55,7 @@ section#about: .container: .row.justify-content-around.align-items-center
 <script>
 import { ref } from '@vue/composition-api'
 const title = 'About Me'
-const description = 'Hi, I\'m Sean 👋 現職前端工程師，堅持產出無瑕程式碼是我的開發格言。 擁有二年以上前端實務開發經驗，對於 Vue.js 框架尤其掌握，熱衷於探究各種前端領域的新鮮事。'
+const description = 'Hi, I\'m Sean 👋 現職前端工程師，堅持產出無瑕程式碼是我的開發格言。 擁有二年以上前端實務開發經驗，尤其掌握 Vue.js 框架，熱衷於探索各種前端領域的新鮮事。'
 
 export default {
   name: 'About',
