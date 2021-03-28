@@ -22,9 +22,18 @@ module.exports = {
             '/about',
             '/project',
             '/projects',
-            ...['mcip', 'mcip-cms', 'emo', 'realtime', 'boss', 'gomoku', 'flag', 'typingtyping', 'camp2017', 'shanlinliang'].map(i => `/project/${i}`)
+            ...['mcip', 'mcip-cms', 'emo', 'realtime', 'boss', 'gomoku', 'flag', 'typingtyping', 'camp2017', 'shanlinliang'].map(
+              i => [`/project/${i}`, `/work/${i}`]
+            ).flat()
           ],
-          renderer: new Renderer({ renderAfterDocumentEvent: 'render-event' })
+          renderer: new Renderer({ renderAfterDocumentEvent: 'render-event' }),
+          postProcess (renderedRoute) {
+            renderedRoute.route = renderedRoute.originalRoute
+            if (renderedRoute.route.endsWith('.html')) {
+              renderedRoute.outputPath = path.join(__dirname, 'dist', renderedRoute.route)
+            }
+            return renderedRoute
+          }
         })
       )
     }
