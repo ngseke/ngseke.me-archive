@@ -85,10 +85,10 @@ export default {
       'Vue 3',
       'Nuxt.js',
       'TypeScript',
+      'ESNext',
       'Tailwind CSS',
       'SASS',
-      'Pug',
-      'ESLint'
+      'Pug'
     ]
 
     const socials = [
