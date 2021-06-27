@@ -10,7 +10,7 @@ div
         .title.text-light Sinopac Dual Currency Card Calc.
         .subtitle.text-light 永豐幣倍卡回饋計算機
         DetailButton(name='credit-card-calc')
-        a.btn.btn-sm.btn-primary(href='https://ngseke.github.io/sinopac-dual-currency-card-calculator/' target='_blank') Demo
+        DemoButton(href='https://ngseke.github.io/sinopac-dual-currency-card-calculator/')
         GithubButton(href='https://github.com/ngseke/sinopac-dual-currency-card-calculator')
 
     //- MCIP
@@ -22,7 +22,7 @@ div
         .title.text-light MCIP Official Website
         .subtitle.text-light #[b 樂台計畫]官方網站
         DetailButton(name='mcip')
-        a.btn.btn-sm.btn-primary(href='https://mcip.ml/' target='_blank') Demo
+        DemoButton(href='https://mcip.ml/')
         GithubButton(href='https://github.com/ngseke/mcip.ml')
 
     //- MCIP CMS
@@ -44,7 +44,7 @@ div
         .title.text-light EM Optimization Lab
         .subtitle.text-light #[b 電磁最佳化實驗室]網站
         DetailButton(name='emo')
-        a.btn.btn-sm.btn-primary(href='https://myweb.ntut.edu.tw/~yschen/' target='_blank') Demo
+        DemoButton(href='https://myweb.ntut.edu.tw/~yschen/')
         GithubButton(href='https://github.com/ngseke/emo')
 
     //- Realtime Monitor
@@ -66,7 +66,7 @@ div
         .title.text-light BOSS
         .subtitle.text-light 線上飲料購物系統
         DetailButton(name='boss')
-        a.btn.btn-sm.btn-primary(href='http://boss.ngseke.me' target='_blank') Demo
+        DemoButton(href='http://boss.ngseke.me')
         GithubButton(href='https://github.com/ngseke/boss')
 
     //- Gomoku
@@ -78,7 +78,7 @@ div
         .title.text-light Gomoku
         .subtitle.text-light 五子棋對戰
         DetailButton(name='gomoku')
-        a.btn.btn-sm.btn-primary(href='https://gomoku.ga/' target='_blank')
+        DemoButton(href='https://gomoku.ga/')
           fa(icon='gamepad')
           |  Play
         GithubButton(href='https://github.com/ngseke/gomoku')
@@ -92,7 +92,7 @@ div
         .title Raise Your Red Flag
         .subtitle 紅旗舉起來
         DetailButton(name='flag')
-        a.btn.btn-sm.btn-primary(href='https://raise-flag.web.app' target='_blank')
+        DemoButton(href='https://raise-flag.web.app')
           fa(icon='gamepad')
           |  Play
         GithubButton(href='https://github.com/ngseke/Raise-Your-Red-Flag')
@@ -105,7 +105,7 @@ div
         .title Typing Typing!
         .subtitle 8-bit 風格打字遊戲
         DetailButton(name='typingtyping')
-        a.btn.btn-sm.btn-primary(:href='`/file/TypingTyping.zip`' target='_blank')
+        DemoButton(href='/file/TypingTyping.zip')
           fa(icon='download')
           |  Download
         GithubButton(href='https://github.com/ngseke/Typing-Typing')
@@ -118,6 +118,7 @@ import useWindowSize from '@/composables/use-window-size'
 import IndexSection from '@/components/index/IndexSection.vue'
 import IndexHeader from '@/components/index/IndexHeader.vue'
 import DetailButton from '@/components/DetailButton.vue'
+import DemoButton from '@/components/DemoButton.vue'
 import GithubButton from '@/components/GithubButton.vue'
 
 export default {
@@ -126,6 +127,7 @@ export default {
     IndexSection,
     IndexHeader,
     DetailButton,
+    DemoButton,
     GithubButton
   },
   setup () {
