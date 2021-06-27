@@ -16,9 +16,9 @@ section(
 </template>
 
 <script>
-import { computed, onBeforeUnmount, onMounted, ref, watch } from '@vue/composition-api'
+import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from '@vue/composition-api'
 import VanillaTilt from 'vanilla-tilt'
-import useObserverEl from '@/composables/use-observer-el'
+import { useIntersectionObserver } from '@vueuse/core'
 
 export default {
   name: 'IndexSection',
@@ -28,7 +28,7 @@ export default {
     isTile: Boolean
   },
   setup (props, { root }) {
-    const el = ref(null)
+    const el = ref()
     const setTilt = () => {
       VanillaTilt.init(el.value, {
         'max-glare': 0.1,
@@ -45,16 +45,17 @@ export default {
     onBeforeUnmount(removeTile)
 
     watch(() => props.isTile, async (isTile) => {
-      await root.$nextTick()
+      await nextTick()
       isTile.value ? setTilt() : removeTile()
     }, { immediate: true })
 
-    const intersectionRatio = ref(null)
-
-    const observer = new IntersectionObserver(([entries]) => {
-      intersectionRatio.value = entries.intersectionRatio
-    }, { threshold: [0, 0.25, 0.5, 0.75, 1] })
-    useObserverEl(observer, el)
+    const intersectionRatio = ref()
+    useIntersectionObserver(
+      el,
+      ([entries]) => {
+        intersectionRatio.value = entries.intersectionRatio
+      }, { threshold: [0, 0.25, 0.5, 0.75, 1] }
+    )
 
     const style = computed(() => ({ '--bg': `url('${props.bg}')` }))
 

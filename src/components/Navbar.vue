@@ -20,8 +20,8 @@ nav#nav.navbar.navbar-expand-sm.navbar-light(:class='{ shrink: isShrink }' :styl
 </template>
 
 <script>
-import { computed, ref, watch } from '@vue/composition-api'
-import useScrollTop from '@/composables/use-scroll-top'
+import { computed, ref, watch, nextTick } from '@vue/composition-api'
+import { useWindowScroll } from '@vueuse/core'
 
 import $ from 'jquery'
 import Jump from 'jump.js'
@@ -29,7 +29,7 @@ import Jump from 'jump.js'
 export default {
   name: 'Navbar',
   setup (_props, { root }) {
-    const { top } = useScrollTop()
+    const { y: top } = useWindowScroll()
 
     const isShrink = ref(false)
     const navbarTop = ref(0)
@@ -47,11 +47,11 @@ export default {
     })
 
     const clickLogo = async () => {
-      await root.$nextTick()
+      await nextTick()
       if (root.$route.name === 'Index') Jump('html')
     }
 
-    const content = ref(null)
+    const content = ref()
     const collapse = () => $(content.value).collapse('hide')
 
     return {
