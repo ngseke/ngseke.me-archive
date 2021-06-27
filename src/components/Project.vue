@@ -54,7 +54,7 @@ export default {
       article.value = null
 
       try {
-        article.value = require(`@/assets/page/${page}.md`)
+        article.value = require(`@/content/${page}.md`)
       } catch (e) {
         root.$router.push('/')
       }
