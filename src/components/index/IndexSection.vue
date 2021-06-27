@@ -98,7 +98,8 @@ section
   img.cover
     transition: all .4s
     display: inline-block
-    margin-bottom: 2rem
+    @include media-breakpoint-down(sm)
+      margin-bottom: 1rem
 
 .content
   text-align: center
