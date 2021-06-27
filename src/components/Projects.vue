@@ -23,9 +23,10 @@ export default {
   setup () {
     const list = [
       {
-        title: 'Website',
+        title: 'Web',
         cover: 'https://images.unsplash.com/photo-1505356822725-08ad25f3ffe4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80',
         list: [
+          { title: 'Sinopac Dual Currency Card Calc.', name: 'credit-card-calc' },
           { title: 'MCIP Official Website', name: 'mcip' },
           { title: 'MCIP CMS', name: 'mcip-cms' },
           { title: 'EM Optimization Lab', name: 'emo' },
@@ -41,15 +42,15 @@ export default {
           { title: 'Raise Your Red Flag', name: 'flag' },
           { title: 'Typing Typing!', name: 'typingtyping' }
         ]
-      },
-      {
-        title: 'Other',
-        cover: 'https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80',
-        list: [
-          { title: 'Shanlinliang', name: 'shanlinliang' },
-          { title: 'Kuaichao Bu Jia La, Guozi Bu Jia Tang', name: 'camp2017' }
-        ]
       }
+      // {
+      //   title: 'Other',
+      //   cover: 'https://images.unsplash.com/photo-1515405295579-ba7b45403062?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1100&q=80',
+      //   list: [
+      //     { title: 'Shanlinliang', name: 'shanlinliang' },
+      //     { title: 'Kuaichao Bu Jia La, Guozi Bu Jia Tang', name: 'camp2017' }
+      //   ]
+      // }
     ]
     const getRoute = (name) => ({ name: 'Project', params: { name } })
 
