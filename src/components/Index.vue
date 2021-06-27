@@ -113,7 +113,7 @@ div
 
 <script>
 import { computed } from '@vue/composition-api'
-import useWindowSize from '@/composables/use-window-size'
+import { useWindowSize } from '@vueuse/core'
 
 import IndexSection from '@/components/index/IndexSection.vue'
 import IndexHeader from '@/components/index/IndexHeader.vue'

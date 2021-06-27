@@ -13,20 +13,20 @@ header.jumbotron.jumbotron-fluid.flex-vertical(ref='el')
 <script>
 import { computed, ref } from '@vue/composition-api'
 import Jump from 'jump.js'
-
-import useObserverEl from '@/composables/use-observer-el'
+import { useIntersectionObserver } from '@vueuse/core'
 
 export default {
   name: 'IndexHeader',
   setup () {
     const intersectionRatio = ref(0)
 
-    const el = ref(null)
-    const observer = new IntersectionObserver(([entries]) => {
-      intersectionRatio.value = entries.intersectionRatio
-    }, { threshold: Array(1000).fill().map((_, i) => i * 0.001) })
-    useObserverEl(observer, el)
-
+    const el = ref()
+    useIntersectionObserver(
+      el,
+      ([entries]) => {
+        intersectionRatio.value = entries.intersectionRatio
+      }, { threshold: Array(1000).fill().map((_, i) => i * 0.001) }
+    )
     const scrollToMain = () => Jump('main')
 
     const bgStyle = computed(() => {
