@@ -9,7 +9,7 @@ div
       template(slot='content')
         .title.text-light Sinopac Dual Currency Card Calc.
         .subtitle.text-light 永豐幣倍卡回饋計算機
-        router-link.btn.btn-sm.btn-primary(:to='getRoute("credit-card-calc")') Detail
+        DetailButton(name='credit-card-calc')
         a.btn.btn-sm.btn-primary(href='https://ngseke.github.io/sinopac-dual-currency-card-calculator/' target='_blank') Demo
         GithubButton(href='https://github.com/ngseke/sinopac-dual-currency-card-calculator')
 
@@ -21,7 +21,7 @@ div
         img(v-lazy='require(`@/assets/img/logo/mcip.svg`)' alt='樂台計畫')
         .title.text-light MCIP Official Website
         .subtitle.text-light #[b 樂台計畫]官方網站
-        router-link.btn.btn-sm.btn-primary(:to='getRoute("mcip")') Detail
+        DetailButton(name='mcip')
         a.btn.btn-sm.btn-primary(href='https://mcip.ml/' target='_blank') Demo
         GithubButton(href='https://github.com/ngseke/mcip.ml')
 
@@ -33,7 +33,7 @@ div
         img(v-lazy='require(`@/assets/img/logo/mcip-cms.svg`)' alt='樂台計畫')
         .title.text-light MCIP CMS
         .subtitle.text-light #[b 樂台計畫]後台管理系統
-        router-link.btn.btn-sm.btn-primary(:to='getRoute("mcip-cms")') Detail
+        DetailButton(name='mcip-cms')
 
     //- EM Optimization Lab
     IndexSection(id='emo' :bg='require(`@/assets/img/bg/emo.jpg`)' :isTile='isTile')
@@ -43,7 +43,7 @@ div
         img(v-lazy='require(`@/assets/img/logo/emo.svg`)' alt='EM Optimization Lab Logo')
         .title.text-light EM Optimization Lab
         .subtitle.text-light #[b 電磁最佳化實驗室]網站
-        router-link.btn.btn-sm.btn-primary(:to='getRoute("emo")') Detail
+        DetailButton(name='emo')
         a.btn.btn-sm.btn-primary(href='https://myweb.ntut.edu.tw/~yschen/' target='_blank') Demo
         GithubButton(href='https://github.com/ngseke/emo')
 
@@ -54,7 +54,7 @@ div
       template(slot='content')
         .title.text-light Realtime Monitor
         .subtitle.text-light 測速網站爬蟲
-        router-link.btn.btn-sm.btn-primary(:to='getRoute("realtime")') Detail
+        DetailButton(name='realtime')
 
     //- Boss
     IndexSection(id='boss' :bg='require(`@/assets/img/bg/boss.jpg`)' :isTile='isTile')
@@ -65,7 +65,7 @@ div
       template(slot='content')
         .title.text-light BOSS
         .subtitle.text-light 線上飲料購物系統
-        router-link.btn.btn-sm.btn-primary(:to='getRoute("boss")') Detail
+        DetailButton(name='boss')
         a.btn.btn-sm.btn-primary(href='http://boss.ngseke.me' target='_blank') Demo
         GithubButton(href='https://github.com/ngseke/boss')
 
@@ -77,7 +77,7 @@ div
         img(v-lazy='require(`@/assets/img/logo/gomoku.png`)' alt='Gomoku Logo')
         .title.text-light Gomoku
         .subtitle.text-light 五子棋對戰
-        router-link.btn.btn-sm.btn-primary(:to='getRoute("gomoku")') Detail
+        DetailButton(name='gomoku')
         a.btn.btn-sm.btn-primary(href='https://gomoku.ga/' target='_blank')
           fa(icon='gamepad')
           |  Play
@@ -91,7 +91,7 @@ div
         .logo #[fa(icon='flag')]
         .title Raise Your Red Flag
         .subtitle 紅旗舉起來
-        router-link.btn.btn-sm.btn-primary(:to='getRoute("flag")') Detail
+        DetailButton(name='flag')
         a.btn.btn-sm.btn-primary(href='https://raise-flag.web.app' target='_blank')
           fa(icon='gamepad')
           |  Play
@@ -104,7 +104,7 @@ div
       template(slot='content')
         .title Typing Typing!
         .subtitle 8-bit 風格打字遊戲
-        router-link.btn.btn-sm.btn-primary(:to='getRoute("typingtyping")') Detail
+        DetailButton(name='typingtyping')
         a.btn.btn-sm.btn-primary(:href='`/file/TypingTyping.zip`' target='_blank')
           fa(icon='download')
           |  Download
@@ -117,6 +117,7 @@ import useWindowSize from '@/composables/use-window-size'
 
 import IndexSection from '@/components/index/IndexSection.vue'
 import IndexHeader from '@/components/index/IndexHeader.vue'
+import DetailButton from '@/components/DetailButton.vue'
 import GithubButton from '@/components/GithubButton.vue'
 
 export default {
@@ -124,6 +125,7 @@ export default {
   components: {
     IndexSection,
     IndexHeader,
+    DetailButton,
     GithubButton
   },
   setup () {
