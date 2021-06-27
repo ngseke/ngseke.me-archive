@@ -24,7 +24,6 @@ export default {
   metaInfo: {
     titleTemplate: (_) => _ ? `${_} | ${title}` : title,
     meta: [
-      { property: 'og:title', vmid: 'og:title', content: title },
       { property: 'description', vmid: 'description', content: description },
       { property: 'og:description', vmid: 'og:description', content: description },
       { property: 'og:image', vmid: 'og:image', content: require('@/assets/img/index.png') }

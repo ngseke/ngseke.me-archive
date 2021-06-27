@@ -12,13 +12,11 @@ import {
   faGamepad,
   faFlag,
   faDownload,
-  faEnvelope
+  faEnvelope,
+  faFileAlt
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
-  faVuejs,
-  faSass,
-  faNpm,
   faGithub,
   faGithubAlt,
   faLinkedin,
@@ -36,9 +34,7 @@ library.add(
   faFlag,
   faDownload,
   faEnvelope,
-  faVuejs,
-  faSass,
-  faNpm,
+  faFileAlt,
   faGithub,
   faGithubAlt,
   faLinkedin,

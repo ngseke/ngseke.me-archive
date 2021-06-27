@@ -11,38 +11,35 @@ section#about: .container: .row.justify-content-around.align-items-center
       .avatar
         .profile-mask(:class='{ play: isLoaded, loading: !isLoaded }')
         img(src='@/assets/img/profile.jpg' @load='isLoaded = true')
+
     .col-12.col-lg-9.mt-3
       h4.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' style=itemStyle()) 黃省喬
       h6.mb-2.text-muted.text-center.text-lg-left.item(style=itemStyle()) Huang Xingqiao
       p.text-center.text-lg-left.item(style=itemStyle())
-        small.mr-3(title='Title')
-          fa(icon='briefcase')
-          |  Frontend Developer
-        small.mr-3(title='Education')
-          fa(icon='book')
-          |  NTUT CSIE
-        small.mr-3(title='Location')
-          fa(icon='map-marker')
-          |  Taipei, Taiwan
+        small.mr-3(
+          :title='title'
+          v-for='{ title, icon, name } in infos'
+        )
+          fa(:icon='icon')
+          |  {{ name }}
 
       hr
-      p.item.text-center.text-lg-left.description(style=itemStyle())
+      p.item.description(style=itemStyle())
         | Hi, I’m Sean 👋
         br
         | 現職前端工程師，堅持撰寫無瑕程式碼是我的開發格言。
         | 擁有超過二年的實務開發經驗，主攻 Vue.js 框架，熱衷於探究各種前端領域的新鮮事。
 
-      p.mb-4.text-center.text-lg-left
-        span.skill(
-          v-for='(s, index) in profile.skills'
-          :style='getSkillStyle(index)'
+      p.mb-4
+        span.hashtag(
+          v-for='(hashtag, index) in hashtags'
+          :style='getHashtagStyle(index)'
         )
-          fa(:icon='[`fab`, s.icon]' :title='s.title' v-if='s.icon')
-          .text(v-else) {{ s.title }}
+          span {{ hashtag }}
 
       p.text-center.text-lg-left.item(style=itemStyle(4))
         a.btn-social.mr-2(
-          v-for='{ title, icon, url } in profile.socials'
+          v-for='{ title, icon, url } in socials'
           :href='url'
           target='_blank'
           :title='title'
@@ -60,41 +57,62 @@ export default {
   metaInfo: {
     title,
     meta: [
-      { property: 'og:title', vmid: 'og:title', content: name },
       { property: 'description', vmid: 'description', content: description },
       { property: 'og:description', vmid: 'og:description', content: description },
       { property: 'og:image', vmid: 'og:image', content: require('@/assets/img/about.png') }
     ]
   },
   setup () {
-    const profile = {
-      skills: [
-        { icon: 'vuejs', title: 'Vue.js' },
-        { icon: 'sass', title: 'Sass' },
-        { title: 'Pug' },
-        { icon: 'npm', title: 'npm' }
-      ],
-      socials: [
-        { icon: ['fab', 'linkedin'], url: 'http://www.linkedin.com/in/xingqiao-huang', title: 'LinkedIn' },
-        { icon: ['fab', 'github'], url: 'https://github.com/ngseke', title: 'GitHub' },
-        { icon: ['fab', 'codepen'], url: 'https://codepen.io/ngseke', title: 'CodePen' },
-        { icon: ['fab', 'telegram'], url: 'https://t.me/hxqqq', title: 'Telegram' },
-        { icon: ['fas', 'envelope'], url: 'mailto:ngseke@gmail.com', title: 'Email' }
-      ]
-    }
+    const infos = [
+      {
+        title: 'Title',
+        name: 'Frontend Developer',
+        icon: 'briefcase'
+      },
+      {
+        title: 'Education',
+        name: 'NTUT CSIE',
+        icon: 'book'
+      },
+      {
+        title: 'Location',
+        name: 'Taipei, Taiwan',
+        icon: 'map-marker'
+      }
+    ]
+
+    const hashtags = [
+      'Vue 3',
+      'Nuxt.js',
+      'TypeScript',
+      'Tailwind CSS',
+      'SASS',
+      'Pug',
+      'ESLint'
+    ]
+
+    const socials = [
+      { icon: ['fas', 'file-alt'], url: 'https://www.cakeresume.com/me/ngseke', title: 'CakeResume' },
+      { icon: ['fab', 'linkedin'], url: 'http://www.linkedin.com/in/xingqiao-huang', title: 'LinkedIn' },
+      { icon: ['fab', 'github'], url: 'https://github.com/ngseke', title: 'GitHub' },
+      { icon: ['fab', 'codepen'], url: 'https://codepen.io/ngseke', title: 'CodePen' },
+      { icon: ['fas', 'envelope'], url: 'mailto:ngseke@gmail.com', title: 'Email' }
+    ]
 
     const isLoaded = ref(false)
 
-    const getSkillStyle = (i) => {
+    const getHashtagStyle = (i) => {
       const base = 0.8 + 0.3
       const delta = 0.08
       return { animationDelay: `${i * delta + base}s` }
     }
 
     return {
-      profile,
+      infos,
+      hashtags,
+      socials,
       description,
-      getSkillStyle,
+      getHashtagStyle,
       isLoaded
     }
   }
@@ -151,22 +169,35 @@ section#about
     -moz-background-clip: text
     background-clip: text
     color: transparent
-  .skill
+  .hashtag
     transition: all .3s
-    text-align: center
     margin-right: .5rem
-    font-size: 2rem
-    min-width: 2rem
+    position: relative
     display: inline-block
-    vertical-align: middle
     animation: skill-in .5s cubic-bezier(0.77, 0, 0.175, 1)
     animation-fill-mode: backwards
+    span
+      z-index: 1
+      position: relative
+    &::before
+      content: '#'
+      opacity: .5
+      z-index: 1
+      position: relative
+      font-weight: bold
+    &::after
+      content: ''
+      position: absolute
+      background-color: $ngsek
+      height: 4px
+      width: auto
+      bottom: 7px
+      left: 5px
+      right: 2px
+      opacity: .5
+    &:hover::after
+      opacity: .8
 
-    .text
-      font-size: 1rem
-    &:hover
-      color: $ngsek
-      transform: scale(1.3)
   small
     white-space: nowrap
 
