@@ -11,9 +11,7 @@ div
         .subtitle.text-light 永豐幣倍卡回饋計算機
         router-link.btn.btn-sm.btn-primary(:to='getRoute("credit-card-calc")') Detail
         a.btn.btn-sm.btn-primary(href='https://ngseke.github.io/sinopac-dual-currency-card-calculator/' target='_blank') Demo
-        a.btn.btn-sm.btn-github(href='https://github.com/ngseke/sinopac-dual-currency-card-calculator' target='_blank')
-          fa(:icon='[`fab`, `github-alt`]')
-          |  Github
+        GithubButton(href='https://github.com/ngseke/sinopac-dual-currency-card-calculator')
 
     //- MCIP
     IndexSection(id='mcip' :bg='require(`@/assets/img/bg/mcip.jpg`)' :isTile='isTile')
@@ -25,9 +23,7 @@ div
         .subtitle.text-light #[b 樂台計畫]官方網站
         router-link.btn.btn-sm.btn-primary(:to='getRoute("mcip")') Detail
         a.btn.btn-sm.btn-primary(href='https://mcip.ml/' target='_blank') Demo
-        a.btn.btn-sm.btn-github(href='https://github.com/ngseke/mcip.ml' target='_blank')
-          fa(:icon='[`fab`, `github-alt`]')
-          |  Github
+        GithubButton(href='https://github.com/ngseke/mcip.ml')
 
     //- MCIP CMS
     IndexSection(id='mcip-cms' :bg='require(`@/assets/img/bg/mcip-cms.jpg`)' :isTile='isTile')
@@ -49,9 +45,7 @@ div
         .subtitle.text-light #[b 電磁最佳化實驗室]網站
         router-link.btn.btn-sm.btn-primary(:to='getRoute("emo")') Detail
         a.btn.btn-sm.btn-primary(href='https://myweb.ntut.edu.tw/~yschen/' target='_blank') Demo
-        a.btn.btn-sm.btn-github(href='https://github.com/ngseke/emo' target='_blank')
-          fa(:icon='[`fab`, `github-alt`]')
-          |  Github
+        GithubButton(href='https://github.com/ngseke/emo')
 
     //- Realtime Monitor
     IndexSection(id='realtime' :bg='require(`@/assets/img/bg/realtime.jpg`)' :isTile='isTile')
@@ -73,9 +67,7 @@ div
         .subtitle.text-light 線上飲料購物系統
         router-link.btn.btn-sm.btn-primary(:to='getRoute("boss")') Detail
         a.btn.btn-sm.btn-primary(href='http://boss.ngseke.me' target='_blank') Demo
-        a.btn.btn-sm.btn-github(href='https://github.com/ngseke/boss' target='_blank')
-          fa(:icon='[`fab`, `github-alt`]')
-          |  Github
+        GithubButton(href='https://github.com/ngseke/boss')
 
     //- Gomoku
     IndexSection(id='gomoku' :bg='require(`@/assets/img/bg/gomoku.jpg`)' :isTile='isTile')
@@ -89,9 +81,7 @@ div
         a.btn.btn-sm.btn-primary(href='https://gomoku.ga/' target='_blank')
           fa(icon='gamepad')
           |  Play
-        a.btn.btn-sm.btn-github(href='https://github.com/ngseke/gomoku' target='_blank')
-          fa(:icon='[`fab`, `github-alt`]')
-          |  Github
+        GithubButton(href='https://github.com/ngseke/gomoku')
 
     //- Raise Your Red Flag
     IndexSection(id='flag' :bg='require(`@/assets/img/bg/flag.jpg`)' :isTile='isTile')
@@ -105,9 +95,7 @@ div
         a.btn.btn-sm.btn-primary(href='https://raise-flag.web.app' target='_blank')
           fa(icon='gamepad')
           |  Play
-        a.btn.btn-sm.btn-github(href='https://github.com/ngseke/Raise-Your-Red-Flag' target='_blank')
-          fa(:icon='[`fab`, `github-alt`]')
-          |  Github
+        GithubButton(href='https://github.com/ngseke/Raise-Your-Red-Flag')
 
     //- Typing Typing!
     IndexSection(id='typingtyping' :bg='require(`@/assets/img/bg/typingtyping.jpg`)' :isTile='isTile')
@@ -120,9 +108,7 @@ div
         a.btn.btn-sm.btn-primary(:href='`/file/TypingTyping.zip`' target='_blank')
           fa(icon='download')
           |  Download
-        a.btn.btn-sm.btn-github(href='https://github.com/ngseke/Typing-Typing' target='_blank')
-          fa(:icon='[`fab`, `github-alt`]')
-          |  Github
+        GithubButton(href='https://github.com/ngseke/Typing-Typing')
 </template>
 
 <script>
@@ -131,21 +117,23 @@ import useWindowSize from '@/composables/use-window-size'
 
 import IndexSection from '@/components/index/IndexSection.vue'
 import IndexHeader from '@/components/index/IndexHeader.vue'
+import GithubButton from '@/components/GithubButton.vue'
 
 export default {
   name: 'Index',
-  components: { IndexSection, IndexHeader },
+  components: {
+    IndexSection,
+    IndexHeader,
+    GithubButton
+  },
   setup () {
     const { width } = useWindowSize()
     const isTile = computed(() => width.value >= 576)
-
-    const publicPath = process.env.BASE_URL
 
     const getRoute = (name) => ({ name: 'Project', params: { name } })
 
     return {
       isTile,
-      publicPath,
       getRoute
     }
   }
