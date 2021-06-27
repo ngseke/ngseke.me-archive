@@ -3,7 +3,19 @@ div
   IndexHeader
 
   main
-    //- MCIP CMS
+    IndexSection(id='credit-card-calc' bg='https://images.unsplash.com/photo-1537724326059-2ea20251b9c8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1355&q=80' :isTile='isTile')
+      template(slot='img')
+        img.img-fluid.cover(v-lazy='require(`@/assets/img/cover/credit-card-calc.png`)' alt='Sinopac Dual Currency Card Calc. Cover')
+      template(slot='content')
+        .title.text-light Sinopac Dual Currency Card Calc.
+        .subtitle.text-light 永豐幣倍卡回饋計算機
+        router-link.btn.btn-sm.btn-primary(:to='getRoute("credit-card-calc")') Detail
+        a.btn.btn-sm.btn-primary(href='https://ngseke.github.io/sinopac-dual-currency-card-calculator/' target='_blank') Demo
+        a.btn.btn-sm.btn-github(href='https://github.com/ngseke/sinopac-dual-currency-card-calculator' target='_blank')
+          fa(:icon='[`fab`, `github-alt`]')
+          |  Github
+
+    //- MCIP
     IndexSection(id='mcip' :bg='require(`@/assets/img/bg/mcip.jpg`)' :isTile='isTile')
       template(slot='img')
         img.img-fluid.cover(v-lazy='require(`@/assets/img/cover/mcip.png`)' alt='MCIP Cover')
@@ -13,6 +25,9 @@ div
         .subtitle.text-light #[b 樂台計畫]官方網站
         router-link.btn.btn-sm.btn-primary(:to='getRoute("mcip")') Detail
         a.btn.btn-sm.btn-primary(href='https://mcip.ml/' target='_blank') Demo
+        a.btn.btn-sm.btn-github(href='https://github.com/ngseke/mcip.ml' target='_blank')
+          fa(:icon='[`fab`, `github-alt`]')
+          |  Github
 
     //- MCIP CMS
     IndexSection(id='mcip-cms' :bg='require(`@/assets/img/bg/mcip-cms.jpg`)' :isTile='isTile')

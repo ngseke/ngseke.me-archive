@@ -39,6 +39,7 @@ export default {
       {
         category: 'Website',
         works: [
+          { title: 'Sinopac Dual Currency Card Calc.', name: 'credit-card-calc' },
           { title: 'MCIP Official Website', name: 'mcip' },
           { title: 'MCIP CMS', name: 'mcip-cms' },
           { title: 'EM Optimization Lab', name: 'emo' },

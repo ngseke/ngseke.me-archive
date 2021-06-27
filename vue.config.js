@@ -22,7 +22,7 @@ module.exports = {
             '/about',
             '/project',
             '/projects',
-            ...['mcip', 'mcip-cms', 'emo', 'realtime', 'boss', 'gomoku', 'flag', 'typingtyping', 'camp2017', 'shanlinliang'].map(
+            ...['credit-card-calc', 'mcip', 'mcip-cms', 'emo', 'realtime', 'boss', 'gomoku', 'flag', 'typingtyping', 'camp2017', 'shanlinliang'].map(
               i => [`/project/${i}`, `/work/${i}`]
             ).flat()
           ],
