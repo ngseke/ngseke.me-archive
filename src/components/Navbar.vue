@@ -44,6 +44,8 @@ export default {
 
       if (navbarTop.value < min) navbarTop.value = min
       else if (navbarTop.value > 0) navbarTop.value = 0
+
+      collapse()
     })
 
     const clickLogo = async () => {
