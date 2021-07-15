@@ -92,9 +92,9 @@ export default {
     ]
 
     const socials = [
-      { icon: ['fas', 'file-alt'], url: 'https://www.cakeresume.com/me/ngseke', title: 'CakeResume' },
-      { icon: ['fab', 'linkedin'], url: 'http://www.linkedin.com/in/xingqiao-huang', title: 'LinkedIn' },
+      { icon: ['fas', 'file-alt'], url: 'https://www.cakeresume.com/s---frKe65VbXkLwmIIvzLdmw--/ngseke', title: 'CakeResume 履歷' },
       { icon: ['fab', 'github'], url: 'https://github.com/ngseke', title: 'GitHub' },
+      { icon: ['fab', 'linkedin'], url: 'http://www.linkedin.com/in/xingqiao-huang', title: 'LinkedIn' },
       { icon: ['fab', 'codepen'], url: 'https://codepen.io/ngseke', title: 'CodePen' },
       { icon: ['fas', 'envelope'], url: 'mailto:ngseke@gmail.com', title: 'Email' }
     ]
