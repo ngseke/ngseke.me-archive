@@ -5,8 +5,8 @@ header.jumbotron.jumbotron-fluid.flex-vertical(ref='el')
       .col-6.col-md-12.text-center.d-flex.flex-column.align-items-center
         .headline Xingqiao's Portfolio
       .col-12.d-flex.flex-column.align-items-center
-        router-link.shortcut(to='about') { aboutMe }
-        a.shortcut(href='#' @click.prevent='scrollToMain') { ...projects }
+        router-link.shortcut(to='about') aboutMe
+        a.shortcut(href='#' @click.prevent='scrollToMain') ...projects
   .bg(:style='bgStyle')
 </template>
 
@@ -82,8 +82,21 @@ header.jumbotron
     font-weight: bold
     font-family: monospace
     margin-bottom: .5rem
+    &:before, &:after
+      display: inline-block
+      transition: all .3s
+      color: #14213d
+    $bracket-distance: .75rem
+    &:before
+      content: '{'
+      padding-right: $bracket-distance
+    &:after
+      content: '}'
+      padding-left: $bracket-distance
     &:hover
       text-decoration: none
-      transform: scale(1.05)
-
+      &:before
+        transform: translateX(-.5rem)
+      &:after
+        transform: translateX(.5rem)
 </style>
