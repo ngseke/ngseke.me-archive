@@ -13,7 +13,10 @@ import {
   faFlag,
   faDownload,
   faEnvelope,
-  faFileAlt
+  faFileAlt,
+  faUserTie,
+  faBuilding,
+  faGraduationCap
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -39,7 +42,11 @@ library.add(
   faGithubAlt,
   faLinkedin,
   faCodepen,
-  faTelegram
+  faTelegram,
+  faTelegram,
+  faUserTie,
+  faBuilding,
+  faGraduationCap
 )
 
 Vue.component('fa', FontAwesomeIcon)

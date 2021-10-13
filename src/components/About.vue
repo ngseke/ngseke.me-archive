@@ -28,7 +28,7 @@ section#about: .container: .row.justify-content-around.align-items-center
         | Hi, I’m Sean 👋
         br
         | 現職前端工程師，堅持撰寫無瑕程式碼是我的開發格言。
-        | 擁有超過三年的實務開發經驗，主攻 Vue.js 框架，熱衷於探究各種前端領域的新鮮事。
+        | 擁有超過三年的實務開發經驗，使用 React 與 Vue.js 框架，熱衷於探究各種前端領域的新鮮事。
 
       p.mb-4
         span.hashtag(
@@ -67,12 +67,17 @@ export default {
       {
         title: 'Title',
         name: 'Frontend Developer',
-        icon: 'briefcase'
+        icon: 'user-tie'
+      },
+      {
+        title: 'Company',
+        name: '3drens',
+        icon: 'building'
       },
       {
         title: 'Education',
-        name: 'NTUT CSIE',
-        icon: 'book'
+        name: 'NTUT-CSIE',
+        icon: 'graduation-cap'
       },
       {
         title: 'Location',
@@ -82,21 +87,40 @@ export default {
     ]
 
     const hashtags = [
+      'React',
       'Vue 3',
       'Nuxt.js',
       'TypeScript',
-      'ESNext',
       'Tailwind CSS',
-      'SASS',
-      'Pug'
+      'SASS'
     ]
 
     const socials = [
-      { icon: ['fas', 'file-alt'], url: 'https://www.cakeresume.com/s---frKe65VbXkLwmIIvzLdmw--/ngseke', title: 'CakeResume 履歷' },
-      { icon: ['fab', 'github'], url: 'https://github.com/ngseke', title: 'GitHub' },
-      { icon: ['fab', 'linkedin'], url: 'http://www.linkedin.com/in/xingqiao-huang', title: 'LinkedIn' },
-      { icon: ['fab', 'codepen'], url: 'https://codepen.io/ngseke', title: 'CodePen' },
-      { icon: ['fas', 'envelope'], url: 'mailto:ngseke@gmail.com', title: 'Email' }
+      {
+        icon: ['fas', 'file-alt'],
+        url: 'https://www.cakeresume.com/s---frKe65VbXkLwmIIvzLdmw--/ngseke',
+        title: 'CakeResume 履歷'
+      },
+      {
+        icon: ['fab', 'github'],
+        url: 'https://github.com/ngseke',
+        title: 'GitHub'
+      },
+      {
+        icon: ['fab', 'linkedin'],
+        url: 'https://www.linkedin.com/in/xqng/',
+        title: 'LinkedIn'
+      },
+      {
+        icon: ['fab', 'codepen'],
+        url: 'https://codepen.io/ngseke',
+        title: 'CodePen'
+      },
+      {
+        icon: ['fas', 'envelope'],
+        url: 'mailto:ngseke@gmail.com',
+        title: 'Email'
+      }
     ]
 
     const isLoaded = ref(false)
