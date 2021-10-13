@@ -49,6 +49,8 @@ section#about: .container: .row.justify-content-around.align-items-center
 
 <script>
 import { ref } from '@vue/composition-api'
+import links from '@/modules/links'
+
 const title = 'About Me'
 const description = 'Hi, I\'m Sean 👋 現職前端工程師，堅持撰寫無瑕程式碼是我的開發格言。擁有超過二年的實務開發經驗，主攻 Vue.js 框架，熱衷於探究各種前端領域的新鮮事。'
 
@@ -96,31 +98,11 @@ export default {
     ]
 
     const socials = [
-      {
-        icon: ['fas', 'file-alt'],
-        url: 'https://www.cakeresume.com/s---frKe65VbXkLwmIIvzLdmw--/ngseke',
-        title: 'CakeResume 履歷'
-      },
-      {
-        icon: ['fab', 'github'],
-        url: 'https://github.com/ngseke',
-        title: 'GitHub'
-      },
-      {
-        icon: ['fab', 'linkedin'],
-        url: 'https://www.linkedin.com/in/xqng/',
-        title: 'LinkedIn'
-      },
-      {
-        icon: ['fab', 'codepen'],
-        url: 'https://codepen.io/ngseke',
-        title: 'CodePen'
-      },
-      {
-        icon: ['fas', 'envelope'],
-        url: 'mailto:ngseke@gmail.com',
-        title: 'Email'
-      }
+      links.cakeResume,
+      links.github,
+      links.linkedin,
+      links.codepen,
+      links.email
     ]
 
     const isLoaded = ref(false)

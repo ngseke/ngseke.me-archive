@@ -1,7 +1,8 @@
 <template lang="pug">
 #app
   Navbar(ref='navbar')
-  router-view
+  .main
+    router-view
   Footer
 </template>
 
@@ -39,4 +40,11 @@ export default {
 
 <style lang="sass">
 @import "~bootstrap/scss/bootstrap"
+
+#app
+  display: flex
+  flex-direction: column
+  min-height: 100vh
+  .main
+    flex: 1
 </style>
