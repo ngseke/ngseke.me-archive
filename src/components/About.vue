@@ -206,6 +206,7 @@ section#about
 
   small
     white-space: nowrap
+    display: inline-block
 
   &:hover
     box-shadow: (1rem + $distance * 2) (1rem + $distance * 2) lighten($ngsek, 5%)
