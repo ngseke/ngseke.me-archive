@@ -9,14 +9,8 @@ nav#nav.navbar.navbar-expand-sm.navbar-light(:class='{ shrink: isShrink }' :styl
       ul.navbar-nav.mr-auto
         li.nav-item
           router-link.nav-link(to=`/project`) Projects
-
         li.nav-item
           router-link.nav-link(to=`/about`) About
-
-        li.nav-item
-          a.nav-link(href='https://github.com/ngseke' target='_blank')
-            fa.mr-1(:icon='[`fab`, `github`]')
-            | GitHub
 </template>
 
 <script>
