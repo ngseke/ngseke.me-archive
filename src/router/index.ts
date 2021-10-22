@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+// @ts-ignore
 import NProgress from 'nprogress'
 
 Vue.use(VueRouter)
@@ -8,22 +9,22 @@ const routes = [
   {
     path: '/',
     name: 'Index',
-    component: () => import('@/components/Index')
+    component: () => import('@/components/Index.vue')
   },
   {
     path: '/project/:name',
     name: 'Project',
-    component: () => import('@/components/Project')
+    component: () => import('@/components/Project.vue')
   },
   {
     path: '/project',
     name: 'Project List',
-    component: () => import('@/components/Projects')
+    component: () => import('@/components/Projects.vue')
   },
   {
     path: '/about',
     name: 'About',
-    component: () => import('@/components/About')
+    component: () => import('@/components/About.vue')
   },
   { path: '/projects', redirect: '/project' },
   { path: '/work/:name', redirect: '/project/:name' }, // 重新導向舊作品路由
