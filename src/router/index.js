@@ -8,22 +8,22 @@ const routes = [
   {
     path: '/',
     name: 'Index',
-    component: () => import('@/components/Index')
+    component: () => import('@/views/Index')
   },
   {
     path: '/project/:name',
     name: 'Project',
-    component: () => import('@/components/Project')
+    component: () => import('@/views/Project')
   },
   {
     path: '/project',
     name: 'Project List',
-    component: () => import('@/components/Projects')
+    component: () => import('@/views/Projects')
   },
   {
     path: '/about',
     name: 'About',
-    component: () => import('@/components/About')
+    component: () => import('@/views/About')
   },
   { path: '/projects', redirect: '/project' },
   { path: '/work/:name', redirect: '/project/:name' }, // 重新導向舊作品路由
