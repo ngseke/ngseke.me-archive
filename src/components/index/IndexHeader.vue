@@ -5,14 +5,13 @@ header.jumbotron.jumbotron-fluid.flex-vertical(ref='el')
       .col-6.col-md-12.text-center.d-flex.flex-column.align-items-center
         .headline Xingqiao's Portfolio
       .col-12.d-flex.flex-column.align-items-center
-        router-link.shortcut(to='about') aboutMe
-        a.shortcut(href='#' @click.prevent='scrollToMain') ...projects
+        router-link.shortcut(to='project') ...Projects
+        router-link.shortcut(to='about') About
   .bg(:style='bgStyle')
 </template>
 
 <script>
 import { computed, ref } from '@vue/composition-api'
-import Jump from 'jump.js'
 import { useIntersectionObserver } from '@vueuse/core'
 
 export default {
@@ -27,7 +26,6 @@ export default {
         intersectionRatio.value = entries.intersectionRatio
       }, { threshold: Array(1000).fill().map((_, i) => i * 0.001) }
     )
-    const scrollToMain = () => Jump('main')
 
     const bgStyle = computed(() => {
       const y = (intersectionRatio.value - 0.5) * 15
@@ -37,7 +35,6 @@ export default {
     return {
       intersectionRatio,
       el,
-      scrollToMain,
       bgStyle
     }
   }
