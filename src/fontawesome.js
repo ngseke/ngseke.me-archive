@@ -16,7 +16,9 @@ import {
   faFileAlt,
   faUserTie,
   faBuilding,
-  faGraduationCap
+  faGraduationCap,
+  faExternalLinkAlt,
+  faCaretRight
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -46,7 +48,9 @@ library.add(
   faTelegram,
   faUserTie,
   faBuilding,
-  faGraduationCap
+  faGraduationCap,
+  faExternalLinkAlt,
+  faCaretRight
 )
 
 Vue.component('fa', FontAwesomeIcon)
