@@ -29,7 +29,13 @@ section#about: .container: .row.justify-content-around.align-items-center
         br
         | 現職前端工程師，堅持撰寫無瑕程式碼是我的開發格言。
         | 擁有超過三年的實務開發經驗，使用 React 與 Vue.js 框架，熱衷於探究各種前端領域的新鮮事。
-
+        br
+        br
+        | Góa mā sió-khóa-á ū-teh gián-kiú tâi-bûn, nā-sī ū-êng hoan-gêng lâi
+        |
+        a(href='https://ngseke.github.io/koasu/' target='_blank') KOASU
+        |
+        | bóng chhit-thô!
       p.mb-4
         span.hashtag(
           v-for='(hashtag, index) in hashtags'
@@ -90,7 +96,7 @@ export default {
 
     const hashtags = [
       'React',
-      'Vue 3',
+      'Vue3',
       'Nuxt.js',
       'TypeScript',
       'Tailwind CSS',
