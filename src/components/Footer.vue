@@ -26,10 +26,10 @@ export default {
       socials: [
         links.github,
         links.linkedin,
-        links.email
-      ]
+        links.email,
+      ],
     }
-  }
+  },
 }
 </script>
 

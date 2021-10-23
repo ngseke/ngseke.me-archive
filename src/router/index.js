@@ -8,27 +8,27 @@ const routes = [
   {
     path: '/',
     name: 'Index',
-    component: () => import('@/views/Index')
+    component: () => import('@/views/Index'),
   },
   {
     path: '/project/:name',
     name: 'Project',
-    component: () => import('@/views/Project')
+    component: () => import('@/views/Project'),
   },
   {
     path: '/project',
     name: 'Project List',
-    component: () => import('@/views/Projects')
+    component: () => import('@/views/Projects'),
   },
   {
     path: '/about',
     name: 'About',
-    component: () => import('@/views/About')
+    component: () => import('@/views/About'),
   },
   { path: '/projects', redirect: '/project' },
   { path: '/work/:name', redirect: '/project/:name' }, // 重新導向舊作品路由
   { path: '/404.html', redirect: '/' },
-  { path: '*', redirect: '/' } // 找不到路由時導向至首頁
+  { path: '*', redirect: '/' }, // 找不到路由時導向至首頁
 ]
 
 const router = new VueRouter({
@@ -36,7 +36,7 @@ const router = new VueRouter({
   linkActiveClass: 'active',
   scrollBehavior: (to, from, savedPosition) => savedPosition ?? { x: 0, y: 0 },
   base: process.env.BASE_URL,
-  routes
+  routes,
 })
 
 router.beforeEach((to, from, next) => {

@@ -26,8 +26,8 @@ export default {
       meta: [
         { property: 'description', vmid: 'description', content: description },
         { property: 'og:description', vmid: 'og:description', content: description },
-        { property: 'og:image', vmid: 'og:image', content: img }
-      ]
+        { property: 'og:image', vmid: 'og:image', content: img },
+      ],
     }
   },
   setup (_props, { root }) {
@@ -67,13 +67,13 @@ export default {
     return {
       el,
       article,
-      fetch
+      fetch,
     }
   },
   beforeRouteUpdate (to, from, next) {
     this.fetch(to.params.name)
     next()
-  }
+  },
 }
 </script>
 

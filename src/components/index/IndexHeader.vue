@@ -35,9 +35,9 @@ export default {
     return {
       intersectionRatio,
       el,
-      bgStyle
+      bgStyle,
     }
-  }
+  },
 }
 </script>
 

@@ -55,7 +55,7 @@ export default {
     IndexHeader,
     DetailButton,
     DemoButton,
-    GithubButton
+    GithubButton,
   },
   setup () {
     const { width } = useWindowSize()
@@ -65,9 +65,9 @@ export default {
 
     return {
       isTile,
-      getRoute
+      getRoute,
     }
-  }
+  },
 }
 </script>
 

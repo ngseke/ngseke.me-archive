@@ -9,8 +9,8 @@ export default {
   props: {
     name: {
       type: String,
-      require: true
-    }
+      require: true,
+    },
   },
   setup (props) {
     const to = computed(
@@ -18,8 +18,8 @@ export default {
     )
 
     return {
-      to
+      to,
     }
-  }
+  },
 }
 </script>

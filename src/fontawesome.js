@@ -18,7 +18,7 @@ import {
   faBuilding,
   faGraduationCap,
   faExternalLinkAlt,
-  faCaretRight
+  faCaretRight,
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -26,7 +26,7 @@ import {
   faGithubAlt,
   faLinkedin,
   faCodepen,
-  faTelegram
+  faTelegram,
 } from '@fortawesome/free-brands-svg-icons'
 
 library.add(

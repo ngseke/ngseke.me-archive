@@ -67,31 +67,31 @@ export default {
     meta: [
       { property: 'description', vmid: 'description', content: description },
       { property: 'og:description', vmid: 'og:description', content: description },
-      { property: 'og:image', vmid: 'og:image', content: require('@/assets/img/about.png') }
-    ]
+      { property: 'og:image', vmid: 'og:image', content: require('@/assets/img/about.png') },
+    ],
   },
   setup () {
     const infos = [
       {
         title: 'Title',
         name: 'Frontend Developer',
-        icon: 'user-tie'
+        icon: 'user-tie',
       },
       {
         title: 'Company',
         name: '3drens',
-        icon: 'building'
+        icon: 'building',
       },
       {
         title: 'Education',
         name: 'NTUT-CSIE',
-        icon: 'graduation-cap'
+        icon: 'graduation-cap',
       },
       {
         title: 'Location',
         name: 'Taipei, Taiwan',
-        icon: 'map-marker'
-      }
+        icon: 'map-marker',
+      },
     ]
 
     const hashtags = [
@@ -100,7 +100,7 @@ export default {
       'Nuxt.js',
       'TypeScript',
       'Tailwind CSS',
-      'SASS'
+      'SASS',
     ]
 
     const socials = [
@@ -108,7 +108,7 @@ export default {
       links.github,
       links.linkedin,
       links.codepen,
-      links.email
+      links.email,
     ]
 
     const isLoaded = ref(false)
@@ -125,9 +125,9 @@ export default {
       socials,
       description,
       getHashtagStyle,
-      isLoaded
+      isLoaded,
     }
-  }
+  },
 }
 </script>
 

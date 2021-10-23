@@ -27,7 +27,7 @@ main.container
 export default {
   name: 'Index',
   metaInfo: {
-    title: 'Projects'
+    title: 'Projects',
   },
   setup () {
     const list = [
@@ -40,14 +40,14 @@ export default {
             name: 'mcip',
             description: '《樂台計畫》官方網站',
             github: 'https://github.com/ngseke/mcip.ml',
-            link: 'https://mcip.ml'
+            link: 'https://mcip.ml',
           },
           {
             title: 'MCIP CMS',
             name: 'mcip-cms',
-            description: '《樂台計畫》後台管理系統'
-          }
-        ]
+            description: '《樂台計畫》後台管理系統',
+          },
+        ],
       },
       {
         title: 'Website',
@@ -57,34 +57,34 @@ export default {
             title: 'Koasu',
             description: '白話字台語歌詞網誌',
             github: 'https://github.com/ngseke/koasu',
-            link: 'https://ngseke.github.io/koasu/'
+            link: 'https://ngseke.github.io/koasu/',
           },
           {
             title: 'Sinopac Dual Currency Card Calc.',
             name: 'credit-card-calc',
             description: '永豐幣倍卡回饋計算機',
             github: 'https://github.com/ngseke/sinopac-dual-currency-card-calculator',
-            link: 'https://ngseke.github.io/sinopac-dual-currency-card-calculator/'
+            link: 'https://ngseke.github.io/sinopac-dual-currency-card-calculator/',
           },
           {
             title: 'EM Optimization Lab',
             name: 'emo',
             description: '《電磁最佳化實驗室》網站',
             github: 'https://github.com/ngseke/emo',
-            link: 'https://myweb.ntut.edu.tw/~yschen/'
+            link: 'https://myweb.ntut.edu.tw/~yschen/',
           },
           {
             title: 'Realtime Monitor',
             name: 'realtime',
-            description: '測速網站爬蟲工具'
+            description: '測速網站爬蟲工具',
           },
           {
             title: 'BOSS',
             name: 'boss',
             description: '線上飲料購物系統',
-            github: 'https://github.com/ngseke/boss'
-          }
-        ]
+            github: 'https://github.com/ngseke/boss',
+          },
+        ],
       },
       {
         title: 'Game',
@@ -94,36 +94,36 @@ export default {
             title: 'Flip Card',
             description: 'Emoji 翻牌配對遊戲',
             github: 'https://github.com/ngseke/vue-flip-card',
-            link: 'https://ngseke.github.io/vue-flip-card/'
+            link: 'https://ngseke.github.io/vue-flip-card/',
           },
           {
             title: 'Gomoku',
             name: 'gomoku',
             description: '線上五子棋對戰',
             github: 'https://github.com/ngseke/gomoku',
-            link: 'https://gomoku.ga/'
+            link: 'https://gomoku.ga/',
           },
           {
             title: 'Tic Tac Toe',
             description: '圈圈叉叉亂鬥',
             github: 'https://github.com/ngseke/tic-tac-toe',
-            link: 'https://ngseke.github.io/tic-tac-toe/'
+            link: 'https://ngseke.github.io/tic-tac-toe/',
           },
           {
             title: 'Raise Your Red Flag',
             name: 'flag',
             description: '以 Webcam 重溫經典團康遊戲《紅旗舉起來》',
             github: 'https://github.com/ngseke/Raise-Your-Red-Flag',
-            link: 'https://raise-flag.web.app/'
+            link: 'https://raise-flag.web.app/',
           },
           {
             title: 'Typing Typing!',
             name: 'typingtyping',
             description: '8-bit 復古風格打字遊戲',
             github: 'https://github.com/ngseke/Typing-Typing',
-            link: '/file/TypingTyping.zip'
-          }
-        ]
+            link: '/file/TypingTyping.zip',
+          },
+        ],
       },
       {
         title: 'Design',
@@ -132,14 +132,14 @@ export default {
           {
             title: 'NTUT-CSIE & NTUB-ACC Camp, 2017',
             name: 'camp2017',
-            description: '《會炒不加辣，果資不加糖》迎新活動美術設計'
+            description: '《會炒不加辣，果資不加糖》迎新活動美術設計',
           },
           {
             title: 'Shanlinliang',
             name: 'shanlinliang',
-            description: '虛構涼扇品牌廣告'
-          }
-        ]
+            description: '虛構涼扇品牌廣告',
+          },
+        ],
       },
       {
         title: 'Useless',
@@ -149,24 +149,24 @@ export default {
             title: 'Great Hall of the People Simulator',
             description: '通過率高達 100% 的人民大會堂模擬器',
             github: 'https://github.com/ngseke/great-hall-of-the-people-simulator',
-            link: 'https://ngseke.github.io/great-hall-of-the-people-simulator/'
+            link: 'https://ngseke.github.io/great-hall-of-the-people-simulator/',
           },
           {
             title: 'Han Fans\' Eye Poker',
             description: '顧眼鏡',
             github: 'https://github.com/ngseke/han-fans-eye-poke',
-            link: 'https://ngseke.github.io/han-fans-eye-poke/'
-          }
-        ]
-      }
+            link: 'https://ngseke.github.io/han-fans-eye-poke/',
+          },
+        ],
+      },
     ]
     const getRoute = (name) => ({ name: 'Project', params: { name } })
 
     return {
       list,
-      getRoute
+      getRoute,
     }
-  }
+  },
 }
 </script>
 

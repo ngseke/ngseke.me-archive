@@ -36,9 +36,9 @@ export default {
       isShrink,
       top,
       style,
-      clickLogo
+      clickLogo,
     }
-  }
+  },
 }
 </script>
 

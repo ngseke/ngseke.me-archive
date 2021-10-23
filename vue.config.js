@@ -8,8 +8,8 @@ module.exports = {
       test: /\.md$/,
       use: [
         { loader: 'html-loader' },
-        { loader: 'markdown-loader' }
-      ]
+        { loader: 'markdown-loader' },
+      ],
     })
 
     if (process.env.NODE_ENV === 'production') {
@@ -24,7 +24,7 @@ module.exports = {
             '/projects',
             ...['credit-card-calc', 'mcip', 'mcip-cms', 'emo', 'realtime', 'boss', 'gomoku', 'flag', 'typingtyping', 'camp2017', 'shanlinliang'].map(
               i => [`/project/${i}`, `/work/${i}`]
-            ).flat()
+            ).flat(),
           ],
           renderer: new Renderer({ renderAfterDocumentEvent: 'render-event' }),
           postProcess (renderedRoute) {
@@ -33,7 +33,7 @@ module.exports = {
               renderedRoute.outputPath = path.join(__dirname, 'dist', renderedRoute.route)
             }
             return renderedRoute
-          }
+          },
         })
       )
     }
@@ -41,8 +41,8 @@ module.exports = {
   css: {
     loaderOptions: {
       sass: {
-        prependData: '@import \'~@/assets/css/style.sass\''
-      }
-    }
-  }
+        prependData: '@import \'~@/assets/css/style.sass\'',
+      },
+    },
+  },
 }

@@ -25,7 +25,7 @@ export default {
   props: {
     id: String,
     bg: String,
-    isTile: Boolean
+    isTile: Boolean,
   },
   setup (props, { root }) {
     const el = ref()
@@ -33,7 +33,7 @@ export default {
       VanillaTilt.init(el.value, {
         'max-glare': 0.1,
         glare: true,
-        max: 1
+        max: 1,
       })
     }
     const removeTile = () => {
@@ -62,9 +62,9 @@ export default {
     return {
       el,
       intersectionRatio,
-      style
+      style,
     }
-  }
+  },
 }
 </script>
 
