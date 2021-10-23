@@ -7,35 +7,24 @@ header.jumbotron.jumbotron-fluid.flex-vertical(ref='el')
       .col-12.d-flex.flex-column.align-items-center
         router-link.shortcut(to='project') ...Projects
         router-link.shortcut(to='about') About
-  .bg(:style='bgStyle')
+  .bg(ref='bg')
 </template>
 
 <script>
-import { computed, ref } from '@vue/composition-api'
-import { useIntersectionObserver } from '@vueuse/core'
+import { ref } from '@vue/composition-api'
+import useJarallax from '@/composables/useJarallax'
 
 export default {
   name: 'IndexHeader',
   setup () {
-    const intersectionRatio = ref(0)
-
     const el = ref()
-    useIntersectionObserver(
-      el,
-      ([entries]) => {
-        intersectionRatio.value = entries.intersectionRatio
-      }, { threshold: Array(1000).fill().map((_, i) => i * 0.001) }
-    )
+    const bg = ref()
 
-    const bgStyle = computed(() => {
-      const y = (intersectionRatio.value - 0.5) * 15
-      return { transform: `scale(1.25) translateY(${y}%)` }
-    })
+    useJarallax(el, bg)
 
     return {
-      intersectionRatio,
       el,
-      bgStyle,
+      bg,
     }
   },
 }

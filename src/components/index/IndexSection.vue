@@ -1,9 +1,5 @@
 <template lang="pug">
-section(
-  ref='el'
-  :id='id'
-  :style='style'
-)
+section(ref='el' :id='id')
   .row.justify-content-around.align-items-center
     .col-12.col-md-4.mb-3
       .img
@@ -11,10 +7,12 @@ section(
     .col-12.col-md-5
       .content
         slot(name='content')
+  img(ref='bgEl' :src='bg')
 </template>
 
 <script>
-import { computed } from '@vue/composition-api'
+import { ref } from '@vue/composition-api'
+import useJarallax from '@/composables/useJarallax'
 
 export default {
   name: 'IndexSection',
@@ -23,11 +21,15 @@ export default {
     bg: String,
     isTile: Boolean,
   },
-  setup (props) {
-    const style = computed(() => ({ '--bg': `url('${props.bg}')` }))
+  setup () {
+    const el = ref()
+    const bgEl = ref()
+
+    useJarallax(el, bgEl)
 
     return {
-      style,
+      el,
+      bgEl,
     }
   },
 }
@@ -36,9 +38,8 @@ export default {
 <style scoped lang="sass">
 section
   +py(3rem)
-  background-size: cover
-  background-image: var(--bg)
-  transform-style: preserve-3d
+  position: relative
+  overflow: hidden
   margin: 2rem
   border-radius: 1.5rem
   margin-bottom: 3rem
@@ -52,7 +53,6 @@ section
 .img
   position: relative
   img.cover
-    transition: all .4s
     display: inline-block
     @include media-breakpoint-down(sm)
       margin-bottom: 1rem
@@ -76,4 +76,13 @@ section
     letter-spacing: .5rem
     font-weight: 200
     margin-bottom: 1.25rem
+
+img.bg
+  position: absolute
+  object-fit: cover
+  top: 0
+  left: 0
+  width: 100%
+  height: 100%
+  z-index: -1
 </style>
