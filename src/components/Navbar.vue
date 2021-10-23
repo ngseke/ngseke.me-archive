@@ -3,7 +3,7 @@ nav.navbar.navbar-light
   .container-fluid.px-0.px-sm-3.justify-content-start
     router-link.navbar-brand(to='/' @click.native='clickLogo')
       img.img-fluid(src='../../public/favicon.png' alt='Logo')
-    div(ref='content')
+    .content(ref='content')
       ul.navbar-nav.mr-auto
         li.nav-item
           router-link.nav-link(to=`/project`) Projects
@@ -41,23 +41,20 @@ nav
   position: absolute
   width: 100%
   z-index: 1000
-  flex-flow: row nowrap
-  justify-content: flex-start
-  a.navbar-brand
+  .navbar-brand
     img
       height: 36px
+  @include media-breakpoint-down(sm)
+    background-color: rgba(white, 0.97)
+    +box-shadow
+    +py(.5rem)
+
 nav.light
   a.navbar-brand
     img
       filter: brightness(100)
   a.nav-link
     color: white
-
-@include media-breakpoint-down(sm)
-  nav
-    background-color: rgba(white, 0.97)
-    +box-shadow
-    +py(.5rem)
 
 .navbar-light .navbar-toggler
   color: rgba($ngsek,6)
