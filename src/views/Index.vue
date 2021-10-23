@@ -2,7 +2,7 @@
 div
   IndexHeader
 
-  main
+  main.container
     //- MCIP
     IndexSection(id='mcip' :bg='require(`@/assets/img/bg/mcip.jpg`)' :isTile='isTile')
       template(slot='img')
@@ -76,4 +76,8 @@ export default {
 
 main
   overflow: hidden
+  @include media-breakpoint-down(md)
+    &.container
+      padding: 0
+      max-width: 100%
 </style>

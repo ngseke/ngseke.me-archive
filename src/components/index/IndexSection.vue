@@ -2,23 +2,19 @@
 section(
   ref='el'
   :id='id'
-  :class='{ active: intersectionRatio === 1 }'
   :style='style'
 )
-  .container
-    .row.justify-content-around.align-items-center
-      .col-12.col-md-5.mb-3
-        .img
-          slot(name='img')
-      .col-12.col-md-5
-        .content
-          slot(name='content')
+  .row.justify-content-around.align-items-center
+    .col-12.col-md-4.mb-3
+      .img
+        slot(name='img')
+    .col-12.col-md-5
+      .content
+        slot(name='content')
 </template>
 
 <script>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, watch } from '@vue/composition-api'
-import VanillaTilt from 'vanilla-tilt'
-import { useIntersectionObserver } from '@vueuse/core'
+import { computed } from '@vue/composition-api'
 
 export default {
   name: 'IndexSection',
@@ -27,41 +23,10 @@ export default {
     bg: String,
     isTile: Boolean,
   },
-  setup (props, { root }) {
-    const el = ref()
-    const setTilt = () => {
-      VanillaTilt.init(el.value, {
-        'max-glare': 0.1,
-        glare: true,
-        max: 1,
-      })
-    }
-    const removeTile = () => {
-      const { vanillaTilt: tilt } = el.value
-      if (tilt) tilt.destroy()
-    }
-
-    onMounted(setTilt)
-    onBeforeUnmount(removeTile)
-
-    watch(() => props.isTile, async (isTile) => {
-      await nextTick()
-      isTile.value ? setTilt() : removeTile()
-    }, { immediate: true })
-
-    const intersectionRatio = ref()
-    useIntersectionObserver(
-      el,
-      ([entries]) => {
-        intersectionRatio.value = entries.intersectionRatio
-      }, { threshold: [0, 0.25, 0.5, 0.75, 1] }
-    )
-
+  setup (props) {
     const style = computed(() => ({ '--bg': `url('${props.bg}')` }))
 
     return {
-      el,
-      intersectionRatio,
       style,
     }
   },
@@ -70,29 +35,19 @@ export default {
 
 <style scoped lang="sass">
 section
-  +py(7rem)
+  +py(3rem)
   background-size: cover
   background-image: var(--bg)
   transform-style: preserve-3d
   margin: 2rem
-  border-radius: 1rem
+  border-radius: 1.5rem
   margin-bottom: 3rem
   box-shadow: 0 1rem 1.5rem rgba(#1e1e1e, 0.2)
-  .container
-    transition: transform .6s
-  &.active
-    .container
-      transform: translateZ(2rem)
 
   //- 手機版移除 tilt 效果
   @include media-breakpoint-down(sm)
     margin: 0
     border-radius: 0
-    .container
-      transform: none
-    &.active
-      .container
-        transform: none
 
 .img
   position: relative
