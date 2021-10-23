@@ -1,11 +1,9 @@
 <template lang="pug">
-nav#nav.navbar.navbar-expand-sm.navbar-light(:class='{ shrink: isShrink }' :style='style')
-  div(:class='{ container: isShrink, "container-fluid": !isShrink }')
+nav.navbar.navbar-light(:class='{ shrink: isShrink }' :style='style')
+  .px-0.px-sm-3.justify-content-start(:class='{ container: isShrink, "container-fluid": !isShrink }')
     router-link.navbar-brand(to='/' @click.native='clickLogo')
       img.img-fluid(src='../../public/favicon.png' alt='Logo')
-    button.navbar-toggler(type='button' data-toggle='collapse' data-target='#navbarContent')
-      fa(icon='bars')
-    #navbarContent.collapse.navbar-collapse(ref='content')
+    div(ref='content')
       ul.navbar-nav.mr-auto
         li.nav-item
           router-link.nav-link(to=`/project`) Projects
@@ -14,10 +12,9 @@ nav#nav.navbar.navbar-expand-sm.navbar-light(:class='{ shrink: isShrink }' :styl
 </template>
 
 <script>
-import { computed, ref, watch, nextTick } from '@vue/composition-api'
+import { computed, ref, nextTick } from '@vue/composition-api'
 import { useWindowScroll } from '@vueuse/core'
 
-import $ from 'jquery'
 import Jump from 'jump.js'
 
 export default {
@@ -30,45 +27,30 @@ export default {
 
     const style = computed(() => isShrink.value ? { top: `${navbarTop.value}px` } : {})
 
-    watch(top, (top, old) => {
-      const diff = top - old
-      const min = -100
-      isShrink.value = top > 500
-      navbarTop.value -= diff
-
-      if (navbarTop.value < min) navbarTop.value = min
-      else if (navbarTop.value > 0) navbarTop.value = 0
-
-      collapse()
-    })
-
     const clickLogo = async () => {
       await nextTick()
       if (root.$route.name === 'Index') Jump('html')
     }
 
-    const content = ref()
-    const collapse = () => $(content.value).collapse('hide')
-
     return {
       isShrink,
       top,
       style,
-      clickLogo,
-      content,
-      collapse
+      clickLogo
     }
   }
 }
 </script>
 
 <style scoped lang="sass">
-#nav
+nav
   background-color: transparent
   position: absolute
   top: 0
   width: 100%
   z-index: 1000
+  flex-flow: row nowrap
+  justify-content: flex-start
   a.navbar-brand
     img
       height: 36px
@@ -78,7 +60,7 @@ export default {
     backdrop-filter: blur(5px)
     +box-shadow
 
-#nav.light
+nav.light
   a.navbar-brand
     img
       filter: brightness(100)
@@ -88,7 +70,7 @@ export default {
     background-color: rgba(#1e1e1e, 0.95)
 
 @include media-breakpoint-down(sm)
-  #nav
+  nav
     background-color: rgba(white, 0.97)
     +box-shadow
     +py(.5rem)
@@ -96,4 +78,7 @@ export default {
 .navbar-light .navbar-toggler
   color: rgba($ngsek,6)
   border-color: rgba($ngsek,0)
+
+.navbar-nav
+  flex-direction: row
 </style>
