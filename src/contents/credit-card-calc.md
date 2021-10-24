@@ -8,7 +8,7 @@
 
 初探 Vue 3 的各種新特性，如組合式 API、 `<script setup>`，並感受其與 TypeScript 更加契合的開發體驗。
 
-UI 樣式完全採用 Tailwind CSS。借助 Dark Mode 的 [class strategy](https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually) 和 [VueUse](https://vueuse.org/core/useDark/) `useDark()` 的力量，輕易實現深色模式的切換。
+UI 以 Tailwind CSS 建構。透過 Dark Mode 的 [class strategy](https://tailwindcss.com/docs/dark-mode#toggling-dark-mode-manually) 和 [VueUse](https://vueuse.org/core/useDark/) `useDark()`，實現深色模式不費吹灰之力。
 
 
 ## Demo

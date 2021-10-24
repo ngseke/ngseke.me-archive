@@ -1,10 +1,10 @@
-# 五子棋對戰
+# Gomoku 五子棋對戰
 ###### Oct, 2018 - Nov, 2018
 ---
 
 ![](~@/assets/img/article/gomoku/title.png)
 
-[Gomoku: 五子棋對戰](https://gomoku.ga/#/about)是簡約的五子棋遊戲，也是與好友在悠閒午後消磨時間的良伴。
+[Gomoku: 五子棋對戰](https://gomoku.ga/#/about)是簡約的五子棋遊戲，是與小夥伴在悠閒午後消磨時間的良伴。
 
 
 ![註冊畫面](~@/assets/img/article/gomoku/register.png)

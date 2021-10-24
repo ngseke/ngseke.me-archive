@@ -2,7 +2,7 @@
 ###### July, 2018
 ---
 
-定時對 [17CE](https://www.17ce.com/)、[Webkaka](http://www.webkaka.com/) 等測速網站爬蟲，取得各檢測點的性能結果，截圖當前頁面快照存，並儲存在資料庫，從 dashboard 即可一目了然最新結果，並可透過 UI 查詢歷史紀錄。
+定時對 [17CE](https://www.17ce.com/) 和 [Webkaka](http://www.webkaka.com/) 等測速網站爬蟲，取得各檢測點的性能結果，截圖當前頁面快照，並儲存與 MongoDB。在 dashboard 可掌握最新結果與各項指標，亦可查詢歷史紀錄。
 
 
 ## 系統架構圖

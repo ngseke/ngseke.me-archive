@@ -1,5 +1,6 @@
 # Typing Typing!
 ###### Feb, 2017 - Jan, 2017
+###### Team Member: 余鎧企、<a href='/about'>黃省喬</a>
 ---
 
 物件導向程式設計期末專題。
@@ -8,7 +9,7 @@
 
 ![主選單](~@/assets/img/article/typingtyping/menu.png)
 
-## DEMO 影片
+## 試玩影片
 <div class="embed-responsive embed-responsive-16by9">
   <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/j8L_ViHDzMY" allowfullscreen></iframe>
 </div>

@@ -1,7 +1,7 @@
 # 紅旗舉起來
 ###### Jun, 2018
+###### Team Member: 吳品頤、<a href='/about'>黃省喬</a>
 ---
-線上玩: [raise-flag.web.app](https://raise-flag.web.app)
 
 數位影像處理期末專題。
 

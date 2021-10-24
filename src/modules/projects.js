@@ -47,7 +47,7 @@ export default [
         description: '測速網站爬蟲工具',
       },
       {
-        title: 'BOSS',
+        title: 'BOSS, Beverage Online Shop System',
         name: 'boss',
         description: '線上飲料購物系統',
         github: 'https://github.com/ngseke/boss',
@@ -100,7 +100,7 @@ export default [
       {
         title: 'NTUT-CSIE & NTUB-ACC Camp, 2017',
         name: 'camp2017',
-        description: '《會炒不加辣，果資不加糖》迎新活動美術設計',
+        description: '迎新活動《會炒不加辣，果資不加糖》之品牌識別設計',
       },
       {
         title: 'Shanlinliang',
