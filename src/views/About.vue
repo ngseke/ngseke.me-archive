@@ -13,12 +13,12 @@ section#about: .container: .row.justify-content-around.align-items-center
         img(src='@/assets/img/profile.jpg' @load='isLoaded = true')
 
     .col-12.col-lg-9.mt-3
-      h4.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' style=itemStyle()) 黃省喬
+      h1.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' style=itemStyle()) 黃省喬
       h6.mb-2.text-muted.text-center.text-lg-left.item(style=itemStyle()) Huang Xingqiao
       p.text-center.text-lg-left.item(style=itemStyle())
         small.mr-3(
-          :title='title'
           v-for='{ title, icon, name } in infos'
+          :title='`${title}: ${name}`'
         )
           fa(:icon='icon')
           |  {{ name }}
@@ -31,11 +31,10 @@ section#about: .container: .row.justify-content-around.align-items-center
         | 擁有超過三年的實務開發經驗，使用 React 與 Vue.js 框架，熱衷於探究各種前端領域的新鮮事。
         br
         br
-        | Góa mā sió-khóa-á ū-teh gián-kiú tâi-bûn, nā-sī ū-êng hoan-gêng lâi
+        | Góa mā ū-teh gián-kiú tâi-bûn, nā-sī ū-êng hoan-gêng lâi
         |
         a(href='https://ngseke.github.io/koasu/' target='_blank') KOASU
-        |
-        | bóng chhit-thô!
+        |  chhit-thô!
       p.mb-4
         span.hashtag(
           v-for='(hashtag, index) in hashtags'
@@ -181,6 +180,7 @@ section#about
     -moz-background-clip: text
     background-clip: text
     color: transparent
+    font-size: 1.25rem
   .hashtag
     transition: all .3s
     margin-right: .5rem
