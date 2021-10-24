@@ -12,7 +12,7 @@ nav.navbar.navbar-light
 </template>
 
 <script>
-import { nextTick } from '@vue/composition-api'
+import { computed, nextTick } from '@vue/composition-api'
 import { useWindowScroll } from '@vueuse/core'
 
 import Jump from 'jump.js'
@@ -22,13 +22,16 @@ export default {
   setup (_props, { root }) {
     const { y: top } = useWindowScroll()
 
+    const isIndex = computed(() => root.$route.name === 'Index')
+
     const clickLogo = async () => {
       await nextTick()
-      if (root.$route.name === 'Index') Jump('html')
+      if (isIndex.value) Jump('html')
     }
 
     return {
       top,
+      isIndex,
       clickLogo,
     }
   },
@@ -45,8 +48,6 @@ nav
     img
       height: 36px
   @include media-breakpoint-down(sm)
-    background-color: rgba(white, 0.97)
-    +box-shadow
     +py(.5rem)
 
 nav.light
