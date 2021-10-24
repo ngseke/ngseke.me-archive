@@ -3,9 +3,7 @@ main.container
   .row.justify-content-center
     template(v-for='{ title, cover, list } in list')
       .col-12.col-lg-6.col-xl-5
-        .sticky-title
-          .img(:style='{ backgroundImage: `url(${cover})` }')
-          h2 {{ title }}
+        StickyTitle(:text='title' :cover='cover')
       .col-12.col-lg-6.col-xl-6
         .list
             ul
@@ -24,12 +22,16 @@ main.container
 </template>
 
 <script>
+import StickyTitle from '@/components/StickyTitle.vue'
 import projects from '@/modules/projects'
 
 export default {
   name: 'Index',
   metaInfo: {
     title: 'Projects',
+  },
+  components: {
+    StickyTitle,
   },
   setup () {
     const getRoute = (name) => ({ name: 'Project', params: { name } })
@@ -47,42 +49,13 @@ main
   margin-top: 6rem
   overflow: initial
 
-.sticky-title
-  position: sticky
-  top: 6rem
-  .img
-    width: 100%
-    height: 7rem
-    background-color: $ngsek
-    background-size: cover
-    background-position: center center
-  @include media-breakpoint-up(lg)
-    margin-bottom: 5rem
-    padding: 2rem 0
-    .img
-      width: 20rem
-      height: 20rem
-
-h2
-  position: absolute
-  bottom: -2rem
-  left: 1.5rem
-  font-size: 3.5rem
-  mix-blend-mode: overlay
-  max-width: 100%
-  white-space: nowrap
-  overflow: hidden
-  @include media-breakpoint-up(lg)
-    font-size: 4.5rem
-    top: 20%
-    right: 3rem
-    left: auto
-    bottom: auto
-
 .list
-  padding-top: 5rem
+  padding-top: 3rem
+  padding-bottom: 3rem
   @include media-breakpoint-up(lg)
     min-height: 100vh
+    padding: 0
+    padding-top: 5rem
   ul
     list-style: none
     +px(1rem)

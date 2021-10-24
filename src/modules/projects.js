@@ -56,7 +56,7 @@ export default [
   },
   {
     title: 'Game',
-    cover: 'https://images.unsplash.com/photo-1484173936665-9ae90b911638?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80',
+    cover: 'https://images.unsplash.com/photo-1528804431125-842f17de657b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1160&q=80',
     list: [
       {
         title: 'Flip Card',
