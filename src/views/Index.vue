@@ -6,7 +6,7 @@ div
     //- MCIP
     IndexSection(id='mcip' :bg='require(`@/assets/img/bg/mcip.jpg`)' :isTile='isTile')
       template(slot='img')
-        img.img-fluid.cover(src='@/assets/img/cover/mcip.png' alt='MCIP Cover')
+        img.img-fluid.cover(src='@/assets/img/cover/mcip-202111.png' alt='MCIP Cover')
       template(slot='content')
         img(src='@/assets/img/logo/mcip.svg' alt='樂台計畫')
         .title.text-light MCIP Official Website
