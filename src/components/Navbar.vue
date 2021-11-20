@@ -5,7 +5,7 @@ nav.navbar.navbar-light
       img.img-fluid(src='../../public/favicon.png' alt='Logo')
     .content(ref='content')
       ul.navbar-nav.mr-auto
-        li.nav-item(v-for='{ name, to, href } in items')
+        li.nav-item(v-for='{ name, to, href } in navbarLinks')
           router-link.nav-link(:to='to' v-if="to") {{ name }}
           a.nav-link(:href='href' target="_blank" v-else-if="href") {{ name }}
 </template>
@@ -13,14 +13,8 @@ nav.navbar.navbar-light
 <script>
 import { computed, nextTick } from '@vue/composition-api'
 import { useWindowScroll } from '@vueuse/core'
-
+import navbarLinks from '@/modules/navbar-links'
 import Jump from 'jump.js'
-
-const items = [
-  { name: 'About', to: '/about' },
-  { name: 'Projects', to: '/project' },
-  { name: 'Notes', href: 'https://hackmd.io/@xq' },
-]
 
 export default {
   name: 'Navbar',
@@ -38,7 +32,7 @@ export default {
       top,
       isIndex,
       clickLogo,
-      items,
+      navbarLinks,
     }
   },
 }
