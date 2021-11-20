@@ -43,5 +43,4 @@ export default {
 .btn-social
   font-size: 1.2rem
   color: #55595c
-
 </style>

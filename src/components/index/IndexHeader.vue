@@ -5,8 +5,8 @@ header.jumbotron.jumbotron-fluid.flex-vertical(ref='el')
       .col-6.col-md-12.text-center.d-flex.flex-column.align-items-center
         .headline Xingqiao's Portfolio
       .col-12.d-flex.flex-column.align-items-center
-        router-link.shortcut(to='project') ...Projects
         router-link.shortcut(to='about') About
+        router-link.shortcut(to='project') ...Projects
   .bg(ref='bg')
 </template>
 
