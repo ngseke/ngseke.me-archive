@@ -2,4 +2,14 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "cSpell.words": [
+    "Jarallax",
+    "MCIP",
+    "ngsek",
+    "ngseke",
+    "nprogress",
+    "vmid",
+    "vueuse",
+    "Xingqiao"
+  ],
 }
