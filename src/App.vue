@@ -1,14 +1,14 @@
 <template lang="pug">
 #app
-  Navbar(ref='navbar')
+  TheNavbar(ref='navbar')
   .main
     router-view
-  Footer
+  TheFooter
 </template>
 
 <script>
-import Navbar from '@/components/Navbar'
-import Footer from '@/components/Footer'
+import TheNavbar from '@/components/TheNavbar'
+import TheFooter from '@/components/TheFooter'
 
 const title = 'Xingqiao\'s Portfolio'
 const description = 'Huang Xingqiao\'s Portfolio. 「黃色的我」'
@@ -19,8 +19,8 @@ export default {
     document.dispatchEvent(new Event('render-event'))
   },
   components: {
-    Navbar,
-    Footer,
+    TheNavbar,
+    TheFooter,
   },
   metaInfo: {
     titleTemplate: (_) => _ ? `${_} | ${title}` : title,

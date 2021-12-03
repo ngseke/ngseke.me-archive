@@ -3,7 +3,7 @@ main.container
   .row.justify-content-center
     template(v-for='{ title, cover, list } in list')
       .col-12.col-lg-6.col-xl-5
-        StickyTitle(:text='title' :cover='cover')
+        TitleSticky(:text='title' :cover='cover')
       .col-12.col-lg-6.col-xl-6
         .list
             ul
@@ -22,7 +22,7 @@ main.container
 </template>
 
 <script>
-import StickyTitle from '@/components/StickyTitle.vue'
+import TitleSticky from '@/components/TitleSticky.vue'
 import projects from '@/modules/projects'
 
 export default {
@@ -31,7 +31,7 @@ export default {
     title: 'Projects',
   },
   components: {
-    StickyTitle,
+    TitleSticky,
   },
   setup () {
     const getRoute = (name) => ({ name: 'Project', params: { name } })

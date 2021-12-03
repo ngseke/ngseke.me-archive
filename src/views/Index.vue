@@ -11,9 +11,9 @@ div
         img(src='@/assets/img/logo/mcip.svg' alt='樂台計畫')
         .title.text-light MCIP Official Website
         .subtitle.text-light #[b 樂台計畫]官方網站
-        DetailButton(name='mcip')
-        DemoButton(href='https://mcip.ml/')
-        GithubButton(href='https://github.com/ngseke/mcip.ml')
+        ButtonDetail(name='mcip')
+        ButtonDemo(href='https://mcip.ml/')
+        ButtonGithub(href='https://github.com/ngseke/mcip.ml')
 
     //- MCIP CMS
     IndexSection(id='mcip-cms' :bg='require(`@/assets/img/bg/mcip-cms.jpg`)' :isTile='isTile')
@@ -23,7 +23,7 @@ div
         img(src='@/assets/img/logo/mcip-cms.svg' alt='樂台計畫')
         .title.text-light MCIP CMS
         .subtitle.text-light #[b 樂台計畫]後台管理系統
-        DetailButton(name='mcip-cms')
+        ButtonDetail(name='mcip-cms')
 
     //- EM Optimization Lab
     IndexSection(id='emo' :bg='require(`@/assets/img/bg/emo.jpg`)' :isTile='isTile')
@@ -33,29 +33,29 @@ div
         img(src='@/assets/img/logo/emo.svg' alt='EM Optimization Lab Logo')
         .title.text-light EM Optimization Lab
         .subtitle.text-light #[b 電磁最佳化實驗室]網站
-        DetailButton(name='emo')
-        DemoButton(href='https://myweb.ntut.edu.tw/~yschen/')
-        GithubButton(href='https://github.com/ngseke/emo')
+        ButtonDetail(name='emo')
+        ButtonDemo(href='https://myweb.ntut.edu.tw/~yschen/')
+        ButtonGithub(href='https://github.com/ngseke/emo')
 </template>
 
 <script>
 import { computed } from '@vue/composition-api'
 import { useWindowSize } from '@vueuse/core'
 
-import IndexSection from '@/components/index/IndexSection.vue'
-import IndexHeader from '@/components/index/IndexHeader.vue'
-import DetailButton from '@/components/DetailButton.vue'
-import DemoButton from '@/components/DemoButton.vue'
-import GithubButton from '@/components/GithubButton.vue'
+import IndexSection from '@/components/IndexSection.vue'
+import IndexHeader from '@/components/IndexHeader.vue'
+import ButtonDetail from '@/components/ButtonDetail.vue'
+import ButtonDemo from '@/components/ButtonDemo.vue'
+import ButtonGithub from '@/components/ButtonGithub.vue'
 
 export default {
   name: 'Index',
   components: {
     IndexSection,
     IndexHeader,
-    DetailButton,
-    DemoButton,
-    GithubButton,
+    ButtonDetail,
+    ButtonDemo,
+    ButtonGithub,
   },
   setup () {
     const { width } = useWindowSize()
