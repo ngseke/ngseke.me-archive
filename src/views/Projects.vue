@@ -15,14 +15,26 @@ main.container
                   template(v-else) {{ title }}
                 p.description {{ description }}
                 div
-                  a(:href='link' target='_blank' title='External link' v-if='link')
-                    fa.mr-2(:icon="['fas', 'external-link-alt']")
-                  a(:href='github' target='_blank' title='GitHub' v-if='github')
-                    fa.mr-2(:icon="['fab', 'github']")
+                  LinkIcon(
+                    v-if='name'
+                    :to='getRoute(name)'
+                    :icon="['fas', 'book']"
+                  ) Detail
+                  LinkIcon(
+                    v-if='link'
+                    :href='link'
+                    :icon="['fas', 'external-link-alt']"
+                  ) Demo
+                  LinkIcon(
+                    v-if='github'
+                    :href='github'
+                    :icon="['fab', 'github']"
+                  ) GitHub
 </template>
 
 <script>
 import TitleSticky from '@/components/TitleSticky.vue'
+import LinkIcon from '@/components/LinkIcon.vue'
 import projects from '@/modules/projects'
 
 export default {
@@ -32,6 +44,7 @@ export default {
   },
   components: {
     TitleSticky,
+    LinkIcon,
   },
   setup () {
     const getRoute = (name) => ({ name: 'Project', params: { name } })
@@ -54,17 +67,16 @@ main
   padding-bottom: 3rem
   @include media-breakpoint-up(lg)
     min-height: 100vh
-    padding: 0
     padding-top: 5rem
   ul
     list-style: none
     +px(1rem)
     li
-      margin-bottom: 3rem
+      margin-bottom: 3.5rem
       .title
         display: inline-block
         font-size: 1rem
         margin-bottom: .5rem
       .description
-        margin-bottom: .5rem
+        margin-bottom: .75rem
 </style>
