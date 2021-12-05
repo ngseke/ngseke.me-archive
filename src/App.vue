@@ -34,7 +34,7 @@ export default {
 </script>
 
 <style lang="sass">
-@import "~bootstrap/scss/bootstrap"
+@import "~@/assets/css/style.sass"
 
 #app
   display: flex

@@ -1,13 +1,14 @@
-@import "~bootswatch/dist/lux/variables"
-@import "~bootstrap/scss/functions"
-@import "~bootstrap/scss/variables"
-@import "~bootstrap/scss/mixins"
-@import "~bootswatch/dist/lux/bootswatch"
+@import "~bootstrap/scss/reboot"
+@import "~bootstrap/scss/utilities"
+@import "~bootstrap/scss/grid"
+@import "~bootstrap/scss/type"
+@import "~bootstrap/scss/images"
+@import "~bootstrap/scss/nav"
+@import "~bootstrap/scss/navbar"
+@import "~bootstrap/scss/buttons"
+@import "~bootstrap/scss/card"
 
-@import "color"
-@import "function"
 @import "nprogress"
-
 
 @include media-breakpoint-down(sm)
   html
@@ -15,9 +16,6 @@
 
 body
   font-family: "Nunito Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Microsoft JhengHei"
-
-main
-  overflow-x: hidden
 
 // 為按鈕加入右下margin
 .btn

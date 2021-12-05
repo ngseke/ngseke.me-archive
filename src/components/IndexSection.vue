@@ -45,17 +45,9 @@ section
   margin-bottom: 3rem
   box-shadow: 0 1rem 1.5rem rgba(#1e1e1e, 0.2)
 
-  //- 手機版移除 tilt 效果
   @include media-breakpoint-down(sm)
     margin: 0
     border-radius: 0
-
-.img
-  position: relative
-  img.cover
-    display: inline-block
-    @include media-breakpoint-down(sm)
-      margin-bottom: 1rem
 
 .content
   text-align: center
@@ -76,13 +68,4 @@ section
     letter-spacing: .5rem
     font-weight: 200
     margin-bottom: 1.25rem
-
-img.bg
-  position: absolute
-  object-fit: cover
-  top: 0
-  left: 0
-  width: 100%
-  height: 100%
-  z-index: -1
 </style>

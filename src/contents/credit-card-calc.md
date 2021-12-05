@@ -15,4 +15,4 @@ UI 以 Tailwind CSS 建構。透過 Dark Mode 的 [class strategy](https://tailw
 
 [https://ngseke.github.io/sinopac-dual-currency-card-calculator/](https://ngseke.github.io/sinopac-dual-currency-card-calculator/)
 
-<iframe src="https://ghbtns.com/github-btn.html?user=ngseke&repo=/sinopac-dual-currency-card-calculator&type=star&count=false" frameborder="0" scrolling="0" width="150" height="20" title="Star twbs/bootstrap on GitHub"></iframe>
+<iframe src="https://ghbtns.com/github-btn.html?user=ngseke&repo=/sinopac-dual-currency-card-calculator&type=star&count=false" frameborder="0" scrolling="0" width="150" height="20"></iframe>

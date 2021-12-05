@@ -201,8 +201,7 @@ section#about
       content: ''
       position: absolute
       background-color: $ngsek
-      height: 4px
-      width: auto
+      +wh(auto, 4px)
       bottom: 7px
       left: 5px
       right: 2px
@@ -254,8 +253,7 @@ section#about
         position: static
         img
           border-radius: 100%
-          width: 9rem
-          height: 9rem
+          +wh(9rem)
           object-fit: cover
   .profile-mask
     display: none
@@ -280,8 +278,7 @@ section#about
   right: -50%
   background-color: $ngsek
   border-radius: 100rem
-  width: 25rem
-  height: 25rem
+  +wh(25rem)
   transform: scale(1)
   transform-origin: right bottom
   &.play
