@@ -7,8 +7,11 @@ section#about: .container: .row.justify-content-around.align-items-center
         img(src='@/assets/img/profile.jpg' @load='isLoaded = true')
 
     .col-12.col-lg-9.mt-3
-      h1.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' :style='getSlideStyle(0)') 黃省喬
-      h6.mb-2.text-muted.text-center.text-lg-left.item(:style='getSlideStyle(1)') Huang Xingqiao
+      h1.text-center.text-lg-left.name.item(:style='getSlideStyle(0)') 黃省喬
+      h6.mb-2.text-muted.text-center.text-lg-left.item(
+        :style='getSlideStyle(1)'
+        @click='nextPronunciation'
+      ) {{ pronunciation }}
       p.text-center.text-lg-left.item(:style='getSlideStyle(2)')
         small.mr-3(
           v-for='{ title, icon, name } in infos'
@@ -50,6 +53,7 @@ section#about: .container: .row.justify-content-around.align-items-center
 <script>
 import { ref } from '@vue/composition-api'
 import links from '@/modules/links'
+import useNamePronunciation from '@/composables/useNamePronunciation'
 
 const title = 'About Me'
 const description = 'Hi, I\'m Sean 👋 現職前端軟體工程師，追求撰寫無瑕程式碼是我的開發格言。 擁有超過三年的實務開發經驗，使用 React 與 Vue 框架，熱衷於探究各種前端領域的新鮮事。'
@@ -104,6 +108,11 @@ export default {
       links.email,
     ]
 
+    const {
+      nextPronunciation,
+      pronunciation,
+    } = useNamePronunciation()
+
     const isLoaded = ref(false)
 
     const baseDelay = 0.3
@@ -123,6 +132,8 @@ export default {
       hashtags,
       socials,
       description,
+      nextPronunciation,
+      pronunciation,
       getPopupStyle,
       isLoaded,
       getSlideStyle,
