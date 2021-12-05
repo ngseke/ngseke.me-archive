@@ -1,5 +1,5 @@
 <template lang="pug">
-header.jumbotron.jumbotron-fluid.flex-vertical(ref='el')
+header.flex-vertical(ref='el')
   .container
     .row.justify-content-center
       .col-6.col-md-12.text-center.d-flex.flex-column.align-items-center
@@ -31,21 +31,18 @@ export default {
 </script>
 
 <style scoped lang="sass">
-header.jumbotron
+header
   position: relative
   height: 100vh
   background-size: cover
-  margin: 0
-  padding: 0
   overflow: hidden
   display: flex
   align-items: center
   .bg
+    +wh(100%)
     position: absolute
     top: 0
     left: 0
-    width: 100%
-    height: 100%
     background-image: url('~@/assets/img/bg/index-cover.jpg')
     background-size: cover
 
