@@ -1,10 +1,4 @@
 <template lang="pug">
--
-  let count = 0
-  const itemStyle = (offset = 0) => {
-    count += offset
-    return { animationDelay: `${count++ * .1 + .2 + .3}s` }
-  }
 section#about: .container: .row.justify-content-around.align-items-center
   .col-12.col-md-8.profile: .card: .card-body: .row
     .col-12.col-lg-3.img-area
@@ -13,9 +7,9 @@ section#about: .container: .row.justify-content-around.align-items-center
         img(src='@/assets/img/profile.jpg' @load='isLoaded = true')
 
     .col-12.col-lg-9.mt-3
-      h1.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' style=itemStyle()) 黃省喬
-      h6.mb-2.text-muted.text-center.text-lg-left.item(style=itemStyle()) Huang Xingqiao
-      p.text-center.text-lg-left.item(style=itemStyle())
+      h1.text-center.text-lg-left.name.item(title='ㄏㄨㄤˊㄒㄧㄥˇㄑㄧㄠˊ' :style='getSlideStyle(0)') 黃省喬
+      h6.mb-2.text-muted.text-center.text-lg-left.item(:style='getSlideStyle(1)') Huang Xingqiao
+      p.text-center.text-lg-left.item(:style='getSlideStyle(2)')
         small.mr-3(
           v-for='{ title, icon, name } in infos'
           :title='`${title}: ${name}`'
@@ -24,7 +18,7 @@ section#about: .container: .row.justify-content-around.align-items-center
           |  {{ name }}
 
       hr
-      p.item.description(style=itemStyle())
+      p.item.description(:style='getSlideStyle(3)')
         | Hi, I’m Sean 👋
         br
         | 現職前端工程師，堅持撰寫無瑕程式碼是我的開發格言。
@@ -36,18 +30,19 @@ section#about: .container: .row.justify-content-around.align-items-center
         a(href='https://ngseke.github.io/koasu/' target='_blank') KOASU
         |  chhit-thô!
       p.mb-4
-        span.hashtag(
+        span.popup.hashtag(
           v-for='(hashtag, index) in hashtags'
-          :style='getHashtagStyle(index)'
+          :style='getPopupStyle(index)'
         )
           span {{ hashtag }}
 
-      p.text-center.text-lg-left.item(style=itemStyle(4))
-        a.btn-social.mr-2(
-          v-for='{ title, icon, url } in socials'
+      p.text-center.text-lg-left.item(:style='getSlideStyle(4)')
+        a.popup.btn-social.mr-2(
+          v-for='({ title, icon, url }, index) in socials'
           :href='url'
           target='_blank'
           :title='title'
+          :style='getPopupStyle(index + hashtags.length)'
         )
           fa.ml-1(:icon='icon' v-if='icon')
 </template>
@@ -94,12 +89,11 @@ export default {
     ]
 
     const hashtags = [
+      'TypeScript',
       'React',
       'Vue3',
-      'Nuxt.js',
-      'TypeScript',
-      'Tailwind CSS',
-      'SASS',
+      'Nuxt',
+      'TailwindCSS',
     ]
 
     const socials = [
@@ -112,10 +106,16 @@ export default {
 
     const isLoaded = ref(false)
 
-    const getHashtagStyle = (i) => {
-      const base = 0.8 + 0.3
+    const baseDelay = 0.3
+
+    const getSlideStyle = (i = 0) => {
+      return { animationDelay: `${baseDelay + i * 0.1}s` }
+    }
+
+    const getPopupStyle = (i = 0) => {
+      const base = baseDelay + 0.7
       const delta = 0.08
-      return { animationDelay: `${i * delta + base}s` }
+      return { animationDelay: `${base + i * delta}s` }
     }
 
     return {
@@ -123,8 +123,9 @@ export default {
       hashtags,
       socials,
       description,
-      getHashtagStyle,
+      getPopupStyle,
       isLoaded,
+      getSlideStyle,
     }
   },
 }
@@ -143,7 +144,7 @@ $transition: box-shadow $duration $time-function, transform $duration $time-func
   to
     opacity: 1
 
-@keyframes skill-in
+@keyframes popup
   from
     opacity: 0
     transform: scale(.4)
@@ -186,8 +187,6 @@ section#about
     margin-right: .5rem
     position: relative
     display: inline-block
-    animation: skill-in .5s cubic-bezier(0.77, 0, 0.175, 1)
-    animation-fill-mode: backwards
     span
       z-index: 1
       position: relative
@@ -238,6 +237,12 @@ section#about
   transition: color .3s
   &:hover
     color: $ngsek-dark
+
+.popup
+  position: relative
+  display: inline-block
+  animation: popup .5s cubic-bezier(0.77, 0, 0.175, 1)
+  animation-fill-mode: backwards
 
 // 調整行動版大頭貼樣式
 @include media-breakpoint-down(md)
