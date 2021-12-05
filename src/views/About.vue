@@ -57,7 +57,7 @@ import { ref } from '@vue/composition-api'
 import links from '@/modules/links'
 
 const title = 'About Me'
-const description = 'Hi, I\'m Sean 👋 現職前端工程師，堅持撰寫無瑕程式碼是我的開發格言。擁有超過二年的實務開發經驗，主攻 Vue.js 框架，熱衷於探究各種前端領域的新鮮事。'
+const description = 'Hi, I\'m Sean 👋 現職前端軟體工程師，追求撰寫無瑕程式碼是我的開發格言。 擁有超過三年的實務開發經驗，使用 React 與 Vue 框架，熱衷於探究各種前端領域的新鮮事。'
 
 export default {
   name: 'About',
@@ -73,7 +73,7 @@ export default {
     const infos = [
       {
         title: 'Title',
-        name: 'Frontend Developer',
+        name: 'Software Engineer',
         icon: 'user-tie',
       },
       {
