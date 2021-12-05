@@ -26,4 +26,5 @@ export default {
 <style scoped lang="sass">
 .link
   font-weight: bold
+  text-transform: uppercase
 </style>

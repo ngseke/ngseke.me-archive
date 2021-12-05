@@ -23,7 +23,7 @@ main.container
                   LinkIcon(
                     v-if='link'
                     :href='link'
-                    :icon="['fas', 'external-link-alt']"
+                    :icon="['fas', 'globe']"
                   ) Demo
                   LinkIcon(
                     v-if='github'
