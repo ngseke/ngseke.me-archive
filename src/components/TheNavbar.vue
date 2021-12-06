@@ -50,17 +50,6 @@ nav
   @include media-breakpoint-down(sm)
     +py(.5rem)
 
-nav.light
-  a.navbar-brand
-    img
-      filter: brightness(100)
-  a.nav-link
-    color: white
-
-.navbar-light .navbar-toggler
-  color: rgba($ngsek,6)
-  border-color: rgba($ngsek,0)
-
 .navbar-nav
   flex-direction: row
 </style>
