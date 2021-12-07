@@ -1,4 +1,5 @@
 const path = require('path')
+const fs = require('fs')
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
@@ -22,7 +23,10 @@ module.exports = {
             '/about',
             '/project',
             '/projects',
-            ...['credit-card-calc', 'mcip', 'mcip-cms', 'emo', 'realtime', 'boss', 'gomoku', 'flag', 'typingtyping', 'camp2017', 'shanlinliang'].map(
+            ...fs.readdirSync('./src/contents').map(file => {
+              const [fileName] = file.split('.')
+              return fileName
+            }).map(
               i => [`/project/${i}`, `/work/${i}`]
             ).flat(),
           ],
