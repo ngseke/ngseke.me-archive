@@ -101,7 +101,7 @@ export default [
       {
         title: 'NTUT-CSIE & NTUB-ACC Camp, 2017',
         name: 'camp2017',
-        description: '迎新活動《會炒不加辣，果資不加糖》之品牌識別設計',
+        description: '迎新活動《會炒不加辣，果資不加糖》品牌識別設計',
       },
       {
         title: 'Shanlinliang',
