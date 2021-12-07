@@ -73,6 +73,7 @@ export default [
       },
       {
         title: 'Tic Tac Toe',
+        name: 'tic-tac-toe',
         description: '圈圈叉叉亂鬥',
         github: 'https://github.com/ngseke/tic-tac-toe',
         link: 'https://ngseke.github.io/tic-tac-toe/',
