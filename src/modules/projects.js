@@ -23,6 +23,7 @@ export default [
     list: [
       {
         title: 'Koasu',
+        name: 'koasu',
         description: '白話字台語歌詞網誌',
         github: 'https://github.com/ngseke/koasu',
         link: 'https://ngseke.github.io/koasu/',
