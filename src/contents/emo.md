@@ -4,7 +4,7 @@
 
 這是台北科技大學之電磁最佳化實驗室 (EM Optimization Lab) 的網站，包含 RWD 來增進不同裝置上的瀏覽體驗。
 
-前端主要以 Vue.js 架構，使用 Sass 和 Pug 搭配 Gulp 自動化流程工具編譯，使用 Firebase 作為資料庫。
+前端主要以 Vue 架構，使用 Sass 和 Pug 搭配 Gulp 自動化流程工具編譯，使用 Firebase 作為資料庫。
 
 ![首頁](~@/assets/img/article/emo/cover.png)
 

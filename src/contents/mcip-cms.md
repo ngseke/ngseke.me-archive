@@ -22,7 +22,7 @@
 此系統落實前後端分離，使用 Axios 與後端串接資料。我與後端合力規劃並協調 API 的規格，也包含了 Database Schema 的設計。在樂台計畫草創時期，我們根據業務邏輯，並考慮 NoSQL 的特性，妥善設計出合理的資料庫架構。
 ![登入畫面](~@/assets/img/article/mcip-cms/login.png)
 
-本專案使用 Pug 模板語言撰寫，透過縮排便能靈活地調整 HTML 的巢狀結構，配合 Vue.js 的模板語法更是相輔相成，令開發體驗倍增。
+本專案使用 Pug 模板語言撰寫，透過縮排便能靈活地調整 HTML 的巢狀結構。
 ![專案中使用的 Pug 模板](~@/assets/img/article/mcip-cms/pug.png)
 
 ![編輯賽況資訊](~@/assets/img/article/mcip-cms/competition.png)
