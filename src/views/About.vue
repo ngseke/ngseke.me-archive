@@ -22,10 +22,9 @@ section#about: .container: .row.justify-content-around.align-items-center
 
       hr
       p.item.description(:style='getSlideStyle(3)')
-        | Hi, I’m Sean 👋
+        | {{ greeting }}
         br
-        | 現職前端工程師，堅持撰寫無瑕程式碼是我的開發格言。
-        | 擁有超過三年的實務開發經驗，使用 React 與 Vue 框架，熱衷於探究各種前端領域的新鮮事。
+        | {{ description }}
         br
         br
         | Góa mā ū-teh gián-kiú tâi-bûn, nā-sī ū-êng hoan-gêng lâi
@@ -56,15 +55,17 @@ import links from '@/modules/links'
 import useNamePronunciation from '@/composables/useNamePronunciation'
 
 const title = 'About Me'
-const description = 'Hi, I\'m Sean 👋 現職前端軟體工程師，追求撰寫無瑕程式碼是我的開發格言。 擁有超過三年的實務開發經驗，使用 React 與 Vue 框架，熱衷於探究各種前端領域的新鮮事。'
+const greeting = 'Hi, I\'m Sean 👋 '
+const description = '現職前端軟體工程師，追求撰寫無瑕程式碼是我的開發格言。 擁有超過三年的實務開發經驗，使用 React 與 Vue 框架，熱衷於探究各種前端領域的新鮮事。'
+const metaDescription = `${greeting}${description}`
 
 export default {
   name: 'About',
   metaInfo: {
     title,
     meta: [
-      { property: 'description', vmid: 'description', content: description },
-      { property: 'og:description', vmid: 'og:description', content: description },
+      { property: 'description', vmid: 'description', content: metaDescription },
+      { property: 'og:description', vmid: 'og:description', content: metaDescription },
       { property: 'og:image', vmid: 'og:image', content: require('@/assets/img/about.png') },
     ],
   },
@@ -131,6 +132,7 @@ export default {
       infos,
       hashtags,
       socials,
+      greeting,
       description,
       nextPronunciation,
       pronunciation,
