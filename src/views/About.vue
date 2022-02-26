@@ -273,6 +273,7 @@ section#about
           border-radius: 100%
           +wh(9rem)
           object-fit: cover
+          object-position: 0 25%
   .profile-mask
     display: none
 
