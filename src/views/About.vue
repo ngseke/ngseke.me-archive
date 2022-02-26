@@ -3,7 +3,7 @@ section#about: .container: .row.justify-content-around.align-items-center
   .col-12.col-md-8.profile: .card: .card-body: .row
     .col-12.col-lg-3.img-area
       .avatar
-        .profile-mask(:class='{ play: isLoaded, loading: !isLoaded }')
+        .avatar-mask(:class='{ play: isLoaded, loading: !isLoaded }')
         img(src='@/assets/img/profile.jpg' @load='isLoaded = true')
 
     .col-12.col-lg-9.mt-3
@@ -164,7 +164,7 @@ $transition: box-shadow $duration $time-function, transform $duration $time-func
   to
     opacity: 1
 
-@keyframes profile-mask-in
+@keyframes avatar-mask-in
   from
     transform: scale(1)
   to
@@ -274,7 +274,7 @@ section#about
           +wh(9rem)
           object-fit: cover
           object-position: 0 25%
-  .profile-mask
+  .avatar-mask
     display: none
 
 @include media-breakpoint-down(sm)
@@ -290,7 +290,7 @@ section#about
       .img-area
         text-align: center
 
-.profile-mask
+.avatar-mask
   z-index: 1000
   position: absolute
   bottom: -30%
@@ -301,7 +301,7 @@ section#about
   transform: scale(1)
   transform-origin: right bottom
   &.play
-    animation: profile-mask-in 1.7s cubic-bezier(0.77, 0, 0.175, 1)
+    animation: avatar-mask-in 1.7s cubic-bezier(0.77, 0, 0.175, 1)
     animation-fill-mode: forwards
   &.loading
     transform: scale(1)
