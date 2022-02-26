@@ -37,3 +37,7 @@
 [https://mcip.ml/](https://mcip.ml/)
 
 <iframe src="https://ghbtns.com/github-btn.html?user=ngseke&repo=mcip.ml&type=star&count=false" frameborder="0" scrolling="0" width="150" height="20"></iframe>
+
+---
+
+related project: [《樂台計畫》後台管理系統](/project/mcip-cms)
