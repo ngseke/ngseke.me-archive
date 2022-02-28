@@ -25,12 +25,12 @@ section#about: .container: .row.justify-content-around.align-items-center
         | {{ greeting }}
         br
         | {{ description }}
-        br
-        br
-        | Góa mā ū-teh gián-kiú tâi-bûn, nā-sī ū-êng hoan-gêng lâi
+
+      p.item.description(:style='getSlideStyle(4)')
+        fa.mx-1(:icon="['fas', 'arrow-circle-right']")
+        | [RESUME]
         |
-        a(href='https://ngseke.github.io/koasu/' target='_blank') KOASU
-        |  chhit-thô!
+        a(:href='links.cakeResume.url' target='_blank') CakeResume
       p.mb-4
         span.popup.hashtag(
           v-for='(hashtag, index) in hashtags'
@@ -38,7 +38,7 @@ section#about: .container: .row.justify-content-around.align-items-center
         )
           span {{ hashtag }}
 
-      p.text-center.text-lg-left.item(:style='getSlideStyle(4)')
+      p.text-center.text-lg-left.item(:style='getSlideStyle(5)')
         a.popup.btn-social.mr-2(
           v-for='({ title, icon, url }, index) in socials'
           :href='url'
@@ -139,6 +139,7 @@ export default {
       getPopupStyle,
       isLoaded,
       getSlideStyle,
+      links,
     }
   },
 }

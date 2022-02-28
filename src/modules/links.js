@@ -1,7 +1,7 @@
 export default {
   cakeResume: {
     icon: ['fas', 'file-alt'],
-    url: 'https://www.cakeresume.com/s---frKe65VbXkLwmIIvzLdmw--/ngseke',
+    url: 'https://www.cakeresume.com/ngseke',
     title: 'CakeResume 履歷',
   },
   github: {

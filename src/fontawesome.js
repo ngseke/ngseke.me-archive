@@ -20,6 +20,7 @@ import {
   faExternalLinkAlt,
   faCaretRight,
   faGlobe,
+  faArrowCircleRight,
 } from '@fortawesome/free-solid-svg-icons'
 
 import {
@@ -52,7 +53,8 @@ library.add(
   faGraduationCap,
   faExternalLinkAlt,
   faCaretRight,
-  faGlobe
+  faGlobe,
+  faArrowCircleRight
 )
 
 Vue.component('fa', FontAwesomeIcon)
