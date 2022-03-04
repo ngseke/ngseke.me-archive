@@ -77,11 +77,6 @@ export default {
         icon: 'user-tie',
       },
       {
-        title: 'Company',
-        name: '3drens',
-        icon: 'building',
-      },
-      {
         title: 'Education',
         name: 'NTUT-CSIE',
         icon: 'graduation-cap',
