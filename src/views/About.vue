@@ -97,10 +97,9 @@ export default {
     ]
 
     const socials = [
-      links.cakeResume,
+      links.hackmd,
       links.github,
       links.linkedin,
-      links.codepen,
       links.email,
     ]
 

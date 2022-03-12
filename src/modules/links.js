@@ -4,6 +4,11 @@ export default {
     url: 'https://www.cakeresume.com/ngseke',
     title: 'CakeResume 履歷',
   },
+  hackmd: {
+    icon: ['fas', 'file-alt'],
+    url: 'https://hackmd.io/@xq',
+    title: 'HackMD 筆記',
+  },
   github: {
     icon: ['fab', 'github'],
     url: 'https://github.com/ngseke',
@@ -13,11 +18,6 @@ export default {
     icon: ['fab', 'linkedin'],
     url: 'https://www.linkedin.com/in/xqng/',
     title: 'LinkedIn',
-  },
-  codepen: {
-    icon: ['fab', 'codepen'],
-    url: 'https://codepen.io/ngseke',
-    title: 'CodePen',
   },
   email: {
     icon: ['fas', 'envelope'],
