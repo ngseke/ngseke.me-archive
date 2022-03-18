@@ -46,8 +46,10 @@ export default {
     TitleSticky,
     LinkIcon,
   },
-  setup () {
-    const getRoute = (name) => ({ name: 'Project', params: { name } })
+  setup (_, context) {
+    const getRoute = (name) => ({
+      path: `project/${name}`,
+    })
 
     return {
       list: projects,

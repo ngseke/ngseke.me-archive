@@ -11,8 +11,16 @@ const messages = {
   en,
 }
 
+let browserLanguage = window.navigator.language
+
+if (/zh/g.test(browserLanguage.toLowerCase())) {
+  browserLanguage = 'zh-tw'
+} else {
+  browserLanguage = 'en'
+}
+
 export default new VueI18n({
-  locale: 'zh-tw',
-  fallbackLocale: 'zh-tw',
+  locale: browserLanguage,
+  fallbackLocale: browserLanguage,
   messages,
 })

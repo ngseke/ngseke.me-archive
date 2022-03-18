@@ -14,7 +14,7 @@ export default {
   },
   setup (props) {
     const to = computed(
-      () => ({ name: 'Project', params: { name: props.name } })
+      () => ({ path: `project/${props.name}` })
     )
 
     return {

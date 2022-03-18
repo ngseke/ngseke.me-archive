@@ -12,6 +12,8 @@ import { onBeforeUnmount, ref } from '@vue/composition-api'
 import $ from 'cash-dom'
 import mediumZoom from 'medium-zoom'
 
+import useLocale from '@/composables/useLocale'
+
 export default {
   name: 'Project',
   metaInfo () {
@@ -48,14 +50,20 @@ export default {
       beforeUnmountTasks.push(() => zoom.detach())
     }
 
+    const { isZhTw } = useLocale(root)
+
     const article = ref(null)
     const fetch = async (page) => {
       article.value = null
-
       try {
-        article.value = require(`@/contents/${page}.md`)
+        const localePath = isZhTw.value ? '' : 'en/'
+        article.value = require(`@/contents/${localePath}${page}.md`)
       } catch (e) {
-        root.$router.push('/')
+        try {
+          article.value = require(`@/contents/${page}.md`)
+        } catch (e) {
+          root.$router.push('/')
+        }
       }
 
       await root.$nextTick()
