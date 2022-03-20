@@ -111,22 +111,4 @@ export default [
       },
     ],
   },
-  {
-    title: 'Useless',
-    cover: 'https://images.unsplash.com/photo-1539710066450-2b50b7d3f9e5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80',
-    list: [
-      {
-        title: 'Great Hall of the People Simulator',
-        description: '通過率高達 100% 的人民大會堂模擬器',
-        github: 'https://github.com/ngseke/great-hall-of-the-people-simulator',
-        link: 'https://ngseke.github.io/great-hall-of-the-people-simulator/',
-      },
-      {
-        title: 'Han Fans\' Eye Poker',
-        description: '顧眼鏡',
-        github: 'https://github.com/ngseke/han-fans-eye-poke',
-        link: 'https://ngseke.github.io/han-fans-eye-poke/',
-      },
-    ],
-  },
 ]
