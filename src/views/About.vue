@@ -28,9 +28,10 @@ section#about: .container: .row.justify-content-around.align-items-center
 
       p.item.description(:style='getSlideStyle(4)')
         fa.mx-1(:icon="['fas', 'arrow-circle-right']")
-        | [RESUME]
-        |
         a(:href='links.cakeResume.url' target='_blank') CakeResume
+        span.mr-1
+        fa.mx-1(:icon="['fas', 'arrow-circle-right']")
+        a(:href='links.googleDocsResume.url' target='_blank') English Resume
       p.mb-4
         span.popup.hashtag(
           v-for='(hashtag, index) in hashtags'
