@@ -1,5 +1,17 @@
 export default [
   {
+    title: 'Extension',
+    cover: 'https://images.unsplash.com/photo-1541512416146-3cf58d6b27cc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=874&q=80',
+    list: [
+      {
+        title: 'LeetCode Night',
+        name: 'leetcode-night',
+        description: '開啟 LeetCode 深色模式的瀏覽器擴充功能',
+        github: 'https://github.com/ngseke/leetcode-night',
+      },
+    ],
+  },
+  {
     title: 'MCIP',
     cover: 'https://images.unsplash.com/photo-1615917063840-0b7c196e29c1?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80',
     list: [

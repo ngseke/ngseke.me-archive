@@ -3,6 +3,17 @@ div
   IndexHeader
 
   main.container
+    //- LeetCode Night
+    IndexSection(id='leetcode-night' :bg='require(`@/assets/img/bg/leetcode-night.jpg`)' :isTile='isTile')
+      template(slot='img')
+        img.img-fluid.cover(src='@/assets/img/cover/leetcode-night.png' alt='LeetCode Night Cover')
+      template(slot='content')
+        span.moon 🌕
+        .title.text-light LeetCode Night
+        .subtitle.text-light LeetCode 深色模式插件
+        ButtonDetail(name='leetcode-night')
+        ButtonGithub(href='https://github.com/ngseke/leetcode-night')
+
     //- MCIP
     IndexSection(id='mcip' :bg='require(`@/assets/img/bg/mcip.jpg`)' :isTile='isTile')
       template(slot='img')
