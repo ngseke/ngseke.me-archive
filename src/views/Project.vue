@@ -36,8 +36,7 @@ export default {
 
     const el = ref(null)
     const setDom = () => {
-      const $imgs = $(el.value).find('img')
-
+      const $imgs = $(el.value).find('*:not(a) > img')
       $imgs.each(function () {
         const alt = $(this).prop('alt')
         if (!alt) return
