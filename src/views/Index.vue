@@ -12,6 +12,7 @@ div
         .title.text-light LeetCode Night
         .subtitle.text-light LeetCode 深色模式插件
         ButtonDetail(name='leetcode-night')
+        ButtonDownload(href='https://chrome.google.com/webstore/detail/leetcode-night/aaokgipfeeeciodnffigjfiafledhcii')
         ButtonGithub(href='https://github.com/ngseke/leetcode-night')
 
     //- MCIP
@@ -56,6 +57,7 @@ import { useWindowSize } from '@vueuse/core'
 import IndexSection from '@/components/IndexSection.vue'
 import IndexHeader from '@/components/IndexHeader.vue'
 import ButtonDetail from '@/components/ButtonDetail.vue'
+import ButtonDownload from '@/components/ButtonDownload.vue'
 import ButtonDemo from '@/components/ButtonDemo.vue'
 import ButtonGithub from '@/components/ButtonGithub.vue'
 
@@ -65,6 +67,7 @@ export default {
     IndexSection,
     IndexHeader,
     ButtonDetail,
+    ButtonDownload,
     ButtonDemo,
     ButtonGithub,
   },
