@@ -12,8 +12,9 @@ RUN apt-get update && \
         libgtk2.0-0 libnss3 libatk-bridge2.0-0 libdrm2 libxkbcommon0 libgbm1 libasound2 && \
     apt-get install -y chromium && \
     apt-get clean
-COPY . /app
+COPY *.json /app
 RUN npm ci
+COPY . /app
 RUN npm run build
 
 FROM nginx:1.23.0-alpine
