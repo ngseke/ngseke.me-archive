@@ -3,8 +3,8 @@
   "description": "Xingqiao's Portfolio",
   "author": "Huang Xingqiao <ngseke@gmail.com>",
   "version": "2.0.0",
-  "engines" : {
-    "node" : "^16"
+  "engines": {
+    "node": "^16"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
@@ -51,7 +51,7 @@
     "markdown-loader": "^6.0.0",
     "prerender-spa-plugin": "^3.4.0",
     "pug": "^3.0.0",
-    "pug-plain-loader": "^1.0.0",
+    "pug-plain-loader": "^1.1.0",
     "sass": "^1.26.5",
     "sass-loader": "^8.0.2",
     "vue-template-compiler": "^2.6.11"
