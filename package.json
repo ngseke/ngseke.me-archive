@@ -4,13 +4,17 @@
   "author": "Huang Xingqiao <ngseke@gmail.com>",
   "version": "2.0.0",
   "engines": {
-    "node": "^16"
+    "node": ">=16",
+    "npm": "*",
+    "yarn": "please-use-npm",
+    "pnpm": "please-use-npm"
   },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "lint-fix": "eslint --fix . --ext .js,.vue"
+    "lint-fix": "eslint --fix . --ext .js,.vue",
+    "preinstall": "npx only-allow npm"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.31",
